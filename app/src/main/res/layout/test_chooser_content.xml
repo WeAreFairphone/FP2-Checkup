@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:padding="15dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_above="@+id/button"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_marginTop="12dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Run All Tests"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/listView"
+        android:layout_alignStart="@+id/listView"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="12dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:id="@+id/relativeLayout"
+        android:translationZ="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:elevation="8dp"
+        android:layout_marginBottom="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/modulename"
+            android:layout_marginLeft="12dp"
+            android:layout_below="@+id/textView5"
+            android:layout_toEndOf="@+id/imageView"
+            android:fontFamily="sans-serif-thin" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/display"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Tests for"
+            android:id="@+id/textView5"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/imageView"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="16dp" />
+    </RelativeLayout>
+</RelativeLayout>
