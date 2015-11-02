@@ -9,7 +9,7 @@ import com.fairphone.fairphonemoduletester.Module.CameraModule;
 import com.fairphone.fairphonemoduletester.Module.DisplayModule;
 import com.fairphone.fairphonemoduletester.Module.Module;
 import com.fairphone.fairphonemoduletester.Module.ModuleListAdapter;
-import com.fairphone.fairphonemoduletester.Module.RadioModule;
+import com.fairphone.fairphonemoduletester.Module.ReceiverModule;
 import com.fairphone.fairphonemoduletester.Module.SpeakerModule;
 import com.fairphone.fairphonemoduletester.Module.TransceiverModule;
 
@@ -28,7 +28,7 @@ public class ModuleChooser extends Activity implements ModuleListAdapter.OnClick
         tests.add(new DisplayModule());
         tests.add(new TransceiverModule());
         tests.add(new CameraModule());
-        tests.add(new RadioModule());
+        tests.add(new ReceiverModule());
         tests.add(new SpeakerModule());
         mListView.setAdapter(new ModuleListAdapter(this, tests, this));
     }

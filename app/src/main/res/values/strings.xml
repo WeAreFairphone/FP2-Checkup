@@ -22,8 +22,8 @@
     <string name="front_camera_test_title">Front Camera Test</string>
     <string name="display_module_name">Display Module</string>
     <string name="display_module_description">The display unit houses the LCD screen and the touch sensors.</string>
-    <string name="radio_module_name">Radio Module</string>
-    <string name="radio_module_description">The radio unit contains joy and happiness and the front camera.</string>
+    <string name="receiver_module_name">Receiver Module</string>
+    <string name="receiver_module_description">The receiver unit contains joy and happiness and the front camera.</string>
     <string name="transceiver_module_name">Transceiver Module</string>
     <string name="transceiver_module_description">This unit contains the modem, SIM-cards and more.</string>
     <string name="camera_module_name">Back Camera</string>

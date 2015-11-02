@@ -14,20 +14,20 @@ import java.util.List;
 /**
  * Created by dirk on 20-10-15.
  */
-public class RadioModule implements Module {
+public class ReceiverModule implements Module {
     @Override
     public int getPictureResourceID() {
-        return R.drawable.radio;
+        return R.drawable.receiver;
     }
 
     @Override
     public int getDescriptionId() {
-        return R.string.radio_module_description;
+        return R.string.receiver_module_description;
     }
 
     @Override
     public int getModuleNameID() {
-        return R.string.radio_module_name;
+        return R.string.receiver_module_name;
     }
 
 
