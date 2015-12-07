@@ -6,6 +6,8 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="genericTestTitle">A Generic Test</string>
     <string name="genericTestDescription">A generic test description. You really want to have something more descriptive here.</string>
+    <string name="dualsim_test_title">Dual SIM</string>
+    <string name="dualsim_test_description">This test will display SIM card status. Check if the displayed information is correct.</string>
     <string name="display_test_title">Display</string>
     <string name="display_test_description">This test will display test patterns. Check if the pattern matches the description prompted before the pattern.</string>
     <string name="test_failed">Test failed</string>

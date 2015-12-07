@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:visibility="visible">
+
+        <TableRow>
+            <TextView
+                android:padding="3dip" />
+            <TextView
+                android:text="SIM 1"
+                android:padding="3dip" />
+            <TextView
+                android:text="SIM 2"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="Present"
+                android:padding="3dip" />
+            <TextView
+                android:id="@+id/sim1Presence"
+                android:text="No"
+                android:padding="3dip" />
+            <TextView
+                android:id="@+id/sim2Presence"
+                android:text="No"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="Carrier"
+                android:padding="3dip" />
+            <TextView
+                android:id="@+id/sim1Carrier"
+                android:padding="3dip" />
+            <TextView
+                android:id="@+id/sim2Carrier"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="Phone number"
+                android:padding="3dip" />
+            <TextView
+                android:id="@+id/sim1PhoneNumber"
+                android:padding="3dip" />
+            <TextView
+                android:id="@+id/sim2PhoneNumber"
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+
+    </TableLayout>
+
+</RelativeLayout>

@@ -30,6 +30,7 @@ public class TransceiverModule implements Module {
     @Override
     public List<Test> getTestList(Context context) {
         ArrayList<Test> tests = new ArrayList<>();
+	tests.add(new DualSimTest(context));
         return tests;
     }
 }
