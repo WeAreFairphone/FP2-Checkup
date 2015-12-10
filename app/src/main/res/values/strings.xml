@@ -8,6 +8,14 @@
     <string name="genericTestDescription">A generic test description. You really want to have something more descriptive here.</string>
     <string name="dualsim_test_title">Dual SIM</string>
     <string name="dualsim_test_description">This test will display SIM card status. Check if the displayed information is correct.</string>
+    <string name="dualsim_card_1">SIM 1</string>
+    <string name="dualsim_card_2">SIM 2</string>
+    <string name="dualsim_card_presence">Present</string>
+    <string name="dualsim_card_present_na">N/A</string>
+    <string name="dualsim_card_present_yes">Yes</string>
+    <string name="dualsim_card_present_no">No</string>
+    <string name="dualsim_card_carrier">Carrier</string>
+    <string name="dualsim_settings_text">Go to \'Settings -> SIM cards\' to change your SIM card setttings.</string>
     <string name="display_test_title">Display</string>
     <string name="display_test_description">This test will display test patterns. Check if the pattern matches the description prompted before the pattern.</string>
     <string name="test_failed">Test failed</string>

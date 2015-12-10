@@ -17,19 +17,12 @@ import java.util.List;
  */
 public class DualSimTest extends Test {
 
-    private static final String TAG = "DualSimTest";
-    private View mTestView;
-
-    private SubscriptionManager mSubscriptionManager;
-
-    private List<SubscriptionInfo> mSubInfoList;
-
     public DualSimTest(Context context) {
         super(context);
     }
 
     protected void replaceView() {
-        mTestView = LayoutInflater.from(getContext()).inflate(R.layout.view_dualsim_test, null);
+        View mTestView = LayoutInflater.from(getContext()).inflate(R.layout.view_dualsim_test, null);
         setTestView(mTestView);
     }
 
@@ -37,17 +30,14 @@ public class DualSimTest extends Test {
     protected void runTest() {
         replaceView();
 
-        mSubscriptionManager = SubscriptionManager.from(getContext());
-        mSubInfoList = mSubscriptionManager.getActiveSubscriptionInfoList();
+        SubscriptionManager mSubscriptionManager = SubscriptionManager.from(getContext());
+        List<SubscriptionInfo> mSubInfoList = mSubscriptionManager.getActiveSubscriptionInfoList();
 
         if(mSubInfoList != null) {
             // there seems to be at least one card present, let's find out
 
             TextView sim1Presence = (TextView)findViewById(R.id.sim1Presence);
             TextView sim2Presence = (TextView)findViewById(R.id.sim2Presence);
-
-            TextView sim1PhoneNumber = (TextView)findViewById(R.id.sim1PhoneNumber);
-            TextView sim2PhoneNumber = (TextView)findViewById(R.id.sim2PhoneNumber);
 
             TextView sim1Carrier = (TextView)findViewById(R.id.sim1Carrier);
             TextView sim2Carrier = (TextView)findViewById(R.id.sim2Carrier);
@@ -56,13 +46,13 @@ public class DualSimTest extends Test {
                 SubscriptionInfo subscriptionInfo = mSubInfoList.get(0);
 
                 if(subscriptionInfo.getSimSlotIndex() == 0) {                                       // the card is in the first slot
-                    sim1Presence.setText("Yes");
+                    sim1Presence.setText(R.string.dualsim_card_present_yes);
                     sim1Carrier.setText(subscriptionInfo.getCarrierName());
-                    sim1PhoneNumber.setText(subscriptionInfo.getNumber());
+                    sim2Presence.setText(R.string.dualsim_card_present_no);
                 } else if(subscriptionInfo.getSimSlotIndex() == 1) {                                // the card is in the second slot
-                    sim2Presence.setText("Yes");
+                    sim1Presence.setText(R.string.dualsim_card_present_no);
+                    sim2Presence.setText(R.string.dualsim_card_present_yes);
                     sim2Carrier.setText(subscriptionInfo.getCarrierName());
-                    sim2PhoneNumber.setText(subscriptionInfo.getNumber());
                 }
             }
 
@@ -71,25 +61,21 @@ public class DualSimTest extends Test {
                 SubscriptionInfo subscriptionInfo1 = mSubInfoList.get(0);
 
                 if(subscriptionInfo1.getSimSlotIndex() == 0) {                                       // the card is in the first slot
-                    sim1Presence.setText("Yes");
+                    sim1Presence.setText(R.string.dualsim_card_present_yes);
                     sim1Carrier.setText(subscriptionInfo1.getCarrierName());
-                    sim1PhoneNumber.setText(subscriptionInfo1.getNumber());
                 } else if(subscriptionInfo1.getSimSlotIndex() == 1) {                                // the card is in the second slot
-                    sim2Presence.setText("Yes");
+                    sim2Presence.setText(R.string.dualsim_card_present_yes);
                     sim2Carrier.setText(subscriptionInfo1.getCarrierName());
-                    sim2PhoneNumber.setText(subscriptionInfo1.getNumber());
                 }
 
                 SubscriptionInfo subscriptionInfo2 = mSubInfoList.get(1);
 
                 if(subscriptionInfo2.getSimSlotIndex() == 0) {                                       // the card is in the first slot
-                    sim1Presence.setText("Yes");
+                    sim1Presence.setText(R.string.dualsim_card_present_yes);
                     sim1Carrier.setText(subscriptionInfo2.getCarrierName());
-                    sim1PhoneNumber.setText(subscriptionInfo2.getNumber());
                 } else if(subscriptionInfo2.getSimSlotIndex() == 1) {                                // the card is in the second slot
-                    sim2Presence.setText("Yes");
+                    sim2Presence.setText(R.string.dualsim_card_present_yes);
                     sim2Carrier.setText(subscriptionInfo2.getCarrierName());
-                    sim2PhoneNumber.setText(subscriptionInfo2.getNumber());
                 }
             }
         }
@@ -105,4 +91,3 @@ public class DualSimTest extends Test {
         return R.string.dualsim_test_description;
     }
 }
-

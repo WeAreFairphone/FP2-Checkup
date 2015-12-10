@@ -5,64 +5,63 @@
     android:layout_height="match_parent">
 
     <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/simTable"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*"
         android:layout_centerHorizontal="true"
+        android:padding="25dip"
         android:visibility="visible">
 
         <TableRow>
             <TextView
                 android:padding="3dip" />
             <TextView
-                android:text="SIM 1"
+                android:text="@string/dualsim_card_1"
+                android:textStyle="bold"
                 android:padding="3dip" />
             <TextView
-                android:text="SIM 2"
-                android:gravity="right"
+                android:text="@string/dualsim_card_2"
+                android:textStyle="bold"
                 android:padding="3dip" />
         </TableRow>
 
         <TableRow>
             <TextView
-                android:text="Present"
-                android:padding="3dip" />
+                android:text="@string/dualsim_card_presence"
+                android:textStyle="bold"
+                android:padding="3dip"/>
             <TextView
                 android:id="@+id/sim1Presence"
-                android:text="No"
+                android:text="@string/dualsim_card_present_na"
                 android:padding="3dip" />
             <TextView
                 android:id="@+id/sim2Presence"
-                android:text="No"
-                android:gravity="right"
+                android:text="@string/dualsim_card_present_na"
                 android:padding="3dip" />
         </TableRow>
 
         <TableRow>
             <TextView
-                android:text="Carrier"
-                android:padding="3dip" />
+                android:text="@string/dualsim_card_carrier"
+                android:textStyle="bold"
+                android:padding="3dip"/>
             <TextView
                 android:id="@+id/sim1Carrier"
                 android:padding="3dip" />
             <TextView
                 android:id="@+id/sim2Carrier"
-                android:gravity="right"
-                android:padding="3dip" />
-        </TableRow>
-
-        <TableRow>
-            <TextView
-                android:text="Phone number"
-                android:padding="3dip" />
-            <TextView
-                android:id="@+id/sim1PhoneNumber"
-                android:padding="3dip" />
-            <TextView
-                android:id="@+id/sim2PhoneNumber"
-                android:gravity="right"
                 android:padding="3dip" />
         </TableRow>
 
     </TableLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/dualSimSettingsText"
+        android:layout_below="@id/simTable"
+        android:text="@string/dualsim_settings_text"
+        android:padding="3dip" />
 
 </RelativeLayout>
