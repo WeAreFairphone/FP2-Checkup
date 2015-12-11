@@ -30,4 +30,6 @@
     <string name="camera_module_description">This unit takes all those nice food pictures.</string>
     <string name="speaker_module_name">Speaker Module</string>
     <string name="speaker_module_description">Speaker, Vibrator and USB-port: that is what you can find in this module.</string>
+    <string name="speaker_test_title">Speaker</string>
+    <string name="speaker_test_description">This test tests the speaker. Press start and make sure you hear the music playing.</string>
 </resources>
