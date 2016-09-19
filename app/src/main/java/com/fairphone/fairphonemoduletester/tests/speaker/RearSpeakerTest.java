@@ -12,7 +12,7 @@ import com.fairphone.fairphonemoduletester.tests.Test;
 /**
  * Created by maarten on 10-12-15.
  */
-public class SpeakerTest extends Test {
+public class RearSpeakerTest extends Test {
 
     View mTestView;
 
@@ -22,7 +22,7 @@ public class SpeakerTest extends Test {
 
     private MediaPlayer mediaPlayer;
 
-    public SpeakerTest(Context context) {
+    public RearSpeakerTest(Context context) {
         super(context);
     }
 
@@ -39,6 +39,8 @@ public class SpeakerTest extends Test {
         mediaPlayer = MediaPlayer.create(getContext(), R.raw.fiesta);
         mediaPlayer.setLooping(true);
         mediaPlayer.start();
+
+        askIfSuccess(getContext().getString(R.string.rear_speaker_test_finish_question));
     }
 
     @Override
@@ -52,17 +54,17 @@ public class SpeakerTest extends Test {
     }
 
     private void replaceView() {
-        mTestView = LayoutInflater.from(getContext()).inflate(R.layout.view_speaker_test, null);
+        mTestView = LayoutInflater.from(getContext()).inflate(R.layout.view_rear_speaker_test, null);
         setTestView(mTestView);
     }
 
     @Override
     protected int getTestTitleID() {
-        return R.string.speaker_test_title;
+        return R.string.rear_speaker_test_title;
     }
 
     @Override
     protected int getTestDescriptionID() {
-        return R.string.speaker_test_description;
+        return R.string.rear_speaker_test_description;
     }
 }
