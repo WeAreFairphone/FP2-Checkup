@@ -1,4 +1,4 @@
-package com.fairphone.diagnostics.tests.vibrator;
+package com.fairphone.diagnostics.tests.vibrationmotor;
 
 
 import android.content.Context;
@@ -7,10 +7,10 @@ import android.os.Vibrator;
 import com.fairphone.diagnostics.R;
 import com.fairphone.diagnostics.tests.Test;
 
-public class VibratorTest extends Test {
+public class VibrationMotorTest extends Test {
     Vibrator vibratorService;
 
-    public VibratorTest(Context context) {
+    public VibrationMotorTest(Context context) {
         super(context);
     }
 

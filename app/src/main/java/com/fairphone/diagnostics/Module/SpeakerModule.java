@@ -5,7 +5,8 @@ import android.content.Context;
 import com.fairphone.diagnostics.R;
 import com.fairphone.diagnostics.tests.Test;
 import com.fairphone.diagnostics.tests.speaker.RearSpeakerTest;
-import com.fairphone.diagnostics.tests.vibrator.VibratorTest;
+import com.fairphone.diagnostics.tests.usb.UsbPortTest;
+import com.fairphone.diagnostics.tests.vibrationmotor.VibrationMotorTest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +32,9 @@ public class SpeakerModule implements Module {
 
     public List<Test> getTestList(Context context) {
         List<Test> tests = new ArrayList<>();
-        tests.add(new VibratorTest(context));
+        tests.add(new VibrationMotorTest(context));
         tests.add(new RearSpeakerTest(context));
+        tests.add(new UsbPortTest(context));
         return tests;
     }
 }
