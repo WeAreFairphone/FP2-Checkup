@@ -1,10 +1,11 @@
 # Fairphone 2 module tester
 Android app that allows users to test the modules and their components inside the Fairphone 2.
+
 ```
 FP2
 |-- Display module
 |   |-- Display
-|   |-- Digitizer
+|   `-- Digitizer
 |-- Battery
 |-- Receiver module
 |   |-- Headphone jack
@@ -13,6 +14,8 @@ FP2
 |   |-- Ear speaker
 |   `-- Front camera
 |-- Camera module
+|   |-- Rear camera
+|   `-- Flash
 |-- Speaker module
 |   |-- Vibration motor
 |   |-- Rear speaker
