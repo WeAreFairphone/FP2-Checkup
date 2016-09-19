@@ -14,6 +14,8 @@ import com.fairphone.diagnostics.tests.Test;
  */
 public class RearSpeakerTest extends Test {
 
+    private static final String TAG = RearSpeakerTest.class.getSimpleName();
+
     View mTestView;
 
     private AudioManager audioManager;

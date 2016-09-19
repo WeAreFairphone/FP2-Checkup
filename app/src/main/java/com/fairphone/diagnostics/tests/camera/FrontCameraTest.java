@@ -12,6 +12,8 @@ import com.fairphone.diagnostics.R;
  */
 public class FrontCameraTest extends CameraTest {
 
+    private static final String TAG = FrontCameraTest.class.getSimpleName();
+
     public FrontCameraTest(Context context) {
         super(context, 1);
         View view = findViewById(R.id.surfaceView);

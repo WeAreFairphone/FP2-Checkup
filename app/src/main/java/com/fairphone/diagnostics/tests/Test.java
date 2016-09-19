@@ -13,7 +13,6 @@ import com.fairphone.diagnostics.R;
 
 public abstract class Test extends RelativeLayout {
 
-
     private View mOldView;
     private Button mButton;
 

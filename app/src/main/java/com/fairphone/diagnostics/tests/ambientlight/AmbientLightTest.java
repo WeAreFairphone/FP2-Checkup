@@ -18,6 +18,8 @@ import com.fairphone.diagnostics.tests.Test;
  */
 public class AmbientLightTest extends Test {
 
+    private static final String TAG = AmbientLightTest.class.getSimpleName();
+
     SensorEventListener mSensorEventListener;
     SensorManager mSensorManager;
     Sensor mAmbientLightSensor;
@@ -29,7 +31,7 @@ public class AmbientLightTest extends Test {
 
     private void onSensorChange(SensorEvent event) {
         ((TextView) findViewById(R.id.proximity_sensor_state_text)).setText(String.valueOf(event.values[0]));
-        Log.i("SENSOR", "Callback called");
+        Log.i(TAG, "Callback called");
     }
 
     private void replaceView() {

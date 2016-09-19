@@ -8,6 +8,9 @@ import com.fairphone.diagnostics.R;
 import com.fairphone.diagnostics.tests.Test;
 
 public class VibrationMotorTest extends Test {
+
+    private static final String TAG = VibrationMotorTest.class.getSimpleName();
+
     Vibrator vibratorService;
 
     public VibrationMotorTest(Context context) {

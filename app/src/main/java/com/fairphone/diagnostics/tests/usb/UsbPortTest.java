@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.hardware.SensorEvent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,12 +17,24 @@ import com.fairphone.diagnostics.tests.Test;
  */
 public class UsbPortTest extends Test {
 
+    private static final String TAG = UsbPortTest.class.getSimpleName();
+
     View mTestView;
     private BroadcastReceiver receiver;
     private int mUsbConnectionChangeCount = 0;
 
     public UsbPortTest(Context context) {
         super(context);
+    }
+
+    @Override
+    protected int getTestTitleID() {
+        return R.string.usb_port_test_title;
+    }
+
+    @Override
+    protected int getTestDescriptionID() {
+        return R.string.usb_port_test_description;
     }
 
     @Override
@@ -44,15 +55,15 @@ public class UsbPortTest extends Test {
                 if(action.equals(Intent.ACTION_POWER_CONNECTED)) {
                     mUsbConnectionChangeCount++;
                     ((TextView) findViewById(R.id.usb_port_state_text)).setText("Connected.");
-                    Log.i("USB", "Cable connected");
+                    Log.i(TAG, "Cable connected");
                 } else if(action.equals(Intent.ACTION_POWER_DISCONNECTED)) {
                     mUsbConnectionChangeCount++;
                     ((TextView) findViewById(R.id.usb_port_state_text)).setText("Disconnected.");
-                    Log.i("USB", "Cable disconnected");
+                    Log.i(TAG, "Cable disconnected");
                 }
                 if (mUsbConnectionChangeCount > 5) {
                     onTestSuccess();
-                    Log.i("USB", "USB connection change");
+                    Log.i(TAG, "USB connection change");
                 }
             }
         };
@@ -70,30 +81,5 @@ public class UsbPortTest extends Test {
         getContext().unregisterReceiver(receiver);
         receiver = null;
         super.onCleanUp();
-    }
-
-    @Override
-    protected int getTestTitleID() {
-        return R.string.usb_port_test_title;
-    }
-
-    @Override
-    protected int getTestDescriptionID() {
-        return R.string.usb_port_test_description;
-    }
-
-    private void onConnectedChange(SensorEvent event) {
-        //mSensorChangeCount++;
-        ((TextView) findViewById(R.id.usb_port_state_text)).setText(isConnected(getContext()) ? "Connected." : "Not Connected.");
-        Log.i("SENSOR", "Callback called");
-        //if (mSensorChangeCount > 5) {
-         //   onTestSuccess();
-        //    Log.i("SENSOR", "Proximity changed");
-        //}
-    }
-
-    public static boolean isConnected(Context context) {
-        Intent intent = context.registerReceiver(null, new IntentFilter("android.hardware.usb.action.USB_STATE"));
-        return intent.getExtras().getBoolean("connected");
     }
 }

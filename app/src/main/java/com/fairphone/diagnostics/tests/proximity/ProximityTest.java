@@ -18,6 +18,8 @@ import com.fairphone.diagnostics.tests.Test;
  */
 public class ProximityTest extends Test {
 
+    private static final String TAG = ProximityTest.class.getSimpleName();
+
     public ProximityTest(Context context) {
         super(context);
     }
@@ -31,10 +33,10 @@ public class ProximityTest extends Test {
     private void onSensorChange(SensorEvent event) {
         mSensorChangeCount++;
         ((TextView) findViewById(R.id.proximity_sensor_state_text)).setText(event.values[0] < 0.1 ? "Triggered." : "Not Triggered.");
-        Log.i("SENSOR", "Callback called");
+        Log.i(TAG, "Callback called");
         if (mSensorChangeCount > 5) {
             onTestSuccess();
-            Log.i("SENSOR", "Proximity changed");
+            Log.i(TAG, "Proximity changed");
         }
     }
 

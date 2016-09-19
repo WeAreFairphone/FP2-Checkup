@@ -19,6 +19,8 @@ import java.io.IOException;
 
 public class CameraTest extends Test implements SurfaceHolder.Callback {
 
+    private static final String TAG = CameraTest.class.getSimpleName();
+
     View mTestView;
     Camera mCamera;
     SurfaceView mSurfaceView;

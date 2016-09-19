@@ -13,6 +13,8 @@ import com.fairphone.diagnostics.tests.Test;
 
 public class DisplayTest extends Test {
 
+    private static final String TAG = DisplayTest.class.getSimpleName();
+
     private ViewFlipper mViewFlipper;
     private RelativeLayout mParentLayout;
 
