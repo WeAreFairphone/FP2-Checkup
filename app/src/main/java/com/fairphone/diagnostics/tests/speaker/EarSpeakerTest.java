@@ -64,7 +64,7 @@ public class EarSpeakerTest extends Test {
     @Override
     protected void onCleanUp() {
         if (mediaPlayer != null) {
-            audioManager.setStreamVolume(AudioManager.STREAM_VOICE_CALL, initVoiceCallVolume, 0);   // restore original volume
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, initVoiceCallVolume, 0);        // restore original volume
         }
         mediaPlayer.release();
         mediaPlayer = null;
