@@ -41,7 +41,7 @@ android {
          * defined by the package attribute in the main/AndroidManifest.xml file.
          */
 
-        applicationId "com.fairphone.fairphonemoduletester"
+        applicationId "com.fairphone.diagnostics"
 
         // Defines the minimum API level required to run the app.
         minSdkVersion 22
