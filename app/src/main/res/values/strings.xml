@@ -4,9 +4,6 @@
     <string name="title_activity_display_test">DisplayTest</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="vibrator_test_title">Vibration motor</string>
-    <string name="vibrator_test_description">This will test if the vibration motor on your phone is working. Once the test starts the vibration motor will start pulsing.</string>
-    <string name="vibrator_test_finish_question">The vibration motor pulse now. Is the vibration motor working?</string>
     <string name="genericTestTitle">A Generic Test</string>
     <string name="genericTestDescription">A generic test description. You really want to have something more descriptive here.</string>
     <string name="display_test_title">Display</string>
@@ -21,13 +18,7 @@
     <string name="transceiver_module_description">This module contains the modem, SIM-card slots and more.</string>
     <string name="camera_module_name">Rear camera</string>
     <string name="camera_module_description">This module takes all those nice food pictures.</string>
-    <string name="speaker_module_name">Speaker</string>
-    <string name="speaker_module_description">Rear speaker, vibration motor and USB-port: that is what you can find in this module.</string>
-    <string name="rear_speaker_test_title">Rear speaker</string>
-    <string name="rear_speaker_test_description">This test checks if the rear speaker is working. Press start and make sure you hear the music playing.</string>
-    <string name="rear_speaker_test_finish_question">You should hear some music playing. Is the rear speaker working?</string>
-    <string name="usb_port_test_title">USB port</string>
-    <string name="usb_port_test_description">This test checks if the USB port is working. Press start and plug and unplug the USB cable a few times.</string>
+
 
     <!-- Receiver module -->
     <string name="receiver_module_name">Receiver</string>
@@ -48,9 +39,33 @@
     <string name="ambient_light_sensor_test_description">This test checks if the ambient Light sensor is working properly. Perform this test in a bright environment and repeatably cover the top half of your Fairphone. The value read by the sensor should change from Light to Dark.</string>
 
     <!-- Ear speaker -->
+    <string name="ear_speaker_test_title">Ear speaker</string>
+    <string name="ear_speaker_test_description">This test checks if the ear speaker is working. Press start and make sure you hear the music playing.</string>
+    <string name="ear_speaker_test_finish_question">You should hear some music playing. Is the ear speaker working?</string>
 
     <!-- Front camera -->
     <string name="front_camera_test_title">Front camera</string>
 
 
+    <!-- Speaker module -->
+    <string name="speaker_module_name">Speaker</string>
+    <string name="speaker_module_description">Vibration motor, rear speaker, microphone and USB-port: that is what you can find in this module.</string>
+
+    <!-- Vibration motor -->
+    <string name="vibrator_test_title">Vibration motor</string>
+    <string name="vibrator_test_description">This will test if the vibration motor on your phone is working. Once the test starts the vibration motor will start pulsing.</string>
+    <string name="vibrator_test_finish_question">The vibration motor pulse now. Is the vibration motor working?</string>
+
+    <!-- Rear speaker -->
+    <string name="rear_speaker_test_title">Rear speaker</string>
+    <string name="rear_speaker_test_description">This test checks if the rear speaker is working. Press start and make sure you hear the music playing.</string>
+    <string name="rear_speaker_test_finish_question">You should hear some music playing. Is the rear speaker working?</string>
+
+    <!-- Microphone -->
+    <string name="microphone_test_title">Microphone</string>
+    <string name="microphone_test_description">This test checks if the USB port is working. Press start and talk to your phone!</string>
+
+    <!-- USB port -->
+    <string name="usb_port_test_title">USB port</string>
+    <string name="usb_port_test_description">This test checks if the USB port is working. Press start and plug and unplug the USB cable a few times.</string>
 </resources>
