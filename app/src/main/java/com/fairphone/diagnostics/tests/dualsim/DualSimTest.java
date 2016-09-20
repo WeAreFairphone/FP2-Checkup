@@ -1,4 +1,4 @@
-package com.fairphone.fairphonemoduletester.tests.dualsim;
+package com.fairphone.diagnostics.tests.dualsim;
 
 import android.content.Context;
 import android.telephony.SubscriptionInfo;
@@ -7,8 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
-import com.fairphone.fairphonemoduletester.R;
-import com.fairphone.fairphonemoduletester.tests.Test;
+import com.fairphone.diagnostics.R;
+import com.fairphone.diagnostics.tests.Test;
 
 import java.util.List;
 
@@ -21,6 +21,16 @@ public class DualSimTest extends Test {
         super(context);
     }
 
+    @Override
+    protected int getTestTitleID() {
+        return R.string.dualsim_test_title;
+    }
+
+    @Override
+    protected int getTestDescriptionID() {
+        return R.string.dualsim_test_description;
+    }
+
     protected void replaceView() {
         View mTestView = LayoutInflater.from(getContext()).inflate(R.layout.view_dualsim_test, null);
         setTestView(mTestView);
@@ -30,6 +40,12 @@ public class DualSimTest extends Test {
     protected void runTest() {
         replaceView();
 
+        showSIMinfo();
+
+        askIfSuccess(getResources().getString(R.string.dualsim_test_finish_question));
+    }
+
+    private void showSIMinfo() {
         SubscriptionManager mSubscriptionManager = SubscriptionManager.from(getContext());
         List<SubscriptionInfo> mSubInfoList = mSubscriptionManager.getActiveSubscriptionInfoList();
 
@@ -79,15 +95,5 @@ public class DualSimTest extends Test {
                 }
             }
         }
-    }
-
-    @Override
-    protected int getTestTitleID() {
-        return R.string.dualsim_test_title;
-    }
-
-    @Override
-    protected int getTestDescriptionID() {
-        return R.string.dualsim_test_description;
     }
 }
