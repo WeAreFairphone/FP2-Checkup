@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 
+import com.fairphone.diagnostics.Module.BatteryModule;
 import com.fairphone.diagnostics.Module.CameraModule;
 import com.fairphone.diagnostics.Module.DisplayModule;
 import com.fairphone.diagnostics.Module.Module;
@@ -26,8 +27,9 @@ public class ModuleChooser extends Activity implements ModuleListAdapter.OnClick
         mListView = (ListView) findViewById(R.id.listView);
         ArrayList<Module> tests = new ArrayList<>();
         tests.add(new DisplayModule());
-        tests.add(new TransceiverModule());
         tests.add(new CameraModule());
+        tests.add(new BatteryModule());
+        tests.add(new TransceiverModule());
         tests.add(new ReceiverModule());
         tests.add(new SpeakerModule());
         mListView.setAdapter(new ModuleListAdapter(this, tests, this));
