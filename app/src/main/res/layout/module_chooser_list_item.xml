@@ -14,7 +14,7 @@
         android:id="@+id/modulePicture"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:src="@drawable/display"
+        android:src="@drawable/display_module"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp" />
 
