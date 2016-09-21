@@ -15,7 +15,7 @@ import java.util.List;
 public class DisplayModule implements Module {
     @Override
     public int getPictureResourceID() {
-        return R.drawable.display;
+        return R.drawable.display_module;
     }
 
     @Override

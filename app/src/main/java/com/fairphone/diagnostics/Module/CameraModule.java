@@ -16,7 +16,7 @@ import java.util.List;
 public class CameraModule implements Module {
     @Override
     public int getPictureResourceID() {
-        return R.drawable.camera;
+        return R.drawable.camera_module_render;
     }
 
     @Override

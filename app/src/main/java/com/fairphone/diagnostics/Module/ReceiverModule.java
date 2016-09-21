@@ -19,7 +19,7 @@ import java.util.List;
 public class ReceiverModule implements Module {
     @Override
     public int getPictureResourceID() {
-        return R.drawable.receiver;
+        return R.drawable.top_module_render;
     }
 
     @Override

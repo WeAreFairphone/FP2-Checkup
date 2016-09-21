@@ -15,7 +15,7 @@ import java.util.List;
 public class TransceiverModule implements Module {
     @Override
     public int getPictureResourceID() {
-        return R.drawable.transceiver;
+        return R.drawable.core_module_render;
     }
 
     @Override

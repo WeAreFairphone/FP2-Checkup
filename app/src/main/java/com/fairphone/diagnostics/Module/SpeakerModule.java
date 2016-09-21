@@ -18,7 +18,7 @@ import java.util.List;
 public class SpeakerModule implements Module {
     @Override
     public int getPictureResourceID() {
-        return R.drawable.speaker;
+        return R.drawable.bottom_module_render;
     }
 
     @Override
