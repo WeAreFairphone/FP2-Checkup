@@ -55,7 +55,6 @@ public class CameraTest extends Test implements SurfaceHolder.Callback {
             @Override
             public void run() {
                 Camera.Parameters localParameters = mCamera.getParameters();
-                localParameters.setFlashMode("torch");
                 localParameters.setAntibanding("auto");
                 localParameters.setFocusMode("continuous-picture");
                 mCamera.setDisplayOrientation(90);

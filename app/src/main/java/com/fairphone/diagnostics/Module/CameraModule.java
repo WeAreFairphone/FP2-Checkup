@@ -5,6 +5,7 @@ import android.content.Context;
 import com.fairphone.diagnostics.R;
 import com.fairphone.diagnostics.tests.Test;
 import com.fairphone.diagnostics.tests.camera.CameraTest;
+import com.fairphone.diagnostics.tests.camera.FlashTest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,7 @@ public class CameraModule implements Module {
     public List<Test> getTestList(Context context) {
         List<Test> tests = new ArrayList<>();
         tests.add(new CameraTest(context));
+        tests.add(new FlashTest(context));
         return tests;
     }
 
