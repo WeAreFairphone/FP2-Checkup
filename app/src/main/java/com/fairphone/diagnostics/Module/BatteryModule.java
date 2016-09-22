@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.fairphone.diagnostics.R;
 import com.fairphone.diagnostics.tests.Test;
+import com.fairphone.diagnostics.tests.battery.BatteryTest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,7 @@ public class BatteryModule implements Module {
 
     public List<Test> getTestList(Context context) {
         List<Test> tests = new ArrayList<>();
+        tests.add(new BatteryTest(context));
         return tests;
     }
 }

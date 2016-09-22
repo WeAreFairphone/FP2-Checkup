@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvBatteryStatus"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/battery_status"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:id="@+id/tvBatteryLevel"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/battery_level"
+        android:layout_below="@id/tvBatteryStatus"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/tvBatteryTemperature"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/battery_temperature"
+        android:layout_below="@id/tvBatteryLevel"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/tvBatteryVolt"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/battery_voltage"
+        android:layout_below="@id/tvBatteryTemperature"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/tvBatteryHealth"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/battery_health"
+        android:layout_below="@id/tvBatteryVolt"
+        android:layout_alignParentLeft="true" />
+
+
+</RelativeLayout>
