@@ -5,6 +5,7 @@ import android.content.Context;
 import com.fairphone.diagnostics.R;
 import com.fairphone.diagnostics.tests.Test;
 import com.fairphone.diagnostics.tests.dualsim.DualSimTest;
+import com.fairphone.diagnostics.tests.microsd.MicroSDTest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,7 @@ public class TransceiverModule implements Module {
     public List<Test> getTestList(Context context) {
         ArrayList<Test> tests = new ArrayList<>();
 	    tests.add(new DualSimTest(context));
+        tests.add(new MicroSDTest(context));
         return tests;
     }
 }
