@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Diagnostics</string>
+    <string name="app_name">Checkup</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_display_test">DisplayTest</string>
     <string name="dummy_button">Dummy Button</string>
