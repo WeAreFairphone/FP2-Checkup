@@ -7,6 +7,7 @@ import com.fairphone.diagnostics.tests.Test;
 import com.fairphone.diagnostics.tests.ambientlight.AmbientLightTest;
 import com.fairphone.diagnostics.tests.camera.FrontCameraTest;
 import com.fairphone.diagnostics.tests.headphonejack.HeadphoneJackTest;
+import com.fairphone.diagnostics.tests.led.LEDTest;
 import com.fairphone.diagnostics.tests.proximity.ProximityTest;
 import com.fairphone.diagnostics.tests.speaker.EarSpeakerTest;
 
@@ -35,11 +36,12 @@ public class ReceiverModule implements Module {
 
     public List<Test> getTestList(Context context) {
         List<Test> tests = new ArrayList<>();
-        tests.add(new FrontCameraTest(context));
+        tests.add(new HeadphoneJackTest(context));
+        tests.add(new LEDTest(context));
         tests.add(new AmbientLightTest(context));
         tests.add(new ProximityTest(context));
-        tests.add(new HeadphoneJackTest(context));
         tests.add(new EarSpeakerTest(context));
+        tests.add(new FrontCameraTest(context));
         return tests;
     }
 }
