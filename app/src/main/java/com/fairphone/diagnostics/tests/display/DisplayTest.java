@@ -119,11 +119,11 @@ public class DisplayTest extends Test {
 
     @Override
     protected int getTestTitleID() {
-        return R.string.display_test_title;
+        return R.string.lcd_test_title;
     }
 
     @Override
     protected int getTestDescriptionID() {
-        return R.string.display_test_description;
+        return R.string.lcd_test_description;
     }
 }

@@ -6,14 +6,17 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="genericTestTitle">A Generic Test</string>
     <string name="genericTestDescription">A generic test description. You really want to have something more descriptive here.</string>
-
-    <string name="display_test_title">Display</string>
-    <string name="display_test_description">This test will display test patterns. Check if the pattern matches the description prompted before the pattern.</string>
     <string name="test_failed">Test failed</string>
     <string name="test_passed">Test passed</string>
 
+    <!-- Display module -->
     <string name="display_module_name">Display module</string>
     <string name="display_module_description">The display module houses the LCD screen and the touch sensors.</string>
+
+    <!-- LCD -->
+    <string name="lcd_test_title">LCD</string>
+    <string name="lcd_test_description">This test will display test patterns. Check if the pattern matches the description prompted before the pattern.</string>
+
 
     <!-- Battery module -->
     <string name="battery_module_name">Battery</string>
@@ -82,6 +85,7 @@
     <!-- Buttons -->
     <string name="buttons_test_title">Buttons</string>
     <string name="buttons_test_description">This test checks if the buttons are working properly. Press start to test!</string>
+
 
     <!-- Receiver module -->
     <string name="receiver_module_name">Top module</string>
