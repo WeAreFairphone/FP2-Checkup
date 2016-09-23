@@ -4,14 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="false"
-    tools:context=".ModuleChooser"
-    android:background="#EEEEEC">
+    tools:context=".ModuleChooser">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Select Module to Test!"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Select a module to start testing"
         android:id="@+id/textView4"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -24,7 +23,5 @@
         android:id="@+id/listView"
         android:layout_below="@+id/textView4"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="26dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp" />
+        android:layout_margin="15dp" />
 </RelativeLayout>

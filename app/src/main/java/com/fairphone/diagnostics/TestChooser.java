@@ -1,7 +1,7 @@
 package com.fairphone.diagnostics;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -22,7 +22,7 @@ import com.fairphone.diagnostics.tests.vibrationmotor.VibrationMotorTest;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestChooser extends Activity implements TestListAdapter.OnClickListener {
+public class TestChooser extends ActionBarActivity implements TestListAdapter.OnClickListener {
     ViewSwitcher mSwitcher;
     ListView mListView;
     List<Test> mTests;

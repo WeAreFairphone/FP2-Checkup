@@ -1,8 +1,8 @@
 package com.fairphone.diagnostics;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.widget.ListView;
 
 import com.fairphone.diagnostics.Module.BatteryModule;
@@ -16,14 +16,13 @@ import com.fairphone.diagnostics.Module.TransceiverModule;
 
 import java.util.ArrayList;
 
-public class ModuleChooser extends Activity implements ModuleListAdapter.OnClickListener {
+public class ModuleChooser extends ActionBarActivity implements ModuleListAdapter.OnClickListener {
     ListView mListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_module_chooser);
-        super.onCreate(savedInstanceState);
         mListView = (ListView) findViewById(R.id.listView);
         ArrayList<Module> tests = new ArrayList<>();
         tests.add(new DisplayModule());
