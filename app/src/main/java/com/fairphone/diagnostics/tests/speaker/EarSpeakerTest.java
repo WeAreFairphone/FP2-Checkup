@@ -3,7 +3,6 @@ package com.fairphone.diagnostics.tests.speaker;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.view.LayoutInflater;
 import android.view.View;
 
 import com.fairphone.diagnostics.R;
@@ -54,10 +53,7 @@ public class EarSpeakerTest extends Test {
 
     @Override
     protected void runTest() {
-        replaceView();
-
         mediaPlayer.start();
-
         askIfSuccess(getContext().getString(R.string.ear_speaker_test_finish_question));
     }
 
@@ -70,11 +66,4 @@ public class EarSpeakerTest extends Test {
         mediaPlayer = null;
         super.onCleanUp();
     }
-
-    private void replaceView() {
-        mTestView = LayoutInflater.from(getContext()).inflate(R.layout.view_rear_speaker_test, null);
-        setTestView(mTestView);
-    }
-
-
 }

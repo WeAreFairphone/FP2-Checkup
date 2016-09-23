@@ -3,7 +3,6 @@ package com.fairphone.diagnostics.tests.speaker;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.view.LayoutInflater;
 import android.view.View;
 
 import com.fairphone.diagnostics.R;
@@ -30,8 +29,6 @@ public class RearSpeakerTest extends Test {
 
     @Override
     protected void runTest() {
-        replaceView();
-
         audioManager = (AudioManager)getContext().getSystemService(Context.AUDIO_SERVICE);
         initMediaVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);                  // store current volume to restore later
         maxMediaVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
@@ -53,11 +50,6 @@ public class RearSpeakerTest extends Test {
         mediaPlayer.release();
         mediaPlayer = null;
         super.onCleanUp();
-    }
-
-    private void replaceView() {
-        mTestView = LayoutInflater.from(getContext()).inflate(R.layout.view_rear_speaker_test, null);
-        setTestView(mTestView);
     }
 
     @Override
