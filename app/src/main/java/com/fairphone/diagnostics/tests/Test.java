@@ -80,6 +80,7 @@ public abstract class Test extends RelativeLayout {
                 onTestFailure();
             }
         });
+        alert.setCancelable(false);
         alert.show();
     }
 
