@@ -73,6 +73,12 @@
     <string name="accelerometer_y_axis">Y-axis: </string>
     <string name="accelerometer_z_axis">Z-axis: </string>
 
+    <!-- Magnetometer -->
+    <string name="magnetometer_test_title">Magnetometer</string>
+    <string name="magnetometer_test_description">This test checks if the magnetometer is working properly. Press start and turn your phone around.</string>
+    <string name="magnetometer_test_finish_question">You should see the heading value change when you turn your phone around. Is the value changing?</string>
+    <string name="magnetometer_heading">Heading: </string>
+
     <!-- Buttons -->
     <string name="buttons_test_title">Buttons</string>
     <string name="buttons_test_description">This test checks if the buttons are working properly. Press start to test!</string>

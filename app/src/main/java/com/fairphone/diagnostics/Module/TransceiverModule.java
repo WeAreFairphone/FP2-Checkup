@@ -6,6 +6,7 @@ import com.fairphone.diagnostics.R;
 import com.fairphone.diagnostics.tests.Test;
 import com.fairphone.diagnostics.tests.accelerometer.AccelerometerTest;
 import com.fairphone.diagnostics.tests.dualsim.DualSimTest;
+import com.fairphone.diagnostics.tests.magnetometer.MagnetometerTest;
 import com.fairphone.diagnostics.tests.microsd.MicroSDTest;
 
 import java.util.ArrayList;
@@ -36,6 +37,7 @@ public class TransceiverModule implements Module {
 	    tests.add(new DualSimTest(context));
         tests.add(new MicroSDTest(context));
         tests.add(new AccelerometerTest(context));
+        tests.add(new MagnetometerTest(context));
         return tests;
     }
 }
