@@ -65,6 +65,14 @@
     <string name="microsd_test_description">This test checks if the microSD slot is working properly. Make sure a microSD card is plugged in and press start.</string>
     <string name="microsd_test_finish_question">You should see the SD card status. Is the info correct?</string>
 
+    <!-- Accelerometer -->
+    <string name="accelerometer_test_title">Accelerometer</string>
+    <string name="accelerometer_test_description">This test checks if the accelerometer is working properly. Press start and tilt your phone in all directions.</string>
+    <string name="accelerometer_test_finish_question">You should see the X, Y and Z values change when you tilt your phone. Are the values changing?</string>
+    <string name="accelerometer_x_axis">X-axis: </string>
+    <string name="accelerometer_y_axis">Y-axis: </string>
+    <string name="accelerometer_z_axis">Z-axis: </string>
+
     <!-- Buttons -->
     <string name="buttons_test_title">Buttons</string>
     <string name="buttons_test_description">This test checks if the buttons are working properly. Press start to test!</string>
