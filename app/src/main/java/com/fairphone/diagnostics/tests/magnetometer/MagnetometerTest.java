@@ -59,7 +59,7 @@ public class MagnetometerTest extends Test implements SensorEventListener {
         mSensorManager.registerListener(this, mMagnetometer, SensorManager.SENSOR_DELAY_UI);
         mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
 
-        askIfSuccess(getContext().getString(R.string.magnetometer_test_finish_question));
+        //askIfSuccess(getContext().getString(R.string.magnetometer_test_finish_question));
     }
 
     @Override

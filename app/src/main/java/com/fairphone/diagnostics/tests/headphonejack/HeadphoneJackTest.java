@@ -21,7 +21,6 @@ public class HeadphoneJackTest extends Test {
 
     View mTestView;
     private BroadcastReceiver receiver;
-    private int mHeadphoneJackChangeCount = 0;
 
     public HeadphoneJackTest(Context context) {
         super(context);
@@ -45,7 +44,6 @@ public class HeadphoneJackTest extends Test {
 
     @Override
     protected void onCleanUp() {
-        mHeadphoneJackChangeCount = 0;
         getContext().unregisterReceiver(receiver);
         receiver = null;
         super.onCleanUp();
@@ -78,11 +76,6 @@ public class HeadphoneJackTest extends Test {
                         default:
                             Log.i(TAG, "I have no idea what the headset state is");
                     }
-                    mHeadphoneJackChangeCount++;
-                }
-                if (mHeadphoneJackChangeCount > 5) {
-                    onTestSuccess();
-                    Log.i(TAG, "Test passed");
                 }
             }
         };

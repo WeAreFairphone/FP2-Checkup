@@ -68,7 +68,7 @@ public class BatteryTest extends Test {
         IntentFilter intentFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
         getContext().registerReceiver(batteryStatusReceiver, intentFilter);
 
-        askIfSuccess(getResources().getString(R.string.battery_test_finish_question));
+        //askIfSuccess(getResources().getString(R.string.battery_test_finish_question));
     }
 
     private BroadcastReceiver batteryStatusReceiver = new BroadcastReceiver() {

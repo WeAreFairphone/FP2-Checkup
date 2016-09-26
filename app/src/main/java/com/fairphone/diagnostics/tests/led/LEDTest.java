@@ -50,7 +50,7 @@ public class LEDTest extends Test {
 
         new ThreeColorBlink().execute();
 
-        askIfSuccess(getResources().getString(R.string.led_test_finish_question));
+        //askIfSuccess(getResources().getString(R.string.led_test_finish_question));
     }
 
     @Override

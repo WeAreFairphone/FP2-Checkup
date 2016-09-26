@@ -53,7 +53,7 @@ public class FlashTest extends Test {
         }
         mCamera.startPreview();
 
-        askIfSuccess(getResources().getString(R.string.flash_test_finish_question));
+        //askIfSuccess(getResources().getString(R.string.flash_test_finish_question));
     }
 
     @Override

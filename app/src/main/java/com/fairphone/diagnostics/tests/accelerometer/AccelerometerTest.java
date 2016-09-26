@@ -52,7 +52,7 @@ public class AccelerometerTest extends Test implements SensorEventListener {
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
 
-        askIfSuccess(getContext().getString(R.string.accelerometer_test_finish_question));
+        //askIfSuccess(getContext().getString(R.string.accelerometer_test_finish_question));
     }
 
     @Override

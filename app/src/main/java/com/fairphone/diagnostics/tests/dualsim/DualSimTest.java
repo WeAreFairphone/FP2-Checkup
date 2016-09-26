@@ -42,7 +42,7 @@ public class DualSimTest extends Test {
 
         showSIMinfo();
 
-        askIfSuccess(getResources().getString(R.string.dualsim_test_finish_question));
+        //askIfSuccess(getResources().getString(R.string.dualsim_test_finish_question));
     }
 
     private void showSIMinfo() {

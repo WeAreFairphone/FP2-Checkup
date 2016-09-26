@@ -21,7 +21,6 @@ public class UsbPortTest extends Test {
 
     View mTestView;
     private BroadcastReceiver receiver;
-    private int mUsbConnectionChangeCount = 0;
 
     public UsbPortTest(Context context) {
         super(context);
@@ -53,17 +52,11 @@ public class UsbPortTest extends Test {
             public void onReceive(Context context, Intent intent) {
                 String action = intent.getAction();
                 if(action.equals(Intent.ACTION_POWER_CONNECTED)) {
-                    mUsbConnectionChangeCount++;
                     ((TextView) findViewById(R.id.usb_port_state_text)).setText("Connected.");
                     Log.i(TAG, "Cable connected");
                 } else if(action.equals(Intent.ACTION_POWER_DISCONNECTED)) {
-                    mUsbConnectionChangeCount++;
                     ((TextView) findViewById(R.id.usb_port_state_text)).setText("Disconnected.");
                     Log.i(TAG, "Cable disconnected");
-                }
-                if (mUsbConnectionChangeCount > 5) {
-                    onTestSuccess();
-                    Log.i(TAG, "USB connection change");
                 }
             }
         };
@@ -77,7 +70,6 @@ public class UsbPortTest extends Test {
 
     @Override
     protected void onCleanUp() {
-        mUsbConnectionChangeCount = 0;
         getContext().unregisterReceiver(receiver);
         receiver = null;
         super.onCleanUp();

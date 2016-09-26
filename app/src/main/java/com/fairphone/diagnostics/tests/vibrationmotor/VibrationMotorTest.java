@@ -20,7 +20,7 @@ public class VibrationMotorTest extends Test {
     @Override
     protected void runTest() {
         vibratorService.vibrate(new long[]{128, 256, 512, 1024, 512, 256, 128}, 1);
-        askIfSuccess(getContext().getString(R.string.vibrator_test_finish_question));
+        //askIfSuccess(getContext().getString(R.string.vibrator_test_finish_question));
     }
 
     @Override

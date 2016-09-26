@@ -3,7 +3,6 @@ package com.fairphone.diagnostics.tests.speaker;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.view.View;
 
 import com.fairphone.diagnostics.R;
 import com.fairphone.diagnostics.tests.Test;
@@ -14,8 +13,6 @@ import com.fairphone.diagnostics.tests.Test;
 public class RearSpeakerTest extends Test {
 
     private static final String TAG = RearSpeakerTest.class.getSimpleName();
-
-    View mTestView;
 
     private AudioManager audioManager;
     private int initMediaVolume;
@@ -39,15 +36,16 @@ public class RearSpeakerTest extends Test {
         mediaPlayer.setLooping(true);
         mediaPlayer.start();
 
-        askIfSuccess(getContext().getString(R.string.rear_speaker_test_finish_question));
+        //askIfSuccess(getContext().getString(R.string.rear_speaker_test_finish_question));
     }
 
     @Override
     protected void onCleanUp() {
+        mediaPlayer.stop();
+        mediaPlayer.release();
         if (mediaPlayer != null) {
             audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, initMediaVolume, 0);            // restore original volume
         }
-        mediaPlayer.release();
         mediaPlayer = null;
         super.onCleanUp();
     }

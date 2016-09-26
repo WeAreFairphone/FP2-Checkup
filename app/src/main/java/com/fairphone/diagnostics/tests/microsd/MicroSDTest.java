@@ -48,7 +48,7 @@ public class MicroSDTest extends Test {
 
         printData();
 
-        askIfSuccess(getResources().getString(R.string.microsd_test_finish_question));
+        //askIfSuccess(getResources().getString(R.string.microsd_test_finish_question));
     }
 
     private void printData() {

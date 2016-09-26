@@ -54,7 +54,7 @@ public class EarSpeakerTest extends Test {
     @Override
     protected void runTest() {
         mediaPlayer.start();
-        askIfSuccess(getContext().getString(R.string.ear_speaker_test_finish_question));
+        //askIfSuccess(getContext().getString(R.string.ear_speaker_test_finish_question));
     }
 
     @Override

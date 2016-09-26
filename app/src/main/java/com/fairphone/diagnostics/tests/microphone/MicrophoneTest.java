@@ -65,7 +65,7 @@ public class MicrophoneTest extends Test {
         audioManager.setStreamVolume(AudioManager.STREAM_VOICE_CALL, audioManager.getStreamMaxVolume(AudioManager.STREAM_VOICE_CALL), 0);
         startLoopback();
 
-        askIfSuccess(getContext().getString(R.string.microphone_test_finish_question));
+        //askIfSuccess(getContext().getString(R.string.microphone_test_finish_question));
     }
 
     @Override
