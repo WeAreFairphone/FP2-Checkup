@@ -86,6 +86,18 @@
     <string name="gyroscope_test_title">Gyroscope</string>
     <string name="gyroscope_test_description">This test checks if the gyroscope is working properly. Press start and turn your phone around.</string>
 
+    <!-- GPS -->
+    <string name="gps_test_title">GPS</string>
+    <string name="gps_test_description">This test checks if GPS can determine your location. Press start to test!</string>
+    <string name="searching">Satellites: Searching...</string>
+    <string name="satellites">Satellites: </string>
+    <string name="latitude">Latitude: </string>
+    <string name="longitude">Longitude: </string>
+    <string name="altitude">Altitude: </string>
+    <string name="speed">Speed: </string>
+    <string name="bearing">Bearing: </string>
+    <string name="accuracy">Accuracy: </string>
+
     <!-- Buttons -->
     <string name="buttons_test_title">Buttons</string>
     <string name="buttons_test_description">This test checks if the buttons are working properly. Press start to test!</string>

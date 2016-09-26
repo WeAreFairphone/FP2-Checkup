@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/satellites"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/searching"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:id="@+id/accuracy"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/accuracy"
+        android:layout_below="@id/satellites"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/latitude"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/latitude"
+        android:layout_below="@id/accuracy"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/longitude"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/longitude"
+        android:layout_below="@id/latitude"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/altitude"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/altitude"
+        android:layout_below="@id/longitude"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/bearing"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bearing"
+        android:layout_below="@id/altitude"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/speed"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bearing"
+        android:layout_below="@id/bearing"
+        android:layout_alignParentLeft="true" />
+
+</RelativeLayout>
