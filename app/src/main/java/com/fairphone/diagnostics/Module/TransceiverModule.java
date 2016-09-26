@@ -6,6 +6,7 @@ import com.fairphone.diagnostics.R;
 import com.fairphone.diagnostics.tests.Test;
 import com.fairphone.diagnostics.tests.accelerometer.AccelerometerTest;
 import com.fairphone.diagnostics.tests.dualsim.DualSimTest;
+import com.fairphone.diagnostics.tests.gyroscope.GyroscopeTest;
 import com.fairphone.diagnostics.tests.magnetometer.MagnetometerTest;
 import com.fairphone.diagnostics.tests.microsd.MicroSDTest;
 
@@ -38,6 +39,7 @@ public class TransceiverModule implements Module {
         tests.add(new MicroSDTest(context));
         tests.add(new AccelerometerTest(context));
         tests.add(new MagnetometerTest(context));
+        tests.add(new GyroscopeTest(context));
         return tests;
     }
 }
