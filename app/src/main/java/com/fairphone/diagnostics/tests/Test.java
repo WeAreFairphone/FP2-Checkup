@@ -86,16 +86,16 @@ public abstract class Test extends RelativeLayout {
 
     protected void onTestSuccess() {
         cleanUp();
-        passed = true;
-        ((TextView) findViewById(R.id.testResult)).setText(R.string.test_passed);
-        ((TextView) findViewById(R.id.testResult)).setTextColor(0xff00aa00);
+        //passed = true;
+        //((TextView) findViewById(R.id.testResult)).setText(R.string.test_passed);
+        //((TextView) findViewById(R.id.testResult)).setTextColor(0xff00aa00);
     }
 
     protected void onTestFailure() {
         cleanUp();
-        passed = false;
-        ((TextView) findViewById(R.id.testResult)).setText(R.string.test_failed);
-        ((TextView) findViewById(R.id.testResult)).setTextColor(0xffaa0000);
+        //passed = false;
+        //((TextView) findViewById(R.id.testResult)).setText(R.string.test_failed);
+        //((TextView) findViewById(R.id.testResult)).setTextColor(0xffaa0000);
     }
 
     protected void setTestView(View view) {

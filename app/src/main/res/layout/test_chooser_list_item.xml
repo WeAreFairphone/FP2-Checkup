@@ -29,13 +29,13 @@
         android:layout_marginTop="2dp"
         android:fontFamily="sans-serif-thin" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/test_list_test_result"
-        android:layout_alignBottom="@+id/listItemTestTitle"
-        android:layout_alignParentEnd="true" />
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textAppearance="?android:attr/textAppearanceSmall"-->
+        <!--android:text="Small Text"-->
+        <!--android:id="@+id/test_list_test_result"-->
+        <!--android:layout_alignBottom="@+id/listItemTestTitle"-->
+        <!--android:layout_alignParentEnd="true" />-->
 
 </RelativeLayout>

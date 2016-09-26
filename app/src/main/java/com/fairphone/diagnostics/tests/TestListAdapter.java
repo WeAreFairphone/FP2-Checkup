@@ -33,19 +33,19 @@ public class TestListAdapter extends ArrayAdapter<Test> {
         if (test != null) {
             ((TextView) view.findViewById(R.id.listItemTestTitle)).setText(getContext().getString(test.getTestTitleID()));
             ((TextView) view.findViewById(R.id.listItemTestDescription)).setText(getContext().getString(test.getTestDescriptionID()));
-            TextView textview = (TextView) view.findViewById(R.id.test_list_test_result);
-            if (test.hasRun()) {
-                textview.setVisibility(View.VISIBLE);
-                if (test.didPass()) {
-                    textview.setText(getContext().getString(R.string.test_passed));
-                    textview.setTextColor(0xff00aa00);
-                } else {
-                    textview.setText(getContext().getString(R.string.test_failed));
-                    textview.setTextColor(0xffaa0000);
-                }
-            } else {
-                textview.setVisibility(View.INVISIBLE);
-            }
+//            TextView textview = (TextView) view.findViewById(R.id.test_list_test_result);
+//            if (test.hasRun()) {
+//                textview.setVisibility(View.VISIBLE);
+//                if (test.didPass()) {
+//                    textview.setText(getContext().getString(R.string.test_passed));
+//                    textview.setTextColor(0xff00aa00);
+//                } else {
+//                    textview.setText(getContext().getString(R.string.test_failed));
+//                    textview.setTextColor(0xffaa0000);
+//                }
+//            } else {
+//                textview.setVisibility(View.INVISIBLE);
+//            }
         }
 
         view.setOnClickListener(new View.OnClickListener() {
