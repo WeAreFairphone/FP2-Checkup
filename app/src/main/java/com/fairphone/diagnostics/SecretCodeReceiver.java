@@ -18,7 +18,7 @@ public class SecretCodeReceiver extends BroadcastReceiver {
         String secretAction = "android.provider.Telephony.SECRET_CODE";
         String action = intent.getAction();
         String host = intent.getData() != null ? intent.getData().getHost() : null;
-        if (secretAction.equals(action) && "0042".equals(host)) {
+        if (secretAction.equals(action) && "3424".equals(host)) {
             packageManager.setComponentEnabledSetting(componentName,
                     PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
             Intent diagnosticsIntent = new Intent(context, ModuleChooser.class);
