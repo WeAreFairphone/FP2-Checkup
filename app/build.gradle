@@ -12,7 +12,6 @@ apply plugin: 'com.android.application'
  */
 
 android {
-
     /**
      * compileSdkVersion specifies the Android API level Gradle should use to
      * compile your app. This means your app can use the API features included in
@@ -22,17 +21,14 @@ android {
      * utilities, and compiler that Gradle should use to build your app. You need to
      * download the build tools using the SDK Manager.
      */
-
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
-
     /**
      * The defaultConfig {} block encapsulates default settings and entries for all
      * build variants, and can override some attributes in main/AndroidManifest.xml
      * dynamically from the build system. You can configure product flavors to override
      * these values for different versions of your app.
      */
-
     defaultConfig {
 
         /**
@@ -50,12 +46,11 @@ android {
         targetSdkVersion 22
 
         // Defines the version number of your app.
-        versionCode 1
+        versionCode 2
 
         // Defines a user-friendly version name for your app.
-        versionName "0.1"
+        versionName "0.11"
     }
-
     /**
      * The buildTypes {} block is where you can configure multiple build types.
      * By default, the build system defines two build types: debug and release. The
@@ -63,14 +58,11 @@ android {
      * but it includes debugging tools and is signed with the debug key. The release
      * build type applies Proguard settings and is not signed by default.
      */
-
     buildTypes {
-
         /**
          * By default, Android Studio configures the release build type to enable code
          * shrinking, using minifyEnabled, and specifies the Proguard settings file.
          */
-
         release {
             minifyEnabled true // Enables code shrinking for the release build type.
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -84,10 +76,9 @@ android {
  */
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     //testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:22.2.0'
-    compile 'com.android.support:design:22.2.1'
     compile 'com.android.support:support-v4:22.0.1'
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
 }
