@@ -1,6 +1,5 @@
 package com.fairphone.diagnostics.tests.gyroscope;
 
-
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -13,20 +12,14 @@ import android.widget.TextView;
 import com.fairphone.diagnostics.R;
 import com.fairphone.diagnostics.tests.Test;
 
-public class GyroscopeTest extends Test implements SensorEventListener {
+public class GyroscopeTest extends Test {
 
     private static final String TAG = GyroscopeTest.class.getSimpleName();
 
+    SensorEventListener mSensorEventListener;
+    SensorManager mSensorManager;
+    Sensor mGyroscope;
     View mTestView;
-
-    private SensorManager mSensorManager;
-    private Sensor mGyroscope;
-
-    private long lastupdate = 0L;
-
-    TextView xAxis;
-    TextView yAxis;
-    TextView zAxis;
 
     public GyroscopeTest(Context context) {
         super(context);
@@ -48,46 +41,50 @@ public class GyroscopeTest extends Test implements SensorEventListener {
     }
 
     @Override
-    protected void onPrepare() {
-
-    }
-
-
-    @Override
     protected void runTest() {
         replaceView();
-
-        this.xAxis = ((TextView)findViewById(R.id.xAxis));
-        this.yAxis = ((TextView)findViewById(R.id.yAxis));
-        this.zAxis = ((TextView)findViewById(R.id.zAxis));
-
-        mSensorManager = (SensorManager)getContext().getSystemService(Context.SENSOR_SERVICE);
-        mGyroscope = mSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
-        mSensorManager.registerListener(this, mGyroscope, SensorManager.SENSOR_DELAY_NORMAL);
-        //askIfSuccess(getContext().getString(R.string.vibrator_test_finish_question));
+        getGyroscope();
+        setupSensorListener();
     }
 
     @Override
     protected void onCleanUp() {
-        mSensorManager.unregisterListener(this);
+        mSensorManager.unregisterListener(mSensorEventListener);
+        mSensorEventListener = null;
         super.onCleanUp();
     }
 
-    @Override
-    public void onSensorChanged(SensorEvent event) {
-        long l = System.currentTimeMillis();
-        if (l - this.lastupdate > 100L) {
-            if (event.sensor.getType() == Sensor.TYPE_GYROSCOPE) {
-                xAxis.setText("X-axis: " + event.values[0]);
-                yAxis.setText("Y-axis: " + event.values[1]);
-                zAxis.setText("Z-axis: " + event.values[2]);
-            }
-            this.lastupdate = l;
+    private void getGyroscope() {
+        mSensorManager = (SensorManager)
+                getContext().getSystemService(Context.SENSOR_SERVICE);
+        mGyroscope = mSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+        if (mGyroscope == null) {
+            onTestFailure();
+            return;
         }
     }
 
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+    private void setupSensorListener() {
+        mSensorEventListener = new SensorEventListener() {
+            @Override
+            public void onSensorChanged(SensorEvent event) {
+                if (event.sensor.getType() == Sensor.TYPE_GYROSCOPE) {
+                    onSensorChange(event);
 
+                }
+            }
+
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+            }
+        };
+        mSensorManager.registerListener(mSensorEventListener, mGyroscope, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    private void onSensorChange(SensorEvent event) {
+        ((TextView)findViewById(R.id.xAxis)).setText("X-axis: " + event.values[0]);
+        ((TextView)findViewById(R.id.yAxis)).setText("Y-axis: " + event.values[1]);
+        ((TextView)findViewById(R.id.zAxis)).setText("Z-axis: " + event.values[2]);
     }
 }
