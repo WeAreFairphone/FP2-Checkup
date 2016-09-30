@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="N/A"
+        android:text="@string/not_available"
         android:id="@+id/usb_port_state_text"
         android:layout_alignTop="@+id/textView"
         android:layout_toEndOf="@+id/textView" />
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="State:  "
+        android:text="@string/state"
         android:id="@+id/textView"
         android:layout_gravity="center_horizontal" />
 

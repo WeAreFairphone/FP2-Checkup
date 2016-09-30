@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Not triggered."
+        android:text="@string/not_triggered"
         android:id="@+id/proximity_sensor_state_text"
         android:layout_alignTop="@+id/textView"
         android:layout_toEndOf="@+id/textView" />
@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="State:  "
+        android:text="@string/state"
         android:id="@+id/textView"
         android:layout_gravity="center_horizontal"/>
 

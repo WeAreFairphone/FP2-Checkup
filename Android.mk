@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2016 Fairphone B.V.
+# Copyright (C) 2008 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,44 +15,30 @@
 #
 
 LOCAL_PATH := $(call my-dir)
-
-#
-# Build app code.
-#
 include $(CLEAR_VARS)
+RES_DIR := app/src/main/res
 
-LOCAL_MODULE_TAGS := optional \
-	tests \
+LOCAL_MODULE_TAGS := optional
 
-LOCAL_SRC_FILES := $(call all-java-files-under, app/src/main/java) 
+LOCAL_JAVA_LIBRARIES := android-common
 
-LOCAL_JAVA_LIBRARIES := android-common\
+LOCAL_STATIC_JAVA_LIBRARIES := android-support-v7-appcompat \
+                               android-support-v4
 
-LOCAL_STATIC_JAVA_LIBRARIES :=  \
-  android-support-v7-appcompat \
-  android-support-v4 \
-	
-LOCAL_MANIFEST_FILE = app/src/main/AndroidManifest.xml
-LOCAL_AAPT_FLAGS := --auto-add-overlay
-LOCAL_AAPT_FLAGS += --extra-packages android.support.v7.appcompat
 
-LOCAL_RESOURCE_DIR := \
-                  frameworks/support/v7/appcompat/res \
-                  $(LOCAL_PATH)/app/src/main/res
+LOCAL_RESOURCE_DIR := frameworks/support/v7/appcompat/res \
+                      $(addprefix $(LOCAL_PATH)/, $(RES_DIR))
 
+LOCAL_SRC_FILES := $(call all-java-files-under, app/src/main/java) $(call all-renderscript-files-under, app/src/main/java)
 LOCAL_SDK_VERSION := current
+
+LOCAL_MANIFEST_FILE := app/src/main/AndroidManifest.xml
 
 LOCAL_PACKAGE_NAME := Checkup
 
 LOCAL_CERTIFICATE := platform
+LOCAL_PRIVILEGED_MODULE := true
 
-LOCAL_PROGUARD_FLAG_FILES := app/proguard-rules.pro
-
+LOCAL_AAPT_FLAGS := --auto-add-overlay
+LOCAL_AAPT_FLAGS += --extra-packages android.support.v7.appcompat
 include $(BUILD_PACKAGE)
-
-#
-# Add prebuilt jar
-#
-include $(CLEAR_VARS)
-
-include $(BUILD_MULTI_PREBUILT)

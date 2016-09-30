@@ -9,7 +9,7 @@
         android:layout_width="fill_parent"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_height="wrap_content"
-        android:text="State: "/>
+        android:text="@string/state"/>
 
     <TextView
         android:id="@+id/microsd_size"
