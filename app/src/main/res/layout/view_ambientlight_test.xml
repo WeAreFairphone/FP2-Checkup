@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/not_triggered"
+        android:text="@string/not_available"
         android:id="@+id/ambient_light_state_text"
         android:layout_alignTop="@+id/textView"
         android:layout_toEndOf="@+id/textView" />

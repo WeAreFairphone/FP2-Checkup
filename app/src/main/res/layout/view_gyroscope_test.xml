@@ -7,29 +7,55 @@
     <TextView
         android:id="@+id/xAxis"
         android:textAppearance="?android:textAppearanceMedium"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:text="@string/accelerometer_x_axis"
+        android:text="@string/gyroscope_x_axis"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true" />
 
     <TextView
-        android:id="@+id/yAxis"
-        android:textAppearance="?android:textAppearanceMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/accelerometer_y_axis"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/x_value"
+        android:layout_alignBottom="@id/xAxis"
+        android:layout_toEndOf="@id/xAxis" />
+
+    <TextView
+        android:id="@+id/yAxis"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="@string/gyroscope_x_axis"
         android:layout_below="@id/xAxis"
         android:layout_alignParentLeft="true" />
 
     <TextView
-        android:id="@+id/zAxis"
-        android:textAppearance="?android:textAppearanceMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/accelerometer_z_axis"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/y_value"
+        android:layout_alignBottom="@id/yAxis"
+        android:layout_toEndOf="@id/yAxis" />
+
+    <TextView
+        android:id="@+id/zAxis"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="@string/gyroscope_x_axis"
         android:layout_below="@id/yAxis"
         android:layout_alignParentLeft="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/z_value"
+        android:layout_alignBottom="@id/zAxis"
+        android:layout_toEndOf="@id/zAxis" />
 
 </RelativeLayout>

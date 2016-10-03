@@ -85,6 +85,6 @@ public class AmbientLightTest extends Test {
     }
 
     private void onSensorChange(SensorEvent event) {
-        ((TextView) findViewById(R.id.ambient_light_state_text)).setText(" " + event.values[0] + " " + getResources().getString(R.string.illuminance_unit));
+        ((TextView) findViewById(R.id.ambient_light_state_text)).setText(event.values[0] + " " + getResources().getString(R.string.illuminance_unit));
     }
 }

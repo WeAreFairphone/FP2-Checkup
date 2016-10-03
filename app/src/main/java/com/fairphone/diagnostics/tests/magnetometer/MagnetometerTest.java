@@ -82,8 +82,8 @@ public class MagnetometerTest extends Test {
     }
 
     private void onSensorChange(SensorEvent event) {
-        ((TextView)findViewById(R.id.xAxis)).setText("X-axis: " + event.values[0]);
-        ((TextView)findViewById(R.id.yAxis)).setText("Y-axis: " + event.values[1]);
-        ((TextView)findViewById(R.id.zAxis)).setText("Z-axis: " + event.values[2]);
+        ((TextView)findViewById(R.id.x_value)).setText(event.values[0] + " " + getResources().getString(R.string.magnetometer_unit));
+        ((TextView)findViewById(R.id.y_value)).setText(event.values[1] + " " + getResources().getString(R.string.magnetometer_unit));
+        ((TextView)findViewById(R.id.z_value)).setText(event.values[2] + " " + getResources().getString(R.string.magnetometer_unit));
     }
 }

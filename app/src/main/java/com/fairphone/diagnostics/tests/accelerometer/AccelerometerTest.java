@@ -82,8 +82,8 @@ public class AccelerometerTest extends Test {
     }
 
     private void onSensorChange(SensorEvent event) {
-        ((TextView)findViewById(R.id.tvXaxis)).setText("X: " + event.values[0]);
-        ((TextView)findViewById(R.id.tvYaxis)).setText("Y: " + event.values[1]);
-        ((TextView)findViewById(R.id.tvZaxis)).setText("Z: " + event.values[2]);
+        ((TextView)findViewById(R.id.x_value)).setText(event.values[0] + " " + getResources().getString(R.string.acceleration_unit));
+        ((TextView)findViewById(R.id.y_value)).setText(event.values[1] + " " + getResources().getString(R.string.acceleration_unit));
+        ((TextView)findViewById(R.id.z_value)).setText(event.values[2] + " " + getResources().getString(R.string.acceleration_unit));
     }
 }
