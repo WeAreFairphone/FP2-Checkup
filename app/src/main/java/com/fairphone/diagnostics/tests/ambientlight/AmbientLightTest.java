@@ -5,7 +5,6 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -29,14 +28,33 @@ public class AmbientLightTest extends Test {
         super(context);
     }
 
-    private void onSensorChange(SensorEvent event) {
-        ((TextView) findViewById(R.id.proximity_sensor_state_text)).setText(String.valueOf(event.values[0]));
-        Log.i(TAG, "Callback called");
+    @Override
+    protected int getTestTitleID() {
+        return R.string.ambient_light_sensor_test_title;
+    }
+
+    @Override
+    protected int getTestDescriptionID() {
+        return R.string.ambient_light_sensor_test_description;
     }
 
     private void replaceView() {
-        mTestView = LayoutInflater.from(getContext()).inflate(R.layout.view_proximity_test, null);
+        mTestView = LayoutInflater.from(getContext()).inflate(R.layout.view_ambientlight_test, null);
         setTestView(mTestView);
+    }
+
+    @Override
+    protected void runTest() {
+        replaceView();
+        getLightSensor();
+        setupSensorListener();
+    }
+
+    @Override
+    protected void onCleanUp() {
+        mSensorManager.unregisterListener(mSensorEventListener);
+        mSensorEventListener = null;
+        super.onCleanUp();
     }
 
     private void getLightSensor() {
@@ -55,7 +73,6 @@ public class AmbientLightTest extends Test {
             public void onSensorChanged(SensorEvent event) {
                 if (event.sensor.getType() == Sensor.TYPE_LIGHT) {
                     onSensorChange(event);
-
                 }
             }
 
@@ -64,30 +81,10 @@ public class AmbientLightTest extends Test {
 
             }
         };
-        mSensorManager.registerListener(mSensorEventListener, mAmbientLightSensor, 3);
+        mSensorManager.registerListener(mSensorEventListener, mAmbientLightSensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
-    @Override
-    protected void runTest() {
-        replaceView();
-        getLightSensor();
-        setupSensorListener();
-    }
-
-    @Override
-    protected void onCleanUp() {
-        mSensorManager.unregisterListener(mSensorEventListener);
-        mSensorEventListener = null;
-        super.onCleanUp();
-    }
-
-    @Override
-    protected int getTestTitleID() {
-        return R.string.ambient_light_sensor_test_title;
-    }
-
-    @Override
-    protected int getTestDescriptionID() {
-        return R.string.ambient_light_sensor_test_description;
+    private void onSensorChange(SensorEvent event) {
+        ((TextView) findViewById(R.id.ambient_light_state_text)).setText(" " + event.values[0] + " " + getResources().getString(R.string.illuminance_unit));
     }
 }

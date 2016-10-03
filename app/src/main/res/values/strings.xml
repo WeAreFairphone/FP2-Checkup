@@ -28,6 +28,10 @@
     <string name="lcd_test_title">LCD</string>
     <string name="lcd_test_description">This test will display test patterns. Check if the pattern matches the description prompted before the pattern.</string>
 
+    <!-- Digitizer -->
+    <string name="digitizer_test_title">Digitizer</string>
+    <string name="digitizer_test_description">This test will display test patterns. Check if the pattern matches the description prompted before the pattern.</string>
+
 
     <!-- Battery module -->
     <string name="battery_module_name">Battery</string>
@@ -113,6 +117,10 @@
     <string name="buttons_test_title">Buttons</string>
     <string name="buttons_test_description">This test checks if the buttons are working properly. Press start to test!</string>
 
+    <!-- Wifi -->
+    <string name="wifi_test_title">Wifi</string>
+    <string name="wifi_test_description">This test checks if the wifi is working properly. Press start to test!</string>
+
 
     <!-- Receiver module -->
     <string name="receiver_module_name">Top module</string>
@@ -134,6 +142,8 @@
     <!-- Ambient light -->
     <string name="ambient_light_sensor_test_title">Ambient light sensor</string>
     <string name="ambient_light_sensor_test_description">This test checks if the ambient Light sensor is working properly. Perform this test in a bright environment and repeatably cover the top half of your Fairphone. The value read by the sensor should change from Light to Dark.</string>
+    <string name="illuminance">Illuminance: </string>
+    <string name="illuminance_unit">lx</string>
 
     <!-- Ear speaker -->
     <string name="ear_speaker_test_title">Ear speaker</string>
