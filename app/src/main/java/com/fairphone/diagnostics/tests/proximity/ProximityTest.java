@@ -5,7 +5,6 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -24,25 +23,38 @@ public class ProximityTest extends Test {
         super(context);
     }
 
-    private int mSensorChangeCount = 0;
     SensorEventListener mSensorEventListener;
     SensorManager mSensorManager;
     Sensor mProximitySensor;
     View mTestView;
 
-    private void onSensorChange(SensorEvent event) {
-        mSensorChangeCount++;
-        ((TextView) findViewById(R.id.proximity_sensor_state_text)).setText(event.values[0] < 0.1 ? "Triggered." : "Not Triggered.");
-        Log.i(TAG, "Callback called");
-        if (mSensorChangeCount > 5) {
-            onTestSuccess();
-            Log.i(TAG, "Proximity changed");
-        }
+    @Override
+    protected int getTestTitleID() {
+        return R.string.proximity_test_title;
+    }
+
+    @Override
+    protected int getTestDescriptionID() {
+        return R.string.proximity_test_description;
     }
 
     private void replaceView() {
         mTestView = LayoutInflater.from(getContext()).inflate(R.layout.view_proximity_test, null);
         setTestView(mTestView);
+    }
+
+    @Override
+    protected void runTest() {
+        replaceView();
+        getProximitySensor();
+        setupSensorListener();
+    }
+
+    @Override
+    protected void onCleanUp() {
+        mSensorManager.unregisterListener(mSensorEventListener);
+        mSensorEventListener = null;
+        super.onCleanUp();
     }
 
     private void getProximitySensor() {
@@ -61,7 +73,6 @@ public class ProximityTest extends Test {
             public void onSensorChanged(SensorEvent event) {
                 if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
                     onSensorChange(event);
-
                 }
             }
 
@@ -70,32 +81,11 @@ public class ProximityTest extends Test {
 
             }
         };
-        mSensorManager.registerListener(mSensorEventListener, mProximitySensor, 100);
+        mSensorManager.registerListener(mSensorEventListener, mProximitySensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
-    @Override
-    protected void runTest() {
-        replaceView();
-        getProximitySensor();
-        setupSensorListener();
-    }
-
-    @Override
-    protected void onCleanUp() {
-        mSensorChangeCount = 0;
-        mSensorManager.unregisterListener(mSensorEventListener);
-        mSensorEventListener = null;
-        super.onCleanUp();
-    }
-
-    @Override
-    protected int getTestTitleID() {
-        return R.string.proximity_test_title;
-    }
-
-    @Override
-    protected int getTestDescriptionID() {
-        return R.string.proximity_test_description;
+    private void onSensorChange(SensorEvent event) {
+        ((TextView) findViewById(R.id.proximity_sensor_state_text)).setText(event.values[0] < 0.1 ? "Triggered." : "Not Triggered.");
     }
 }
 
