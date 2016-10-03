@@ -126,9 +126,17 @@
     <string name="buttons_test_description">This test checks if the buttons are working properly. Press start to test!</string>
 
     <!-- Wifi -->
-    <string name="wifi_test_title">Wifi</string>
+    <string name="wifi_test_title">Wi-Fi</string>
     <string name="wifi_test_description">This test checks if the wifi is working properly. Press start to test!</string>
-
+    <string name="wifi_enabled">Enabled:&#160;</string>
+    <string name="wifi_ssid">SSID:&#160;</string>
+    <string name="wifi_bssid">BSSID:&#160;</string>
+    <string name="wifi_ip">IP address:&#160;</string>
+    <string name="wifi_linkspeed">Link speed:&#160;</string>
+    <string name="wifi_strength">Strength:&#160;</string>
+    <string name="wifi_strength_unit">dBm</string>
+    <string name="wifi_mac_address">MAC address:&#160;</string>
+    <string name="wifi_frequency">Frequency:&#160;</string>
 
     <!-- Receiver module -->
     <string name="receiver_module_name">Top module</string>

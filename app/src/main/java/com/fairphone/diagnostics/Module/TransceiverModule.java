@@ -10,6 +10,7 @@ import com.fairphone.diagnostics.tests.gps.GPSTest;
 import com.fairphone.diagnostics.tests.gyroscope.GyroscopeTest;
 import com.fairphone.diagnostics.tests.magnetometer.MagnetometerTest;
 import com.fairphone.diagnostics.tests.microsd.MicroSDTest;
+import com.fairphone.diagnostics.tests.wifi.WifiTest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,7 @@ public class TransceiverModule implements Module {
     @Override
     public List<Test> getTestList(Context context) {
         ArrayList<Test> tests = new ArrayList<>();
+        tests.add(new WifiTest(context));
 	    tests.add(new DualSimTest(context));
         tests.add(new MicroSDTest(context));
         tests.add(new AccelerometerTest(context));
