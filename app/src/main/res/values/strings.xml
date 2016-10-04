@@ -66,7 +66,7 @@
     <string name="transceiver_module_description">This module contains the modem, SIM-card slots and more.</string>
 
     <!-- SIM card slots -->
-    <string name="dualsim_test_title">Dual SIM</string>
+    <string name="dualsim_test_title">SIM card slots</string>
     <string name="dualsim_test_description">This test will display SIM card status. Check if the displayed information is correct.</string>
     <string name="dualsim_test_finish_question">Is the displayed SIM info correct?</string>
     <string name="dualsim_card_1">SIM 1</string>
@@ -124,6 +124,12 @@
     <!-- Buttons -->
     <string name="buttons_test_title">Buttons</string>
     <string name="buttons_test_description">This test checks if the buttons are working properly. Press start to test!</string>
+    <string name="buttons_volume_up">Volume up:&#160;</string>
+    <string name="buttons_volume_down">Volume down:&#160;</string>
+    <string name="buttons_camera">Camera:&#160;</string>
+    <string name="buttons_power">Power:&#160;</string>
+    <string name="buttons_pressed">Pressed</string>
+    <string name="buttons_unpressed">Unpressed</string>
 
     <!-- Wifi -->
     <string name="wifi_test_title">Wi-Fi</string>
@@ -137,6 +143,17 @@
     <string name="wifi_strength_unit">dBm</string>
     <string name="wifi_mac_address">MAC address:&#160;</string>
     <string name="wifi_frequency">Frequency:&#160;</string>
+
+    <!-- Modem -->
+    <string name="modem_test_title">Modem</string>
+    <string name="modem_test_description">This test checks if the modem is working properly. Press start to test!</string>
+    <string name="modem_sim1">SIM 1:&#160;</string>
+    <string name="modem_sim2">SIM 2:&#160;</string>
+    <string name="modem_network_operator">Network operator:&#160;</string>
+    <string name="modem_sim_operator">SIM operator:&#160;</string>
+    <string name="modem_network_type">Network type:&#160;</string>
+    <string name="modem_data_state">Data state:&#160;</string>
+    <string name="modem_data_activity">Data activity:&#160;</string>
 
     <!-- Receiver module -->
     <string name="receiver_module_name">Top module</string>

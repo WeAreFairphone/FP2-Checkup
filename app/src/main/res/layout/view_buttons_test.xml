@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/button_volume_up"
+        android:layout_width="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_height="wrap_content"
+        android:text="@string/buttons_volume_up"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/button_volume_up_value"
+        android:layout_alignBottom="@id/button_volume_up"
+        android:layout_toEndOf="@id/button_volume_up" />
+
+    <TextView
+        android:id="@+id/button_volume_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@+id/button_volume_up"
+        android:text="@string/buttons_volume_down"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/button_volume_down_value"
+        android:layout_alignBottom="@id/button_volume_down"
+        android:layout_toEndOf="@id/button_volume_down" />
+
+    <TextView
+        android:id="@+id/button_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@id/button_volume_down"
+        android:text="@string/buttons_camera"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/button_camera_value"
+        android:layout_alignBottom="@id/button_camera"
+        android:layout_toEndOf="@id/button_camera" />
+
+    <!--<TextView-->
+        <!--android:id="@+id/button_power"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+        <!--android:layout_below="@id/button_camera"-->
+        <!--android:text="@string/buttons_power"/>-->
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+        <!--android:text="@string/not_available"-->
+        <!--android:id="@+id/button_power_value"-->
+        <!--android:layout_alignBottom="@id/button_power"-->
+        <!--android:layout_toEndOf="@id/button_power" />-->
+
+</RelativeLayout>
