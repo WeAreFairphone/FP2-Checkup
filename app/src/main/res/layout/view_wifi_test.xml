@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvIsEnabled"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:text="@string/wifi_enabled" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/wifi_enabled_value"
+        android:layout_alignBottom="@id/tvIsEnabled"
+        android:layout_toEndOf="@id/tvIsEnabled" />
+
+    <TextView
+        android:id="@+id/tvSSID"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:text="@string/wifi_ssid"
+        android:layout_below="@id/tvIsEnabled"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/wifi_ssid_value"
+        android:layout_alignBottom="@id/tvSSID"
+        android:layout_toEndOf="@id/tvSSID" />
+
+    <TextView
+        android:id="@+id/tvBSSID"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:text="@string/wifi_bssid"
+        android:layout_below="@id/tvSSID"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/wifi_bssid_value"
+        android:layout_alignBottom="@id/tvBSSID"
+        android:layout_toEndOf="@id/tvBSSID" />
+
+    <TextView
+        android:id="@+id/tvMacAddress"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:text="@string/wifi_mac_address"
+        android:layout_below="@id/tvBSSID"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/wifi_mac_address_value"
+        android:layout_alignBottom="@id/tvMacAddress"
+        android:layout_toEndOf="@id/tvMacAddress" />
+
+    <TextView
+        android:id="@+id/tvLinkSpeed"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:text="@string/wifi_linkspeed"
+        android:layout_below="@id/tvMacAddress"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/wifi_linkspeed_value"
+        android:layout_alignBottom="@id/tvLinkSpeed"
+        android:layout_toEndOf="@id/tvLinkSpeed" />
+
+    <TextView
+        android:id="@+id/tvStrength"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:text="@string/wifi_strength"
+        android:layout_below="@id/tvLinkSpeed"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/wifi_strength_value"
+        android:layout_alignBottom="@id/tvStrength"
+        android:layout_toEndOf="@id/tvStrength" />
+
+    <TextView
+        android:id="@+id/tvIpAddress"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:text="@string/wifi_ip"
+        android:layout_below="@id/tvStrength"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/wifi_ipaddress_value"
+        android:layout_alignBottom="@id/tvIpAddress"
+        android:layout_toEndOf="@id/tvIpAddress" />
+
+
+
+    <TextView
+        android:id="@+id/tvWifiFrequency"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:text="@string/wifi_frequency"
+        android:layout_below="@id/tvIpAddress"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/wifi_frequency_value"
+        android:layout_alignBottom="@id/tvWifiFrequency"
+        android:layout_toEndOf="@id/tvWifiFrequency" />
+
+</RelativeLayout>
