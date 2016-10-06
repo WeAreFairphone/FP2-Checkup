@@ -39,7 +39,7 @@ public class HeadphoneJackTest extends Test {
     @Override
     protected void runTest() {
         replaceView();
-        registerHeadphoneJackMonitor();
+        setupHeadphoneJackMonitor();
     }
 
     @Override
@@ -54,7 +54,7 @@ public class HeadphoneJackTest extends Test {
         setTestView(mTestView);
     }
 
-    private void registerHeadphoneJackMonitor() {
+    private void setupHeadphoneJackMonitor() {
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_HEADSET_PLUG);
 
@@ -66,11 +66,11 @@ public class HeadphoneJackTest extends Test {
                     int state = intent.getIntExtra("state", -1);
                     switch (state) {
                         case 0:
-                            ((TextView) findViewById(R.id.headphone_jack_state_text)).setText("Unplugged.");
+                            ((TextView) findViewById(R.id.headphone_jack_state_text)).setText(getResources().getString(R.string.headphone_unplugged));
                             Log.i(TAG, "Headset is unplugged");
                             break;
                         case 1:
-                            ((TextView) findViewById(R.id.headphone_jack_state_text)).setText("Plugged.");
+                            ((TextView) findViewById(R.id.headphone_jack_state_text)).setText(getResources().getString(R.string.headphone_plugged));
                             Log.i(TAG, "Headset is plugged");
                             break;
                         default:
