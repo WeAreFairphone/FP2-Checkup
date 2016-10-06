@@ -6,23 +6,52 @@
 
     <TextView
         android:id="@+id/microsd_state"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_height="wrap_content"
-        android:text="@string/state"/>
+        android:text="@string/microsd_state"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/microsd_state_value"
+        android:layout_alignTop="@id/microsd_state"
+        android:layout_toEndOf="@id/microsd_state"/>
 
     <TextView
         android:id="@+id/microsd_size"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/microsd_total_size"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_below="@+id/microsd_state"/>
 
     <TextView
-        android:id="@+id/microsd_available"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/microsd_size_value"
+        android:layout_alignTop="@id/microsd_size"
+        android:layout_toEndOf="@id/microsd_size" />
+
+    <TextView
+        android:id="@+id/microsd_available"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/microsd_available_space"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_below="@+id/microsd_size"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/microsd_available_value"
+        android:layout_alignTop="@id/microsd_available"
+        android:layout_toEndOf="@id/microsd_available" />
 
 </RelativeLayout>

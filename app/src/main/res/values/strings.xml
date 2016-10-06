@@ -15,7 +15,7 @@
     <string name="tests_for">Tests for</string>
     <string name="test_name">TestName</string>
     <string name="not_available">N/A</string>
-    <string name="state">State: </string>
+    <string name="state">State:&#160;</string>
     <string name="not_triggered">Not triggered.</string>
     <string name="start_test">Start Test</string>
     <string name="lorum_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fringilla vitae ligula ac mollis. Nunc lobortis nunc sit amet risus scelerisque, non volutpat sem condimentum. Suspendisse potenti. Aliquam urna lectus, facilisis et mauris et, ultrices pharetra dui. Maecenas auctor massa tortor, quis ultrices orci tempor id. Fusce vel faucibus magna, viverra finibus velit. Curabitur tempus, nisi a fermentum dictum, velit metus dapibus orci, sit amet volutpat odio risus non lectus</string>
@@ -55,7 +55,7 @@
     <string name="battery_level_unit">%</string>
     <string name="battery_temperature">Temperature:&#160;</string>
     <string name="battery_temperature_unit">°C</string>
-    <string name="battery_voltage">Voltage&#160;</string>
+    <string name="battery_voltage">Voltage:&#160;</string>
     <string name="battery_voltage_unit">V</string>
     <string name="battery_health">Health:&#160;</string>
     <string name="battery_health_unkown">Unknown</string>
@@ -101,6 +101,11 @@
     <string name="microsd_test_title">microSD slot</string>
     <string name="microsd_test_description">This test checks if the microSD slot is working properly. Make sure a microSD card is plugged in and press start.</string>
     <string name="microsd_test_finish_question">You should see the SD card status. Is the info correct?</string>
+    <string name="microsd_state">State:&#160;</string>
+    <string name="microsd_total_size">Total size:&#160;</string>
+    <string name="microsd_available_space">Available space:&#160;</string>
+    <string name="microsd_mounted">Mounted</string>
+    <string name="microsd_unknown">Unknown</string>
 
     <!-- Accelerometer -->
     <string name="accelerometer_test_title">Accelerometer</string>
@@ -149,6 +154,7 @@
     <string name="buttons_power">Power:&#160;</string>
     <string name="buttons_pressed">Pressed</string>
     <string name="buttons_unpressed">Unpressed</string>
+    <string name="buttons_triggered">Triggered</string>
 
     <!-- Wifi -->
     <string name="wifi_test_title">Wi-Fi</string>
@@ -181,8 +187,9 @@
     <!-- Headphone jack -->
     <string name="headphone_jack_test_title">Headphone jack</string>
     <string name="headphone_jack_test_description">This test checks if the headphone jack is working properly. Press start and plug and unplug your headphones a few times.</string>
-    <string name="headphone_plugged">Plugged</string>
-    <string name="headphone_unplugged">Unplugged</string>
+    <string name="headphone_status">Plugged:&#160;</string>
+    <string name="headphone_plugged">Yes</string>
+    <string name="headphone_unplugged">No</string>
 
     <!-- LED -->
     <string name="led_test_title">LED</string>
@@ -192,6 +199,8 @@
     <!-- Proximity sensor -->
     <string name="proximity_test_title">Proximity sensor</string>
     <string name="proximity_test_description">This test tests the proximity sensor. Press start and cover the top half of the phone completely with your hand.</string>
+    <string name="proximity_state_triggered">Triggered</string>
+    <string name="proximity_state_not_triggered">Not triggered</string>
 
     <!-- Ambient light -->
     <string name="ambient_light_sensor_test_title">Ambient light sensor</string>
@@ -230,4 +239,7 @@
     <!-- USB port -->
     <string name="usb_port_test_title">USB port</string>
     <string name="usb_port_test_description">This test checks if the USB port is working. Press start and plug and unplug the USB cable a few times.</string>
+    <string name="usb_port_plugged">Plugged</string>
+    <string name="usb_port_unplugged">Unplugged</string>
+
 </resources>
