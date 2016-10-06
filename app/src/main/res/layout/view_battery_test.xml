@@ -14,13 +14,49 @@
         android:layout_alignParentTop="true" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/battery_status_value"
+        android:layout_alignBottom="@id/tvBatteryStatus"
+        android:layout_toEndOf="@id/tvBatteryStatus" />
+
+    <TextView
+        android:id="@+id/tvBatteryPlugged"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/battery_plugged"
+        android:layout_below="@id/tvBatteryStatus"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/battery_plugged_value"
+        android:layout_alignBottom="@id/tvBatteryPlugged"
+        android:layout_toEndOf="@id/tvBatteryPlugged" />
+
+    <TextView
         android:id="@+id/tvBatteryLevel"
         android:textAppearance="?android:textAppearanceMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/battery_level"
-        android:layout_below="@id/tvBatteryStatus"
+        android:layout_below="@id/tvBatteryPlugged"
         android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/battery_level_value"
+        android:layout_alignBottom="@id/tvBatteryLevel"
+        android:layout_toEndOf="@id/tvBatteryLevel" />
 
     <TextView
         android:id="@+id/tvBatteryTemperature"
@@ -32,6 +68,15 @@
         android:layout_alignParentLeft="true" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/battery_temperature_value"
+        android:layout_alignBottom="@id/tvBatteryTemperature"
+        android:layout_toEndOf="@id/tvBatteryTemperature" />
+
+    <TextView
         android:id="@+id/tvBatteryVolt"
         android:textAppearance="?android:textAppearanceMedium"
         android:layout_width="wrap_content"
@@ -39,6 +84,15 @@
         android:text="@string/battery_voltage"
         android:layout_below="@id/tvBatteryTemperature"
         android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/battery_voltage_value"
+        android:layout_alignBottom="@id/tvBatteryVolt"
+        android:layout_toEndOf="@id/tvBatteryVolt" />
 
     <TextView
         android:id="@+id/tvBatteryHealth"
@@ -49,5 +103,13 @@
         android:layout_below="@id/tvBatteryVolt"
         android:layout_alignParentLeft="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/battery_health_value"
+        android:layout_alignBottom="@id/tvBatteryHealth"
+        android:layout_toEndOf="@id/tvBatteryHealth" />
 
 </RelativeLayout>

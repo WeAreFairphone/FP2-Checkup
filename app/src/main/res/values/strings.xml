@@ -41,11 +41,30 @@
     <string name="battery_test_title">Battery</string>
     <string name="battery_test_description">This tests checks if the battery is working. Press start to view battery stats.</string>
     <string name="battery_test_finish_question">Battery stats are displayed. Do they look OK?</string>
-    <string name="battery_status">"Status: "</string>
-    <string name="battery_level">"Level: "</string>
-    <string name="battery_temperature">"Temperature: "</string>
-    <string name="battery_voltage">"Voltage: "</string>
-    <string name="battery_health">"Health: "</string>
+    <string name="battery_status">Status:&#160;</string>
+    <string name="battery_status_unknown">Unknown</string>
+    <string name="battery_status_charging">Charging</string>
+    <string name="battery_status_discharging">Discharging</string>
+    <string name="battery_status_not_charging">Not charging</string>
+    <string name="battery_status_full">Unknown</string>
+    <string name="battery_plugged">Plugged:&#160;</string>
+    <string name="battery_plugged_ac">AC</string>
+    <string name="battery_plugged_usb">USB</string>
+    <string name="battery_plugged_wireless">Wireless</string>
+    <string name="battery_level">Level:&#160;</string>
+    <string name="battery_level_unit">%</string>
+    <string name="battery_temperature">Temperature:&#160;</string>
+    <string name="battery_temperature_unit">°C</string>
+    <string name="battery_voltage">Voltage&#160;</string>
+    <string name="battery_voltage_unit">V</string>
+    <string name="battery_health">Health:&#160;</string>
+    <string name="battery_health_unkown">Unknown</string>
+    <string name="battery_health_good">Good</string>
+    <string name="battery_health_overheat">Overheat</string>
+    <string name="battery_health_dead">Dead</string>
+    <string name="battery_health_over_voltage">OVer voltage</string>
+    <string name="battery_health_unspecified_failure">Unspecified failure</string>
+    <string name="battery_health_cold">Cold</string>
 
     <!-- Camera module -->
     <string name="camera_module_name">Camera module</string>
@@ -112,7 +131,7 @@
     <!-- GPS -->
     <string name="gps_test_title">GPS</string>
     <string name="gps_test_description">This test checks if GPS can determine your location. Press start to test!</string>
-    <string name="searching">Satellites: Searching...</string>
+    <string name="searching">Searching...</string>
     <string name="satellites">Satellites: </string>
     <string name="latitude">Latitude: </string>
     <string name="longitude">Longitude: </string>
@@ -162,6 +181,8 @@
     <!-- Headphone jack -->
     <string name="headphone_jack_test_title">Headphone jack</string>
     <string name="headphone_jack_test_description">This test checks if the headphone jack is working properly. Press start and plug and unplug your headphones a few times.</string>
+    <string name="headphone_plugged">Plugged</string>
+    <string name="headphone_unplugged">Unplugged</string>
 
     <!-- LED -->
     <string name="led_test_title">LED</string>
