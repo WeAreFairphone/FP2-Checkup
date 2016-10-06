@@ -1,7 +1,6 @@
 package com.fairphone.diagnostics.tests.buttons;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,7 +46,6 @@ public class ButtonsTest extends Test {
 
     @Override
     protected void onCleanUp() {
-
         super.onCleanUp();
     }
 
@@ -65,12 +63,10 @@ public class ButtonsTest extends Test {
                             ((TextView)findViewById(R.id.button_volume_down_value)).setText(getResources().getString(R.string.buttons_pressed));
                             break;
                         case KeyEvent.KEYCODE_CAMERA:
-                            Log.i(TAG, "Camera pressed");
-                            ((TextView)findViewById(R.id.button_camera_value)).setText(getResources().getString(R.string.buttons_pressed));
+                            ((TextView)findViewById(R.id.button_camera_value)).setText(getResources().getString(R.string.buttons_triggered));
                             break;
-//                        case KeyEvent.KEYCODE_POWER:
-//                            ((TextView)findViewById(R.id.button_power_value)).setText(getResources().getString(R.string.buttons_pressed));
-//                            break;
+                        default:
+                            return false;
                     }
                 } else if (action == KeyEvent.ACTION_UP) {
                     switch (keyCode) {
@@ -80,13 +76,8 @@ public class ButtonsTest extends Test {
                         case KeyEvent.KEYCODE_VOLUME_DOWN:
                             ((TextView)findViewById(R.id.button_volume_down_value)).setText(getResources().getString(R.string.buttons_unpressed));
                             break;
-                        case KeyEvent.KEYCODE_CAMERA:
-                            Log.i(TAG, "Camera unpressed");
-                            ((TextView)findViewById(R.id.button_camera_value)).setText(getResources().getString(R.string.buttons_unpressed));
-                            break;
-//                        case KeyEvent.KEYCODE_POWER:
-//                            ((TextView)findViewById(R.id.button_power_value)).setText(getResources().getString(R.string.buttons_unpressed));
-//                            break;
+                        default:
+                            return false;
                     }
                 }
                 return true;

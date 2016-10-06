@@ -18,24 +18,6 @@ public class VibrationMotorTest extends Test {
     }
 
     @Override
-    protected void runTest() {
-        vibratorService.vibrate(new long[]{128, 256, 512, 1024, 512, 256, 128}, 1);
-        //askIfSuccess(getContext().getString(R.string.vibrator_test_finish_question));
-    }
-
-    @Override
-    protected void onCleanUp() {
-        vibratorService.cancel();
-        super.onCleanUp();
-    }
-
-
-    @Override
-    protected void onPrepare() {
-        vibratorService = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
-    }
-
-    @Override
     protected int getTestTitleID() {
         return R.string.vibrator_test_title;
     }
@@ -43,5 +25,21 @@ public class VibrationMotorTest extends Test {
     @Override
     protected int getTestDescriptionID() {
         return R.string.vibrator_test_description;
+    }
+
+    @Override
+    protected void onPrepare() {
+        vibratorService = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
+    }
+
+    @Override
+    protected void runTest() {
+        vibratorService.vibrate(new long[]{128, 256, 512, 1024, 512, 256, 128}, 1);
+    }
+
+    @Override
+    protected void onCleanUp() {
+        vibratorService.cancel();
+        super.onCleanUp();
     }
 }

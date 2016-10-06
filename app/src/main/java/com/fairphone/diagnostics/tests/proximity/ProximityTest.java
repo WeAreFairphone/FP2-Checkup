@@ -85,7 +85,7 @@ public class ProximityTest extends Test {
     }
 
     private void onSensorChange(SensorEvent event) {
-        ((TextView) findViewById(R.id.proximity_sensor_state_text)).setText(event.values[0] < 0.1 ? "Triggered." : "Not Triggered.");
+        ((TextView) findViewById(R.id.proximity_sensor_state_text)).setText(event.values[0] < 0.1 ? getResources().getString(R.string.proximity_state_triggered) : getResources().getString(R.string.proximity_state_not_triggered));
     }
 }
 

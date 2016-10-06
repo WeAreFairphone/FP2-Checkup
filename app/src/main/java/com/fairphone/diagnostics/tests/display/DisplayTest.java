@@ -27,6 +27,16 @@ public class DisplayTest extends Test {
         super(context);
     }
 
+    @Override
+    protected int getTestTitleID() {
+        return R.string.lcd_test_title;
+    }
+
+    @Override
+    protected int getTestDescriptionID() {
+        return R.string.lcd_test_description;
+    }
+
     protected void saveParentPadding() {
         parentPaddingLeft = mParentLayout.getPaddingLeft();
         parentPaddingTop = mParentLayout.getPaddingTop();
@@ -37,7 +47,6 @@ public class DisplayTest extends Test {
     protected void removeParentPaddingSave() {
         saveParentPadding();
         mParentLayout.setPadding(0, 0, 0, 0);
-
     }
 
     protected void restoreParentPadding() {
@@ -115,15 +124,5 @@ public class DisplayTest extends Test {
     @Override
     protected void onPrepare() {
         mParentLayout = (RelativeLayout) findViewById(R.id.genericeTesterRelativeLayout);
-    }
-
-    @Override
-    protected int getTestTitleID() {
-        return R.string.lcd_test_title;
-    }
-
-    @Override
-    protected int getTestDescriptionID() {
-        return R.string.lcd_test_description;
     }
 }

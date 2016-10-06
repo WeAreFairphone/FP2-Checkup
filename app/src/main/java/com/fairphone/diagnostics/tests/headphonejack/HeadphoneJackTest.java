@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -67,14 +66,10 @@ public class HeadphoneJackTest extends Test {
                     switch (state) {
                         case 0:
                             ((TextView) findViewById(R.id.headphone_jack_state_text)).setText(getResources().getString(R.string.headphone_unplugged));
-                            Log.i(TAG, "Headset is unplugged");
                             break;
                         case 1:
                             ((TextView) findViewById(R.id.headphone_jack_state_text)).setText(getResources().getString(R.string.headphone_plugged));
-                            Log.i(TAG, "Headset is plugged");
                             break;
-                        default:
-                            Log.i(TAG, "I have no idea what the headset state is");
                     }
                 }
             }
