@@ -27,7 +27,7 @@
         android:textAppearance="?android:textAppearanceMedium"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:text="@string/gyroscope_x_axis"
+        android:text="@string/gyroscope_y_axis"
         android:layout_below="@id/xAxis"
         android:layout_alignParentLeft="true" />
 
@@ -45,7 +45,7 @@
         android:textAppearance="?android:textAppearanceMedium"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:text="@string/gyroscope_x_axis"
+        android:text="@string/gyroscope_z_axis"
         android:layout_below="@id/yAxis"
         android:layout_alignParentLeft="true" />
 
