@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.fairphone.diagnostics.R;
 import com.fairphone.diagnostics.tests.Test;
+import com.fairphone.diagnostics.tests.digitizer.DigitizerTest;
 import com.fairphone.diagnostics.tests.display.DisplayTest;
 
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ public class DisplayModule implements Module {
     public List<Test> getTestList(Context context) {
         List<Test> tests = new ArrayList<>();
         tests.add(new DisplayTest(context));
+        tests.add(new DigitizerTest(context));
         return tests;
     }
 }
