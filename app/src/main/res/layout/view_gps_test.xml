@@ -9,9 +9,18 @@
         android:textAppearance="?android:textAppearanceMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/searching"
+        android:text="@string/satellites"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/searching"
+        android:id="@+id/gps_satellites_value"
+        android:layout_alignBottom="@id/satellites"
+        android:layout_toEndOf="@id/satellites" />
 
     <TextView
         android:id="@+id/accuracy"
@@ -23,6 +32,15 @@
         android:layout_alignParentLeft="true" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/gps_accuracy_value"
+        android:layout_alignBottom="@id/accuracy"
+        android:layout_toEndOf="@id/accuracy" />
+
+    <TextView
         android:id="@+id/latitude"
         android:textAppearance="?android:textAppearanceMedium"
         android:layout_width="wrap_content"
@@ -30,6 +48,15 @@
         android:text="@string/latitude"
         android:layout_below="@id/accuracy"
         android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/gps_latitude_value"
+        android:layout_alignBottom="@id/latitude"
+        android:layout_toEndOf="@id/latitude" />
 
     <TextView
         android:id="@+id/longitude"
@@ -41,6 +68,15 @@
         android:layout_alignParentLeft="true" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/gps_longitude_value"
+        android:layout_alignBottom="@id/longitude"
+        android:layout_toEndOf="@id/longitude" />
+
+    <TextView
         android:id="@+id/altitude"
         android:textAppearance="?android:textAppearanceMedium"
         android:layout_width="wrap_content"
@@ -48,6 +84,15 @@
         android:text="@string/altitude"
         android:layout_below="@id/longitude"
         android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/gps_altitude_value"
+        android:layout_alignBottom="@id/altitude"
+        android:layout_toEndOf="@id/altitude" />
 
     <TextView
         android:id="@+id/bearing"
@@ -59,12 +104,30 @@
         android:layout_alignParentLeft="true" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/gps_bearing_value"
+        android:layout_alignBottom="@id/bearing"
+        android:layout_toEndOf="@id/bearing" />
+
+    <TextView
         android:id="@+id/speed"
         android:textAppearance="?android:textAppearanceMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/bearing"
+        android:text="@string/speed"
         android:layout_below="@id/bearing"
         android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/gps_speed_value"
+        android:layout_alignBottom="@id/speed"
+        android:layout_toEndOf="@id/speed" />
 
 </RelativeLayout>

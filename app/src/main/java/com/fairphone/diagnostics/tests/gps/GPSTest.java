@@ -88,13 +88,13 @@ public class GPSTest extends Test {
     }
 
     private void makeUseOfNewLocation(Location location) {
-        ((TextView)findViewById(R.id.satellites)).setText("Satellites: "+location.getExtras().getInt("satellites", -1));
-        ((TextView)findViewById(R.id.accuracy)).setText("Accuracy: " + location.getAccuracy());
-        ((TextView)findViewById(R.id.latitude)).setText("Latitude: " + location.getLatitude());
-        ((TextView)findViewById(R.id.longitude)).setText("Longitude: " + location.getLongitude());
-        ((TextView)findViewById(R.id.altitude)).setText("Altitude: " + location.getAltitude());
-        ((TextView)findViewById(R.id.bearing)).setText("Bearing: " + location.getBearing());
-        ((TextView)findViewById(R.id.speed)).setText("Speed: " + location.getSpeed());
+        ((TextView)findViewById(R.id.gps_satellites_value)).setText(""+location.getExtras().getInt("satellites", -1));
+        ((TextView)findViewById(R.id.gps_accuracy_value)).setText(""+location.getAccuracy());
+        ((TextView)findViewById(R.id.gps_latitude_value)).setText(""+location.getLatitude());
+        ((TextView)findViewById(R.id.gps_longitude_value)).setText(""+location.getLongitude());
+        ((TextView)findViewById(R.id.gps_altitude_value)).setText(""+location.getAltitude());
+        ((TextView)findViewById(R.id.gps_bearing_value)).setText(""+location.getBearing());
+        ((TextView)findViewById(R.id.gps_speed_value)).setText(""+location.getSpeed());
     }
 
     private void buildAlertMessageNoGps() {
