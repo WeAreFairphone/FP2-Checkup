@@ -179,6 +179,10 @@
     <string name="modem_network_type">Network type:&#160;</string>
     <string name="modem_data_state">Data state:&#160;</string>
     <string name="modem_data_activity">Data activity:&#160;</string>
+    <string name="modem_mnc">MNC:&#160;</string>
+    <string name="modem_mcc">MCC:&#160;</string>
+    <string name="modem_imei">IMEI:&#160;</string>
+    <string name="modem_countrycode">Country code:&#160;</string>
 
     <!-- Receiver module -->
     <string name="receiver_module_name">Top module</string>
