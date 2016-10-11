@@ -17,7 +17,7 @@ import com.fairphone.diagnostics.tests.camera.CameraTest;
 import com.fairphone.diagnostics.tests.camera.FrontCameraTest;
 import com.fairphone.diagnostics.tests.display.DisplayTest;
 import com.fairphone.diagnostics.tests.proximity.ProximityTest;
-import com.fairphone.diagnostics.tests.vibrationmotor.VibrationMotorTest;
+import com.fairphone.diagnostics.tests.vibrator.VibratorTest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +64,7 @@ public class TestChooser extends ActionBarActivity implements TestListAdapter.On
         tests.add(new DisplayTest(this));
         tests.add(new ProximityTest(this));
         tests.add(new AmbientLightTest(this));
-        tests.add(new VibrationMotorTest(this));
+        tests.add(new VibratorTest(this));
         tests.add(new CameraTest(this));
         tests.add(new FrontCameraTest(this));
         mTests = tests;
