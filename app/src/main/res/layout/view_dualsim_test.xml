@@ -4,64 +4,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TableLayout
-        android:id="@+id/simTable"
-        android:layout_width="fill_parent"
+    <TextView
+        android:id="@+id/tvSIM1"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:stretchColumns="*"
-        android:layout_centerHorizontal="true"
-        android:padding="25dip"
-        android:visibility="visible">
-
-        <TableRow>
-            <TextView
-                android:padding="3dip" />
-            <TextView
-                android:text="@string/dualsim_card_1"
-                android:textStyle="bold"
-                android:padding="3dip" />
-            <TextView
-                android:text="@string/dualsim_card_2"
-                android:textStyle="bold"
-                android:padding="3dip" />
-        </TableRow>
-
-        <TableRow>
-            <TextView
-                android:text="@string/dualsim_card_presence"
-                android:textStyle="bold"
-                android:padding="3dip"/>
-            <TextView
-                android:id="@+id/sim1Presence"
-                android:text="@string/dualsim_card_present_na"
-                android:padding="3dip" />
-            <TextView
-                android:id="@+id/sim2Presence"
-                android:text="@string/dualsim_card_present_na"
-                android:padding="3dip" />
-        </TableRow>
-
-        <TableRow>
-            <TextView
-                android:text="@string/dualsim_card_carrier"
-                android:textStyle="bold"
-                android:padding="3dip"/>
-            <TextView
-                android:id="@+id/sim1Carrier"
-                android:padding="3dip" />
-            <TextView
-                android:id="@+id/sim2Carrier"
-                android:padding="3dip" />
-        </TableRow>
-
-    </TableLayout>
+        android:text="@string/dualsim_card_1" />
 
     <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/dualSimSettingsText"
-        android:layout_below="@id/simTable"
-        android:text="@string/dualsim_settings_text"
-        android:padding="3dip" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/dualsim_card_1_state"
+        android:layout_alignTop="@id/tvSIM1"
+        android:layout_toEndOf="@id/tvSIM1" />
+
+    <TextView
+        android:id="@+id/tvSIM2"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dualsim_card_1_state"
+        android:text="@string/dualsim_card_2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/not_available"
+        android:id="@+id/dualsim_card_2_state"
+        android:layout_alignTop="@id/tvSIM2"
+        android:layout_toEndOf="@id/tvSIM2" />
 
 </RelativeLayout>

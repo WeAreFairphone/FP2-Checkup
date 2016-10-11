@@ -1,8 +1,7 @@
 package com.fairphone.diagnostics.tests.dualsim;
 
 import android.content.Context;
-import android.telephony.SubscriptionInfo;
-import android.telephony.SubscriptionManager;
+import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -10,12 +9,14 @@ import android.widget.TextView;
 import com.fairphone.diagnostics.R;
 import com.fairphone.diagnostics.tests.Test;
 
-import java.util.List;
-
 /**
  * Created by maarten on 4-12-15.
  */
 public class DualSimTest extends Test {
+
+    private static final String TAG = DualSimTest.class.getSimpleName();
+
+    View mTestView;
 
     public DualSimTest(Context context) {
         super(context);
@@ -32,68 +33,59 @@ public class DualSimTest extends Test {
     }
 
     protected void replaceView() {
-        View mTestView = LayoutInflater.from(getContext()).inflate(R.layout.view_dualsim_test, null);
+        mTestView = LayoutInflater.from(getContext()).inflate(R.layout.view_dualsim_test, null);
         setTestView(mTestView);
     }
 
     @Override
     protected void runTest() {
         replaceView();
-
         showSIMinfo();
-
-        //askIfSuccess(getResources().getString(R.string.dualsim_test_finish_question));
     }
 
     private void showSIMinfo() {
-        SubscriptionManager mSubscriptionManager = SubscriptionManager.from(getContext());
-        List<SubscriptionInfo> mSubInfoList = mSubscriptionManager.getActiveSubscriptionInfoList();
+        TelephonyManager telephonyManager = (TelephonyManager)getContext().getSystemService(Context.TELEPHONY_SERVICE);
 
-        if(mSubInfoList != null) {
-            // there seems to be at least one card present, let's find out
+        int simState0 = telephonyManager.getSimState(0);
+        int simState1 = telephonyManager.getSimState(1);
 
-            TextView sim1Presence = (TextView)findViewById(R.id.sim1Presence);
-            TextView sim2Presence = (TextView)findViewById(R.id.sim2Presence);
+        ((TextView)findViewById(R.id.dualsim_card_1_state)).setText(getSimStateString(simState0));
+        ((TextView)findViewById(R.id.dualsim_card_2_state)).setText(getSimStateString(simState1));
+    }
 
-            TextView sim1Carrier = (TextView)findViewById(R.id.sim1Carrier);
-            TextView sim2Carrier = (TextView)findViewById(R.id.sim2Carrier);
-
-            if(mSubInfoList.size() == 1)  {                                                         // there's one card present
-                SubscriptionInfo subscriptionInfo = mSubInfoList.get(0);
-
-                if(subscriptionInfo.getSimSlotIndex() == 0) {                                       // the card is in the first slot
-                    sim1Presence.setText(R.string.dualsim_card_present_yes);
-                    sim1Carrier.setText(subscriptionInfo.getCarrierName());
-                    sim2Presence.setText(R.string.dualsim_card_present_no);
-                } else if(subscriptionInfo.getSimSlotIndex() == 1) {                                // the card is in the second slot
-                    sim1Presence.setText(R.string.dualsim_card_present_no);
-                    sim2Presence.setText(R.string.dualsim_card_present_yes);
-                    sim2Carrier.setText(subscriptionInfo.getCarrierName());
-                }
-            }
-
-            if(mSubInfoList.size() == 2)  {                                                         // there's two cards present
-
-                SubscriptionInfo subscriptionInfo1 = mSubInfoList.get(0);
-
-                if(subscriptionInfo1.getSimSlotIndex() == 0) {                                       // the card is in the first slot
-                    sim1Presence.setText(R.string.dualsim_card_present_yes);
-                    sim1Carrier.setText(subscriptionInfo1.getCarrierName());
-                } else if(subscriptionInfo1.getSimSlotIndex() == 1) {                                // the card is in the second slot
-                    sim2Presence.setText(R.string.dualsim_card_present_yes);
-                    sim2Carrier.setText(subscriptionInfo1.getCarrierName());
-                }
-
-                SubscriptionInfo subscriptionInfo2 = mSubInfoList.get(1);
-
-                if(subscriptionInfo2.getSimSlotIndex() == 0) {                                       // the card is in the first slot
-                    sim1Presence.setText(R.string.dualsim_card_present_yes);
-                    sim1Carrier.setText(subscriptionInfo2.getCarrierName());
-                } else if(subscriptionInfo2.getSimSlotIndex() == 1) {                                // the card is in the second slot
-                    sim2Presence.setText(R.string.dualsim_card_present_yes);
-                    sim2Carrier.setText(subscriptionInfo2.getCarrierName());
-                }
-            }
+    private String getSimStateString(int simState) {
+        String simStateString = getResources().getString(R.string.not_available);
+        switch (simState) {
+            case TelephonyManager.SIM_STATE_UNKNOWN:
+                simStateString = getResources().getString(R.string.sim_state_unkown);
+                break;
+            case TelephonyManager.SIM_STATE_ABSENT:
+                simStateString = getResources().getString(R.string.sim_state_absent);
+                break;
+            case TelephonyManager.SIM_STATE_PIN_REQUIRED:
+                simStateString = getResources().getString(R.string.sim_state_pin_required);
+                break;
+            case TelephonyManager.SIM_STATE_PUK_REQUIRED:
+                simStateString = getResources().getString(R.string.sim_state_puk_required);
+                break;
+            case TelephonyManager.SIM_STATE_NETWORK_LOCKED:
+                simStateString = getResources().getString(R.string.sim_state_network_locked);
+                break;
+            case TelephonyManager.SIM_STATE_READY:
+                simStateString = getResources().getString(R.string.sim_state_ready);
+                break;
+            case TelephonyManager.SIM_STATE_NOT_READY:
+                simStateString = getResources().getString(R.string.sim_state_not_ready);
+                break;
+            case TelephonyManager.SIM_STATE_PERM_DISABLED:
+                simStateString = getResources().getString(R.string.sim_state_perm_disabled);
+                break;
+            case TelephonyManager.SIM_STATE_CARD_IO_ERROR:
+                simStateString = getResources().getString(R.string.sim_state_card_io_error);
+                break;
+            default:
+                break;
         }
+        return simStateString;
     }
 }
