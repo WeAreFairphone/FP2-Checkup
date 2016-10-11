@@ -3,6 +3,7 @@ package com.fairphone.diagnostics.tests;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -18,6 +19,7 @@ public abstract class Test extends RelativeLayout {
 
     private boolean hasRun;
     private boolean passed;
+    private boolean isRunning;
 
     public boolean hasRun() {
         return hasRun;
@@ -41,6 +43,7 @@ public abstract class Test extends RelativeLayout {
         description.setText(getTestDescription());
         mButton = (Button) findViewById(R.id.startButton);
         configureStartButton();
+        configureBackButton();
         onPrepare();
     }
 
@@ -64,6 +67,21 @@ public abstract class Test extends RelativeLayout {
         mButton.setText("Cancel Test");
     }
 
+    private void configureBackButton() {
+        OnKeyListener onKeyListener = new OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if(keyCode == KeyEvent.KEYCODE_BACK && isRunning) {
+                    onTestFailure();
+                    return true;
+                }
+                return false;
+            }
+        };
+        setFocusableInTouchMode(true);
+        requestFocus();
+        setOnKeyListener(onKeyListener);
+    }
 
     protected void askIfSuccess(String message) {
         AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
@@ -109,6 +127,7 @@ public abstract class Test extends RelativeLayout {
     }
 
     protected void cleanUp() {
+        isRunning = false;
         hasRun = true;
         if (mOldView != null) {
             setTestView(mOldView);
@@ -120,6 +139,7 @@ public abstract class Test extends RelativeLayout {
     private void startTest() {
         mButton.setText("Start Test");
         configureCancleButton();
+        isRunning = true;
         runTest();
     }
 
