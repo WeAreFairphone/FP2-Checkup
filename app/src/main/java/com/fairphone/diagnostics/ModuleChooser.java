@@ -2,7 +2,7 @@ package com.fairphone.diagnostics;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
 import com.fairphone.diagnostics.Module.BatteryModule;
@@ -16,7 +16,7 @@ import com.fairphone.diagnostics.Module.TransceiverModule;
 
 import java.util.ArrayList;
 
-public class ModuleChooser extends ActionBarActivity implements ModuleListAdapter.OnClickListener {
+public class ModuleChooser extends AppCompatActivity implements ModuleListAdapter.OnClickListener {
     ListView mListView;
 
     @Override
