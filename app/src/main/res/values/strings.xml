@@ -96,7 +96,7 @@
     <string name="dualsim_card_carrier">Carrier</string>
     <string name="dualsim_settings_text">Go to \'Settings -> SIM cards\' to change your SIM card setttings.</string>
 
-    <string name="sim_state_unkown">Unkown</string>
+    <string name="sim_state_unkown">Unknown</string>
     <string name="sim_state_absent">no SIM card is available in the device</string>
     <string name="sim_state_pin_required">Locked: requires the user\'s SIM PIN to unlock</string>
     <string name="sim_state_puk_required">Locked: requires the user\'s SIM PUK to unlock</string>
@@ -145,7 +145,7 @@
     <!-- GPS -->
     <string name="gps_test_title">GPS</string>
     <string name="gps_test_description">This test checks if GPS can determine your location. Press start to test!</string>
-    <string name="searching">Searching...</string>
+    <string name="searching">Searching…</string>
     <string name="satellites">Satellites: </string>
     <string name="latitude">Latitude: </string>
     <string name="longitude">Longitude: </string>
