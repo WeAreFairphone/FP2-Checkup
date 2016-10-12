@@ -171,12 +171,25 @@
     <string name="wifi_enabled">Enabled:&#160;</string>
     <string name="wifi_ssid">SSID:&#160;</string>
     <string name="wifi_bssid">BSSID:&#160;</string>
-    <string name="wifi_ip">IP address:&#160;</string>
     <string name="wifi_linkspeed">Link speed:&#160;</string>
     <string name="wifi_strength">Strength:&#160;</string>
     <string name="wifi_strength_unit">dBm</string>
     <string name="wifi_mac_address">MAC address:&#160;</string>
     <string name="wifi_frequency">Frequency:&#160;</string>
+    <string name="wifi_encryption">Encryption:&#160;</string>
+    <string name="WPA_PSK">WPA PSK</string>
+    <string name="WPA2_PSK">WPA PSK</string>
+    <string name="WPA_EAP">WPA EAP</string>
+    <string name="IEEE8021X">IEEE8021X</string>
+    <string name="NONE">NONE</string>
+    <string name="wifi_ip">IP address:&#160;</string>
+    <string name="wifi_netmask">Netmask:&#160;</string>
+    <string name="wifi_gateway">Gateway:&#160;</string>
+    <string name="wifi_dhcp_server">DHCP-server:&#160;</string>
+    <string name="wifi_dns_1">DNS 1:&#160;</string>
+    <string name="wifi_dns_2">DNS 2:&#160;</string>
+    <string name="wifi_dhcp_lease">DHCP lease:&#160;</string>
+    <string name="wifi_hidden_ssid">Hidden?:&#160;</string>
 
     <!-- Modem -->
     <string name="modem_test_title">Modem</string>
