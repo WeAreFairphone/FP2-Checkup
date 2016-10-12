@@ -2,6 +2,8 @@ package com.fairphone.diagnostics.tests.display;
 
 
 import android.content.Context;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -17,6 +19,7 @@ public class DisplayTest extends Test {
 
     private ViewFlipper mViewFlipper;
     private RelativeLayout mParentLayout;
+    private ActionBar actionBar;
 
     private int parentPaddingLeft;
     private int parentPaddingTop;
@@ -71,6 +74,9 @@ public class DisplayTest extends Test {
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         removeParentPaddingSave();
+        AppCompatActivity activity = (AppCompatActivity) getContext();
+        actionBar = activity.getSupportActionBar();
+        actionBar.hide();
         hideStartButton();
     }
 
@@ -116,6 +122,7 @@ public class DisplayTest extends Test {
     @Override
     protected void onCleanUp() {
         restoreParentPadding();
+        actionBar.show();
         showStartButton();
         mParentLayout.removeView(mViewFlipper);
         super.onCleanUp();
