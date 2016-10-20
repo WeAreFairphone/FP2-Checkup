@@ -8,7 +8,6 @@ import android.media.AudioRecord;
 import android.media.AudioTrack;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
 import com.fairphone.diagnostics.R;
 import com.fairphone.diagnostics.tests.Test;
@@ -16,21 +15,17 @@ import com.fairphone.diagnostics.tests.Test;
 /**
  * Created by maarten on 19/09/16.
  */
-public class MicrophoneTest extends Test {
+public class SecondaryMicTest extends Test {
 
-    private static final String TAG = MicrophoneTest.class.getSimpleName();
+    private static final String TAG = SecondaryMicTest.class.getSimpleName();
 
     View mTestView;
 
-    private static String testCaseResult = "Not Tested";
-    private static String testCaseStr = "Audio MIC Loopback Test - ";
     private final int AUDIORECORD_CHANNELS = 16;
     private final int AUDIOTRACK_CHANNELS = 4;
     private final int AUDIO_ENCODING = 2;
     private final int AUDIO_SAMPLE_RATE = 8000;
     private AudioManager audioManager;
-    private Button button_mic_loopback;
-    final Context context = this.getContext();
     private int initVolume;
     private boolean isLoopback = false;
     private boolean isRecording = false;
@@ -40,32 +35,31 @@ public class MicrophoneTest extends Test {
 
     private Thread recordingThread = null;
 
-    public MicrophoneTest(Context context) {
+    public SecondaryMicTest(Context context) {
         super(context);
     }
 
     @Override
     protected int getTestTitleID() {
-        return R.string.microphone_test_title;
+        return R.string.secondary_mic_test_title;
     }
 
     @Override
     protected int getTestDescriptionID() {
-        return R.string.microphone_test_description;
+        return R.string.secondary_mic_test_description;
     }
 
     @Override
     protected void onPrepare() {
         audioManager = ((AudioManager)getContext().getSystemService(Service.AUDIO_SERVICE));
         audioManager.setMode(AudioManager.MODE_NORMAL);
+        audioManager.setParameters("hip_test=secondary");
+        audioManager.setStreamVolume(AudioManager.STREAM_VOICE_CALL, audioManager.getStreamMaxVolume(AudioManager.STREAM_VOICE_CALL), 0);
     }
 
     @Override
     protected void runTest() {
-        audioManager.setStreamVolume(AudioManager.STREAM_VOICE_CALL, audioManager.getStreamMaxVolume(AudioManager.STREAM_VOICE_CALL), 0);
         startLoopback();
-
-        //askIfSuccess(getContext().getString(R.string.microphone_test_finish_question));
     }
 
     @Override
@@ -113,6 +107,7 @@ public class MicrophoneTest extends Test {
         audioManager.setStreamVolume(0, initVolume, 0);
         isRecording = false;
         isLoopback = false;
+        audioManager.setParameters("hip_test=none");
         audioManager.setSpeakerphoneOn(false);
         localAudioRecord.stop();
         localAudioRecord.release();
@@ -122,7 +117,7 @@ public class MicrophoneTest extends Test {
             Thread.sleep(100L);
             return;
         } catch (Exception localException) {
-            Log.d(TAG, "sleep exceptions...");
+            Log.d(TAG, "Sleep exception");
         }
     }
 }

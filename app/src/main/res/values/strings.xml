@@ -115,6 +115,7 @@
     <string name="microsd_available_space">Available space:&#160;</string>
     <string name="microsd_mounted">Mounted</string>
     <string name="microsd_unknown">Unknown</string>
+    <string name="microsd_filesystem">Filesystem:&#160;</string>
 
     <!-- Accelerometer -->
     <string name="accelerometer_test_title">Accelerometer</string>
@@ -205,6 +206,7 @@
     <string name="modem_mcc">MCC:&#160;</string>
     <string name="modem_imei">IMEI:&#160;</string>
     <string name="modem_countrycode">Country code:&#160;</string>
+    <string name="modem_roaming">Roaming:&#160;</string>
 
     <!-- Receiver module -->
     <string name="receiver_module_name">Top module</string>
@@ -242,6 +244,11 @@
     <!-- Front camera -->
     <string name="front_camera_test_title">Front camera</string>
 
+    <!-- Secondary microphone -->
+    <string name="secondary_mic_test_title">Secondary microphone</string>
+    <string name="secondary_mic_test_description">This tests the noise cancellation microphone. Press start and pretend you\'re making a phone call, but hold your phone upside down. Can you hear yourself?</string>
+    <string name="secondary_mic_test_finish_question">Talk to your phone. Can you hear yourself?</string>
+
 
     <!-- Speaker module -->
     <string name="speaker_module_name">Bottom module</string>
@@ -257,10 +264,10 @@
     <string name="rear_speaker_test_description">This test checks if the rear speaker is working. Press start and make sure you hear the music playing.</string>
     <string name="rear_speaker_test_finish_question">You should hear some music playing. Is the rear speaker working?</string>
 
-    <!-- Microphone -->
-    <string name="microphone_test_title">Microphone</string>
-    <string name="microphone_test_description">This test checks if the microphone is working. Press start and talk to your phone!</string>
-    <string name="microphone_test_finish_question">Talk to your phone. Can you hear yourself?</string>
+    <!-- Primary microphone -->
+    <string name="primary_mic_test_title">Primary microphone</string>
+    <string name="primary_mic_test_description">This test checks if the primary microphone is working. Press start and pretend you\'re making a phone call, you should hear yourself speaking!</string>
+    <string name="primary_mic_test_finish_question">Talk to your phone. Can you hear yourself?</string>
 
     <!-- USB port -->
     <string name="usb_port_test_title">USB port</string>
