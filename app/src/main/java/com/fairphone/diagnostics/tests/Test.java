@@ -102,7 +102,7 @@ public abstract class Test extends RelativeLayout {
         alert.show();
     }
 
-    protected void onTestSuccess() {
+    public void onTestSuccess() {
         cleanUp();
         //passed = true;
         //((TextView) findViewById(R.id.testResult)).setText(R.string.test_passed);
