@@ -94,6 +94,7 @@ public class DisplayTest extends Test {
         mViewFlipper.addView(new FullColorTestView(getContext(), 0xff0000ff));
         mViewFlipper.addView(new FullColorTestView(getContext(), 0xffffffff));
         mViewFlipper.addView(new FullColorTestView(getContext(), 0xff000000));
+        mViewFlipper.addView(new GradientTestView(getContext()));
     }
 
     private void setTouchHandler() {
