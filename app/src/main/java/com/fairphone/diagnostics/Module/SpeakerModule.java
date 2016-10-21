@@ -23,12 +23,12 @@ public class SpeakerModule implements Module {
 
     @Override
     public int getDescriptionId() {
-        return R.string.speaker_module_description;
+        return R.string.bottom_module_description;
     }
 
     @Override
     public int getModuleNameID() {
-        return R.string.speaker_module_name;
+        return R.string.bottom_module_name;
     }
 
     public List<Test> getTestList(Context context) {

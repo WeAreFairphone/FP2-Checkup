@@ -26,12 +26,12 @@ public class ReceiverModule implements Module {
 
     @Override
     public int getDescriptionId() {
-        return R.string.receiver_module_description;
+        return R.string.top_module_description;
     }
 
     @Override
     public int getModuleNameID() {
-        return R.string.receiver_module_name;
+        return R.string.top_module_name;
     }
 
     public List<Test> getTestList(Context context) {
