@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.fairphone.diagnostics.R;
 import com.fairphone.diagnostics.tests.Test;
 
+import java.text.DecimalFormat;
+
 public class AccelerometerTest extends Test {
 
     private static final String TAG = AccelerometerTest.class.getSimpleName();
@@ -82,8 +84,18 @@ public class AccelerometerTest extends Test {
     }
 
     private void onSensorChange(SensorEvent event) {
-        ((TextView)findViewById(R.id.x_value)).setText(event.values[0] + " " + getResources().getString(R.string.acceleration_unit));
-        ((TextView)findViewById(R.id.y_value)).setText(event.values[1] + " " + getResources().getString(R.string.acceleration_unit));
-        ((TextView)findViewById(R.id.z_value)).setText(event.values[2] + " " + getResources().getString(R.string.acceleration_unit));
+        ((TextView)findViewById(R.id.x_value)).setText(format(event.values[0]));
+        ((TextView)findViewById(R.id.y_value)).setText(format(event.values[1]));
+        ((TextView)findViewById(R.id.z_value)).setText(format(event.values[2]));
+    }
+
+    private String format(float value) {
+        DecimalFormat df = new DecimalFormat("0.00");
+        String ret = "";
+        if(!(value < 0.0)) {
+            ret = " ";
+        }
+        ret += df.format(value);
+        return ret;
     }
 }

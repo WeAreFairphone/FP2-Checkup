@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.fairphone.diagnostics.R;
 import com.fairphone.diagnostics.tests.Test;
 
+import java.text.DecimalFormat;
+
 public class MagnetometerTest extends Test {
 
     private static final String TAG = MagnetometerTest.class.getSimpleName();
@@ -82,8 +84,13 @@ public class MagnetometerTest extends Test {
     }
 
     private void onSensorChange(SensorEvent event) {
-        ((TextView)findViewById(R.id.x_value)).setText(event.values[0] + " " + getResources().getString(R.string.magnetometer_unit));
-        ((TextView)findViewById(R.id.y_value)).setText(event.values[1] + " " + getResources().getString(R.string.magnetometer_unit));
-        ((TextView)findViewById(R.id.z_value)).setText(event.values[2] + " " + getResources().getString(R.string.magnetometer_unit));
+        ((TextView)findViewById(R.id.x_value)).setText(format(event.values[0]));
+        ((TextView)findViewById(R.id.y_value)).setText(format(event.values[1]));
+        ((TextView)findViewById(R.id.z_value)).setText(format(event.values[2]));
+    }
+
+    private String format(float value) {
+        DecimalFormat df = new DecimalFormat("0.00");
+        return df.format(value);
     }
 }

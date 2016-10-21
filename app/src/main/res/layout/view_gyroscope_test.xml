@@ -5,13 +5,23 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/xAxis"
+        android:id="@+id/tvTitle"
         android:textAppearance="?android:textAppearanceMedium"
-        android:layout_width="160dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/gyroscope_x_axis"
+        android:text="@string/gyroscope_header"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true" />
+
+    <TextView
+        android:id="@+id/xAxis"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gyroscope_x_axis"
+        android:layout_below="@id/tvTitle"
+        android:layout_alignParentLeft="true"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -25,7 +35,7 @@
     <TextView
         android:id="@+id/yAxis"
         android:textAppearance="?android:textAppearanceMedium"
-        android:layout_width="160dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/gyroscope_y_axis"
         android:layout_below="@id/xAxis"
@@ -43,7 +53,7 @@
     <TextView
         android:id="@+id/zAxis"
         android:textAppearance="?android:textAppearanceMedium"
-        android:layout_width="160dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/gyroscope_z_axis"
         android:layout_below="@id/yAxis"

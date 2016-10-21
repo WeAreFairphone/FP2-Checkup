@@ -121,39 +121,42 @@
     <string name="accelerometer_test_title">Accelerometer</string>
     <string name="accelerometer_test_description">This test checks if the accelerometer is working properly. Press start and tilt your phone in all directions.</string>
     <string name="accelerometer_test_finish_question">You should see the X, Y and Z values change when you tilt your phone. Are the values changing?</string>
-    <string name="accelerometer_x_axis">Acceleration force along the x axis (including gravity):&#160;</string>
-    <string name="accelerometer_y_axis">Acceleration force along the y axis (including gravity):&#160;</string>
-    <string name="accelerometer_z_axis">Acceleration force along the z axis (including gravity):&#160;</string>
-    <string name="acceleration_unit">m/s²</string>
+    <string name="accelerometer_x_axis">X:&#160;</string>
+    <string name="accelerometer_y_axis">Y:&#160;</string>
+    <string name="accelerometer_z_axis">Z:&#160;</string>
+    <string name="acceleration_unit">&#160;m/s²</string>
+    <string name="accelerometer_header">Acceleration force (including gravity)</string>
 
     <!-- Magnetometer -->
     <string name="magnetometer_test_title">Magnetometer</string>
     <string name="magnetometer_test_description">This test checks if the magnetometer is working properly. Press start and turn your phone around.</string>
     <string name="magnetometer_test_finish_question">You should see the heading value change when you turn your phone around. Is the value changing?</string>
-    <string name="magnetometer_x_axis">Geomagnetic field strength along the x axis:&#160;</string>
-    <string name="magnetometer_y_axis">Geomagnetic field strength along the y axis:&#160;</string>
-    <string name="magnetometer_z_axis">Geomagnetic field strength along the z axis:&#160;</string>
-    <string name="magnetometer_unit">μT</string>
+    <string name="magnetometer_x_axis">X:&#160;</string>
+    <string name="magnetometer_y_axis">Y:&#160;</string>
+    <string name="magnetometer_z_axis">Z:&#160;</string>
+    <string name="magnetometer_unit">&#160;μT</string>
+    <string name="magnetometer_header">Geomagnetic field strength along axis</string>
 
     <!-- Gyroscope -->
     <string name="gyroscope_test_title">Gyroscope</string>
     <string name="gyroscope_test_description">This test checks if the gyroscope is working properly. Press start and turn your phone around.</string>
-    <string name="gyroscope_x_axis">Rate of rotation around the x axis:&#160;</string>
-    <string name="gyroscope_y_axis">Rate of rotation around the y axis:&#160;</string>
-    <string name="gyroscope_z_axis">Rate of rotation around the z axis:&#160;</string>
+    <string name="gyroscope_x_axis">X:&#160;</string>
+    <string name="gyroscope_y_axis">Y:&#160;</string>
+    <string name="gyroscope_z_axis">Z:&#160;</string>
     <string name="gyroscope_unit">rad/s</string>
+    <string name="gyroscope_header">Rate of rotation around axis</string>
 
     <!-- GPS -->
     <string name="gps_test_title">GPS</string>
     <string name="gps_test_description">This test checks if GPS can determine your location. Press start to test!</string>
     <string name="searching">Searching…</string>
-    <string name="satellites">Satellites: </string>
-    <string name="latitude">Latitude: </string>
-    <string name="longitude">Longitude: </string>
-    <string name="altitude">Altitude: </string>
-    <string name="speed">Speed: </string>
-    <string name="bearing">Bearing: </string>
-    <string name="accuracy">Accuracy: </string>
+    <string name="satellites">Satellites:&#160;</string>
+    <string name="latitude">Latitude:&#160;</string>
+    <string name="longitude">Longitude:&#160;</string>
+    <string name="altitude">Altitude:&#160;</string>
+    <string name="speed">Speed:&#160;</string>
+    <string name="bearing">Bearing:&#160;</string>
+    <string name="accuracy">Accuracy:&#160;</string>
 
     <!-- Buttons -->
     <string name="buttons_test_title">Buttons</string>
