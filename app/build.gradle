@@ -21,6 +21,14 @@ android {
      * utilities, and compiler that Gradle should use to build your app. You need to
      * download the build tools using the SDK Manager.
      */
+    signingConfigs {
+        config {
+            keyAlias 'mykey'
+            keyPassword 'fairphone'
+            storeFile file('/home/maarten/keystores/android.jks')
+            storePassword 'fairphone'
+        }
+    }
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
     /**
@@ -46,10 +54,10 @@ android {
         targetSdkVersion 22
 
         // Defines the version number of your app.
-        versionCode 3
+        versionCode 24
 
         // Defines a user-friendly version name for your app.
-        versionName "0.2"
+        versionName "0.4"
     }
     /**
      * The buildTypes {} block is where you can configure multiple build types.
@@ -66,6 +74,10 @@ android {
         release {
             minifyEnabled true // Enables code shrinking for the release build type.
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            signingConfig signingConfigs.config
         }
     }
 }
