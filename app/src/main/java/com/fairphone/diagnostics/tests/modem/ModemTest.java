@@ -137,20 +137,20 @@ public class ModemTest extends Test {
                     if(subscriptionInfo.getSimSlotIndex() == 0) {                                       // the card is in the first slot
                         //sim1Presence.setText(R.string.dualsim_card_present_yes);
                         ((TextView)findViewById(R.id.modem_network_operator_value)).setText(mTelephonyManager.getNetworkOperatorName(subscriptionInfo.getSubscriptionId()));
+                        ((TextView)findViewById(R.id.modem_network_operator_code_value)).setText(mTelephonyManager.getNetworkOperatorForSubscription(subscriptionInfo.getSubscriptionId()));
                         ((TextView)findViewById(R.id.modem_sim_operator_value)).setText(mTelephonyManager.getSimOperatorNameForSubscription(subscriptionInfo.getSubscriptionId()));
+                        ((TextView)findViewById(R.id.modem_sim_operator_code_value)).setText(mTelephonyManager.getSimOperator(subscriptionInfo.getSubscriptionId()));
                         ((TextView)findViewById(R.id.modem_network_type_value)).setText(getNetworkTypeName(mTelephonyManager.getNetworkType(subscriptionInfo.getSubscriptionId())));
-                        ((TextView)findViewById(R.id.modem_mnc0_value)).setText(""+subscriptionInfo.getMnc());
-                        ((TextView)findViewById(R.id.modem_mcc0_value)).setText(""+subscriptionInfo.getMcc());
                         ((TextView)findViewById(R.id.modem_countrycode_value)).setText(subscriptionInfo.getCountryIso());
                         //sim2Presence.setText(R.string.dualsim_card_present_no);
                     } else if(subscriptionInfo.getSimSlotIndex() == 1) {                                // the card is in the second slot
                         //sim1Presence.setText(R.string.dualsim_card_present_no);
                         //sim2Presence.setText(R.string.dualsim_card_present_yes);
                         ((TextView)findViewById(R.id.modem_network_operator2_value)).setText(mTelephonyManager.getNetworkOperatorName(subscriptionInfo.getSubscriptionId()));
+                        ((TextView)findViewById(R.id.modem_network_operator_code2_value)).setText(mTelephonyManager.getNetworkOperatorForSubscription(subscriptionInfo.getSubscriptionId()));
                         ((TextView)findViewById(R.id.modem_sim_operator2_value)).setText(mTelephonyManager.getSimOperatorNameForSubscription(subscriptionInfo.getSubscriptionId()));
+                        ((TextView)findViewById(R.id.modem_sim_operator_code2_value)).setText(mTelephonyManager.getSimOperator(subscriptionInfo.getSubscriptionId()));
                         ((TextView)findViewById(R.id.modem_network_type2_value)).setText(getNetworkTypeName(mTelephonyManager.getNetworkType(subscriptionInfo.getSubscriptionId())));
-                        ((TextView)findViewById(R.id.modem_mnc1_value)).setText(""+subscriptionInfo.getMnc());
-                        ((TextView)findViewById(R.id.modem_mcc1_value)).setText(""+subscriptionInfo.getMcc());
                         ((TextView)findViewById(R.id.modem_countrycode1_value)).setText(subscriptionInfo.getCountryIso());
                     }
                 }
@@ -162,18 +162,18 @@ public class ModemTest extends Test {
                     if(subscriptionInfo1.getSimSlotIndex() == 0) {                                       // the card is in the first slot
                         //sim1Presence.setText(R.string.dualsim_card_present_yes);
                         ((TextView)findViewById(R.id.modem_network_operator_value)).setText(mTelephonyManager.getNetworkOperatorName(subscriptionInfo1.getSubscriptionId()));
+                        ((TextView)findViewById(R.id.modem_network_operator_code_value)).setText(mTelephonyManager.getNetworkOperatorForSubscription(subscriptionInfo1.getSubscriptionId()));
                         ((TextView)findViewById(R.id.modem_sim_operator_value)).setText(mTelephonyManager.getSimOperatorNameForSubscription(subscriptionInfo1.getSubscriptionId()));
+                        ((TextView)findViewById(R.id.modem_sim_operator_code_value)).setText(mTelephonyManager.getSimOperator(subscriptionInfo1.getSubscriptionId()));
                         ((TextView)findViewById(R.id.modem_network_type_value)).setText(getNetworkTypeName(mTelephonyManager.getNetworkType(subscriptionInfo1.getSubscriptionId())));
-                        ((TextView)findViewById(R.id.modem_mnc0_value)).setText(""+subscriptionInfo1.getMnc());
-                        ((TextView)findViewById(R.id.modem_mcc0_value)).setText(""+subscriptionInfo1.getMcc());
                         ((TextView)findViewById(R.id.modem_countrycode_value)).setText(subscriptionInfo1.getCountryIso());
                     } else if(subscriptionInfo1.getSimSlotIndex() == 1) {                                // the card is in the second slot
                         //sim2Presence.setText(R.string.dualsim_card_present_yes);
                         ((TextView)findViewById(R.id.modem_network_operator2_value)).setText(mTelephonyManager.getNetworkOperatorName(subscriptionInfo1.getSubscriptionId()));
+                        ((TextView)findViewById(R.id.modem_network_operator_code2_value)).setText(mTelephonyManager.getNetworkOperatorForSubscription(subscriptionInfo1.getSubscriptionId()));
                         ((TextView)findViewById(R.id.modem_sim_operator2_value)).setText(mTelephonyManager.getSimOperatorNameForSubscription(subscriptionInfo1.getSubscriptionId()));
+                        ((TextView)findViewById(R.id.modem_sim_operator_code2_value)).setText(mTelephonyManager.getSimOperator(subscriptionInfo1.getSubscriptionId()));
                         ((TextView)findViewById(R.id.modem_network_type2_value)).setText(getNetworkTypeName(mTelephonyManager.getNetworkType(subscriptionInfo1.getSubscriptionId())));
-                        ((TextView)findViewById(R.id.modem_mnc1_value)).setText(""+subscriptionInfo1.getMnc());
-                        ((TextView)findViewById(R.id.modem_mcc1_value)).setText(""+subscriptionInfo1.getMcc());
                         ((TextView)findViewById(R.id.modem_countrycode1_value)).setText(subscriptionInfo1.getCountryIso());
                     }
 
@@ -182,18 +182,18 @@ public class ModemTest extends Test {
                     if(subscriptionInfo2.getSimSlotIndex() == 0) {                                       // the card is in the first slot
                         //sim1Presence.setText(R.string.dualsim_card_present_yes);
                         ((TextView)findViewById(R.id.modem_network_operator_value)).setText(mTelephonyManager.getNetworkOperatorName(subscriptionInfo2.getSubscriptionId()));
+                        ((TextView)findViewById(R.id.modem_network_operator_code_value)).setText(mTelephonyManager.getNetworkOperatorForSubscription(subscriptionInfo2.getSubscriptionId()));
                         ((TextView)findViewById(R.id.modem_sim_operator_value)).setText(mTelephonyManager.getSimOperatorNameForSubscription(subscriptionInfo2.getSubscriptionId()));
+                        ((TextView)findViewById(R.id.modem_sim_operator_code_value)).setText(mTelephonyManager.getSimOperator(subscriptionInfo2.getSubscriptionId()));
                         ((TextView)findViewById(R.id.modem_network_type_value)).setText(getNetworkTypeName(mTelephonyManager.getNetworkType(subscriptionInfo2.getSubscriptionId())));
-                        ((TextView)findViewById(R.id.modem_mnc0_value)).setText(""+subscriptionInfo2.getMnc());
-                        ((TextView)findViewById(R.id.modem_mcc0_value)).setText(""+subscriptionInfo2.getMcc());
                         ((TextView)findViewById(R.id.modem_countrycode_value)).setText(subscriptionInfo2.getCountryIso());
                     } else if(subscriptionInfo2.getSimSlotIndex() == 1) {                                // the card is in the second slot
                         //sim2Presence.setText(R.string.dualsim_card_present_yes);
                         ((TextView)findViewById(R.id.modem_network_operator2_value)).setText(mTelephonyManager.getNetworkOperatorName(subscriptionInfo2.getSubscriptionId()));
+                        ((TextView)findViewById(R.id.modem_network_operator_code2_value)).setText(mTelephonyManager.getNetworkOperatorForSubscription(subscriptionInfo2.getSubscriptionId()));
                         ((TextView)findViewById(R.id.modem_sim_operator2_value)).setText(mTelephonyManager.getSimOperatorNameForSubscription(subscriptionInfo2.getSubscriptionId()));
+                        ((TextView)findViewById(R.id.modem_sim_operator_code2_value)).setText(mTelephonyManager.getSimOperator(subscriptionInfo2.getSubscriptionId()));
                         ((TextView)findViewById(R.id.modem_network_type2_value)).setText(getNetworkTypeName(mTelephonyManager.getNetworkType(subscriptionInfo2.getSubscriptionId())));
-                        ((TextView)findViewById(R.id.modem_mnc1_value)).setText(""+subscriptionInfo2.getMnc());
-                        ((TextView)findViewById(R.id.modem_mcc1_value)).setText(""+subscriptionInfo2.getMcc());
                         ((TextView)findViewById(R.id.modem_countrycode1_value)).setText(subscriptionInfo2.getCountryIso());
                     }
                 }

@@ -40,11 +40,28 @@
                 android:layout_toEndOf="@id/tvNetworkOperator" />
 
             <TextView
-                android:id="@+id/tvSimOperator"
+                android:id="@+id/tvNetworkOperatorCode"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvNetworkOperator"
+                android:text="@string/modem_network_operator_code" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/not_available"
+                android:id="@+id/modem_network_operator_code_value"
+                android:layout_alignBottom="@id/tvNetworkOperatorCode"
+                android:layout_toEndOf="@id/tvNetworkOperatorCode" />
+
+            <TextView
+                android:id="@+id/tvSimOperator"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvNetworkOperatorCode"
                 android:text="@string/modem_sim_operator" />
 
             <TextView
@@ -57,11 +74,28 @@
                 android:layout_toEndOf="@id/tvSimOperator" />
 
             <TextView
-                android:id="@+id/tvNetworkType"
+                android:id="@+id/tvSimOperatorCode"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvSimOperator"
+                android:text="@string/modem_sim_operator_code" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/not_available"
+                android:id="@+id/modem_sim_operator_code_value"
+                android:layout_alignBottom="@id/tvSimOperatorCode"
+                android:layout_toEndOf="@id/tvSimOperatorCode" />
+
+            <TextView
+                android:id="@+id/tvNetworkType"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvSimOperatorCode"
                 android:text="@string/modem_network_type" />
 
             <TextView
@@ -91,45 +125,11 @@
                 android:layout_toEndOf="@id/tvDataActivity" />
 
             <TextView
-                android:id="@+id/tvMnc0"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:layout_width="175dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvDataActivity"
-                android:text="@string/modem_mnc" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/not_available"
-                android:id="@+id/modem_mnc0_value"
-                android:layout_alignBottom="@id/tvMnc0"
-                android:layout_toEndOf="@id/tvMnc0" />
-
-            <TextView
-                android:id="@+id/tvMcc0"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:layout_width="175dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvMnc0"
-                android:text="@string/modem_mcc" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/not_available"
-                android:id="@+id/modem_mcc0_value"
-                android:layout_alignBottom="@id/tvMcc0"
-                android:layout_toEndOf="@id/tvMcc0" />
-
-            <TextView
                 android:id="@+id/tvCountryCode0"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvMcc0"
+                android:layout_below="@id/tvDataActivity"
                 android:text="@string/modem_countrycode" />
 
             <TextView
@@ -186,11 +186,28 @@
                 android:layout_toEndOf="@id/tvNetworkOperator2" />
 
             <TextView
-                android:id="@+id/tvSimOperator2"
+                android:id="@+id/tvNetworkOperatorCode2"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvNetworkOperator2"
+                android:text="@string/modem_network_operator_code" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/not_available"
+                android:id="@+id/modem_network_operator_code2_value"
+                android:layout_alignBottom="@id/tvNetworkOperatorCode2"
+                android:layout_toEndOf="@id/tvNetworkOperatorCode2" />
+
+            <TextView
+                android:id="@+id/tvSimOperator2"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvNetworkOperatorCode2"
                 android:text="@string/modem_sim_operator" />
 
             <TextView
@@ -203,11 +220,28 @@
                 android:layout_toEndOf="@id/tvSimOperator2" />
 
             <TextView
-                android:id="@+id/tvNetworkType2"
+                android:id="@+id/tvSimOperatorCode2"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvSimOperator2"
+                android:text="@string/modem_sim_operator_code" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/not_available"
+                android:id="@+id/modem_sim_operator_code2_value"
+                android:layout_alignBottom="@id/tvSimOperatorCode2"
+                android:layout_toEndOf="@id/tvSimOperatorCode2" />
+
+            <TextView
+                android:id="@+id/tvNetworkType2"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvSimOperatorCode2"
                 android:text="@string/modem_network_type" />
 
             <TextView
@@ -237,45 +271,11 @@
                 android:layout_toEndOf="@id/tvDataActivity2" />
 
             <TextView
-                android:id="@+id/tvMnc1"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:layout_width="175dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvDataActivity2"
-                android:text="@string/modem_mnc" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/not_available"
-                android:id="@+id/modem_mnc1_value"
-                android:layout_alignBottom="@id/tvMnc1"
-                android:layout_toEndOf="@id/tvMnc1" />
-
-            <TextView
-                android:id="@+id/tvMcc1"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:layout_width="175dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvMnc1"
-                android:text="@string/modem_mcc" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/not_available"
-                android:id="@+id/modem_mcc1_value"
-                android:layout_alignBottom="@id/tvMcc1"
-                android:layout_toEndOf="@id/tvMcc1" />
-
-            <TextView
                 android:id="@+id/tvCountryCode1"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvMcc1"
+                android:layout_below="@id/tvDataActivity2"
                 android:text="@string/modem_countrycode" />
 
             <TextView
