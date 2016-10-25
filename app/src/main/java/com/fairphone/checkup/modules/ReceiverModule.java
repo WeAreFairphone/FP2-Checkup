@@ -1,4 +1,4 @@
-package com.fairphone.checkup.Module;
+package com.fairphone.checkup.modules;
 
 import android.content.Context;
 

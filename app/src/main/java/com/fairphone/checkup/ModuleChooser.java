@@ -6,14 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
 
-import com.fairphone.checkup.Module.BatteryModule;
-import com.fairphone.checkup.Module.CameraModule;
-import com.fairphone.checkup.Module.DisplayModule;
-import com.fairphone.checkup.Module.Module;
-import com.fairphone.checkup.Module.ModuleListAdapter;
-import com.fairphone.checkup.Module.ReceiverModule;
-import com.fairphone.checkup.Module.SpeakerModule;
-import com.fairphone.checkup.Module.TransceiverModule;
+import com.fairphone.checkup.modules.BatteryModule;
+import com.fairphone.checkup.modules.CameraModule;
+import com.fairphone.checkup.modules.DisplayModule;
+import com.fairphone.checkup.modules.Module;
+import com.fairphone.checkup.modules.ModuleListAdapter;
+import com.fairphone.checkup.modules.ReceiverModule;
+import com.fairphone.checkup.modules.SpeakerModule;
+import com.fairphone.checkup.modules.TransceiverModule;
 
 import java.util.ArrayList;
 

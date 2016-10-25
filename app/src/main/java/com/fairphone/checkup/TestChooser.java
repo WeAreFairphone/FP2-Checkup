@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
-import com.fairphone.checkup.Module.Module;
+import com.fairphone.checkup.modules.Module;
 import com.fairphone.checkup.tests.Test;
 import com.fairphone.checkup.tests.TestListAdapter;
 import com.fairphone.checkup.tests.ambientlight.AmbientLightTest;
