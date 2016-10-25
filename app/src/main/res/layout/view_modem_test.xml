@@ -108,11 +108,28 @@
                 android:layout_toEndOf="@id/tvNetworkType" />
 
             <TextView
-                android:id="@+id/tvMnc0"
+                android:id="@+id/tvDataActivity"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvNetworkType"
+                android:text="@string/modem_data_activity" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/not_available"
+                android:id="@+id/modem_data_activity_value"
+                android:layout_alignBottom="@id/tvDataActivity"
+                android:layout_toEndOf="@id/tvDataActivity" />
+
+            <TextView
+                android:id="@+id/tvMnc0"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvDataActivity"
                 android:text="@string/modem_mnc" />
 
             <TextView
@@ -271,11 +288,28 @@
                 android:layout_toEndOf="@id/tvNetworkType2" />
 
             <TextView
-                android:id="@+id/tvMnc1"
+                android:id="@+id/tvDataActivity2"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvNetworkType2"
+                android:text="@string/modem_data_activity" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/not_available"
+                android:id="@+id/modem_data_activity2_value"
+                android:layout_alignBottom="@id/tvDataActivity2"
+                android:layout_toEndOf="@id/tvDataActivity2" />
+
+            <TextView
+                android:id="@+id/tvMnc1"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvDataActivity2"
                 android:text="@string/modem_mnc" />
 
             <TextView
