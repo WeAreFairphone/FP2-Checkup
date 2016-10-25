@@ -2,7 +2,6 @@ package com.fairphone.checkup;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -32,18 +31,6 @@ public class TestChooser extends AppCompatActivity implements TestListAdapter.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_chooser);
-
-        // toolbar
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
-
-        // add back arrow to toolbar
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-        }
-
         mModule = getModule();
         createTestList();
         prepareView();
@@ -54,6 +41,7 @@ public class TestChooser extends AppCompatActivity implements TestListAdapter.On
     }
 
     private void prepareView() {
+        setContentView(R.layout.activity_test_chooser);
         mSwitcher = (ViewSwitcher) findViewById(R.id.testChooserViewSwitcher);
         mListView = (ListView) findViewById(R.id.listView);
         mListView.setAdapter(new TestListAdapter(this, mTests, this));

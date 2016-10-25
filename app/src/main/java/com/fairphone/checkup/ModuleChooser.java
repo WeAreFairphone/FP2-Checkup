@@ -3,7 +3,6 @@ package com.fairphone.checkup;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
 
 import com.fairphone.checkup.modules.BatteryModule;
@@ -24,8 +23,6 @@ public class ModuleChooser extends AppCompatActivity implements ModuleListAdapte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_module_chooser);
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
         mListView = (ListView) findViewById(R.id.listView);
         ArrayList<Module> tests = new ArrayList<>();
         tests.add(new DisplayModule());
