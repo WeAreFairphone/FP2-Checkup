@@ -92,7 +92,6 @@ public class WifiTest extends Test {
                             }
                         }
                         if (activeConfig != null) {
-                            ((TextView) findViewById(R.id.wifi_encryption_value)).setText(getEncryptionTypeString(activeConfig.getAuthType()));
                         }
                     }
 
@@ -139,9 +138,6 @@ public class WifiTest extends Test {
         switch(encryptionType) {
             case WifiConfiguration.KeyMgmt.WPA_PSK:
                 retval = getResources().getString(R.string.WPA_PSK);
-                break;
-            case WifiConfiguration.KeyMgmt.WPA2_PSK:
-                retval = getResources().getString(R.string.WPA2_PSK);
                 break;
             case WifiConfiguration.KeyMgmt.WPA_EAP:
                 retval = getResources().getString(R.string.WPA_EAP);
