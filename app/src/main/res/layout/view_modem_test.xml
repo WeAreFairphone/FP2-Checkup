@@ -125,11 +125,45 @@
                 android:layout_toEndOf="@id/tvDataActivity" />
 
             <TextView
-                android:id="@+id/tvCountryCode0"
+                android:id="@+id/tvMnc0"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvDataActivity"
+                android:text="@string/modem_mnc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/not_available"
+                android:id="@+id/modem_mnc0_value"
+                android:layout_alignBottom="@id/tvMnc0"
+                android:layout_toEndOf="@id/tvMnc0" />
+
+            <TextView
+                android:id="@+id/tvMcc0"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvMnc0"
+                android:text="@string/modem_mcc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/not_available"
+                android:id="@+id/modem_mcc0_value"
+                android:layout_alignBottom="@id/tvMcc0"
+                android:layout_toEndOf="@id/tvMcc0" />
+
+            <TextView
+                android:id="@+id/tvCountryCode0"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvMcc0"
                 android:text="@string/modem_countrycode" />
 
             <TextView
@@ -271,11 +305,45 @@
                 android:layout_toEndOf="@id/tvDataActivity2" />
 
             <TextView
-                android:id="@+id/tvCountryCode1"
+                android:id="@+id/tvMnc1"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvDataActivity2"
+                android:text="@string/modem_mnc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/not_available"
+                android:id="@+id/modem_mnc1_value"
+                android:layout_alignBottom="@id/tvMnc1"
+                android:layout_toEndOf="@id/tvMnc1" />
+
+            <TextView
+                android:id="@+id/tvMcc1"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvMnc1"
+                android:text="@string/modem_mcc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/not_available"
+                android:id="@+id/modem_mcc1_value"
+                android:layout_alignBottom="@id/tvMcc1"
+                android:layout_toEndOf="@id/tvMcc1" />
+
+            <TextView
+                android:id="@+id/tvCountryCode1"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvMcc1"
                 android:text="@string/modem_countrycode" />
 
             <TextView
