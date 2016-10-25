@@ -1,7 +1,7 @@
 package com.fairphone.checkup;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -22,7 +22,7 @@ import com.fairphone.checkup.tests.vibrator.VibratorTest;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestChooser extends AppCompatActivity implements TestListAdapter.OnClickListener {
+public class TestChooser extends Activity implements TestListAdapter.OnClickListener {
     ViewSwitcher mSwitcher;
     ListView mListView;
     List<Test> mTests;

@@ -1,8 +1,6 @@
 package com.fairphone.checkup.tests.digitizer;
 
 import android.content.Context;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.ViewFlipper;
@@ -16,13 +14,10 @@ import com.fairphone.checkup.tests.Test;
 
 public class DigitizerTest extends Test {
 
-    static boolean exitTest;
-
     private static final String TAG = DigitizerTest.class.getSimpleName();
 
     private ViewFlipper mViewFlipper;
     private RelativeLayout mParentLayout;
-    private ActionBar actionBar;
 
     private int parentPaddingLeft;
     private int parentPaddingTop;
@@ -57,7 +52,6 @@ public class DigitizerTest extends Test {
     @Override
     protected void onCleanUp() {
         restoreParentPadding();
-        actionBar.show();
         showStartButton();
         mParentLayout.removeView(mViewFlipper);
         super.onCleanUp();
@@ -97,9 +91,6 @@ public class DigitizerTest extends Test {
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         removeParentPaddingSave();
-        AppCompatActivity activity = (AppCompatActivity) getContext();
-        actionBar = activity.getSupportActionBar();
-        actionBar.hide();
         hideStartButton();
     }
 

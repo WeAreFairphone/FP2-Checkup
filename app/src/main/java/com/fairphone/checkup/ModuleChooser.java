@@ -1,8 +1,8 @@
 package com.fairphone.checkup;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
 import com.fairphone.checkup.modules.BatteryModule;
@@ -16,7 +16,7 @@ import com.fairphone.checkup.modules.TransceiverModule;
 
 import java.util.ArrayList;
 
-public class ModuleChooser extends AppCompatActivity implements ModuleListAdapter.OnClickListener {
+public class ModuleChooser extends Activity implements ModuleListAdapter.OnClickListener {
     ListView mListView;
 
     @Override

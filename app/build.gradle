@@ -21,14 +21,6 @@ android {
      * utilities, and compiler that Gradle should use to build your app. You need to
      * download the build tools using the SDK Manager.
      */
-    signingConfigs {
-        config {
-            keyAlias 'mykey'
-            keyPassword 'fairphone'
-            storeFile file('/home/maarten/keystores/android.jks')
-            storePassword 'fairphone'
-        }
-    }
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
     /**
@@ -74,10 +66,8 @@ android {
         release {
             minifyEnabled true // Enables code shrinking for the release build type.
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.config
         }
         debug {
-            signingConfig signingConfigs.config
         }
     }
 }
@@ -90,7 +80,6 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.android.support:support-v4:22.0.1'
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
 }
