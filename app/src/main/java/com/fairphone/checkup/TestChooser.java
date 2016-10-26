@@ -46,8 +46,8 @@ public class TestChooser extends Activity implements TestListAdapter.OnClickList
         mListView = (ListView) findViewById(R.id.listView);
         mListView.setAdapter(new TestListAdapter(this, mTests, this));
         if (mModule != null) {
-            ((ImageView) findViewById(R.id.imageView)).setImageResource(mModule.getPictureResourceID());
-            ((TextView) findViewById(R.id.modulename)).setText(getString(mModule.getModuleNameID()));
+            ((ImageView) findViewById(R.id.modulePicture)).setImageResource(mModule.getPictureResourceID());
+            ((TextView) findViewById(R.id.moduleName)).setText(getString(mModule.getModuleNameID()));
         }
     }
 

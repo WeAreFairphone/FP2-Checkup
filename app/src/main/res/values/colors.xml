@@ -1,8 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#12A0DF</color>
-    <color name="colorPrimaryDark">#12A0DF</color>
-    <color name="colorAccent">#f286b6</color>
 
-    <color name="black_overlay">#66000000</color>
+    <!-- Palette colors referenced by top-level themes.-->
+
+    <!-- THEME -->
+    <color name="theme_primary">#2aa8e0</color>
+    <color name="theme_primary_dark">#0288d1</color>
+    <color name="theme_accent">#f286b6</color>
+
+    <!-- BACKGROUND -->
+    <color name="background_header">#f7f7f7</color>
+    <color name="background">#f0f0f0</color>
+
+    <!-- MAIN COLORS -->
+    <color name="transparent">#00000000</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="white_transparent">#55ffffff</color>
+    <color name="grey">#5b5b5b</color>
+    <color name="grey_light">#999999</color>
+    <color name="grey_dark">#333333</color>
+    <color name="grey_transparent">#66999999</color>
+    <color name="blue">#2aa9e0</color>
+    <color name="blue_dark">#123c59</color>
+    <color name="blue_light">#aadcf2</color>
+    <color name="blue_light_transparent">#dbeaf0</color>
+    <color name="green">#6bc1a3</color>
+    <color name="green_dark">#17717a</color>
+    <color name="green_light">#a0d7c4</color>
+    <color name="green_light_transparent">#d8e8e2</color>
+    <color name="pink">#c1454a</color>
+    <color name="pink_dark">#823a3d</color>
+    <color name="pink_light">#f286b6</color>
+    <color name="pink_light_transparent">#f0dbe4</color>
+    <color name="red">#c3474c</color>
+
 </resources>

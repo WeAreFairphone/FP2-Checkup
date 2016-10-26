@@ -1,67 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
         android:id="@+id/relativeLayout"
-        android:translationZ="5dp"
-        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_big_height"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:elevation="8dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/large_text"
-            android:id="@+id/modulename"
-            android:layout_marginLeft="5dp"
-            android:layout_below="@+id/textView5"
-            android:layout_toEndOf="@+id/imageView"
-            android:fontFamily="sans-serif-thin" />
-
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="75dp"
-            android:id="@+id/imageView"
-            android:src="@drawable/display_module"
-            android:layout_alignParentTop="true"
+            android:id="@+id/modulePicture"
+            android:layout_width="@dimen/header_big_height"
+            android:layout_height="@dimen/header_big_height"
             android:layout_alignParentStart="true"
-            android:paddingTop="5dp"/>
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="@dimen/main_margin_small"
+            android:src="@drawable/display_module" />
 
         <TextView
+            android:id="@+id/textView5"
+            style="@style/TextRegular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_above="@id/moduleName"
+            android:layout_toEndOf="@+id/modulePicture"
             android:text="@string/tests_for"
-            android:id="@+id/textView5"
-            android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/imageView"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="15dp" />
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/moduleName"
+            style="@style/TextRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/modulePicture"
+            android:text="@string/large_text"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
     </RelativeLayout>
 
     <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_gravity="center_horizontal"
-        android:layout_alignParentStart="true"
-        android:layout_margin="15dp"
-        android:layout_below="@+id/relativeLayout" />
-
-    <!--<Button-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text="Run All Tests"-->
-    <!--android:id="@+id/button"-->
-    <!--android:layout_alignParentBottom="true"-->
-    <!--android:layout_alignEnd="@+id/listView"-->
-    <!--android:layout_alignStart="@+id/listView"-->
-    <!--android:layout_marginBottom="0dp"-->
-    <!--android:layout_marginTop="12dp" />-->
+        android:layout_below="@+id/relativeLayout"
+        android:layout_gravity="center_horizontal" />
 </RelativeLayout>
