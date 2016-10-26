@@ -107,5 +107,6 @@ public class DigitizerTest extends Test {
         mViewFlipper.addView(new Pattern2View(getContext(), mViewFlipper, this));
         mViewFlipper.addView(new Pattern3View(getContext(), mViewFlipper, this));
         mViewFlipper.addView(new Pattern4View(getContext(), mViewFlipper, this));
+        mViewFlipper.addView(new FreeDrawView(getContext()));
     }
 }
