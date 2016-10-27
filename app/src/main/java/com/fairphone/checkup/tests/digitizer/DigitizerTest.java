@@ -40,7 +40,7 @@ public class DigitizerTest extends Test {
 
     @Override
     protected void onPrepare() {
-        mParentLayout = (RelativeLayout) findViewById(R.id.genericeTesterRelativeLayout);
+        mParentLayout = (RelativeLayout) findViewById(R.id.generic_test_relative_layout);
     }
 
     @Override
@@ -95,11 +95,11 @@ public class DigitizerTest extends Test {
     }
 
     private void hideStartButton() {
-        findViewById(R.id.startButton).setVisibility(View.INVISIBLE);
+        findViewById(R.id.test_button).setVisibility(View.INVISIBLE);
     }
 
     private void showStartButton() {
-        findViewById(R.id.startButton).setVisibility(View.VISIBLE);
+        findViewById(R.id.test_button).setVisibility(View.VISIBLE);
     }
 
     private void addDisplayPatterns() {
