@@ -1,67 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <RelativeLayout
+        android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:id="@+id/relativeLayout"
-        android:translationZ="5dp"
-        android:layout_alignParentTop="true"
+        android:layout_height="@dimen/module_picture_height_large"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="?android:attr/listPreferredItemPaddingEnd"
+        android:layout_marginEnd="?android:attr/listPreferredItemPaddingEnd"
+        android:layout_marginStart="?android:attr/listPreferredItemPaddingStart"
+        android:layout_marginTop="?android:attr/listPreferredItemPaddingStart"
         android:elevation="8dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/large_text"
-            android:id="@+id/modulename"
-            android:layout_marginLeft="5dp"
-            android:layout_below="@+id/textView5"
-            android:layout_toEndOf="@+id/imageView"
-            android:fontFamily="sans-serif-thin" />
-
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="75dp"
-            android:id="@+id/imageView"
-            android:src="@drawable/display_module"
-            android:layout_alignParentTop="true"
+            android:id="@+id/list_item_avatar"
+            android:layout_width="@dimen/module_picture_width_large"
+            android:layout_height="@dimen/module_picture_height_large"
             android:layout_alignParentStart="true"
-            android:paddingTop="5dp"/>
+            android:layout_marginEnd="?android:attr/listPreferredItemPaddingEnd"
+            android:src="@drawable/display_module" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/list_item_title"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/list_item_avatar"
+            android:text="@string/large_text"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/list_item_title"
+            android:layout_toEndOf="@+id/list_item_avatar"
             android:text="@string/tests_for"
-            android:id="@+id/textView5"
-            android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/imageView"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="15dp" />
+            android:textAppearance="?android:attr/textAppearanceSmall" />
     </RelativeLayout>
 
     <ListView
+        android:id="@+id/list_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_gravity="center_horizontal"
-        android:layout_alignParentStart="true"
-        android:layout_margin="15dp"
-        android:layout_below="@+id/relativeLayout" />
-
-    <!--<Button-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text="Run All Tests"-->
-    <!--android:id="@+id/button"-->
-    <!--android:layout_alignParentBottom="true"-->
-    <!--android:layout_alignEnd="@+id/listView"-->
-    <!--android:layout_alignStart="@+id/listView"-->
-    <!--android:layout_marginBottom="0dp"-->
-    <!--android:layout_marginTop="12dp" />-->
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header" />
 </RelativeLayout>

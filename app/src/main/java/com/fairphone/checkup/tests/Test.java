@@ -36,12 +36,12 @@ public abstract class Test extends RelativeLayout {
 
     private void init() {
         inflate(getContext(), R.layout.view_tester, this);
-        TextView title = (TextView) findViewById(R.id.testTitle);
+        TextView title = (TextView) findViewById(R.id.test_title);
         title.setText(getTestTitle());
 
-        TextView description = (TextView) findViewById(R.id.testDescription);
+        TextView description = (TextView) findViewById(R.id.test_description_text);
         description.setText(getTestDescription());
-        mButton = (Button) findViewById(R.id.startButton);
+        mButton = (Button) findViewById(R.id.test_button);
         configureStartButton();
         configureBackButton();
         onPrepare();
@@ -117,7 +117,7 @@ public abstract class Test extends RelativeLayout {
     }
 
     protected void setTestView(View view) {
-        FrameLayout layout = (FrameLayout) findViewById(R.id.tester_description);
+        FrameLayout layout = (FrameLayout) findViewById(R.id.test_description_layout);
         View oldView = layout.getChildAt(0);
         if (mOldView == null) {
             mOldView = oldView;

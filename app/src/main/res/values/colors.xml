@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#12A0DF</color>
-    <color name="colorPrimaryDark">#12A0DF</color>
-    <color name="colorAccent">#f286b6</color>
 
-    <color name="black_overlay">#66000000</color>
+    <!-- Palette colors referenced by top-level themes.-->
+    <color name="primary">#03a9f4</color>
+    <color name="primary_light">#b3e5fc</color>
+    <color name="primary_dark">#0288d1</color>
+    <color name="accent">#ff4081</color>
+    <color name="accent_light">#ff80ab</color>
+    <color name="accent_dark">#f50057</color>
+
 </resources>

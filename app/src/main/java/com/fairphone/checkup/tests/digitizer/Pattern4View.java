@@ -145,7 +145,7 @@ public class Pattern4View extends DrawView implements OnTouchListener {
 
     private void drawPads(Canvas canvas, int tolerance2) {
         Paint whiteSquare = new Paint();
-        whiteSquare.setColor(getResources().getColor(R.color.colorPrimary));
+        whiteSquare.setColor(getResources().getColor(R.color.primary));
         whiteSquare.setStyle(Paint.Style.FILL);
         whiteSquare.setAlpha(170);
 

@@ -2,31 +2,13 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Material.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="android:colorPrimary">@color/colorPrimary</item>
-        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="android:colorAccent">@color/colorAccent</item>
+        <!-- Main theme colors -->
+        <!--   your app branding color for the app bar -->
+        <item name="android:colorPrimary">@color/primary</item>
+        <!--   darker variant for the status bar and contextual app bars -->
+        <item name="android:colorPrimaryDark">@color/primary_dark</item>
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="android:colorAccent">@color/accent</item>
     </style>
-
-    <!--<style name="AppTheme.NoActionBar">-->
-        <!--<item name="windowActionBar">false</item>-->
-        <!--<item name="windowNoTitle">true</item>-->
-    <!--</style>-->
-
-    <!--<style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
-
-    <!--<style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
-
-    <!--<style name="FullscreenTheme" parent="AppTheme">-->
-        <!--<item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>-->
-        <!--<item name="android:windowActionBarOverlay">true</item>-->
-        <!--<item name="android:windowBackground">@null</item>-->
-        <!--<item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>-->
-        <!--<item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>-->
-    <!--</style>-->
-
-    <!--<style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">-->
-        <!--<item name="android:background">@color/black_overlay</item>-->
-    <!--</style>-->
 
 </resources>

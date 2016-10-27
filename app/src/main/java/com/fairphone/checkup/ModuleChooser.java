@@ -23,7 +23,7 @@ public class ModuleChooser extends Activity implements ModuleListAdapter.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_module_chooser);
-        mListView = (ListView) findViewById(R.id.listView);
+        mListView = (ListView) findViewById(R.id.list_view);
         ArrayList<Module> tests = new ArrayList<>();
         tests.add(new DisplayModule());
         tests.add(new CameraModule());

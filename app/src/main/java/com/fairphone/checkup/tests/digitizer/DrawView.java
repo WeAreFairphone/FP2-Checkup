@@ -35,8 +35,8 @@ public abstract class DrawView extends View {
         mPoints = new ArrayList<>();
         mPoints2 = new ArrayList<>();
         mPathPaint = createPathPaint();
-        mTouchPaint = createPaint(getResources().getColor(R.color.colorPrimary), 2.0f);
-        mAxisPaint = createPaint(getResources().getColor(R.color.colorAccent), 2.0f);
+        mTouchPaint = createPaint(getResources().getColor(R.color.primary), 2.0f);
+        mAxisPaint = createPaint(getResources().getColor(R.color.accent), 2.0f);
         mTolerance = 100;
     }
 
