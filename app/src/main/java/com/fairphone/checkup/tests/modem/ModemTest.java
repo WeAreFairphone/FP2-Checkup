@@ -4,12 +4,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.telephony.PhoneStateListener;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -17,6 +16,7 @@ import android.widget.TextView;
 import com.fairphone.checkup.R;
 import com.fairphone.checkup.tests.Test;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +36,14 @@ public class ModemTest extends Test {
 
     private PhoneStateListener mPhoneStateListener;
     private BroadcastReceiver broadcastReceiver;
+
+    Class mTelephonyManagerClass;
+    Method getNetworkOperatorName;
+    Method getNetworkOperatorCode;
+    Method getSimOperatorName;
+    Method getSimOperatorCode;
+    Method getNetworkType;
+    Method getImei;
 
     public ModemTest(Context context) {
         super(context);
@@ -63,6 +71,11 @@ public class ModemTest extends Test {
         mSelectableSubInfos = new ArrayList<SubscriptionInfo>();
         mTelephonyManager = (TelephonyManager)getContext().getSystemService(Context.TELEPHONY_SERVICE);
 
+        SubscriptionManager subscriptionManager = SubscriptionManager.from(getContext());
+        mSelectableSubInfos = subscriptionManager.getActiveSubscriptionInfoList();
+
+        setupReflection();
+
         setupBroadcastReceiver();
     }
 
@@ -70,6 +83,30 @@ public class ModemTest extends Test {
     protected void onCleanUp() {
         getContext().unregisterReceiver(broadcastReceiver);
         super.onCleanUp();
+    }
+
+    private void setupReflection() {
+        try {
+            mTelephonyManagerClass = Class.forName(mTelephonyManager.getClass().getName());
+
+            getNetworkOperatorName = mTelephonyManagerClass.getDeclaredMethod("getNetworkOperatorName", int.class);
+            getNetworkOperatorName.setAccessible(true);
+
+            getNetworkOperatorCode = mTelephonyManagerClass.getDeclaredMethod("getNetworkOperatorForSubscription", int.class);
+            getNetworkOperatorCode.setAccessible(true);
+
+            getSimOperatorName = mTelephonyManagerClass.getDeclaredMethod("getSimOperatorNameForSubscription", int.class);
+            getSimOperatorName.setAccessible(true);
+
+            getSimOperatorCode = mTelephonyManagerClass.getDeclaredMethod("getSimOperator", int.class);
+            getSimOperatorCode.setAccessible(true);
+
+            getNetworkType = mTelephonyManagerClass.getDeclaredMethod("getNetworkType", int.class);
+            getNetworkType.setAccessible(true);
+
+            getImei = mTelephonyManagerClass.getDeclaredMethod("getImei", int.class);
+            getImei.setAccessible(true);
+        } catch (Throwable e) {}
     }
 
     private void setupBroadcastReceiver() {
@@ -83,105 +120,35 @@ public class ModemTest extends Test {
     class ConnectionChangeReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            ConnectivityManager connectivityManager =
-                    (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-            NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
-
-            SubscriptionManager mSubscriptionManager = SubscriptionManager.from(getContext());
-            List<SubscriptionInfo> mSubInfoList = mSubscriptionManager.getActiveSubscriptionInfoList();
-
-            if(mSubInfoList != null) {
-                // there seems to be at least one card present, let's find out
-
-                if(mSubInfoList.size() == 1)  {                                                         // there's one card present
-                    SubscriptionInfo subscriptionInfo = mSubInfoList.get(0);
-
-                    if(subscriptionInfo.getSimSlotIndex() == 0) {                                       // the card is in the first slot
-                        //sim1Presence.setText(R.string.dualsim_card_present_yes);
-                        ((TextView)findViewById(R.id.modem_mnc0_value)).setText(""+subscriptionInfo.getMnc());
-                        ((TextView)findViewById(R.id.modem_mcc0_value)).setText(""+subscriptionInfo.getMcc());
+            try {
+                for (SubscriptionInfo subscriptionInfo : mSelectableSubInfos) {
+                    if (subscriptionInfo.getSimSlotIndex() == 0) {
+                        ((TextView)findViewById(R.id.modem_network_operator_value)).setText((String)getNetworkOperatorName.invoke(mTelephonyManager,subscriptionInfo.getSubscriptionId()));
+                        ((TextView)findViewById(R.id.modem_network_operator_code_value)).setText((String)getNetworkOperatorCode.invoke(mTelephonyManager,subscriptionInfo.getSubscriptionId()));
+                        ((TextView)findViewById(R.id.modem_sim_operator_value)).setText((String)getSimOperatorName.invoke(mTelephonyManager,subscriptionInfo.getSubscriptionId()));
+                        ((TextView)findViewById(R.id.modem_sim_operator_code_value)).setText((String)getSimOperatorCode.invoke(mTelephonyManager,subscriptionInfo.getSubscriptionId()));
+                        ((TextView)findViewById(R.id.modem_network_type_value)).setText(getNetworkTypeName((int)getNetworkType.invoke(mTelephonyManager,subscriptionInfo.getSubscriptionId())));
+                        ((TextView)findViewById(R.id.modem_mnc0_value)).setText("" + subscriptionInfo.getMnc());
+                        ((TextView)findViewById(R.id.modem_mcc0_value)).setText("" + subscriptionInfo.getMcc());
                         ((TextView)findViewById(R.id.modem_countrycode_value)).setText(subscriptionInfo.getCountryIso());
-                        //sim2Presence.setText(R.string.dualsim_card_present_no);
-                    } else if(subscriptionInfo.getSimSlotIndex() == 1) {                                // the card is in the second slot
-                        //sim1Presence.setText(R.string.dualsim_card_present_no);
-                        //sim2Presence.setText(R.string.dualsim_card_present_yes);
-                        ((TextView)findViewById(R.id.modem_mnc1_value)).setText(""+subscriptionInfo.getMnc());
-                        ((TextView)findViewById(R.id.modem_mcc1_value)).setText(""+subscriptionInfo.getMcc());
+                        ((TextView)findViewById(R.id.modem_imei0_value)).setText((String)getImei.invoke(mTelephonyManager,0));
+                    }
+                    if (subscriptionInfo.getSimSlotIndex() == 1) {
+                        ((TextView)findViewById(R.id.modem_network_operator2_value)).setText((String)getNetworkOperatorName.invoke(mTelephonyManager,subscriptionInfo.getSubscriptionId()));
+                        ((TextView)findViewById(R.id.modem_network_operator_code2_value)).setText((String)getNetworkOperatorCode.invoke(mTelephonyManager,subscriptionInfo.getSubscriptionId()));
+                        ((TextView)findViewById(R.id.modem_sim_operator2_value)).setText((String)getSimOperatorName.invoke(mTelephonyManager,subscriptionInfo.getSubscriptionId()));
+                        ((TextView)findViewById(R.id.modem_sim_operator_code2_value)).setText((String)getSimOperatorCode.invoke(mTelephonyManager,subscriptionInfo.getSubscriptionId()));
+                        ((TextView)findViewById(R.id.modem_network_type2_value)).setText(getNetworkTypeName((int)getNetworkType.invoke(mTelephonyManager,subscriptionInfo.getSubscriptionId())));
+                        ((TextView)findViewById(R.id.modem_mnc1_value)).setText("" + subscriptionInfo.getMnc());
+                        ((TextView)findViewById(R.id.modem_mcc1_value)).setText("" + subscriptionInfo.getMcc());
                         ((TextView)findViewById(R.id.modem_countrycode1_value)).setText(subscriptionInfo.getCountryIso());
+                        ((TextView)findViewById(R.id.modem_imei1_value)).setText((String)getImei.invoke(mTelephonyManager,1));
                     }
                 }
-
-                if(mSubInfoList.size() == 2)  {                                                         // there's two cards present
-
-                    SubscriptionInfo subscriptionInfo1 = mSubInfoList.get(0);
-
-                    if(subscriptionInfo1.getSimSlotIndex() == 0) {                                       // the card is in the first slot
-                        //sim1Presence.setText(R.string.dualsim_card_present_yes);
-                        ((TextView)findViewById(R.id.modem_mnc0_value)).setText(""+subscriptionInfo1.getMnc());
-                        ((TextView)findViewById(R.id.modem_mcc0_value)).setText(""+subscriptionInfo1.getMcc());
-                        ((TextView)findViewById(R.id.modem_countrycode_value)).setText(subscriptionInfo1.getCountryIso());
-                    } else if(subscriptionInfo1.getSimSlotIndex() == 1) {                                // the card is in the second slot
-                        //sim2Presence.setText(R.string.dualsim_card_present_yes);
-                        ((TextView)findViewById(R.id.modem_mnc1_value)).setText(""+subscriptionInfo1.getMnc());
-                        ((TextView)findViewById(R.id.modem_mcc1_value)).setText(""+subscriptionInfo1.getMcc());
-                        ((TextView)findViewById(R.id.modem_countrycode1_value)).setText(subscriptionInfo1.getCountryIso());
-                    }
-
-                    SubscriptionInfo subscriptionInfo2 = mSubInfoList.get(1);
-
-                    if(subscriptionInfo2.getSimSlotIndex() == 0) {                                       // the card is in the first slot
-                        //sim1Presence.setText(R.string.dualsim_card_present_yes);
-                       ((TextView)findViewById(R.id.modem_mnc0_value)).setText(""+subscriptionInfo2.getMnc());
-                        ((TextView)findViewById(R.id.modem_mcc0_value)).setText(""+subscriptionInfo2.getMcc());
-                        ((TextView)findViewById(R.id.modem_countrycode_value)).setText(subscriptionInfo2.getCountryIso());
-                    } else if(subscriptionInfo2.getSimSlotIndex() == 1) {                                // the card is in the second slot
-                        //sim2Presence.setText(R.string.dualsim_card_present_yes);
-                           ((TextView)findViewById(R.id.modem_mnc1_value)).setText(""+subscriptionInfo2.getMnc());
-                        ((TextView)findViewById(R.id.modem_mcc1_value)).setText(""+subscriptionInfo2.getMcc());
-                        ((TextView)findViewById(R.id.modem_countrycode1_value)).setText(subscriptionInfo2.getCountryIso());
-                    }
-                }
-            }
-
-            if (activeNetInfo != null && activeNetInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
-
-            } else {
+            } catch (Throwable e) {
+                Log.e(TAG, e.getLocalizedMessage());
             }
         }
-    }
-
-    public static SubscriptionInfo findRecordBySlotId(Context context, final int slotId) {
-        final List<SubscriptionInfo> subInfoList =
-                SubscriptionManager.from(context).getActiveSubscriptionInfoList();
-        if (subInfoList != null) {
-            final int subInfoLength = subInfoList.size();
-
-            for (int i = 0; i < subInfoLength; ++i) {
-                final SubscriptionInfo sir = subInfoList.get(i);
-                if (sir.getSimSlotIndex() == slotId) {
-                    //Right now we take the first subscription on a SIM.
-                    return sir;
-                }
-            }
-        }
-
-        return null;
-    }
-
-    private String getDataStateString(int dataState) {
-        switch(dataState) {
-            case -1:
-                return "Unknown";
-            case 0:
-                return "Disconnected";
-            case 1:
-                return "Connecting";
-            case 2:
-                return "Connected";
-            case 3:
-                return "Suspended";
-        }
-        return "";
     }
 
      private String getNetworkTypeName(int networkType) {

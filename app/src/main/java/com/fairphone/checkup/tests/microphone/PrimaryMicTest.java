@@ -2,10 +2,14 @@ package com.fairphone.checkup.tests.microphone;
 
 
 import android.app.Service;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.media.AudioManager;
 import android.media.AudioRecord;
 import android.media.AudioTrack;
+import android.media.MediaRecorder;
 import android.util.Log;
 import android.view.View;
 
@@ -35,6 +39,8 @@ public class PrimaryMicTest extends Test {
 
     private Thread recordingThread = null;
 
+    private BroadcastReceiver receiver;
+
     public PrimaryMicTest(Context context) {
         super(context);
     }
@@ -59,6 +65,7 @@ public class PrimaryMicTest extends Test {
 
     @Override
     protected void runTest() {
+        setupHeadphoneJackMonitor();
         startLoopback();
     }
 
@@ -66,6 +73,30 @@ public class PrimaryMicTest extends Test {
     protected void onCleanUp() {
         stopLoopback();
         super.onCleanUp();
+    }
+
+    private void setupHeadphoneJackMonitor() {
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_HEADSET_PLUG);
+
+        receiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                String action = intent.getAction();
+                if(action.equals(Intent.ACTION_HEADSET_PLUG)) {
+                    int state = intent.getIntExtra("state", -1);
+                    switch (state) {
+                        case 0:
+                            audioManager.setMode(AudioManager.STREAM_VOICE_CALL);
+                            break;
+                        case 1:
+                            audioManager.setMode(AudioManager.MODE_IN_CALL);
+                            break;
+                    }
+                }
+            }
+        };
+        getContext().registerReceiver(receiver, filter);
     }
 
     private void startLoopback() {
@@ -76,8 +107,8 @@ public class PrimaryMicTest extends Test {
                 int i = AudioRecord.getMinBufferSize(AUDIO_SAMPLE_RATE, AUDIORECORD_CHANNELS, AUDIO_ENCODING);
                 int j = AudioTrack.getMinBufferSize(AUDIO_SAMPLE_RATE, AUDIOTRACK_CHANNELS, AUDIO_ENCODING);
                 byte[] arrayOfByte = new byte[i];
-                localAudioRecord = new AudioRecord(1, AUDIO_SAMPLE_RATE, AUDIORECORD_CHANNELS, AUDIO_ENCODING, i);
-                localAudioTrack = new AudioTrack(8, AUDIO_SAMPLE_RATE, AUDIOTRACK_CHANNELS, AUDIO_ENCODING, j, 1);
+                localAudioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC, AUDIO_SAMPLE_RATE, AUDIORECORD_CHANNELS, AUDIO_ENCODING, i);
+                localAudioTrack = new AudioTrack(MediaRecorder.AudioSource.REMOTE_SUBMIX, AUDIO_SAMPLE_RATE, AUDIOTRACK_CHANNELS, AUDIO_ENCODING, j, AudioTrack.MODE_STREAM);
                 localAudioTrack.setPlaybackRate(AUDIO_SAMPLE_RATE);
                 localAudioRecord.startRecording();
                 isRecording = true;
