@@ -46,6 +46,7 @@ public class MainActivity extends Activity implements TestListAdapter.OnClickLis
     private void createTestList() {
         mTests = new ArrayList<>();
         mTests.add(new DisplayTest(this));
+        mTests.add(new DigitizerTest(this));
         mTests.add(new PrimaryMicTest(this));
         mTests.add(new SecondaryMicTest(this));
         mTests.add(new ModemTest(this));
