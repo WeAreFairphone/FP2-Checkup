@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#000000"
-    tools:context=".tests.display.DisplayTestRun">
+    tools:context=".tests.display.DisplayTest">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
@@ -18,7 +18,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
-        android:background="@color/black"
         android:orientation="horizontal"
         tools:ignore="UselessParent">
 

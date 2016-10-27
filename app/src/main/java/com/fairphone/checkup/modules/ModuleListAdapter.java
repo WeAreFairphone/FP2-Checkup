@@ -24,7 +24,7 @@ public class ModuleListAdapter extends ArrayAdapter<Module> {
 
     public ModuleListAdapter(Context context, List<Module> tests, OnClickListener onClickListener) {
         super(context,
-                R.layout.module_chooser_list_item, R.id.moduleName, tests);
+                R.layout.module_chooser_list_item, R.id.list_item_title, tests);
         mOnClickListener = onClickListener;
     }
 
@@ -33,9 +33,9 @@ public class ModuleListAdapter extends ArrayAdapter<Module> {
         View view = super.getView(position, convertView, parent);
         final Module module = getItem(position);
         if (module != null) {
-            ((ImageView) view.findViewById(R.id.modulePicture)).setImageResource(module.getPictureResourceID());
-            ((TextView) view.findViewById(R.id.moduleName)).setText(getContext().getString(module.getModuleNameID()));
-            ((TextView) view.findViewById(R.id.moduleDescription)).setText(getContext().getString(module.getDescriptionId()));
+            ((ImageView) view.findViewById(R.id.list_item_avatar)).setImageResource(module.getPictureResourceID());
+            ((TextView) view.findViewById(R.id.list_item_title)).setText(getContext().getString(module.getModuleNameID()));
+            ((TextView) view.findViewById(R.id.list_item_summary)).setText(getContext().getString(module.getDescriptionId()));
         }
         view.setOnClickListener(new View.OnClickListener() {
             @Override

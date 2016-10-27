@@ -22,7 +22,7 @@ public class TestListAdapter extends ArrayAdapter<Test> {
 
     public TestListAdapter(Context context, List<Test> tests, OnClickListener onClickListener) {
         super(context,
-                R.layout.test_chooser_list_item, R.id.listItemTestTitle, tests);
+                R.layout.test_chooser_list_item, R.id.list_item_title, tests);
         mOnClickListener = onClickListener;
     }
 
@@ -31,8 +31,8 @@ public class TestListAdapter extends ArrayAdapter<Test> {
         View view = super.getView(position, convertView, parent);
         final Test test = getItem(position);
         if (test != null) {
-            ((TextView) view.findViewById(R.id.listItemTestTitle)).setText(getContext().getString(test.getTestTitleID()));
-            ((TextView) view.findViewById(R.id.listItemTestDescription)).setText(getContext().getString(test.getTestDescriptionID()));
+            ((TextView) view.findViewById(R.id.list_item_title)).setText(getContext().getString(test.getTestTitleID()));
+            ((TextView) view.findViewById(R.id.list_item_summary)).setText(getContext().getString(test.getTestDescriptionID()));
 //            TextView textview = (TextView) view.findViewById(R.id.test_list_test_result);
 //            if (test.hasRun()) {
 //                textview.setVisibility(View.VISIBLE);
