@@ -13,7 +13,7 @@
     <string name="small_text">Small Text</string>
     <string name="tests_for">Tests for</string>
     <string name="test_name">TestName</string>
-    <string name="not_available">N/A</string>
+    <string name="not_available">n/a</string>
     <string name="state">State:&#160;</string>
     <string name="not_triggered">Not triggered.</string>
     <string name="start_test">Start Test</string>
@@ -198,20 +198,24 @@
     <!-- Modem -->
     <string name="modem_test_title">Modem</string>
     <string name="modem_test_description">This test checks if the modem is working properly. Press start to test!</string>
-    <string name="modem_sim1">SIM 1:&#160;</string>
-    <string name="modem_sim2">SIM 2:&#160;</string>
-    <string name="modem_network_operator">Network operator name:&#160;</string>
-    <string name="modem_network_operator_code">Network operator code:&#160;</string>
-    <string name="modem_sim_operator_code">SIM operator code:&#160;</string>
-    <string name="modem_sim_operator">SIM operator:&#160;</string>
-    <string name="modem_network_type">Network type:&#160;</string>
-    <string name="modem_data_state">Data state:&#160;</string>
-    <string name="modem_data_activity">Data activity:&#160;</string>
-    <string name="modem_mnc">MNC:&#160;</string>
-    <string name="modem_mcc">MCC:&#160;</string>
-    <string name="modem_imei">IMEI:&#160;</string>
-    <string name="modem_countrycode">Country code:&#160;</string>
-    <string name="modem_roaming">Roaming:&#160;</string>
+    <!-- Arguments: <SIM number> -->
+    <string name="modem_sim_title">SIM %1$d</string>
+    <string name="modem_network_operator">Network Operator:</string>
+    <string name="modem_network_operator_code">Network Operator Code:</string>
+    <string name="modem_network_operator_code_mnc">Network Operator Code (MNC):</string>
+    <string name="modem_network_operator_code_mcc">Network Operator Code (MCC):</string>
+    <string name="modem_sim_operator_code">SIM Operator Code:</string>
+    <string name="modem_sim_operator_code_mnc">SIM Operator Code (MNC):</string>
+    <string name="modem_sim_operator_code_mcc">SIM Operator Code (MCC):</string>
+    <string name="modem_sim_operator">SIM Operator:</string>
+    <string name="modem_network_type">Network type:</string>
+    <string name="modem_data_state">Data state:</string>
+    <string name="modem_data_activity">Data activity:</string>
+    <string name="modem_mnc">MNC:</string>
+    <string name="modem_mcc">MCC:</string>
+    <string name="modem_imei">IMEI:</string>
+    <string name="modem_countrycode">Country code:</string>
+    <string name="modem_roaming">Roaming:</string>
 
     <!-- Top module -->
     <string name="top_module_name">Top module</string>

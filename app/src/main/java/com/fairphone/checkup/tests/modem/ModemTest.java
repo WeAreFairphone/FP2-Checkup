@@ -11,6 +11,7 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.fairphone.checkup.R;
@@ -28,7 +29,7 @@ public class ModemTest extends Test {
 
     private static final String TAG = ModemTest.class.getSimpleName();
 
-    View mTestView;
+    List<ViewGroup> mTestSimViews;
 
     private TelephonyManager mTelephonyManager;
     private List<SubscriptionInfo> mSelectableSubInfos;
@@ -47,6 +48,8 @@ public class ModemTest extends Test {
 
     public ModemTest(Context context) {
         super(context);
+
+        mTestSimViews = new ArrayList<ViewGroup>(2);
     }
 
     @Override
@@ -60,8 +63,22 @@ public class ModemTest extends Test {
     }
 
     private void replaceView() {
-        mTestView = LayoutInflater.from(getContext()).inflate(R.layout.view_modem_test, null);
-        setTestView(mTestView);
+        mTestSimViews.clear();
+
+        final ViewGroup testViewSim1 = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.view_modem_sim_test, null);
+        ((TextView) testViewSim1.findViewById(R.id.sim_title)).setText(String.format(getContext().getString(R.string.modem_sim_title), 1));
+        mTestSimViews.add(testViewSim1);
+
+        final ViewGroup testViewSim2 = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.view_modem_sim_test, null);
+        ((TextView) testViewSim2.findViewById(R.id.sim_title)).setText(String.format(getContext().getString(R.string.modem_sim_title), 2));
+        mTestSimViews.add(testViewSim2);
+
+        final ViewGroup testView = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.view_modem_test, null);
+        final ViewGroup testViewContainer = (ViewGroup) testView.findViewById(R.id.content_layout);
+        testViewContainer.removeAllViews();
+        testViewContainer.addView(testViewSim1);
+        testViewContainer.addView(testViewSim2);
+        setTestView(testView);
     }
 
     @Override
@@ -121,29 +138,28 @@ public class ModemTest extends Test {
         @Override
         public void onReceive(Context context, Intent intent) {
             try {
+                ViewGroup testSimView;
                 for (SubscriptionInfo subscriptionInfo : mSelectableSubInfos) {
-                    if (subscriptionInfo.getSimSlotIndex() == 0) {
-                        ((TextView)findViewById(R.id.modem_network_operator_value)).setText((String)getNetworkOperatorName.invoke(mTelephonyManager,subscriptionInfo.getSubscriptionId()));
-                        ((TextView)findViewById(R.id.modem_network_operator_code_value)).setText((String)getNetworkOperatorCode.invoke(mTelephonyManager,subscriptionInfo.getSubscriptionId()));
-                        ((TextView)findViewById(R.id.modem_sim_operator_value)).setText((String)getSimOperatorName.invoke(mTelephonyManager,subscriptionInfo.getSubscriptionId()));
-                        ((TextView)findViewById(R.id.modem_sim_operator_code_value)).setText((String)getSimOperatorCode.invoke(mTelephonyManager,subscriptionInfo.getSubscriptionId()));
-                        ((TextView)findViewById(R.id.modem_network_type_value)).setText(getNetworkTypeName((int)getNetworkType.invoke(mTelephonyManager,subscriptionInfo.getSubscriptionId())));
-                        ((TextView)findViewById(R.id.modem_mnc0_value)).setText("" + subscriptionInfo.getMnc());
-                        ((TextView)findViewById(R.id.modem_mcc0_value)).setText("" + subscriptionInfo.getMcc());
-                        ((TextView)findViewById(R.id.modem_countrycode_value)).setText(subscriptionInfo.getCountryIso());
-                        ((TextView)findViewById(R.id.modem_imei0_value)).setText((String)getImei.invoke(mTelephonyManager,0));
+                    if (subscriptionInfo.getSimSlotIndex() > mTestSimViews.size()) {
+                        Log.e(TAG, String.format("Unexpected SIM slot (%d) info received", subscriptionInfo.getSimSlotIndex()));
+                        continue;
                     }
-                    if (subscriptionInfo.getSimSlotIndex() == 1) {
-                        ((TextView)findViewById(R.id.modem_network_operator2_value)).setText((String)getNetworkOperatorName.invoke(mTelephonyManager,subscriptionInfo.getSubscriptionId()));
-                        ((TextView)findViewById(R.id.modem_network_operator_code2_value)).setText((String)getNetworkOperatorCode.invoke(mTelephonyManager,subscriptionInfo.getSubscriptionId()));
-                        ((TextView)findViewById(R.id.modem_sim_operator2_value)).setText((String)getSimOperatorName.invoke(mTelephonyManager,subscriptionInfo.getSubscriptionId()));
-                        ((TextView)findViewById(R.id.modem_sim_operator_code2_value)).setText((String)getSimOperatorCode.invoke(mTelephonyManager,subscriptionInfo.getSubscriptionId()));
-                        ((TextView)findViewById(R.id.modem_network_type2_value)).setText(getNetworkTypeName((int)getNetworkType.invoke(mTelephonyManager,subscriptionInfo.getSubscriptionId())));
-                        ((TextView)findViewById(R.id.modem_mnc1_value)).setText("" + subscriptionInfo.getMnc());
-                        ((TextView)findViewById(R.id.modem_mcc1_value)).setText("" + subscriptionInfo.getMcc());
-                        ((TextView)findViewById(R.id.modem_countrycode1_value)).setText(subscriptionInfo.getCountryIso());
-                        ((TextView)findViewById(R.id.modem_imei1_value)).setText((String)getImei.invoke(mTelephonyManager,1));
-                    }
+
+                    testSimView = mTestSimViews.get(subscriptionInfo.getSimSlotIndex());
+                    String simOperatorCode = (String) getSimOperatorCode.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId());
+                    String networkOperatorCode = (String) getNetworkOperatorCode.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId());
+
+                    ((TextView) testSimView.findViewById(R.id.modem_imei_value)).setText((String) getImei.invoke(mTelephonyManager, 0));
+                    ((TextView) testSimView.findViewById(R.id.modem_sim_operator_value)).setText((String) getSimOperatorName.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()));
+                    ((TextView) testSimView.findViewById(R.id.modem_sim_operator_code_value)).setText(simOperatorCode);
+                    ((TextView) testSimView.findViewById(R.id.modem_sim_mcc_value)).setText(simOperatorCode.substring(0, 3));
+                    ((TextView) testSimView.findViewById(R.id.modem_sim_mnc_value)).setText(simOperatorCode.substring(3));
+                    ((TextView) testSimView.findViewById(R.id.modem_network_operator_value)).setText((String) getNetworkOperatorName.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()));
+                    ((TextView) testSimView.findViewById(R.id.modem_network_operator_code_value)).setText(networkOperatorCode);
+                    ((TextView) testSimView.findViewById(R.id.modem_network_mcc_value)).setText(networkOperatorCode.substring(0, 3));
+                    ((TextView) testSimView.findViewById(R.id.modem_network_mnc_value)).setText(networkOperatorCode.substring(3));
+                    ((TextView) testSimView.findViewById(R.id.modem_network_type_value)).setText(getNetworkTypeName((int) getNetworkType.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId())));
+                    ((TextView) testSimView.findViewById(R.id.modem_country_code_value)).setText(subscriptionInfo.getCountryIso());
                 }
             } catch (Throwable e) {
                 Log.e(TAG, e.getLocalizedMessage());
@@ -151,7 +167,7 @@ public class ModemTest extends Test {
         }
     }
 
-     private String getNetworkTypeName(int networkType) {
+     private static String getNetworkTypeName(int networkType) {
         switch (networkType) {
             case TelephonyManager.NETWORK_TYPE_1xRTT: return "1xRTT";
             case TelephonyManager.NETWORK_TYPE_CDMA: return "CDMA";
@@ -168,8 +184,7 @@ public class ModemTest extends Test {
             case TelephonyManager.NETWORK_TYPE_IDEN: return "iDen";
             case TelephonyManager.NETWORK_TYPE_LTE: return "LTE";
             case TelephonyManager.NETWORK_TYPE_UMTS: return "UMTS";
-            case TelephonyManager.NETWORK_TYPE_UNKNOWN: return "Unknown";
+            case TelephonyManager.NETWORK_TYPE_UNKNOWN: default: return "Unknown";
         }
-        return "";
     }
 }
