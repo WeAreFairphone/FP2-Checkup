@@ -31,6 +31,10 @@
     <string name="digitizer_test_title">Digitizer</string>
     <string name="digitizer_test_description">This test checks if the touch sensors are working correctly. Drag your finger(s) along the pattern to proceed. </string>
 
+    <!-- Free draw -->
+    <string name="freedraw_test_title">Free drawing</string>
+    <string name="freedraw_test_description">Draw freely on the screen.</string>
+    <string name="freedraw_test_instructions">Use your finger to draw freely on the canvas. While on the canvas, swipe from the bottom of the screen towards the top to make the back button appear.</string>
 
     <!-- Battery module -->
     <string name="battery_module_name">Battery</string>

@@ -1,4 +1,4 @@
-package com.fairphone.checkup.tests.digitizer;
+package com.fairphone.checkup.tests.freedraw;
 
 import android.content.Context;
 import android.graphics.Bitmap;

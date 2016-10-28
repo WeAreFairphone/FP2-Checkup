@@ -1,4 +1,4 @@
-package com.fairphone.checkup.tests.digitizer;
+package com.fairphone.checkup.tests.freedraw;
 
 import android.content.Context;
 import android.view.View;
@@ -8,13 +8,9 @@ import android.widget.ViewFlipper;
 import com.fairphone.checkup.R;
 import com.fairphone.checkup.tests.Test;
 
-/**
- * Created by maarten on 27/09/16.
- */
+public class FreeDrawTest extends Test {
 
-public class DigitizerTest extends Test {
-
-    private static final String TAG = DigitizerTest.class.getSimpleName();
+    private static final String TAG = FreeDrawTest.class.getSimpleName();
 
     private ViewFlipper mViewFlipper;
     private RelativeLayout mParentLayout;
@@ -24,22 +20,28 @@ public class DigitizerTest extends Test {
     private int parentPaddingRight;
     private int parentPaddingBottom;
 
-    public DigitizerTest(Context context) {
+    public FreeDrawTest(Context context) {
         super(context);
     }
 
     @Override
     protected int getTestTitleID() {
-        return R.string.digitizer_test_title;
+        return R.string.freedraw_test_title;
     }
 
     @Override
     protected int getTestDescriptionID() {
-        return R.string.digitizer_test_description;
+        return R.string.freedraw_test_description;
+    }
+
+    @Override
+    protected int getTestInstructionsID() {
+        return R.string.freedraw_test_instructions;
     }
 
     @Override
     protected void onPrepare() {
+        displayInstructions();
         mParentLayout = (RelativeLayout) findViewById(R.id.generic_test_relative_layout);
     }
 
@@ -103,9 +105,6 @@ public class DigitizerTest extends Test {
     }
 
     private void addDisplayPatterns() {
-        mViewFlipper.addView(new Pattern1View(getContext(), mViewFlipper, this));
-        mViewFlipper.addView(new Pattern2View(getContext(), mViewFlipper, this));
-        mViewFlipper.addView(new Pattern3View(getContext(), mViewFlipper, this));
-        mViewFlipper.addView(new Pattern4View(getContext(), mViewFlipper, this));
+        mViewFlipper.addView(new FreeDrawView(getContext()));
     }
 }
