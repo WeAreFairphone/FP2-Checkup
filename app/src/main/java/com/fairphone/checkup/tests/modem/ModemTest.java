@@ -48,8 +48,6 @@ public class ModemTest extends Test {
 
     public ModemTest(Context context) {
         super(context);
-
-        mTestSimViews = new ArrayList<ViewGroup>(2);
     }
 
     @Override
@@ -63,6 +61,9 @@ public class ModemTest extends Test {
     }
 
     private void replaceView() {
+        if (mTestSimViews == null) {
+            mTestSimViews = new ArrayList<ViewGroup>(2);
+        }
         mTestSimViews.clear();
 
         final ViewGroup testViewSim1 = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.view_modem_sim_test, null);
@@ -83,6 +84,11 @@ public class ModemTest extends Test {
 
     @Override
     protected void runTest() {
+    }
+
+    @Override
+    protected void onPrepare() {
+        hideActionButton();
         replaceView();
 
         mSelectableSubInfos = new ArrayList<SubscriptionInfo>();

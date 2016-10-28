@@ -196,8 +196,8 @@
     <string name="wifi_hidden_ssid">Hidden?:&#160;</string>
 
     <!-- Modem -->
-    <string name="modem_test_title">Modem</string>
-    <string name="modem_test_description">This test checks if the modem is working properly. Press start to test!</string>
+    <string name="modem_test_title">Mobile connectivity</string>
+    <string name="modem_test_description">Information about the mobile connectivity.</string>
     <!-- Arguments: <SIM number> -->
     <string name="modem_sim_title">SIM %1$d</string>
     <string name="modem_network_operator">Network Operator:</string>
