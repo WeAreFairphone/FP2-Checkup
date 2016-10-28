@@ -47,6 +47,10 @@ public abstract class Test extends RelativeLayout {
         onPrepare();
     }
 
+    protected void hideActionButton() {
+        mButton.setVisibility(GONE);
+    }
+
     private void configureStartButton() {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
