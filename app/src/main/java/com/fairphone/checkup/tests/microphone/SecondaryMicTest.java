@@ -56,7 +56,14 @@ public class SecondaryMicTest extends Test {
     }
 
     @Override
+    protected int getTestInstructionsID() {
+        return R.string.secondary_mic_test_instructions;
+    }
+
+    @Override
     protected void onPrepare() {
+        displayInstructions();
+
         audioManager = ((AudioManager)getContext().getSystemService(Service.AUDIO_SERVICE));
         audioManager.setMode(AudioManager.MODE_NORMAL);
         audioManager.setParameters("hip_test=secondary");

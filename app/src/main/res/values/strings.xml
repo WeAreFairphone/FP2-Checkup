@@ -255,9 +255,8 @@
 
     <!-- Secondary microphone -->
     <string name="secondary_mic_test_title">Secondary microphone</string>
-    <string name="secondary_mic_test_description">This tests the noise cancellation microphone. Press start and pretend you\'re making a phone call, but hold your phone upside down. Can you hear yourself?</string>
-    <string name="secondary_mic_test_finish_question">Talk to your phone. Can you hear yourself?</string>
-
+    <string name="secondary_mic_test_description">The microphone to reduce ambient noise.</string>
+    <string name="secondary_mic_test_instructions">Press start and pretend you\'re making a phone call, but hold your phone upside down. Can you hear yourself?</string>
 
     <!-- Bottom module -->
     <string name="bottom_module_name">Bottom module</string>
