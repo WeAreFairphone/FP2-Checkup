@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
@@ -45,6 +46,17 @@ public abstract class Test extends RelativeLayout {
         configureStartButton();
         configureBackButton();
         onPrepare();
+    }
+
+    protected void displayInstructions()  {
+        final View instructionsLayout = inflate(getContext(), R.layout.view_tester_instructions, null);
+        final TextView descriptionView = (TextView) instructionsLayout.findViewById(R.id.test_description);
+        final TextView instructionsView = (TextView) instructionsLayout.findViewById(R.id.test_instructions);
+
+        descriptionView.setText(getTestDescription());
+        instructionsView.setText(getTestInstructions());
+
+        setTestView(instructionsLayout);
     }
 
     protected void hideActionButton() {
@@ -189,6 +201,19 @@ public abstract class Test extends RelativeLayout {
     }
 
     protected int getTestDescriptionID() {
+        return R.string.genericTestDescription;
+    }
+
+
+    protected String getTestInstructions() {
+        return getTestInstructions(getContext());
+    }
+
+    protected String getTestInstructions(Context context) {
+        return getResources().getString(getTestInstructionsID());
+    }
+
+    protected int getTestInstructionsID() {
         return R.string.genericTestDescription;
     }
 
