@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="app_name">Checkup</string>
     <string name="action_settings">Settings</string>
@@ -8,19 +9,19 @@
     <string name="genericTestDescription">A generic test description. You really want to have something more descriptive here.</string>
     <string name="test_failed">Test failed</string>
     <string name="test_passed">Test passed</string>
-    <string name="hello_world">Hello World!</string>
-    <string name="large_text">Large Text</string>
-    <string name="small_text">Small Text</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="large_text">Large text</string>
+    <string name="small_text">Small text</string>
     <string name="tests_for">Tests for</string>
     <string name="test_name">TestName</string>
     <string name="not_available">n/a</string>
-    <string name="state">State:&#160;</string>
+    <string name="state">State: </string>
     <string name="not_triggered">Not triggered.</string>
     <string name="start_test">Start Test</string>
     <string name="lorum_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fringilla vitae ligula ac mollis. Nunc lobortis nunc sit amet risus scelerisque, non volutpat sem condimentum. Suspendisse potenti. Aliquam urna lectus, facilisis et mauris et, ultrices pharetra dui. Maecenas auctor massa tortor, quis ultrices orci tempor id. Fusce vel faucibus magna, viverra finibus velit. Curabitur tempus, nisi a fermentum dictum, velit metus dapibus orci, sit amet volutpat odio risus non lectus</string>
 
     <!-- Display module -->
-    <string name="display_module_name">Display module</string>
+    <string name="display_module_name">Display</string>
     <string name="display_module_description">The display module houses the LCD screen and the touch sensors.</string>
 
     <!-- LCD -->
@@ -40,23 +41,23 @@
     <string name="battery_test_title">Battery</string>
     <string name="battery_test_description">This tests checks if the battery is working. Press start to view battery stats.</string>
     <string name="battery_test_finish_question">Battery stats are displayed. Do they look OK?</string>
-    <string name="battery_status">Status:&#160;</string>
+    <string name="battery_status">Status: </string>
     <string name="battery_status_unknown">Unknown</string>
     <string name="battery_status_charging">Charging</string>
     <string name="battery_status_discharging">Discharging</string>
     <string name="battery_status_not_charging">Not charging</string>
     <string name="battery_status_full">Unknown</string>
-    <string name="battery_plugged">Plugged:&#160;</string>
+    <string name="battery_plugged">Plugged: </string>
     <string name="battery_plugged_ac">AC</string>
     <string name="battery_plugged_usb">USB</string>
     <string name="battery_plugged_wireless">Wireless</string>
-    <string name="battery_level">Level:&#160;</string>
+    <string name="battery_level">Level: </string>
     <string name="battery_level_unit">%</string>
-    <string name="battery_temperature">Temperature:&#160;</string>
+    <string name="battery_temperature">Temperature: </string>
     <string name="battery_temperature_unit">°C</string>
-    <string name="battery_voltage">Voltage:&#160;</string>
+    <string name="battery_voltage">Voltage: </string>
     <string name="battery_voltage_unit">V</string>
-    <string name="battery_health">Health:&#160;</string>
+    <string name="battery_health">Health: </string>
     <string name="battery_health_unkown">Unknown</string>
     <string name="battery_health_good">Good</string>
     <string name="battery_health_overheat">Overheat</string>
@@ -87,14 +88,14 @@
     <string name="dualsim_test_title">SIM card slots</string>
     <string name="dualsim_test_description">This test will display SIM card status. Check if the displayed information is correct.</string>
     <string name="dualsim_test_finish_question">Is the displayed SIM info correct?</string>
-    <string name="dualsim_card_1">Card 1 state:&#160;</string>
-    <string name="dualsim_card_2">Card 2 state:&#160;</string>
+    <string name="dualsim_card_1">Card 1 state: </string>
+    <string name="dualsim_card_2">Card 2 state: </string>
     <string name="dualsim_card_presence">Present</string>
     <string name="dualsim_card_present_na">N/A</string>
     <string name="dualsim_card_present_yes">Yes</string>
     <string name="dualsim_card_present_no">No card present</string>
     <string name="dualsim_card_carrier">Carrier</string>
-    <string name="dualsim_settings_text">Go to \'Settings -> SIM cards\' to change your SIM card setttings.</string>
+    <string name="dualsim_settings_text">Go to \'Settings -&gt; SIM cards\' to change your SIM card setttings.</string>
 
     <string name="sim_state_unkown">Unknown</string>
     <string name="sim_state_absent">no SIM card is available in the device</string>
@@ -110,39 +111,39 @@
     <string name="microsd_test_title">microSD slot</string>
     <string name="microsd_test_description">This test checks if the microSD slot is working properly. Make sure a microSD card is plugged in and press start.</string>
     <string name="microsd_test_finish_question">You should see the SD card status. Is the info correct?</string>
-    <string name="microsd_state">State:&#160;</string>
-    <string name="microsd_total_size">Total size:&#160;</string>
-    <string name="microsd_available_space">Available space:&#160;</string>
+    <string name="microsd_state">State: </string>
+    <string name="microsd_total_size">Total size: </string>
+    <string name="microsd_available_space">Available space: </string>
     <string name="microsd_mounted">Mounted</string>
     <string name="microsd_unknown">Unknown</string>
-    <string name="microsd_filesystem">Filesystem:&#160;</string>
+    <string name="microsd_filesystem">Filesystem: </string>
 
     <!-- Accelerometer -->
     <string name="accelerometer_test_title">Accelerometer</string>
     <string name="accelerometer_test_description">This test checks if the accelerometer is working properly. Press start and tilt your phone in all directions.</string>
     <string name="accelerometer_test_finish_question">You should see the X, Y and Z values change when you tilt your phone. Are the values changing?</string>
-    <string name="accelerometer_x_axis">X:&#160;</string>
-    <string name="accelerometer_y_axis">Y:&#160;</string>
-    <string name="accelerometer_z_axis">Z:&#160;</string>
-    <string name="acceleration_unit">&#160;m/s²</string>
+    <string name="accelerometer_x_axis">X: </string>
+    <string name="accelerometer_y_axis">Y: </string>
+    <string name="accelerometer_z_axis">Z: </string>
+    <string name="acceleration_unit"> m/s²</string>
     <string name="accelerometer_header">Acceleration force (including gravity)</string>
 
     <!-- Magnetometer -->
     <string name="magnetometer_test_title">Magnetometer</string>
     <string name="magnetometer_test_description">This test checks if the magnetometer is working properly. Press start and turn your phone around.</string>
     <string name="magnetometer_test_finish_question">You should see the heading value change when you turn your phone around. Is the value changing?</string>
-    <string name="magnetometer_x_axis">X:&#160;</string>
-    <string name="magnetometer_y_axis">Y:&#160;</string>
-    <string name="magnetometer_z_axis">Z:&#160;</string>
-    <string name="magnetometer_unit">&#160;μT</string>
+    <string name="magnetometer_x_axis">X: </string>
+    <string name="magnetometer_y_axis">Y: </string>
+    <string name="magnetometer_z_axis">Z: </string>
+    <string name="magnetometer_unit"> μT</string>
     <string name="magnetometer_header">Geomagnetic field strength along axis</string>
 
     <!-- Gyroscope -->
     <string name="gyroscope_test_title">Gyroscope</string>
     <string name="gyroscope_test_description">This test checks if the gyroscope is working properly. Press start and turn your phone around.</string>
-    <string name="gyroscope_x_axis">X:&#160;</string>
-    <string name="gyroscope_y_axis">Y:&#160;</string>
-    <string name="gyroscope_z_axis">Z:&#160;</string>
+    <string name="gyroscope_x_axis">X: </string>
+    <string name="gyroscope_y_axis">Y: </string>
+    <string name="gyroscope_z_axis">Z: </string>
     <string name="gyroscope_unit">rad/s</string>
     <string name="gyroscope_header">Rate of rotation around axis</string>
 
@@ -150,21 +151,21 @@
     <string name="gps_test_title">GPS</string>
     <string name="gps_test_description">This test checks if GPS can determine your location. Press start to test!</string>
     <string name="searching">Searching…</string>
-    <string name="satellites">Satellites:&#160;</string>
-    <string name="latitude">Latitude:&#160;</string>
-    <string name="longitude">Longitude:&#160;</string>
-    <string name="altitude">Altitude:&#160;</string>
-    <string name="speed">Speed:&#160;</string>
-    <string name="bearing">Bearing:&#160;</string>
-    <string name="accuracy">Accuracy:&#160;</string>
+    <string name="satellites">Satellites: </string>
+    <string name="latitude">Latitude: </string>
+    <string name="longitude">Longitude: </string>
+    <string name="altitude">Altitude: </string>
+    <string name="speed">Speed: </string>
+    <string name="bearing">Bearing: </string>
+    <string name="accuracy">Accuracy: </string>
 
     <!-- Buttons -->
     <string name="buttons_test_title">Buttons</string>
     <string name="buttons_test_description">This test checks if the buttons are working properly. Press start to test!</string>
-    <string name="buttons_volume_up">Volume up:&#160;</string>
-    <string name="buttons_volume_down">Volume down:&#160;</string>
-    <string name="buttons_camera">Camera:&#160;</string>
-    <string name="buttons_power">Power:&#160;</string>
+    <string name="buttons_volume_up">Volume up: </string>
+    <string name="buttons_volume_down">Volume down: </string>
+    <string name="buttons_camera">Camera: </string>
+    <string name="buttons_power">Power: </string>
     <string name="buttons_pressed">Pressed</string>
     <string name="buttons_unpressed">Unpressed</string>
     <string name="buttons_triggered">Triggered</string>
@@ -172,28 +173,28 @@
     <!-- Wifi -->
     <string name="wifi_test_title">Wi-Fi</string>
     <string name="wifi_test_description">This test checks if the wifi is working properly. Press start to test!</string>
-    <string name="wifi_enabled">Enabled:&#160;</string>
-    <string name="wifi_ssid">SSID:&#160;</string>
-    <string name="wifi_bssid">BSSID:&#160;</string>
-    <string name="wifi_linkspeed">Link speed:&#160;</string>
-    <string name="wifi_strength">Strength:&#160;</string>
+    <string name="wifi_enabled">Enabled: </string>
+    <string name="wifi_ssid">SSID: </string>
+    <string name="wifi_bssid">BSSID: </string>
+    <string name="wifi_linkspeed">Link speed: </string>
+    <string name="wifi_strength">Strength: </string>
     <string name="wifi_strength_unit">dBm</string>
-    <string name="wifi_mac_address">MAC address:&#160;</string>
-    <string name="wifi_frequency">Frequency:&#160;</string>
-    <string name="wifi_encryption">Encryption:&#160;</string>
+    <string name="wifi_mac_address">MAC address: </string>
+    <string name="wifi_frequency">Frequency: </string>
+    <string name="wifi_encryption">Encryption: </string>
     <string name="WPA_PSK">WPA PSK</string>
     <string name="WPA2_PSK">WPA PSK</string>
     <string name="WPA_EAP">WPA EAP</string>
     <string name="IEEE8021X">IEEE8021X</string>
     <string name="NONE">NONE</string>
-    <string name="wifi_ip">IP address:&#160;</string>
-    <string name="wifi_netmask">Netmask:&#160;</string>
-    <string name="wifi_gateway">Gateway:&#160;</string>
-    <string name="wifi_dhcp_server">DHCP-server:&#160;</string>
-    <string name="wifi_dns_1">DNS 1:&#160;</string>
-    <string name="wifi_dns_2">DNS 2:&#160;</string>
-    <string name="wifi_dhcp_lease">DHCP lease:&#160;</string>
-    <string name="wifi_hidden_ssid">Hidden?:&#160;</string>
+    <string name="wifi_ip">IP address: </string>
+    <string name="wifi_netmask">Netmask: </string>
+    <string name="wifi_gateway">Gateway: </string>
+    <string name="wifi_dhcp_server">DHCP-server: </string>
+    <string name="wifi_dns_1">DNS 1: </string>
+    <string name="wifi_dns_2">DNS 2: </string>
+    <string name="wifi_dhcp_lease">DHCP lease: </string>
+    <string name="wifi_hidden_ssid">Hidden?: </string>
 
     <!-- Modem -->
     <string name="modem_test_title">Modem</string>
@@ -224,7 +225,7 @@
     <!-- Headphone jack -->
     <string name="headphone_jack_test_title">Headphone jack</string>
     <string name="headphone_jack_test_description">This test checks if the headphone jack is working properly. Press start and plug and unplug your headphones a few times.</string>
-    <string name="headphone_status">Plugged:&#160;</string>
+    <string name="headphone_status">Plugged: </string>
     <string name="headphone_plugged">Yes</string>
     <string name="headphone_unplugged">No</string>
 
@@ -242,7 +243,7 @@
     <!-- Ambient light -->
     <string name="ambient_light_sensor_test_title">Ambient light sensor</string>
     <string name="ambient_light_sensor_test_description">This test checks if the ambient light sensor is working properly. Repeatably cover the top half of your Fairphone, the value read by the sensor should change.</string>
-    <string name="illuminance">Illuminance:&#160;</string>
+    <string name="illuminance">Illuminance: </string>
     <string name="illuminance_unit">lx</string>
 
     <!-- Ear speaker -->
