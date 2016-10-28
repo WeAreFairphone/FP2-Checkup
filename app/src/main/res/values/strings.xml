@@ -24,8 +24,9 @@
     <string name="display_module_description">The display module houses the LCD screen and the touch sensors.</string>
 
     <!-- LCD -->
-    <string name="lcd_test_title">LCD</string>
-    <string name="lcd_test_description">This test will display test patterns. Tap the screen to cycle through the items.</string>
+    <string name="lcd_test_title">Screen (LCD)</string>
+    <string name="lcd_test_description">Display base colors and common patterns.</string>
+    <string name="lcd_test_instructions">Press start and tap the screen to cycle through the steps.</string>
 
     <!-- Digitizer -->
     <string name="digitizer_test_title">Digitizer</string>
