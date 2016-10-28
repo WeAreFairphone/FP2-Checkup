@@ -56,6 +56,7 @@ public abstract class Test extends RelativeLayout {
         descriptionView.setText(getTestDescription());
         instructionsView.setText(getTestInstructions());
 
+        mOldView = instructionsLayout;
         setTestView(instructionsLayout);
     }
 
