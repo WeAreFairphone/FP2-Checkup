@@ -29,14 +29,20 @@ public class VibratorTest extends Test {
     }
 
     @Override
-    protected String getTestDescription(Context context) {
-        return String.format(context.getString(R.string.vibrator_test_description), Math.round(VIBRATION_DURATION_MS / 1000));
-    }
-
-    @Override
     protected int getTestDescriptionID() {
         return R.string.vibrator_test_description;
     }
+
+    @Override
+    protected String getTestInstructions(Context context) {
+        return String.format(context.getString(getTestInstructionsID()), Math.round(VIBRATION_DURATION_MS / 1000));
+    }
+
+    @Override
+    protected int getTestInstructionsID() {
+        return R.string.vibrator_test_instructions;
+    }
+
 
     @Override
     protected void runTest() {
@@ -59,6 +65,11 @@ public class VibratorTest extends Test {
                 });
             }
         }).start();
+    }
+
+    @Override
+    protected void onPrepare() {
+        displayInstructions();
     }
 
     @Override
