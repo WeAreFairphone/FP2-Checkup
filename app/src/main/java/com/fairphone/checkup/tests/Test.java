@@ -177,6 +177,10 @@ public abstract class Test extends RelativeLayout {
      * @return the description of the test.
      */
     protected String getTestDescription() {
+        return getTestDescription(getContext());
+    }
+
+    protected String getTestDescription(Context context) {
         return getResources().getString(getTestDescriptionID());
     }
 

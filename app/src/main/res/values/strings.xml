@@ -265,7 +265,8 @@
 
     <!-- Vibration motor -->
     <string name="vibrator_test_title">Vibration motor</string>
-    <string name="vibrator_test_description">This will test if the vibration motor on your phone is working. Once the test starts the vibration motor will start pulsing.</string>
+    <!-- Arguments: <vibration duration in seconds (integer)> -->
+    <string name="vibrator_test_description">Check that the vibration motor in your Bottom Module behaves correctly. The test makes your phone vibrate for %d seconds.</string>
     <string name="vibrator_test_finish_question">The vibration motor pulse now. Is the vibration motor working?</string>
 
     <!-- Rear speaker -->
