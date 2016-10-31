@@ -46,10 +46,10 @@ android {
         targetSdkVersion 22
 
         // Defines the version number of your app.
-        versionCode 10199
+        versionCode 10200
 
         // Defines a user-friendly version name for your app.
-        versionName "1.1"
+        versionName "1.2-SNAPSHOT"
     }
     /**
      * The buildTypes {} block is where you can configure multiple build types.
