@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
@@ -185,7 +184,7 @@ public abstract class Test extends RelativeLayout {
     }
 
     protected int getTestTitleID() {
-        return R.string.genericTestTitle;
+        return R.string.generic_test_title;
     }
 
     /**
@@ -202,7 +201,7 @@ public abstract class Test extends RelativeLayout {
     }
 
     protected int getTestDescriptionID() {
-        return R.string.genericTestDescription;
+        return R.string.generic_test_description;
     }
 
 
@@ -215,7 +214,7 @@ public abstract class Test extends RelativeLayout {
     }
 
     protected int getTestInstructionsID() {
-        return R.string.genericTestDescription;
+        return R.string.generic_test_description;
     }
 
     ;
