@@ -32,10 +32,9 @@ public class ModemTest extends Test {
     private List<ViewGroup> mTestSimViews;
 
     private TelephonyManager mTelephonyManager;
-    private List<SubscriptionInfo> mSelectableSubInfos;
-    private SubscriptionInfo mSir;
+    private SubscriptionManager mSubscriptionManager;
 
-    private PhoneStateListener mPhoneStateListener;
+    private SubscriptionManager.OnSubscriptionsChangedListener mSubscriptionsChangedListener;
     private BroadcastReceiver broadcastReceiver;
 
     Class mTelephonyManagerClass;
@@ -62,23 +61,18 @@ public class ModemTest extends Test {
 
     private void replaceView() {
         if (mTestSimViews == null) {
-            mTestSimViews = new ArrayList<ViewGroup>(2);
+            mTestSimViews = new ArrayList<>(2);
         }
         mTestSimViews.clear();
 
-        final ViewGroup testViewSim1 = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.view_modem_test_sim, null);
-        ((TextView) testViewSim1.findViewById(R.id.sim_title)).setText(String.format(getContext().getString(R.string.modem_sim_title), 1));
-        mTestSimViews.add(testViewSim1);
-
-        final ViewGroup testViewSim2 = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.view_modem_test_sim, null);
-        ((TextView) testViewSim2.findViewById(R.id.sim_title)).setText(String.format(getContext().getString(R.string.modem_sim_title), 2));
-        mTestSimViews.add(testViewSim2);
+        mTestSimViews.add((ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.view_modem_test_sim, null));
+        mTestSimViews.add((ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.view_modem_test_sim, null));
 
         final ViewGroup testView = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.view_modem_test, null);
         final ViewGroup testViewContainer = (ViewGroup) testView.findViewById(R.id.content_layout);
         testViewContainer.removeAllViews();
-        testViewContainer.addView(testViewSim1);
-        testViewContainer.addView(testViewSim2);
+        testViewContainer.addView(mTestSimViews.get(0));
+        testViewContainer.addView(mTestSimViews.get(1));
         setTestView(testView);
     }
 
@@ -91,20 +85,33 @@ public class ModemTest extends Test {
         hideActionButton();
         replaceView();
 
-        mSelectableSubInfos = new ArrayList<SubscriptionInfo>();
-        mTelephonyManager = (TelephonyManager)getContext().getSystemService(Context.TELEPHONY_SERVICE);
-
-        SubscriptionManager subscriptionManager = SubscriptionManager.from(getContext());
-        mSelectableSubInfos = subscriptionManager.getActiveSubscriptionInfoList();
+        mTelephonyManager = (TelephonyManager) getContext().getSystemService(Context.TELEPHONY_SERVICE);
+        mSubscriptionManager = SubscriptionManager.from(getContext());
 
         setupReflection();
 
+        // ACTUAL TEST //
+
+        for (int slotIndex = 0; slotIndex < 2; slotIndex++) {
+            final ViewGroup testSimView = mTestSimViews.get(slotIndex);
+
+            try {
+                ((TextView) testSimView.findViewById(R.id.modem_imei_value)).setText((String) getImei.invoke(mTelephonyManager, slotIndex));
+            } catch (Throwable e) {
+                Log.e(TAG, String.format("Could not retrieve SIM slot #%d IMEI", slotIndex), e);
+            }
+        }
+
         setupBroadcastReceiver();
+
+        // END OF ACTUAL TEST //
     }
 
     @Override
     protected void onCleanUp() {
         getContext().unregisterReceiver(broadcastReceiver);
+        mSubscriptionManager.removeOnSubscriptionsChangedListener(mSubscriptionsChangedListener);
+
         super.onCleanUp();
     }
 
@@ -138,24 +145,33 @@ public class ModemTest extends Test {
         filter.addAction("android.net.wifi.STATE_CHANGE");
         broadcastReceiver = new ConnectionChangeReceiver();
         getContext().registerReceiver(broadcastReceiver, filter);
+
+        mSubscriptionsChangedListener = new SubscriptionsChangedListener();
+        mSubscriptionManager.addOnSubscriptionsChangedListener(mSubscriptionsChangedListener);
     }
 
-    class ConnectionChangeReceiver extends BroadcastReceiver {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            try {
-                ViewGroup testSimView;
-                for (SubscriptionInfo subscriptionInfo : mSelectableSubInfos) {
-                    if (subscriptionInfo.getSimSlotIndex() > mTestSimViews.size()) {
-                        Log.e(TAG, String.format("Unexpected SIM slot (%d) info received", subscriptionInfo.getSimSlotIndex()));
-                        continue;
-                    }
+    private void readSimDetails() {
+        ViewGroup testSimView;
 
-                    testSimView = mTestSimViews.get(subscriptionInfo.getSimSlotIndex());
+        for (int slotIndex = 0; slotIndex < 2; slotIndex++) {
+            final SubscriptionInfo subscriptionInfo = mSubscriptionManager.getActiveSubscriptionInfoForSimSlotIndex(slotIndex);
+
+            testSimView = mTestSimViews.get(slotIndex);
+
+            if (subscriptionInfo == null) {
+                ((TextView) testSimView.findViewById(R.id.sim_title)).setText(String.format(getContext().getString(R.string.modem_unavailable_sim_title), slotIndex + 1));
+
+                // Hide the connectivity details
+                testSimView.findViewById(R.id.modem_sim_connectivity_details).setVisibility(GONE);
+            } else {
+                ((TextView) testSimView.findViewById(R.id.sim_title)).setText(String.format(getContext().getString(R.string.modem_sim_title), slotIndex + 1));
+
+                testSimView.findViewById(R.id.modem_sim_connectivity_details).setVisibility(VISIBLE);
+
+                try {
                     String simOperatorCode = (String) getSimOperatorCode.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId());
                     String networkOperatorCode = (String) getNetworkOperatorCode.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId());
 
-                    ((TextView) testSimView.findViewById(R.id.modem_imei_value)).setText((String) getImei.invoke(mTelephonyManager, 0));
                     ((TextView) testSimView.findViewById(R.id.modem_sim_operator_value)).setText((String) getSimOperatorName.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()));
                     ((TextView) testSimView.findViewById(R.id.modem_sim_operator_code_value)).setText(simOperatorCode);
                     ((TextView) testSimView.findViewById(R.id.modem_sim_mcc_value)).setText(simOperatorCode.substring(0, 3));
@@ -166,10 +182,28 @@ public class ModemTest extends Test {
                     ((TextView) testSimView.findViewById(R.id.modem_network_mnc_value)).setText(networkOperatorCode.substring(3));
                     ((TextView) testSimView.findViewById(R.id.modem_network_type_value)).setText(getNetworkTypeName((int) getNetworkType.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId())));
                     ((TextView) testSimView.findViewById(R.id.modem_country_code_value)).setText(subscriptionInfo.getCountryIso());
+                } catch (Throwable e) {
+                    Log.e(TAG, e.getLocalizedMessage());
                 }
-            } catch (Throwable e) {
-                Log.e(TAG, e.getLocalizedMessage());
             }
+        }
+    }
+
+    class ConnectionChangeReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.d(TAG, "Connection changed!");
+
+            readSimDetails();
+        }
+    }
+
+    class SubscriptionsChangedListener extends SubscriptionManager.OnSubscriptionsChangedListener {
+        @Override
+        public void onSubscriptionsChanged() {
+            Log.d(TAG, "Subscriptions changed!");
+
+            readSimDetails();
         }
     }
 
