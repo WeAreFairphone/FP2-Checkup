@@ -43,6 +43,7 @@ public class ModemTest extends Test {
     Method getSimOperatorName;
     Method getSimOperatorCode;
     Method getNetworkType;
+    Method isNetworkRoaming;
     Method getImei;
 
     public ModemTest(Context context) {
@@ -134,6 +135,9 @@ public class ModemTest extends Test {
             getNetworkType = mTelephonyManagerClass.getDeclaredMethod("getNetworkType", int.class);
             getNetworkType.setAccessible(true);
 
+            isNetworkRoaming = mTelephonyManagerClass.getDeclaredMethod("isNetworkRoaming", int.class);
+            isNetworkRoaming.setAccessible(true);
+
             getImei = mTelephonyManagerClass.getDeclaredMethod("getImei", int.class);
             getImei.setAccessible(true);
         } catch (Throwable e) {}
@@ -182,6 +186,8 @@ public class ModemTest extends Test {
                     ((TextView) testSimView.findViewById(R.id.modem_network_mnc_value)).setText(networkOperatorCode.substring(3));
                     ((TextView) testSimView.findViewById(R.id.modem_network_type_value)).setText(getNetworkTypeName((int) getNetworkType.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId())));
                     ((TextView) testSimView.findViewById(R.id.modem_country_code_value)).setText(subscriptionInfo.getCountryIso());
+                    ((TextView) testSimView.findViewById(R.id.modem_roaming_value)).setText((boolean) isNetworkRoaming.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()) ? getContext().getString(R.string.yes) : getContext().getString(R.string.no));
+                    ((TextView) testSimView.findViewById(R.id.modem_data_roaming_value)).setText(subscriptionInfo.getDataRoaming() == SubscriptionManager.DATA_ROAMING_ENABLE ? getContext().getString(R.string.yes) : getContext().getString(R.string.no));
                 } catch (Throwable e) {
                     Log.e(TAG, e.getLocalizedMessage());
                 }

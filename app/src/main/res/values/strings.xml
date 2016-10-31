@@ -11,6 +11,8 @@
     <string name="state" translatable="false">State:&#160;</string>
     <string name="not_triggered" translatable="false">Not triggered.</string>
     <string name="start_test">Start Test</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
     <!-- Display Module -->
     <string name="display_module_name" translatable="false">Display module</string>
@@ -217,6 +219,7 @@
     <string name="modem_imei">IMEI:</string>
     <string name="modem_countrycode">Country code:</string>
     <string name="modem_roaming">Roaming:</string>
+    <string name="modem_data_roaming">Data roaming:</string>
 
     <!-- Top module -->
     <string name="top_module_name" translatable="false">Top module</string>
