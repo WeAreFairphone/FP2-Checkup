@@ -29,7 +29,7 @@ public class ModemTest extends Test {
 
     private static final String TAG = ModemTest.class.getSimpleName();
 
-    List<ViewGroup> mTestSimViews;
+    private List<ViewGroup> mTestSimViews;
 
     private TelephonyManager mTelephonyManager;
     private List<SubscriptionInfo> mSelectableSubInfos;
@@ -66,11 +66,11 @@ public class ModemTest extends Test {
         }
         mTestSimViews.clear();
 
-        final ViewGroup testViewSim1 = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.view_modem_sim_test, null);
+        final ViewGroup testViewSim1 = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.view_modem_test_sim, null);
         ((TextView) testViewSim1.findViewById(R.id.sim_title)).setText(String.format(getContext().getString(R.string.modem_sim_title), 1));
         mTestSimViews.add(testViewSim1);
 
-        final ViewGroup testViewSim2 = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.view_modem_sim_test, null);
+        final ViewGroup testViewSim2 = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.view_modem_test_sim, null);
         ((TextView) testViewSim2.findViewById(R.id.sim_title)).setText(String.format(getContext().getString(R.string.modem_sim_title), 2));
         mTestSimViews.add(testViewSim2);
 

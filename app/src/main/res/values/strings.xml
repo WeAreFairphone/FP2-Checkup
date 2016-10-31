@@ -195,8 +195,12 @@
     <!-- Modem -->
     <string name="modem_test_title">Mobile connectivity</string>
     <string name="modem_test_description">Information about the mobile connectivity.</string>
-    <!-- Arguments: <SIM number> -->
+    <!-- Arguments: <SIM slot number> -->
     <string name="modem_sim_title">SIM %1$d</string>
+    <!-- Arguments: <SIM slot number> -->
+    <string name="modem_unknown_state_sim_title">SIM card in slot %1$d is in an unknown state</string>
+    <!-- Arguments: <SIM slot number> -->
+    <string name="modem_unavailable_sim_title">No SIM card in slot %1$d</string>
     <string name="modem_network_operator">Network Operator:</string>
     <string name="modem_network_operator_code">Network Operator Code:</string>
     <string name="modem_network_operator_code_mnc">Network Operator Code (MNC):</string>
