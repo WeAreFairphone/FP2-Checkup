@@ -43,7 +43,6 @@ public class MainActivity extends Activity implements TestListAdapter.OnClickLis
         mTests.add(new DisplayTest(this));
         mTests.add(new FreeDrawTest(this));
         mTests.add(new PrimaryMicTest(this));
-        mTests.add(new SecondaryMicTest(this));
         mTests.add(new ModemTest(this));
         mTests.add(new VibratorTest(this));
     }
