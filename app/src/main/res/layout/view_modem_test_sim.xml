@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/tile_padding">
+
+    <TextView
+        android:id="@+id/sim_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/modem_sim_title"
+        android:textAppearance="?android:textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/modem_imei_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sim_title"
+        android:layout_marginEnd="@dimen/simple_space"
+        android:text="@string/modem_imei"
+        android:textAppearance="?android:textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/modem_imei_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/modem_imei_label"
+        android:layout_toEndOf="@id/modem_imei_label"
+        android:text="@string/not_available"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <RelativeLayout
+        android:id="@+id/modem_sim_connectivity_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/modem_imei_label">
+
+        <TextView
+            android:id="@+id/modem_sim_operator_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/simple_space"
+            android:text="@string/modem_sim_operator"
+            android:textAppearance="?android:textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_sim_operator_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/modem_sim_operator_label"
+            android:layout_toEndOf="@id/modem_sim_operator_label"
+            android:text="@string/not_available"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_sim_operator_code_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/modem_sim_operator_label"
+            android:layout_marginEnd="@dimen/simple_space"
+            android:text="@string/modem_sim_operator_code"
+            android:textAppearance="?android:textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_sim_operator_code_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/modem_sim_operator_code_label"
+            android:layout_toEndOf="@id/modem_sim_operator_code_label"
+            android:text="@string/not_available"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_sim_mcc_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/modem_sim_operator_code_label"
+            android:layout_marginEnd="@dimen/simple_space"
+            android:text="@string/modem_sim_operator_code_mcc"
+            android:textAppearance="?android:textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_sim_mcc_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/modem_sim_mcc_label"
+            android:layout_toEndOf="@id/modem_sim_mcc_label"
+            android:text="@string/not_available"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_sim_mnc_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/modem_sim_mcc_label"
+            android:layout_marginEnd="@dimen/simple_space"
+            android:text="@string/modem_sim_operator_code_mnc"
+            android:textAppearance="?android:textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_sim_mnc_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/modem_sim_mnc_label"
+            android:layout_toEndOf="@id/modem_sim_mnc_label"
+            android:text="@string/not_available"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_network_operator_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/modem_sim_mnc_label"
+            android:layout_marginEnd="@dimen/simple_space"
+            android:text="@string/modem_network_operator"
+            android:textAppearance="?android:textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_network_operator_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/modem_network_operator_label"
+            android:layout_toEndOf="@id/modem_network_operator_label"
+            android:text="@string/not_available"
+            android:textAppearance="?android:textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_network_operator_code_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/modem_network_operator_label"
+            android:layout_marginEnd="@dimen/simple_space"
+            android:text="@string/modem_network_operator_code"
+            android:textAppearance="?android:textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_network_operator_code_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/modem_network_operator_code_label"
+            android:layout_toEndOf="@id/modem_network_operator_code_label"
+            android:text="@string/not_available"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_network_mcc_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/modem_network_operator_code_label"
+            android:layout_marginEnd="@dimen/simple_space"
+            android:text="@string/modem_network_operator_code_mcc"
+            android:textAppearance="?android:textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_network_mcc_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/modem_network_mcc_label"
+            android:layout_toEndOf="@id/modem_network_mcc_label"
+            android:text="@string/not_available"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_network_mnc_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/modem_network_mcc_label"
+            android:layout_marginEnd="@dimen/simple_space"
+            android:text="@string/modem_network_operator_code_mnc"
+            android:textAppearance="?android:textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_network_mnc_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/modem_network_mnc_label"
+            android:layout_toEndOf="@id/modem_network_mnc_label"
+            android:text="@string/not_available"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_network_type_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/modem_network_mnc_label"
+            android:layout_marginEnd="@dimen/simple_space"
+            android:text="@string/modem_network_type"
+            android:textAppearance="?android:textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_network_type_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/modem_network_type_label"
+            android:layout_toEndOf="@id/modem_network_type_label"
+            android:text="@string/not_available"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_country_code_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/modem_network_type_label"
+            android:layout_marginEnd="@dimen/simple_space"
+            android:text="@string/modem_countrycode"
+            android:textAppearance="?android:textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_country_code_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/modem_country_code_label"
+            android:layout_toEndOf="@id/modem_country_code_label"
+            android:text="@string/not_available"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_roaming_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/modem_country_code_label"
+            android:layout_marginEnd="@dimen/simple_space"
+            android:text="@string/modem_roaming"
+            android:textAppearance="?android:textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_roaming_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/modem_roaming_label"
+            android:layout_toEndOf="@id/modem_roaming_label"
+            android:text="@string/not_available"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_data_roaming_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/modem_roaming_label"
+            android:layout_marginEnd="@dimen/simple_space"
+            android:text="@string/modem_data_roaming"
+            android:textAppearance="?android:textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/modem_data_roaming_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/modem_data_roaming_label"
+            android:layout_toEndOf="@id/modem_data_roaming_label"
+            android:text="@string/not_available"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

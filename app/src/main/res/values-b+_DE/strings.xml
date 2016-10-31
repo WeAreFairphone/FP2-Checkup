@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<resources><string name="app_name">Checkup</string>
-    <string name="action_settings">Einstellungen</string>
-    <string name="title_activity_display_test">DisplayTest</string>
-    <string name="test_failed">Test fehlgeschlagen</string>
-    <string name="test_passed">Test erfolgreich</string>
-    </resources>

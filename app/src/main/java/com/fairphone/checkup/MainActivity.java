@@ -4,21 +4,16 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
-import com.fairphone.checkup.modules.Module;
 import com.fairphone.checkup.tests.Test;
 import com.fairphone.checkup.tests.TestListAdapter;
-import com.fairphone.checkup.tests.digitizer.DigitizerTest;
 import com.fairphone.checkup.tests.display.DisplayTest;
+import com.fairphone.checkup.tests.freedraw.FreeDrawTest;
 import com.fairphone.checkup.tests.microphone.PrimaryMicTest;
 import com.fairphone.checkup.tests.microphone.SecondaryMicTest;
 import com.fairphone.checkup.tests.modem.ModemTest;
-import com.fairphone.checkup.tests.speaker.EarSpeakerTest;
-import com.fairphone.checkup.tests.speaker.RearSpeakerTest;
 import com.fairphone.checkup.tests.vibrator.VibratorTest;
 
 import java.util.ArrayList;
@@ -46,12 +41,9 @@ public class MainActivity extends Activity implements TestListAdapter.OnClickLis
     private void createTestList() {
         mTests = new ArrayList<>();
         mTests.add(new DisplayTest(this));
-        mTests.add(new DigitizerTest(this));
+        mTests.add(new FreeDrawTest(this));
         mTests.add(new PrimaryMicTest(this));
-        mTests.add(new SecondaryMicTest(this));
         mTests.add(new ModemTest(this));
-        mTests.add(new EarSpeakerTest(this));
-        mTests.add(new RearSpeakerTest(this));
         mTests.add(new VibratorTest(this));
     }
 

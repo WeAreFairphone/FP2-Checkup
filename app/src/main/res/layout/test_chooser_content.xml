@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/list_item_avatar"
-            android:text="@string/large_text"
+            android:text="@string/generic_module_name"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView

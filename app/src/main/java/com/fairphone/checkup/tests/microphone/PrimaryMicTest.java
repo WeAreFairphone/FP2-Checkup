@@ -56,15 +56,22 @@ public class PrimaryMicTest extends Test {
     }
 
     @Override
+    protected int getTestInstructionsID() {
+        return R.string.primary_mic_test_instructions;
+    }
+
+    @Override
     protected void onPrepare() {
-        audioManager = ((AudioManager)getContext().getSystemService(Service.AUDIO_SERVICE));
-        audioManager.setMode(AudioManager.MODE_NORMAL);
-        audioManager.setParameters("hip_test=primary");
-        audioManager.setStreamVolume(AudioManager.STREAM_VOICE_CALL, audioManager.getStreamMaxVolume(AudioManager.STREAM_VOICE_CALL), 0);
+        displayInstructions();
     }
 
     @Override
     protected void runTest() {
+        audioManager = ((AudioManager)getContext().getSystemService(Service.AUDIO_SERVICE));
+        audioManager.setMode(AudioManager.MODE_NORMAL);
+        audioManager.setParameters("hip_test=primary");
+        audioManager.setStreamVolume(AudioManager.STREAM_VOICE_CALL, audioManager.getStreamMaxVolume(AudioManager.STREAM_VOICE_CALL), 0);
+
         setupHeadphoneJackMonitor();
         startLoopback();
     }

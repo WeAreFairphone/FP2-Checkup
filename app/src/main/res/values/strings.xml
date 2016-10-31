@@ -1,206 +1,209 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-    <string name="app_name">Checkup</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_display_test">DisplayTest</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="genericTestTitle">A Generic Test</string>
-    <string name="genericTestDescription">A generic test description. You really want to have something more descriptive here.</string>
-    <string name="test_failed">Test failed</string>
-    <string name="test_passed">Test passed</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="large_text">Large text</string>
-    <string name="small_text">Small text</string>
+    <string name="app_name" translatable="false">Checkup</string>
+    <string name="generic_module_name" translatable="false">Generic Module</string>
+    <string name="generic_test_title" translatable="false">A generic test</string>
+    <string name="generic_test_description" translatable="false">A fictive test to fill blanks.</string>
+    <string name="generic_test_instructions" translatable="false">You do not have anything to do, because this is not a real test. You really should have something more descriptive and clear for the user here.</string>
+    <string name="test_failed" translatable="false">Test failed</string>
+    <string name="test_passed" translatable="false">Test passed</string>
     <string name="tests_for">Select a test for the</string>
-    <string name="test_name">TestName</string>
     <string name="not_available">N/A</string>
-    <string name="state">"State: "</string>
-    <string name="not_triggered">Not triggered.</string>
-    <string name="start_test">Start test</string>
-    <string name="lorum_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fringilla vitae ligula ac mollis. Nunc lobortis nunc sit amet risus scelerisque, non volutpat sem condimentum. Suspendisse potenti. Aliquam urna lectus, facilisis et mauris et, ultrices pharetra dui. Maecenas auctor massa tortor, quis ultrices orci tempor id. Fusce vel faucibus magna, viverra finibus velit. Curabitur tempus, nisi a fermentum dictum, velit metus dapibus orci, sit amet volutpat odio risus non lectus</string>
+    <string name="state" translatable="false">State:</string>
+    <string name="not_triggered" translatable="false">Not triggered.</string>
+    <string name="start_test">Start Test</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
-    <!-- Display module -->
-    <string name="display_module_name">Display</string>
-    <string name="display_module_description">The display module houses the LCD screen and the touch screen digitizer.</string>
+    <!-- Display Module -->
+    <string name="display_module_name" translatable="false">Display module</string>
+    <string name="display_module_description" translatable="false">The display module houses the LCD screen and the touch screen digitizer.</string>
 
     <!-- LCD -->
-    <string name="lcd_test_title">LCD screen</string>
-    <string name="lcd_test_description">This test will display several patterns. Tap the screen to cycle through the patterns.</string>
+    <string name="lcd_test_title">Screen (LCD)</string>
+    <string name="lcd_test_description">Display base colors and common patterns.</string>
+    <string name="lcd_test_instructions">Press start and tap the screen to cycle through the steps.</string>
 
     <!-- Digitizer -->
-    <string name="digitizer_test_title">Touch screen digitizer</string>
-    <string name="digitizer_test_description">This test checks if the touch sensors are working correctly. Drag your finger(s) along the pattern to proceed. </string>
+    <string name="digitizer_test_title" translatable="false">Touch screen digitizer</string>
+    <string name="digitizer_test_description" translatable="false">This test checks if the touch sensors are working correctly. Drag your finger(s) along the pattern to proceed.</string>
 
+    <!-- Free draw -->
+    <string name="freedraw_test_title">Free drawing</string>
+    <string name="freedraw_test_description">Draw freely on the screen.</string>
+    <string name="freedraw_test_instructions">Use your finger to draw freely on the canvas. While on the canvas, swipe from the bottom of the screen towards the top to make the back button appear.</string>
 
     <!-- Battery module -->
-    <string name="battery_module_name">Battery</string>
-    <string name="battery_module_description">The battery provides the juice to keep your Fairphone up and running.</string>
+    <string name="battery_module_name" translatable="false">Battery</string>
+    <string name="battery_module_description" translatable="false">The battery provides the juice to keep your Fairphone up and running.</string>
 
     <!-- Battery -->
-    <string name="battery_test_title">Battery</string>
-    <string name="battery_test_description">This test checks if the battery is working. Press \'start test\' to view the battery statistics.</string>
-    <string name="battery_test_finish_question">Battery statistics are displayed. Does it look OK?</string>
-    <string name="battery_status">Status: </string>
-    <string name="battery_status_unknown">Unknown</string>
-    <string name="battery_status_charging">Charging</string>
-    <string name="battery_status_discharging">Discharging</string>
-    <string name="battery_status_not_charging">Not charging</string>
-    <string name="battery_status_full">Unknown</string>
-    <string name="battery_plugged">Plugged: </string>
-    <string name="battery_plugged_ac">AC</string>
-    <string name="battery_plugged_usb">USB</string>
-    <string name="battery_plugged_wireless">Wireless</string>
-    <string name="battery_level">Level: </string>
-    <string name="battery_level_unit">%</string>
-    <string name="battery_temperature">Temperature: </string>
-    <string name="battery_temperature_unit">°C</string>
-    <string name="battery_voltage">Voltage: </string>
-    <string name="battery_voltage_unit">V</string>
-    <string name="battery_health">Health: </string>
-    <string name="battery_health_unkown">Unknown</string>
-    <string name="battery_health_good">Good</string>
-    <string name="battery_health_overheat">Overheat</string>
-    <string name="battery_health_dead">Dead</string>
-    <string name="battery_health_over_voltage">Over voltage</string>
-    <string name="battery_health_unspecified_failure">Unspecified failure</string>
-    <string name="battery_health_cold">Cold</string>
+    <string name="battery_test_title" translatable="false">Battery</string>
+    <string name="battery_test_description" translatable="false">This test checks if the battery is working. Press \'Start test\' to view the battery statistics.</string>
+    <string name="battery_test_finish_question" translatable="false">Battery statistics are displayed. Does it look OK?</string>
+    <string name="battery_status" translatable="false">Status:</string>
+    <string name="battery_status_unknown" translatable="false">Unknown</string>
+    <string name="battery_status_charging" translatable="false">Charging</string>
+    <string name="battery_status_discharging" translatable="false">Discharging</string>
+    <string name="battery_status_not_charging" translatable="false">Not charging</string>
+    <string name="battery_status_full" translatable="false">Unknown</string>
+    <string name="battery_plugged" translatable="false">Plugged:</string>
+    <string name="battery_plugged_ac" translatable="false">AC</string>
+    <string name="battery_plugged_usb" translatable="false">USB</string>
+    <string name="battery_plugged_wireless" translatable="false">Wireless</string>
+    <string name="battery_level" translatable="false">Level:</string>
+    <string name="battery_level_unit" translatable="false">%</string>
+    <string name="battery_temperature" translatable="false">Temperature:</string>
+    <string name="battery_temperature_unit" translatable="false">°C</string>
+    <string name="battery_voltage" translatable="false">Voltage:</string>
+    <string name="battery_voltage_unit" translatable="false">V</string>
+    <string name="battery_health" translatable="false">Health:</string>
+    <string name="battery_health_unkown" translatable="false">Unknown</string>
+    <string name="battery_health_good" translatable="false">Good</string>
+    <string name="battery_health_overheat" translatable="false">Overheat</string>
+    <string name="battery_health_dead" translatable="false">Dead</string>
+    <string name="battery_health_over_voltage" translatable="false">Over voltage</string>
+    <string name="battery_health_unspecified_failure" translatable="false">Unspecified failure</string>
+    <string name="battery_health_cold" translatable="false">Cold</string>
 
     <!-- Camera module -->
-    <string name="camera_module_name">Camera</string>
-    <string name="camera_module_description">The camera module contains the rear-facing camera and the flashlight.</string>
+    <string name="camera_module_name" translatable="false">Camera</string>
+    <string name="camera_module_description" translatable="false">The camera module contains the rear-facing camera and the flashlight.</string>
 
     <!-- Rear camera -->
-    <string name="camera_test_title">Rear camera</string>
-    <string name="camera_test_description">This test checks if the camera is working. It will display a preview of the camera picture. If you see the preview, then the camera is working correctly.</string>
+    <string name="camera_test_title" translatable="false">Rear camera</string>
+    <string name="camera_test_description" translatable="false">This test checks if the camera is working. It will display a preview of the camera picture. If you see the preview, then the camera is working correctly.</string>
 
     <!-- Flash -->
-    <string name="flash_test_title">Flashlight</string>
-    <string name="flash_test_description">This test checks if the flashlight is working. Press \'start test\' and see if the flashlight turns on.</string>
-    <string name="flash_test_finish_question">Turn your Fairphone around, the flashlight should be on. Is the flashlight on?</string>
-
+    <string name="flash_test_title" translatable="false">Flashlight</string>
+    <string name="flash_test_description" translatable="false">This test checks if the flashlight is working. Press \'Start test\' and see if the flashlight turns on.</string>
+    <string name="flash_test_finish_question" translatable="false">Turn your Fairphone around, the flashlight should be on. Is the flashlight on?</string>
 
     <!-- Transceiver module -->
-    <string name="transceiver_module_name">Core</string>
-    <string name="transceiver_module_description">This module contains the modem, SIM-card slots, GPS and more.</string>
+    <string name="transceiver_module_name" translatable="false">Core</string>
+    <string name="transceiver_module_description" translatable="false">This module contains the modem, SIM-card slots, GPS and more.</string>
 
     <!-- SIM card slots -->
-    <string name="dualsim_test_title">SIM-card slots</string>
-    <string name="dualsim_test_description">This test will display the SIM-card status. Check if the displayed information is correct.</string>
-    <string name="dualsim_test_finish_question">Is the SIM-card info correct?</string>
-    <string name="dualsim_card_1">Card 1 state: </string>
-    <string name="dualsim_card_2">Card 2 state: </string>
-    <string name="dualsim_card_presence">Present</string>
-    <string name="dualsim_card_present_na">N/A</string>
-    <string name="dualsim_card_present_yes">Yes</string>
-    <string name="dualsim_card_present_no">No card present</string>
-    <string name="dualsim_card_carrier">Carrier</string>
-    <string name="dualsim_settings_text">Go to \'Settings -&gt; SIM cards\' to change your SIM card settings.</string>
+    <string name="dualsim_test_title" translatable="false">SIM-card slots</string>
+    <string name="dualsim_test_description" translatable="false">This test will display the SIM-card status. Check if the displayed information is correct.</string>
+    <string name="dualsim_test_finish_question" translatable="false">Is the SIM-card info correct?</string>
+    <string name="dualsim_card_1" translatable="false">Card 1 state:</string>
+    <string name="dualsim_card_2" translatable="false">Card 2 state:</string>
+    <string name="dualsim_card_presence" translatable="false">Present</string>
+    <string name="dualsim_card_present_na" translatable="false">N/A</string>
+    <string name="dualsim_card_present_yes" translatable="false">Yes</string>
+    <string name="dualsim_card_present_no" translatable="false">No card present</string>
+    <string name="dualsim_card_carrier" translatable="false">Carrier</string>
+    <string name="dualsim_settings_text" translatable="false">Go to \'Settings -&gt; SIM cards\' to change your SIM card settings.</string>
 
-    <string name="sim_state_unkown">Unknown</string>
-    <string name="sim_state_absent">No SIM-card is entered in the Fairphone</string>
-    <string name="sim_state_pin_required">Locked: requires a SIM-PIN code to unlock</string>
-    <string name="sim_state_puk_required">Locked: requires a SIM-PUK code to unlock</string>
-    <string name="sim_state_network_locked">Locked: requires a network PIN code to unlock</string>
-    <string name="sim_state_ready">Ready</string>
-    <string name="sim_state_not_ready">SIM-card is not ready</string>
-    <string name="sim_state_perm_disabled">SIM-card error: Permanently disabled</string>
-    <string name="sim_state_card_io_error">SIM-card error: Present, but faulty</string>
+    <string name="sim_state_unkown" translatable="false">Unknown</string>
+    <string name="sim_state_absent" translatable="false">No SIM-card is entered in the Fairphone</string>
+    <string name="sim_state_pin_required" translatable="false">Locked: requires a SIM-PIN code to unlock</string>
+    <string name="sim_state_puk_required" translatable="false">Locked: requires a SIM-PUK code to unlock</string>
+    <string name="sim_state_network_locked" translatable="false">Locked: requires a network PIN code to unlock</string>
+    <string name="sim_state_ready" translatable="false">Ready</string>
+    <string name="sim_state_not_ready" translatable="false">SIM-card is not ready</string>
+    <string name="sim_state_perm_disabled" translatable="false">SIM-card error: Permanently disabled</string>
+    <string name="sim_state_card_io_error" translatable="false">SIM-card error: Present, but faulty</string>
 
     <!-- MicroSD slot -->
-    <string name="microsd_test_title">microSD slot</string>
-    <string name="microsd_test_description">This test checks if the microSD slot is working properly. Make sure a microSD card is plugged in, then press \'start test\'.</string>
-    <string name="microsd_test_finish_question">You should see the SD card status. Is the info correct?</string>
-    <string name="microsd_state">State: </string>
-    <string name="microsd_total_size">Total size: </string>
-    <string name="microsd_available_space">Available space: </string>
-    <string name="microsd_mounted">Mounted</string>
-    <string name="microsd_unknown">Unknown</string>
-    <string name="microsd_filesystem">Filesystem: </string>
+    <string name="microsd_test_title" translatable="false">microSD slot</string>
+    <string name="microsd_test_description" translatable="false">This test checks if the microSD slot is working properly. Make sure a microSD card is plugged in, then press \'Start test\'.</string>
+    <string name="microsd_test_finish_question" translatable="false">You should see the SD card status. Is the info correct?</string>
+    <string name="microsd_state" translatable="false">State:</string>
+    <string name="microsd_total_size" translatable="false">Total size:</string>
+    <string name="microsd_available_space" translatable="false">Available space:</string>
+    <string name="microsd_mounted" translatable="false">Mounted</string>
+    <string name="microsd_unknown" translatable="false">Unknown</string>
+    <string name="microsd_filesystem" translatable="false">Filesystem:</string>
 
     <!-- Accelerometer -->
-    <string name="accelerometer_test_title">Accelerometer</string>
-    <string name="accelerometer_test_description">This test checks if the accelerometer is working properly. Press \'start test\' and tilt your Fairphone in all directions.</string>
-    <string name="accelerometer_test_finish_question">You should see the X, Y and Z values change when you tilt your Fairphone. Are the values changing?</string>
-    <string name="accelerometer_x_axis">X: </string>
-    <string name="accelerometer_y_axis">Y: </string>
-    <string name="accelerometer_z_axis">Z: </string>
-    <string name="acceleration_unit"> m/s²</string>
-    <string name="accelerometer_header">Acceleration force (including gravity)</string>
+    <string name="accelerometer_test_title" translatable="false">Accelerometer</string>
+    <string name="accelerometer_test_description" translatable="false">This test checks if the accelerometer is working properly. Press \'Start test\' and tilt your Fairphone in all directions.</string>
+    <string name="accelerometer_test_finish_question" translatable="false">You should see the X, Y and Z values change when you tilt your Fairphone. Are the values changing?</string>
+    <string name="accelerometer_x_axis" translatable="false">X:</string>
+    <string name="accelerometer_y_axis" translatable="false">Y:</string>
+    <string name="accelerometer_z_axis" translatable="false">Z:</string>
+    <string name="acceleration_unit" translatable="false"> m/s²</string>
+    <string name="accelerometer_header" translatable="false">Acceleration force (including gravity)</string>
 
     <!-- Magnetometer -->
-    <string name="magnetometer_test_title">Magnetometer</string>
-    <string name="magnetometer_test_description">This test checks if the magnetometer is working properly. Press \'start test\' and turn your Fairphone around.</string>
-    <string name="magnetometer_test_finish_question">You should see the heading value change when you turn your Fairphone around. Is the value changing?</string>
-    <string name="magnetometer_x_axis">X: </string>
-    <string name="magnetometer_y_axis">Y: </string>
-    <string name="magnetometer_z_axis">Z: </string>
-    <string name="magnetometer_unit"> μT</string>
-    <string name="magnetometer_header">Geomagnetic field strength along axis</string>
+    <string name="magnetometer_test_title" translatable="false">Magnetometer</string>
+    <string name="magnetometer_test_description" translatable="false">This test checks if the magnetometer is working properly. Press \'Start test\' and turn your Fairphone around.</string>
+    <string name="magnetometer_test_finish_question" translatable="false">You should see the heading value change when you turn your Fairphone around. Is the value changing?</string>
+    <string name="magnetometer_x_axis" translatable="false">X:</string>
+    <string name="magnetometer_y_axis" translatable="false">Y:</string>
+    <string name="magnetometer_z_axis" translatable="false">Z:</string>
+    <string name="magnetometer_unit" translatable="false"> μT</string>
+    <string name="magnetometer_header" translatable="false">Geomagnetic field strength along axis</string>
 
     <!-- Gyroscope -->
-    <string name="gyroscope_test_title">Gyroscope</string>
-    <string name="gyroscope_test_description">This test checks if the gyroscope is working properly. Press \'start test\' and turn your Fairphone around.</string>
-    <string name="gyroscope_x_axis">X: </string>
-    <string name="gyroscope_y_axis">Y: </string>
-    <string name="gyroscope_z_axis">Z: </string>
-    <string name="gyroscope_unit">rad/s</string>
-    <string name="gyroscope_header">Rate of rotation around axis</string>
+    <string name="gyroscope_test_title" translatable="false">Gyroscope</string>
+    <string name="gyroscope_test_description" translatable="false">This test checks if the gyroscope is working properly. Press \'Start test\' and turn your Fairphone around.</string>
+    <string name="gyroscope_x_axis" translatable="false">X:</string>
+    <string name="gyroscope_y_axis" translatable="false">Y:</string>
+    <string name="gyroscope_z_axis" translatable="false">Z:</string>
+    <string name="gyroscope_unit" translatable="false">rad/s</string>
+    <string name="gyroscope_header" translatable="false">Rate of rotation around axis</string>
 
     <!-- GPS -->
-    <string name="gps_test_title">GPS</string>
-    <string name="gps_test_description">This test checks if GPS can determine your location. Press \'start test\' to see the GPS statistics.</string>
-    <string name="searching">Searching…</string>
-    <string name="satellites">Satellites: </string>
-    <string name="latitude">Latitude: </string>
-    <string name="longitude">Longitude: </string>
-    <string name="altitude">Altitude: </string>
-    <string name="speed">Speed: </string>
-    <string name="bearing">Bearing: </string>
-    <string name="accuracy">Accuracy: </string>
+    <string name="gps_test_title" translatable="false">GPS</string>
+    <string name="gps_test_description" translatable="false">This test checks if GPS can determine your location. Press \'Start test\' to see the GPS statistics.</string>
+    <string name="searching" translatable="false">Searching…</string>
+    <string name="satellites" translatable="false">Satellites:</string>
+    <string name="latitude" translatable="false">Latitude:</string>
+    <string name="longitude" translatable="false">Longitude:</string>
+    <string name="altitude" translatable="false">Altitude:</string>
+    <string name="speed" translatable="false">Speed:</string>
+    <string name="bearing" translatable="false">Bearing:</string>
+    <string name="accuracy" translatable="false">Accuracy:</string>
 
     <!-- Buttons -->
-    <string name="buttons_test_title">Buttons</string>
-    <string name="buttons_test_description">This test checks if the physical buttons on your Fairphone are working correctly. Press \'start test\' to begin.</string>
-    <string name="buttons_volume_up">Volume up: </string>
-    <string name="buttons_volume_down">Volume down: </string>
-    <string name="buttons_camera">Camera: </string>
-    <string name="buttons_power">Power: </string>
-    <string name="buttons_pressed">Pressed</string>
-    <string name="buttons_unpressed">Unpressed</string>
-    <string name="buttons_triggered">Triggered</string>
+    <string name="buttons_test_title" translatable="false">Buttons</string>
+    <string name="buttons_test_description" translatable="false">This test checks if the physical buttons on your Fairphone are working correctly. Press \'Start test\' to begin.</string>
+    <string name="buttons_volume_up" translatable="false">Volume up:</string>
+    <string name="buttons_volume_down" translatable="false">Volume down:</string>
+    <string name="buttons_camera" translatable="false">Camera:</string>
+    <string name="buttons_power" translatable="false">Power:</string>
+    <string name="buttons_pressed" translatable="false">Pressed</string>
+    <string name="buttons_unpressed" translatable="false">Unpressed</string>
+    <string name="buttons_triggered" translatable="false">Triggered</string>
 
     <!-- Wifi -->
-    <string name="wifi_test_title">Wi-Fi</string>
-    <string name="wifi_test_description">This test checks if the Wi-Fi is working properly. Press \'start test\' to see the Wi-Fi statistics.</string>
-    <string name="wifi_enabled">Enabled: </string>
-    <string name="wifi_ssid">SSID: </string>
-    <string name="wifi_bssid">BSSID: </string>
-    <string name="wifi_linkspeed">Link speed: </string>
-    <string name="wifi_strength">Strength: </string>
-    <string name="wifi_strength_unit">dBm</string>
-    <string name="wifi_mac_address">MAC address: </string>
-    <string name="wifi_frequency">Frequency: </string>
-    <string name="wifi_encryption">Encryption: </string>
-    <string name="WPA_PSK">WPA-PSK</string>
-    <string name="WPA2_PSK">WPA2-PSK</string>
-    <string name="WPA_EAP">WPA-EAP</string>
-    <string name="IEEE8021X">IEEE8021X</string>
-    <string name="NONE">NONE</string>
-    <string name="wifi_ip">IP address: </string>
-    <string name="wifi_netmask">Netmask: </string>
-    <string name="wifi_gateway">Gateway: </string>
-    <string name="wifi_dhcp_server">DHCP-server: </string>
-    <string name="wifi_dns_1">DNS 1: </string>
-    <string name="wifi_dns_2">DNS 2: </string>
-    <string name="wifi_dhcp_lease">DHCP lease: </string>
-    <string name="wifi_hidden_ssid">Hidden?: </string>
+    <string name="wifi_test_title" translatable="false">Wi-Fi</string>
+    <string name="wifi_test_description" translatable="false">This test checks if the Wi-Fi is working properly. Press \'Start test\' to see the Wi-Fi statistics.</string>
+    <string name="wifi_enabled" translatable="false">Enabled:</string>
+    <string name="wifi_ssid" translatable="false">SSID:</string>
+    <string name="wifi_bssid" translatable="false">BSSID:</string>
+    <string name="wifi_linkspeed" translatable="false">Link speed:</string>
+    <string name="wifi_strength" translatable="false">Strength:</string>
+    <string name="wifi_strength_unit" translatable="false">dBm</string>
+    <string name="wifi_mac_address" translatable="false">MAC address:</string>
+    <string name="wifi_frequency" translatable="false">Frequency:</string>
+    <string name="wifi_encryption" translatable="false">Encryption:</string>
+    <string name="WPA_PSK" translatable="false">WPA-PSK</string>
+    <string name="WPA2_PSK" translatable="false">WPA2-PSK</string>
+    <string name="WPA_EAP" translatable="false">WPA-EAP</string>
+    <string name="IEEE8021X" translatable="false">IEEE8021X</string>
+    <string name="NONE" translatable="false">NONE</string>
+    <string name="wifi_ip" translatable="false">IP address:</string>
+    <string name="wifi_netmask" translatable="false">Netmask:</string>
+    <string name="wifi_gateway" translatable="false">Gateway:</string>
+    <string name="wifi_dhcp_server" translatable="false">DHCP-server:</string>
+    <string name="wifi_dns_1" translatable="false">DNS 1:</string>
+    <string name="wifi_dns_2" translatable="false">DNS 2:</string>
+    <string name="wifi_dhcp_lease" translatable="false">DHCP lease:</string>
+    <string name="wifi_hidden_ssid" translatable="false">Hidden?:</string>
 
     <!-- Modem -->
-    <string name="modem_test_title">Modem</string>
-    <string name="modem_test_description">This test checks if the modem is working properly. Press \'start test\' to continue.</string>
-    <!-- Arguments: <SIM number> -->
+    <string name="modem_test_title">Mobile connectivity</string>
+    <string name="modem_test_description">Information about the mobile connectivity.</string>
+    <!-- Arguments: <SIM slot number> -->
     <string name="modem_sim_title">SIM %1$d</string>
+    <!-- Arguments: <SIM slot number> -->
+    <string name="modem_unknown_state_sim_title">SIM card in slot %1$d is in an unknown state</string>
+    <!-- Arguments: <SIM slot number> -->
+    <string name="modem_unavailable_sim_title">No SIM card in slot %1$d</string>
     <string name="modem_network_operator">Network Operator:</string>
     <string name="modem_network_operator_code">Network Operator Code:</string>
     <string name="modem_network_operator_code_mnc">Network Operator Code (MNC):</string>
@@ -217,72 +220,73 @@
     <string name="modem_imei">IMEI:</string>
     <string name="modem_countrycode">Country code:</string>
     <string name="modem_roaming">Roaming:</string>
+    <string name="modem_data_roaming">Data roaming:</string>
 
     <!-- Top module -->
-    <string name="top_module_name">Top module</string>
-    <string name="top_module_description">The top module contains the headphone jack, front camera and more.</string>
+    <string name="top_module_name" translatable="false">Top module</string>
+    <string name="top_module_description" translatable="false">The top module contains the headphone jack, front camera and more.</string>
 
     <!-- Headphone jack -->
-    <string name="headphone_jack_test_title">Headphone jack</string>
-    <string name="headphone_jack_test_description">This test checks if the headphone jack is working properly. Press \'start test\' and plug and unplug your headphones a few times.</string>
-    <string name="headphone_status">Plugged: </string>
-    <string name="headphone_plugged">Yes</string>
-    <string name="headphone_unplugged">No</string>
+    <string name="headphone_jack_test_title" translatable="false">Headphone jack</string>
+    <string name="headphone_jack_test_description" translatable="false">This test checks if the headphone jack is working properly. Press \'Start test\' and plug and unplug your headphones a few times.</string>
+    <string name="headphone_status" translatable="false">Plugged:</string>
+    <string name="headphone_plugged" translatable="false">Yes</string>
+    <string name="headphone_unplugged" translatable="false">No</string>
 
     <!-- LED -->
-    <string name="led_test_title">LED</string>
-    <string name="led_test_description">This test checks if the LED is working. Press \'start test\' and make sure you see the LED blinking.</string>
-    <string name="led_test_finish_question">You should see the LED lighting up. Is the LED blinking?</string>
+    <string name="led_test_title" translatable="false">LED</string>
+    <string name="led_test_description" translatable="false">This test checks if the LED is working. Press \'Start test\' and make sure you see the LED blinking.</string>
+    <string name="led_test_finish_question" translatable="false">You should see the LED lighting up. Is the LED blinking?</string>
 
     <!-- Proximity sensor -->
-    <string name="proximity_test_title">Proximity sensor</string>
-    <string name="proximity_test_description">This test tests the proximity sensor. Press \'start test\' and cover the top half of the Fairphone completely with your hand.</string>
-    <string name="proximity_state_triggered">Triggered</string>
-    <string name="proximity_state_not_triggered">Not triggered</string>
+    <string name="proximity_test_title" translatable="false">Proximity sensor</string>
+    <string name="proximity_test_description" translatable="false">This test tests the proximity sensor. Press \'Start test\' and cover the top half of the Fairphone completely with your hand.</string>
+    <string name="proximity_state_triggered" translatable="false">Triggered</string>
+    <string name="proximity_state_not_triggered" translatable="false">Not triggered</string>
 
     <!-- Ambient light -->
-    <string name="ambient_light_sensor_test_title">Ambient light sensor</string>
-    <string name="ambient_light_sensor_test_description">This test checks if the ambient light sensor is working properly. Repeatedly cover the top half of your Fairphone, the value read by the sensor should change.</string>
-    <string name="illuminance">Illuminance: </string>
-    <string name="illuminance_unit">lx</string>
+    <string name="ambient_light_sensor_test_title" translatable="false">Ambient light sensor</string>
+    <string name="ambient_light_sensor_test_description" translatable="false">This test checks if the ambient light sensor is working properly. Repeatedly cover the top half of your Fairphone, the value read by the sensor should change.</string>
+    <string name="illuminance" translatable="false">Illuminance:</string>
+    <string name="illuminance_unit" translatable="false">lx</string>
 
     <!-- Ear speaker -->
-    <string name="ear_speaker_test_title">Ear speaker</string>
-    <string name="ear_speaker_test_description">This test checks if the ear speaker is working. Press \'start test\' and make sure you hear the music play.</string>
-    <string name="ear_speaker_test_finish_question">You should hear some music playing. Is the ear speaker working?</string>
+    <string name="ear_speaker_test_title" translatable="false">Ear speaker</string>
+    <string name="ear_speaker_test_description" translatable="false">This test checks if the ear speaker is working. Press \'Start test\' and make sure you hear the music play.</string>
+    <string name="ear_speaker_test_finish_question" translatable="false">You should hear some music playing. Is the ear speaker working?</string>
 
     <!-- Front camera -->
-    <string name="front_camera_test_title">Front camera</string>
+    <string name="front_camera_test_title" translatable="false">Front camera</string>
 
     <!-- Secondary microphone -->
     <string name="secondary_mic_test_title">Secondary microphone</string>
-    <string name="secondary_mic_test_description">This will test the noise cancellation microphone. Press \'start test\' and pretend you are making a phone call, but hold your phone upside down. Can you hear yourself?</string>
-    <string name="secondary_mic_test_finish_question">Talk to your Fairphone. Can you hear yourself?</string>
-
+    <string name="secondary_mic_test_description">The microphone to reduce ambient noise.</string>
+    <string name="secondary_mic_test_instructions">Press \'Start test\' and pretend you\'re making a phone call, but hold your phone upside down. Can you hear yourself?</string>
 
     <!-- Bottom module -->
-    <string name="bottom_module_name">Bottom module</string>
-    <string name="bottom_module_description">Vibration motor, rear speaker, microphone and USB-port; that is what you\'ll find in this module.</string>
+    <string name="bottom_module_name" translatable="false">Bottom module</string>
+    <string name="bottom_module_description" translatable="false">Vibration motor, rear speaker, microphone and USB-port; that is what you\'ll find in this module.</string>
 
     <!-- Vibration motor -->
     <string name="vibrator_test_title">Vibration motor</string>
-    <string name="vibrator_test_description">This will test if the vibration motor on your Fairphone is working. Once the test starts the vibration motor will start pulsing.</string>
-    <string name="vibrator_test_finish_question">The vibration motor should pulse now. Is the vibration motor working?</string>
+    <!-- Arguments: <vibration duration in seconds (integer)> -->
+    <string name="vibrator_test_description">This is what makes your phone vibrate.</string>
+    <string name="vibrator_test_instructions">Press starts to make your phone vibrate for %d seconds.</string>
 
     <!-- Rear speaker -->
-    <string name="rear_speaker_test_title">Rear speaker</string>
-    <string name="rear_speaker_test_description">This test checks if the rear speaker is working. Press \'start test\' and make sure you hear the music playing.</string>
-    <string name="rear_speaker_test_finish_question">You should hear some music playing. Is the rear speaker working?</string>
+    <string name="rear_speaker_test_title" translatable="false">Rear speaker</string>
+    <string name="rear_speaker_test_description" translatable="false">This test checks if the rear speaker is working. Press \'Start test\' and make sure you hear the music playing.</string>
+    <string name="rear_speaker_test_finish_question" translatable="false">You should hear some music playing. Is the rear speaker working?</string>
 
     <!-- Primary microphone -->
     <string name="primary_mic_test_title">Primary microphone</string>
-    <string name="primary_mic_test_description">This test checks if the primary microphone is working. Press \'start test\' and pretend you\'re making a phone call - you should hear yourself talk!</string>
-    <string name="primary_mic_test_finish_question">Talk to your Fairphone. Can you hear yourself?</string>
+    <string name="primary_mic_test_description">The microphone used to place calls.</string>
+    <string name="primary_mic_test_instructions">Press \'Start test\' and pretend that you\'re making a phone call. Can you hear yourself?</string>
 
     <!-- USB port -->
-    <string name="usb_port_test_title">USB port</string>
-    <string name="usb_port_test_description">This test checks if the USB port is working. Press \'start test\' and plug and unplug the USB cable a few times.</string>
-    <string name="usb_port_plugged">Plugged</string>
-    <string name="usb_port_unplugged">Unplugged</string>
+    <string name="usb_port_test_title" translatable="false">USB port</string>
+    <string name="usb_port_test_description" translatable="false">This test checks if the USB port is working. Press \'Start test\' and plug and unplug the USB cable a few times.</string>
+    <string name="usb_port_plugged" translatable="false">Plugged</string>
+    <string name="usb_port_unplugged" translatable="false">Unplugged</string>
 
 </resources>

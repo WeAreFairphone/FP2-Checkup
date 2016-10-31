@@ -47,6 +47,22 @@ public abstract class Test extends RelativeLayout {
         onPrepare();
     }
 
+    protected void displayInstructions()  {
+        final View instructionsLayout = inflate(getContext(), R.layout.view_tester_instructions, null);
+        final TextView descriptionView = (TextView) instructionsLayout.findViewById(R.id.test_description);
+        final TextView instructionsView = (TextView) instructionsLayout.findViewById(R.id.test_instructions);
+
+        descriptionView.setText(getTestDescription());
+        instructionsView.setText(getTestInstructions());
+
+        mOldView = instructionsLayout;
+        setTestView(instructionsLayout);
+    }
+
+    protected void hideActionButton() {
+        mButton.setVisibility(GONE);
+    }
+
     private void configureStartButton() {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,7 +184,7 @@ public abstract class Test extends RelativeLayout {
     }
 
     protected int getTestTitleID() {
-        return R.string.genericTestTitle;
+        return R.string.generic_test_title;
     }
 
     /**
@@ -177,11 +193,28 @@ public abstract class Test extends RelativeLayout {
      * @return the description of the test.
      */
     protected String getTestDescription() {
+        return getTestDescription(getContext());
+    }
+
+    protected String getTestDescription(Context context) {
         return getResources().getString(getTestDescriptionID());
     }
 
     protected int getTestDescriptionID() {
-        return R.string.genericTestDescription;
+        return R.string.generic_test_description;
+    }
+
+
+    protected String getTestInstructions() {
+        return getTestInstructions(getContext());
+    }
+
+    protected String getTestInstructions(Context context) {
+        return getResources().getString(getTestInstructionsID());
+    }
+
+    protected int getTestInstructionsID() {
+        return R.string.generic_test_description;
     }
 
     ;

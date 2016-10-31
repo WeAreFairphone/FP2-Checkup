@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:text="@string/test_name"
+        android:text="@string/generic_test_title"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
@@ -33,7 +33,7 @@
             android:id="@+id/test_description_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/lorum_ipsum"
+            android:text="@string/generic_test_description"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
     </FrameLayout>
