@@ -270,7 +270,7 @@
     <!-- Vibration motor -->
     <string name="vibrator_test_title">Vibration motor</string>
     <!-- Arguments: <vibration duration in seconds (integer)> -->
-    <string name="vibrator_test_description">What makes your phone vibrate.</string>
+    <string name="vibrator_test_description">This is what makes your phone vibrate.</string>
     <string name="vibrator_test_instructions">Press starts to make your phone vibrate for %d seconds.</string>
 
     <!-- Rear speaker -->
