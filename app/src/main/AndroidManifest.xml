@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.fairphone.checkup"
     android:versionCode="10299"
     android:versionName="1.2" >
@@ -32,7 +31,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <receiver android:name="com.fairphone.checkup.SecretCodeReceiver" >
+        <receiver android:name=".SecretCodeReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -55,12 +54,12 @@
         </activity>
         <activity
             android:label="@string/app_name"
-            android:name="com.fairphone.checkup.ModuleChooser"
+            android:name=".ModuleChooser"
             android:screenOrientation="portrait">
         </activity>
         <activity
             android:label="@string/app_name"
-            android:name="com.fairphone.checkup.TestChooser"
+            android:name=".TestChooser"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
