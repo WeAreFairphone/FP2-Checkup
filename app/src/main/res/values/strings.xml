@@ -14,12 +14,18 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
 
-    <!-- Display Module -->
+    <string name="section_instructions">Instructions:</string>
+    <string name="action_begin_test">Begin test</string>
+    <string name="action_test_in_progress">Test in progress&#8230;</string>
+    <string name="action_cancel_test">Cancel</string>
+
+    <!-- Display module -->
     <string name="display_module_name" translatable="false">Display module</string>
     <string name="display_module_description" translatable="false">The display module houses the LCD screen and the touch sensors.</string>
 
     <!-- LCD -->
     <string name="lcd_test_title">Screen (LCD)</string>
+    <string name="lcd_test_summary">Display base colors and common patterns.</string>
     <string name="lcd_test_description">Display base colors and common patterns.</string>
     <string name="lcd_test_instructions">Press start and tap the screen to cycle through the steps.</string>
 
@@ -287,5 +293,8 @@
     <string name="usb_port_test_description" translatable="false">This test checks if the USB port is working. Press start and plug and unplug the USB cable a few times.</string>
     <string name="usb_port_plugged" translatable="false">Plugged</string>
     <string name="usb_port_unplugged" translatable="false">Unplugged</string>
+
+    <!-- FRAGMENT TAGS -->
+    <string name="fragment_tag_test" translatable="false">com.fairphone.checkup.fragment_test</string>
 
 </resources>
