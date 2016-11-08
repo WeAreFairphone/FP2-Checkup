@@ -3,6 +3,7 @@ package com.fairphone.checkup.tests;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -25,21 +26,26 @@ import java.io.Serializable;
  * <ul>
  * <li>{@link #onCreateView(LayoutInflater, ViewGroup, Bundle)} when the test user interface is displayed</li>
  * <li>{@link #onBeginTest()} when the test is begun</li>
+ * <li>{@link #onResumeTest()} when the test is resumed (at creation or when the {@link Fragment} is resumed)</li>
+ * <li>{@link #onPauseTest()} when the test is paused (at destruction or when the {@link Fragment} is paused)</li>
  * <li>{@link #onCancelTest()} if and when the test is cancelled</li>
  * <li>{@link #onFinishTest()} when the test is finished: cancelled, passed, or failed</li>
  * </ul>
  * The test will be cancelled through {@link #cancelTest()} if the test is stopped ({@link #onStop()}) while still running.
  * </p>
  * <p>To define a test details (title, summary, description, and instructions), a concrete test should instantiate a {@link Details} sub-class.</p>
+ * TODO properly define the state machine (w.r.t Fragment)
  */
 public abstract class NewTest extends Fragment {
 
+    private static final String TAG = NewTest.class.getSimpleName();
+
     public static abstract class Details implements Serializable {
 
-        private final int mTitleId;
-        private final int mSummaryId;
-        private final int mDescriptionId;
-        private final int mInstructionsId;
+        protected final int mTitleId;
+        protected final int mSummaryId;
+        protected final int mDescriptionId;
+        protected final int mInstructionsId;
 
         /**
          * @param titleId        The title string resource id.
@@ -128,6 +134,7 @@ public abstract class NewTest extends Fragment {
     private static final int STATUS_CANCELLED = 2;
     private static final int STATUS_PASSED = 3;
     private static final int STATUS_FAILED = 4;
+    private static final int STATUS_PAUSED = 5;
 
     private int mStatus;
     private boolean mIsCancellable;
@@ -150,7 +157,7 @@ public abstract class NewTest extends Fragment {
 
     /**
      * Method to actually begin the test.
-     * <p>Set the internal {@link #mStatus} and then call {@link #onBeginTest()} if the test was not already running.</p>
+     * <p>Set the internal {@link #mStatus}, call {@link #onBeginTest()}, and then {@link #onResumeTest()} if the test was not already running.</p>
      */
     public void beginTest() {
         if (isRunning()) {
@@ -159,6 +166,7 @@ public abstract class NewTest extends Fragment {
 
         mStatus = STATUS_RUNNING;
         onBeginTest();
+        onResumeTest();
     }
 
     /**
@@ -166,11 +174,54 @@ public abstract class NewTest extends Fragment {
      * <p>Override this method to set up and run the test.</p>
      */
     protected void onBeginTest() {
+        Log.d(TAG, "onBeginTest()");
+    }
+
+    /**
+     * Method to actually resume the test.
+     * <p>Set the internal {@link #mStatus} and then call {@link #onResumeTest()} if the test was not already running.</p>
+     */
+    public void resumeTest() {
+        if (isRunning()) {
+            return;
+        }
+
+        mStatus = STATUS_RUNNING;
+        onResumeTest();
+    }
+
+    /**
+     * Callback when the test is resumed.
+     * <p>Override this method to run the test at creation or after being paused.</p>
+     */
+    protected void onResumeTest() {
+        Log.d(TAG, "onResumeTest()");
+    }
+
+    /**
+     * Method to actually pause the test.
+     * <p>Set the internal {@link #mStatus} and then call {@link #onPauseTest()} if the test was not already paused.</p>
+     */
+    public void pauseTest() {
+        if (isPaused()) {
+            return;
+        }
+
+        mStatus = STATUS_PAUSED;
+        onPauseTest();
+    }
+
+    /**
+     * Callback when the test is paused.
+     * <p>Override this method to stop the test at destruction or just temporarily.</p>
+     */
+    protected void onPauseTest() {
+        Log.d(TAG, "onPauseTest()");
     }
 
     /**
      * Method to actually cancel the test.
-     * <p>Set the internal {@link #mStatus}, call {@link #onCancelTest()} and then {@link #onFinishTest()} if the test was not already cancelled.</p>
+     * <p>Set the internal {@link #mStatus}, call {@link #onPauseTest()}, then {@link #onCancelTest()}, and then {@link #onFinishTest()} if the test was not already cancelled.</p>
      */
     public void cancelTest() {
         if (isCancelled()) {
@@ -178,6 +229,9 @@ public abstract class NewTest extends Fragment {
         }
 
         mStatus = STATUS_CANCELLED;
+        if (isRunning()) {
+            onPauseTest();
+        }
         onCancelTest();
         onFinishTest();
     }
@@ -187,20 +241,22 @@ public abstract class NewTest extends Fragment {
      * <p>Override this method to cancel the test.</p>
      */
     protected void onCancelTest() {
+        Log.d(TAG, "onCancelTest()");
     }
 
     /**
      * Method to actually finish a test.
-     * <p>Set the internal {@link #mStatus} and then call {@link #onFinishTest()} if the test was not already finished (e.g. passed or failed).</p>
+     * <p>Set the internal {@link #mStatus}, call {@link #onPauseTest()}, and then {@link #onFinishTest()} if the test was not already finished (e.g. passed or failed) or cancelled.</p>
      *
      * @param passed Whether the test passed or not.
      */
     protected void finishTest(boolean passed) {
-        if (isCompleted()) {
+        if (isCompleted() || isCancelled()) {
             return;
         }
 
         mStatus = passed ? STATUS_PASSED : STATUS_FAILED;
+        onPauseTest();
         onFinishTest();
     }
 
@@ -209,13 +265,33 @@ public abstract class NewTest extends Fragment {
      * <p>Override this method to tear down the test.</p>
      */
     protected void onFinishTest() {
+        Log.d(TAG, "onFinishTest()");
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if (isPaused()) {
+            resumeTest();
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        if (isRunning()) {
+            pauseTest();
+        }
     }
 
     @Override
     public void onStop() {
         super.onStop();
 
-        if (isRunning()) {
+        if (isRunning() || isPaused()) {
             cancelTest();
         }
     }
@@ -232,6 +308,13 @@ public abstract class NewTest extends Fragment {
      */
     public boolean isRunning() {
         return mStatus == STATUS_RUNNING;
+    }
+
+    /**
+     * @return Whether this test is paused.
+     */
+    public boolean isPaused() {
+        return mStatus == STATUS_PAUSED;
     }
 
     /**
