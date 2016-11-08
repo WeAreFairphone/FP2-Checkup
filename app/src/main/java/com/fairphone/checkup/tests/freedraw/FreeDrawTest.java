@@ -1,78 +1,55 @@
 package com.fairphone.checkup.tests.freedraw;
 
-import android.content.Context;
+import android.app.Fragment;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.RelativeLayout;
 import android.widget.ViewFlipper;
 
 import com.fairphone.checkup.R;
-import com.fairphone.checkup.tests.Test;
+import com.fairphone.checkup.tests.NewTest;
+import com.fairphone.checkup.tests.SimpleTest;
 
-public class FreeDrawTest extends Test {
+public class FreeDrawTest extends SimpleTest {
 
     private static final String TAG = FreeDrawTest.class.getSimpleName();
 
+    public static final Details DETAILS = new NewTest.Details(R.string.freedraw_test_title, R.string.freedraw_test_summary, R.string.freedraw_test_description, R.string.freedraw_test_instructions) {
+        @Override
+        public Fragment getFragment() {
+            return new FreeDrawTest();
+        }
+    };
+
     private ViewFlipper mViewFlipper;
-    private RelativeLayout mParentLayout;
 
     private int parentPaddingLeft;
     private int parentPaddingTop;
     private int parentPaddingRight;
     private int parentPaddingBottom;
 
-    public FreeDrawTest(Context context) {
-        super(context);
+    public FreeDrawTest() {
+        super(false);
     }
 
     @Override
-    protected int getTestTitleID() {
-        return R.string.freedraw_test_title;
-    }
-
-    @Override
-    protected int getTestDescriptionID() {
-        return R.string.freedraw_test_description;
-    }
-
-    @Override
-    protected int getTestInstructionsID() {
-        return R.string.freedraw_test_instructions;
-    }
-
-    @Override
-    protected void onPrepare() {
-        displayInstructions();
-        mParentLayout = (RelativeLayout) findViewById(R.id.generic_test_relative_layout);
-    }
-
-    @Override
-    protected void runTest() {
-        switchToFullScreen();
-        addDisplayPatterns();
-    }
-
-    @Override
-    protected void onCleanUp() {
-        restoreParentPadding();
-        showStartButton();
-        mParentLayout.removeView(mViewFlipper);
-        super.onCleanUp();
+    protected Details getDetails() {
+        return DETAILS;
     }
 
     protected void saveParentPadding() {
-        parentPaddingLeft = mParentLayout.getPaddingLeft();
-        parentPaddingTop = mParentLayout.getPaddingTop();
-        parentPaddingRight = mParentLayout.getPaddingRight();
-        parentPaddingBottom = mParentLayout.getPaddingBottom();
+        parentPaddingLeft = mContainer.getPaddingLeft();
+        parentPaddingTop = mContainer.getPaddingTop();
+        parentPaddingRight = mContainer.getPaddingRight();
+        parentPaddingBottom = mContainer.getPaddingBottom();
     }
 
     protected void removeParentPaddingSave() {
         saveParentPadding();
-        mParentLayout.setPadding(0, 0, 0, 0);
+        mContainer.setPadding(0, 0, 0, 0);
     }
 
     protected void restoreParentPadding() {
-        mParentLayout.setPadding(
+        mContainer.setPadding(
                 parentPaddingLeft,
                 parentPaddingTop,
                 parentPaddingRight,
@@ -80,11 +57,13 @@ public class FreeDrawTest extends Test {
     }
 
     private void switchToFullScreen() {
-        mViewFlipper = new ViewFlipper(getContext());
+        // TODO create a fullscreen dialog fragment
+        mViewFlipper = new ViewFlipper(getActivity());
         ViewFlipper.LayoutParams layoutParams = new ViewFlipper.LayoutParams(
                 ViewFlipper.LayoutParams.WRAP_CONTENT, ViewFlipper.LayoutParams.WRAP_CONTENT);
         mViewFlipper.setLayoutParams(layoutParams);
-        mParentLayout.addView(mViewFlipper);
+
+        mContainer.addView(mViewFlipper);
 
         mViewFlipper.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE
                 | View.SYSTEM_UI_FLAG_FULLSCREEN
@@ -93,18 +72,26 @@ public class FreeDrawTest extends Test {
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         removeParentPaddingSave();
-        hideStartButton();
-    }
-
-    private void hideStartButton() {
-        findViewById(R.id.test_button).setVisibility(View.INVISIBLE);
-    }
-
-    private void showStartButton() {
-        findViewById(R.id.test_button).setVisibility(View.VISIBLE);
     }
 
     private void addDisplayPatterns() {
-        mViewFlipper.addView(new FreeDrawView(getContext()));
+        mViewFlipper.addView(new FreeDrawView(getActivity()));
     }
+
+    @Override
+    protected void onBeginTest() {
+        super.onBeginTest();
+
+        switchToFullScreen();
+        addDisplayPatterns();
+    }
+
+    @Override
+    protected void onFinishTest() {
+        super.onFinishTest();
+
+        restoreParentPadding();
+        mContainer.removeView(mViewFlipper);
+    }
+
 }

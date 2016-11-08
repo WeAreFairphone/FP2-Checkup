@@ -1,51 +1,50 @@
 package com.fairphone.checkup.tests.vibrator;
 
 
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Vibrator;
+import android.util.Log;
 
 import com.fairphone.checkup.R;
-import com.fairphone.checkup.tests.Test;
+import com.fairphone.checkup.tests.NewTest;
+import com.fairphone.checkup.tests.SimpleTest;
 
-public class VibratorTest extends Test {
+public class VibratorTest extends SimpleTest {
 
     private static final String TAG = VibratorTest.class.getSimpleName();
 
     private static final long VIBRATION_DURATION_MS = 2000;
 
-    Handler mHandler;
-    Vibrator mVibrator;
+    public static final Details DETAILS = new NewTest.Details(R.string.vibrator_test_title, R.string.vibrator_test_summary, R.string.vibrator_test_description, R.string.vibrator_test_instructions) {
+        @Override
+        public Fragment getFragment() {
+            return new VibratorTest();
+        }
 
-    public VibratorTest(Context context) {
-        super(context);
+        @Override
+        public String getInstructions(Context context) {
+            return String.format(context.getString(mInstructionsId), Math.round(VIBRATION_DURATION_MS / 1000));
+        }
+    };
+
+    private Handler mHandler;
+    private Vibrator mVibrator;
+
+    public VibratorTest() {
+        super(true);
 
         mHandler = new Handler();
     }
 
     @Override
-    protected int getTestTitleID() {
-        return R.string.vibrator_test_title;
+    protected Details getDetails() {
+        return DETAILS;
     }
 
     @Override
-    protected int getTestDescriptionID() {
-        return R.string.vibrator_test_description;
-    }
-
-    @Override
-    protected String getTestInstructions(Context context) {
-        return String.format(context.getString(getTestInstructionsID()), Math.round(VIBRATION_DURATION_MS / 1000));
-    }
-
-    @Override
-    protected int getTestInstructionsID() {
-        return R.string.vibrator_test_instructions;
-    }
-
-
-    @Override
-    protected void runTest() {
+    protected void onResumeTest() {
         getVibrator();
         mVibrator.vibrate(VIBRATION_DURATION_MS);
 
@@ -60,7 +59,7 @@ public class VibratorTest extends Test {
                 mHandler.post(new Runnable() {
                     @Override
                     public void run() {
-                        onTestSuccess();
+                        finishTest(true);
                     }
                 });
             }
@@ -68,20 +67,19 @@ public class VibratorTest extends Test {
     }
 
     @Override
-    protected void onPrepare() {
-        displayInstructions();
-    }
+    protected void onPauseTest() {
+        super.onPauseTest();
 
-    @Override
-    protected void onCleanUp() {
         mVibrator.cancel();
-        super.onCleanUp();
     }
 
     private void getVibrator() {
-        mVibrator = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
+        mVibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+
         if (!mVibrator.hasVibrator()) {
-            onTestFailure();
+            cancelTest();
+
+            Log.e(TAG, "Could not retrieve an instance of the vibration motor.");
         }
     }
 }

@@ -9,7 +9,10 @@ import android.widget.ViewSwitcher;
 
 import com.fairphone.checkup.tests.NewTest;
 import com.fairphone.checkup.tests.TestListAdapter;
+import com.fairphone.checkup.tests.freedraw.FreeDrawTest;
 import com.fairphone.checkup.tests.lcd.LcdTest;
+import com.fairphone.checkup.tests.modem.ModemTest;
+import com.fairphone.checkup.tests.vibrator.VibratorTest;
 
 import java.util.ArrayList;
 
@@ -29,6 +32,9 @@ public class MainActivity extends Activity implements TestListAdapter.OnClickLis
 
         final ArrayList<NewTest.Details> displayTests = new ArrayList<>();
         displayTests.add(LcdTest.DETAILS);
+        displayTests.add(FreeDrawTest.DETAILS);
+        displayTests.add(ModemTest.DETAILS);
+        displayTests.add(VibratorTest.DETAILS);
 
         mListView = (ListView) findViewById(R.id.listView);
         mListView.setAdapter(new TestListAdapter(this, displayTests, this));
