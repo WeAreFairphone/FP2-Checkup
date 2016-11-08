@@ -39,7 +39,10 @@ public class MainActivity extends Activity implements TestListAdapter.OnClickLis
         mSwitcher.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_out_left));
 
         final FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.test_container, test.getFragment(), getString(R.string.fragment_tag_test)).commit();
+        fragmentManager.beginTransaction()
+                .replace(R.id.test_container, test.getFragment(), getString(R.string.fragment_tag_test))
+                .addToBackStack(null)
+                .commit();
 
         mSwitcher.setDisplayedChild(1);
     }
@@ -51,8 +54,13 @@ public class MainActivity extends Activity implements TestListAdapter.OnClickLis
             mSwitcher.setInAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
             mSwitcher.setOutAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
             mSwitcher.setDisplayedChild(0);
-        } else {
-            super.onBackPressed();
+
+            final FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction()
+                    .remove(fragmentManager.findFragmentByTag(getString(R.string.fragment_tag_test)))
+                    .commit();
         }
+
+        super.onBackPressed();
     }
 }
