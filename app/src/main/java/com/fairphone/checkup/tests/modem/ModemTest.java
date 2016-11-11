@@ -44,8 +44,22 @@ public class ModemTest extends NewTest {
     private TelephonyManager mTelephonyManager;
     private SubscriptionManager mSubscriptionManager;
 
-    private SubscriptionManager.OnSubscriptionsChangedListener mSubscriptionsChangedListener;
-    private BroadcastReceiver broadcastReceiver;
+    private final SubscriptionManager.OnSubscriptionsChangedListener mSubscriptionsChangedListener = new SubscriptionManager.OnSubscriptionsChangedListener() {
+        @Override
+        public void onSubscriptionsChanged() {
+            Log.d(TAG, "Subscriptions changed!");
+
+            readSimDetails();
+        }
+    };
+    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.d(TAG, "Connection changed!");
+
+            readSimDetails();
+        }
+    };
 
     Class mTelephonyManagerClass;
     Method getNetworkOperatorName;
@@ -67,28 +81,6 @@ public class ModemTest extends NewTest {
         return DETAILS;
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mTestSimViews.clear();
-
-        final ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_modem_test, container, false);
-        final TextView descriptionView = (TextView) root.findViewById(R.id.test_description);
-        final ViewGroup contentContainer = (ViewGroup) root.findViewById(R.id.content_layout);
-
-        mTestSimViews.add((ViewGroup) inflater.inflate(R.layout.view_modem_test_sim, contentContainer, false));
-        mTestSimViews.add((ViewGroup) inflater.inflate(R.layout.view_modem_test_sim, contentContainer, false));
-
-        descriptionView.setText(getDetails().getDescription(getActivity()));
-        contentContainer.removeAllViews();
-        contentContainer.addView(mTestSimViews.get(0));
-        contentContainer.addView(mTestSimViews.get(1));
-
-        mContainer = container;
-
-        return root;
-    }
-
     @Override
     public void onStart() {
         super.onStart();
@@ -104,6 +96,19 @@ public class ModemTest extends NewTest {
         mSubscriptionManager = SubscriptionManager.from(getActivity());
 
         setupReflection();
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        mTestSimViews.clear();
+
+        final ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_modem_test, container, false);
+        final TextView descriptionView = (TextView) root.findViewById(R.id.test_description);
+        final ViewGroup contentContainer = (ViewGroup) root.findViewById(R.id.content_layout);
+
+        mTestSimViews.add((ViewGroup) inflater.inflate(R.layout.view_modem_test_sim, contentContainer, false));
+        mTestSimViews.add((ViewGroup) inflater.inflate(R.layout.view_modem_test_sim, contentContainer, false));
 
         for (int slotIndex = 0; slotIndex < 2; slotIndex++) {
             final ViewGroup testSimView = mTestSimViews.get(slotIndex);
@@ -114,13 +119,27 @@ public class ModemTest extends NewTest {
                 Log.e(TAG, String.format("Could not retrieve SIM slot #%d IMEI", slotIndex), e);
             }
         }
+
+        descriptionView.setText(getDetails().getDescription(getActivity()));
+        contentContainer.removeAllViews();
+        contentContainer.addView(mTestSimViews.get(0));
+        contentContainer.addView(mTestSimViews.get(1));
+
+        mContainer = container;
+
+        return root;
     }
 
     @Override
     protected void onResumeTest(boolean firstResume) {
         super.onResumeTest(firstResume);
 
-        setupBroadcastReceiver();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+        filter.addAction("android.net.wifi.STATE_CHANGE");
+        getActivity().registerReceiver(broadcastReceiver, filter);
+
+        mSubscriptionManager.addOnSubscriptionsChangedListener(mSubscriptionsChangedListener);
     }
 
     @Override
@@ -131,10 +150,8 @@ public class ModemTest extends NewTest {
             getActivity().unregisterReceiver(broadcastReceiver);
             broadcastReceiver = null;
         }
-//        if (mSubscriptionsChangedListener != null) {
-//            mSubscriptionManager.removeOnSubscriptionsChangedListener(mSubscriptionsChangedListener);
-//            mSubscriptionsChangedListener = null;
-//        }
+
+        mSubscriptionManager.removeOnSubscriptionsChangedListener(mSubscriptionsChangedListener);
     }
 
     private void setupReflection() {
@@ -161,18 +178,8 @@ public class ModemTest extends NewTest {
 
             getImei = mTelephonyManagerClass.getDeclaredMethod("getImei", int.class);
             getImei.setAccessible(true);
-        } catch (Throwable e) {}
-    }
-
-    private void setupBroadcastReceiver() {
-//        IntentFilter filter = new IntentFilter();
-//        filter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-//        filter.addAction("android.net.wifi.STATE_CHANGE");
-//        broadcastReceiver = new ConnectionChangeReceiver();
-//        getActivity().registerReceiver(broadcastReceiver, filter);
-
-        mSubscriptionsChangedListener = new SubscriptionsChangedListener();
-        mSubscriptionManager.addOnSubscriptionsChangedListener(mSubscriptionsChangedListener);
+        } catch (Throwable e) {
+        }
     }
 
     private void readSimDetails() {
@@ -216,42 +223,41 @@ public class ModemTest extends NewTest {
         }
     }
 
-    class ConnectionChangeReceiver extends BroadcastReceiver {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Log.d(TAG, "Connection changed!");
-
-            readSimDetails();
-        }
-    }
-
-    class SubscriptionsChangedListener extends SubscriptionManager.OnSubscriptionsChangedListener {
-        @Override
-        public void onSubscriptionsChanged() {
-            Log.d(TAG, "Subscriptions changed!");
-
-            readSimDetails();
-        }
-    }
-
-     private static String getNetworkTypeName(int networkType) {
+    private static String getNetworkTypeName(int networkType) {
         switch (networkType) {
-            case TelephonyManager.NETWORK_TYPE_1xRTT: return "1xRTT";
-            case TelephonyManager.NETWORK_TYPE_CDMA: return "CDMA";
-            case TelephonyManager.NETWORK_TYPE_EDGE: return "EDGE";
-            case TelephonyManager.NETWORK_TYPE_EHRPD: return "eHRPD";
-            case TelephonyManager.NETWORK_TYPE_EVDO_0: return "EVDO rev. 0";
-            case TelephonyManager.NETWORK_TYPE_EVDO_A: return "EVDO rev. A";
-            case TelephonyManager.NETWORK_TYPE_EVDO_B: return "EVDO rev. B";
-            case TelephonyManager.NETWORK_TYPE_GPRS: return "GPRS";
-            case TelephonyManager.NETWORK_TYPE_HSDPA: return "HSDPA";
-            case TelephonyManager.NETWORK_TYPE_HSPA: return "HSPA";
-            case TelephonyManager.NETWORK_TYPE_HSPAP: return "HSPA+";
-            case TelephonyManager.NETWORK_TYPE_HSUPA: return "HSUPA";
-            case TelephonyManager.NETWORK_TYPE_IDEN: return "iDen";
-            case TelephonyManager.NETWORK_TYPE_LTE: return "LTE";
-            case TelephonyManager.NETWORK_TYPE_UMTS: return "UMTS";
-            case TelephonyManager.NETWORK_TYPE_UNKNOWN: default: return "Unknown";
+            case TelephonyManager.NETWORK_TYPE_1xRTT:
+                return "1xRTT";
+            case TelephonyManager.NETWORK_TYPE_CDMA:
+                return "CDMA";
+            case TelephonyManager.NETWORK_TYPE_EDGE:
+                return "EDGE";
+            case TelephonyManager.NETWORK_TYPE_EHRPD:
+                return "eHRPD";
+            case TelephonyManager.NETWORK_TYPE_EVDO_0:
+                return "EVDO rev. 0";
+            case TelephonyManager.NETWORK_TYPE_EVDO_A:
+                return "EVDO rev. A";
+            case TelephonyManager.NETWORK_TYPE_EVDO_B:
+                return "EVDO rev. B";
+            case TelephonyManager.NETWORK_TYPE_GPRS:
+                return "GPRS";
+            case TelephonyManager.NETWORK_TYPE_HSDPA:
+                return "HSDPA";
+            case TelephonyManager.NETWORK_TYPE_HSPA:
+                return "HSPA";
+            case TelephonyManager.NETWORK_TYPE_HSPAP:
+                return "HSPA+";
+            case TelephonyManager.NETWORK_TYPE_HSUPA:
+                return "HSUPA";
+            case TelephonyManager.NETWORK_TYPE_IDEN:
+                return "iDen";
+            case TelephonyManager.NETWORK_TYPE_LTE:
+                return "LTE";
+            case TelephonyManager.NETWORK_TYPE_UMTS:
+                return "UMTS";
+            case TelephonyManager.NETWORK_TYPE_UNKNOWN:
+            default:
+                return "Unknown";
         }
     }
 }
