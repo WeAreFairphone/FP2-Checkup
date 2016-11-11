@@ -44,8 +44,23 @@ public class VibratorTest extends SimpleTest {
     }
 
     @Override
-    protected void onResumeTest() {
-        getVibrator();
+    protected void onCreateTest() {
+        super.onCreateTest();
+
+        mVibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+
+        if (!mVibrator.hasVibrator()) {
+            // TODO abort test
+            cancelTest();
+
+            Log.e(TAG, "Could not retrieve an instance of the vibration motor.");
+        }
+    }
+
+    @Override
+    protected void onResumeTest(boolean firstResume) {
+        super.onResumeTest(firstResume);
+
         mVibrator.vibrate(VIBRATION_DURATION_MS);
 
         new Thread(new Runnable() {
@@ -70,16 +85,15 @@ public class VibratorTest extends SimpleTest {
     protected void onPauseTest() {
         super.onPauseTest();
 
-        mVibrator.cancel();
+        if (mVibrator != null) {
+            mVibrator.cancel();
+        }
     }
 
-    private void getVibrator() {
-        mVibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+    @Override
+    protected void onCancelTest() {
+        super.onCancelTest();
 
-        if (!mVibrator.hasVibrator()) {
-            cancelTest();
-
-            Log.e(TAG, "Could not retrieve an instance of the vibration motor.");
-        }
+        mVibrator = null;
     }
 }

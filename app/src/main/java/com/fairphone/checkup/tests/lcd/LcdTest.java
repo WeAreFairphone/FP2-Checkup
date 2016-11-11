@@ -103,16 +103,16 @@ public class LcdTest extends SimpleTest {
     }
 
     @Override
-    protected void onBeginTest() {
-        super.onBeginTest();
+    protected void onResumeTest(boolean firstResume) {
+        super.onResumeTest(firstResume);
 
         switchToFullScreen();
         addDisplayPatterns();
     }
 
     @Override
-    protected void onFinishTest() {
-        super.onFinishTest();
+    protected void onPauseTest() {
+        super.onPauseTest();
 
         restoreParentPadding();
         mContainer.removeView(mViewFlipper);

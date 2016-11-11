@@ -56,14 +56,16 @@ public abstract class SimpleTest extends NewTest {
     }
 
     @Override
-    protected void onBeginTest() {
-        super.onBeginTest();
+    protected void onResumeTest(boolean firstResume) {
+        super.onResumeTest(firstResume);
 
-        if (isCancellable()) {
-            mActionButton.setBackgroundColor(getResources().getColor(R.color.accent));
-            mActionButton.setText(R.string.action_cancel_test);
-        } else {
-            mActionButton.setEnabled(false);
+        if (firstResume) {
+            if (isCancellable()) {
+                mActionButton.setBackgroundColor(getResources().getColor(R.color.accent));
+                mActionButton.setText(R.string.action_cancel_test);
+            } else {
+                mActionButton.setEnabled(false);
+            }
         }
     }
 

@@ -97,8 +97,8 @@ public class ModemTest extends NewTest {
     }
 
     @Override
-    protected void onBeginTest() {
-        super.onBeginTest();
+    protected void onCreateTest() {
+        super.onCreateTest();
 
         mTelephonyManager = (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
         mSubscriptionManager = SubscriptionManager.from(getActivity());
@@ -117,8 +117,8 @@ public class ModemTest extends NewTest {
     }
 
     @Override
-    protected void onResumeTest() {
-        super.onResumeTest();
+    protected void onResumeTest(boolean firstResume) {
+        super.onResumeTest(firstResume);
 
         setupBroadcastReceiver();
     }
