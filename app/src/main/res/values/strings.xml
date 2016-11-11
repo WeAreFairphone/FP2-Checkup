@@ -35,6 +35,7 @@
 
     <!-- Free draw -->
     <string name="freedraw_test_title">Free drawing</string>
+    <string name="freedraw_test_summary">Draw freely on the screen.</string>
     <string name="freedraw_test_description">Draw freely on the screen.</string>
     <string name="freedraw_test_instructions">Use your finger to draw freely on the canvas. While on the canvas, swipe from the bottom of the screen towards the top to make the back button appear.</string>
 
@@ -202,6 +203,7 @@
 
     <!-- Modem -->
     <string name="modem_test_title">Mobile connectivity</string>
+    <string name="modem_test_summary">Information about the mobile connectivity.</string>
     <string name="modem_test_description">Information about the mobile connectivity.</string>
     <!-- Arguments: <SIM slot number> -->
     <string name="modem_sim_title">SIM %1$d</string>
@@ -274,8 +276,9 @@
 
     <!-- Vibration motor -->
     <string name="vibrator_test_title">Vibration motor</string>
-    <!-- Arguments: <vibration duration in seconds (integer)> -->
+    <string name="vibrator_test_summary">This is what makes your phone vibrate.</string>
     <string name="vibrator_test_description">This is what makes your phone vibrate.</string>
+    <!-- Arguments: <vibration duration in seconds (integer)> -->
     <string name="vibrator_test_instructions">Press starts to make your phone vibrate for %d seconds.</string>
 
     <!-- Rear speaker -->
@@ -285,6 +288,7 @@
 
     <!-- Primary microphone -->
     <string name="primary_mic_test_title">Primary microphone</string>
+    <string name="primary_mic_test_summary">The microphone used to place calls.</string>
     <string name="primary_mic_test_description">The microphone used to place calls.</string>
     <string name="primary_mic_test_instructions">Press start and pretend that you\'re making a phone call. Can you hear yourself?</string>
 
