@@ -258,9 +258,10 @@
     <string name="illuminance_unit" translatable="false">lx</string>
 
     <!-- Ear speaker -->
-    <string name="ear_speaker_test_title" translatable="false">Ear speaker</string>
-    <string name="ear_speaker_test_description" translatable="false">This test checks if the ear speaker is working. Press start and make sure you hear the music playing.</string>
-    <string name="ear_speaker_test_finish_question" translatable="false">You should hear some music playing. Is the ear speaker working?</string>
+    <string name="ear_speaker_test_title">Ear speaker</string>
+    <string name="ear_speaker_test_summary">The speaker to hear people during phone calls.</string>
+    <string name="ear_speaker_test_description">The ear speaker is used to hear your correspondent during phone calls.</string>
+    <string name="ear_speaker_test_instructions">Press start and pretend you\'re making a phone call. Can you hear the music playing?</string>
 
     <!-- Front camera -->
     <string name="front_camera_test_title" translatable="false">Front camera</string>

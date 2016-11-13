@@ -1,69 +1,118 @@
 package com.fairphone.checkup.tests.speaker;
 
+import android.app.Fragment;
 import android.content.Context;
+import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.view.View;
+import android.util.Log;
 
 import com.fairphone.checkup.R;
-import com.fairphone.checkup.tests.Test;
+import com.fairphone.checkup.tests.NewTest;
+import com.fairphone.checkup.tests.SimpleTest;
 
-/**
- * Created by maarten on 10-12-15.
- */
-public class EarSpeakerTest extends Test {
+public class EarSpeakerTest extends SimpleTest {
 
     private static final String TAG = EarSpeakerTest.class.getSimpleName();
 
-    View mTestView;
-
-    private AudioManager audioManager;
-    private int initVoiceCallVolume;
-    private int maxVoiceCallVolume;
-
-    private MediaPlayer mediaPlayer;
-
-    public EarSpeakerTest(Context context) {
-        super(context);
-    }
-
-    @Override
-    protected int getTestTitleID() {
-        return R.string.ear_speaker_test_title;
-    }
-
-    @Override
-    protected int getTestDescriptionID() {
-        return R.string.ear_speaker_test_description;
-    }
-
-    protected void onPrepare() {
-        audioManager = (AudioManager)getContext().getSystemService(Context.AUDIO_SERVICE);
-        initVoiceCallVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);              // store current volume to restore later
-        maxVoiceCallVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-
-        audioManager.setMode(AudioManager.STREAM_MUSIC);
-        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, maxVoiceCallVolume, 0);             // fix volume to 100%
-        audioManager.setSpeakerphoneOn(false);
-
-        mediaPlayer = MediaPlayer.create(getContext(), R.raw.sunbeam);
-        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-        mediaPlayer.setLooping(true);
-    }
-
-    @Override
-    protected void runTest() {
-        mediaPlayer.start();
-        //askIfSuccess(getContext().getString(R.string.ear_speaker_test_finish_question));
-    }
-
-    @Override
-    protected void onCleanUp() {
-        if (mediaPlayer != null) {
-            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, initVoiceCallVolume, 0);        // restore original volume
+    public static final Details DETAILS = new NewTest.Details(R.string.ear_speaker_test_title, R.string.ear_speaker_test_summary, R.string.ear_speaker_test_description, R.string.ear_speaker_test_instructions) {
+        @Override
+        public Fragment getFragment() {
+            return new EarSpeakerTest();
         }
-        mediaPlayer.release();
-        mediaPlayer = null;
-        super.onCleanUp();
+    };
+
+    /**
+     * The ratio to apply to the maximum stream volume.
+     */
+    private static final float MAX_STREAM_VOLUME_RATIO = 0.75f;
+
+    private AudioManager mAudioManager;
+    private MediaPlayer mMediaPlayer;
+
+    private int mOldStreamVolume;
+
+    public EarSpeakerTest() {
+        super(true);
+    }
+
+    @Override
+    protected Details getDetails() {
+        return DETAILS;
+    }
+
+    @Override
+    protected void onCreateTest() {
+        super.onCreateTest();
+
+        mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
+
+        mMediaPlayer = MediaPlayer.create(
+                getActivity(),
+                R.raw.sunbeam,
+                new AudioAttributes.Builder()
+                        .setUsage(AudioAttributes.USAGE_VOICE_COMMUNICATION)
+                        .setContentType(AudioAttributes.CONTENT_TYPE_UNKNOWN)
+                        .build(),
+                0);
+
+        if (mMediaPlayer == null) {
+            // TODO cleanly fail
+            cancelTest();
+        } else {
+            mMediaPlayer.setLooping(true);
+        }
+    }
+
+    @Override
+    protected void onResumeTest(boolean firstResume) {
+        super.onResumeTest(firstResume);
+
+        if (mMediaPlayer == null) {
+            if (!isCancelled()) {
+                Log.e(TAG, "Missing MediaPlayer instance");
+            }
+            return;
+        }
+
+        final int maxStreamVolume = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_VOICE_CALL);
+        final int localStreamVolume = Math.min(Math.round(maxStreamVolume * MAX_STREAM_VOLUME_RATIO), maxStreamVolume);
+
+        mOldStreamVolume = mAudioManager.getStreamVolume(AudioManager.STREAM_VOICE_CALL);
+
+        mAudioManager.setMode(AudioManager.MODE_IN_COMMUNICATION);
+        mAudioManager.setStreamVolume(AudioManager.STREAM_VOICE_CALL, localStreamVolume, 0);
+        mAudioManager.setStreamSolo(AudioManager.STREAM_VOICE_CALL, true);
+
+        mMediaPlayer.start();
+    }
+
+    @Override
+    protected void onPauseTest() {
+        super.onPauseTest();
+
+        if (mMediaPlayer == null) {
+            if (!isCancelled()) {
+                Log.e(TAG, "Missing MediaPlayer instance");
+            }
+            return;
+        }
+
+        mMediaPlayer.pause();
+
+        mAudioManager.setStreamSolo(AudioManager.STREAM_VOICE_CALL, false);
+        mAudioManager.setStreamVolume(AudioManager.STREAM_VOICE_CALL, mOldStreamVolume, 0);
+        mAudioManager.setMode(AudioManager.MODE_NORMAL);
+    }
+
+    @Override
+    protected void onFinishTest() {
+        super.onFinishTest();
+
+        if (mMediaPlayer != null) {
+            mMediaPlayer.reset();
+            mMediaPlayer.release();
+            mMediaPlayer = null;
+        }
     }
 }

@@ -12,6 +12,7 @@ import com.fairphone.checkup.tests.TestListAdapter;
 import com.fairphone.checkup.tests.freedraw.FreeDrawTest;
 import com.fairphone.checkup.tests.lcd.LcdTest;
 import com.fairphone.checkup.tests.modem.ModemTest;
+import com.fairphone.checkup.tests.speaker.EarSpeakerTest;
 import com.fairphone.checkup.tests.vibrator.VibratorTest;
 
 import java.util.ArrayList;
@@ -35,6 +36,7 @@ public class MainActivity extends Activity implements TestListAdapter.OnClickLis
         displayTests.add(FreeDrawTest.DETAILS);
         displayTests.add(ModemTest.DETAILS);
         displayTests.add(VibratorTest.DETAILS);
+        displayTests.add(EarSpeakerTest.DETAILS);
 
         mListView = (ListView) findViewById(R.id.listView);
         mListView.setAdapter(new TestListAdapter(this, displayTests, this));
