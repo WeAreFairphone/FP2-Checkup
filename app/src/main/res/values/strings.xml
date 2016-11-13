@@ -263,6 +263,12 @@
     <string name="ear_speaker_test_description">The ear speaker is used to hear your correspondent during phone calls.</string>
     <string name="ear_speaker_test_instructions">Press start and pretend you\'re making a phone call. Can you hear the music playing?</string>
 
+    <!-- Loud speaker -->
+    <string name="loud_speaker_test_title">Loud speaker</string>
+    <string name="loud_speaker_test_summary">The speaker to listen to music.</string>
+    <string name="loud_speaker_test_description">The loud speaker is used to listen to music or to hear people in a hands-free phone call.</string>
+    <string name="loud_speaker_test_instructions">Press start and use the volume buttons to lower and raise the music level. Can you hear the music playing?</string>
+
     <!-- Front camera -->
     <string name="front_camera_test_title" translatable="false">Front camera</string>
 
