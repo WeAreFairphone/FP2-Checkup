@@ -253,7 +253,7 @@ public abstract class NewTest extends Fragment {
      * Method to actually pause the test.
      */
     public void pauseTest() {
-        if (isPaused()) {
+        if (!isRunning()) {
             return;
         }
 
