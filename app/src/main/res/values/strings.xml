@@ -288,11 +288,6 @@
     <!-- Arguments: <vibration duration in seconds (integer)> -->
     <string name="vibrator_test_instructions">Press starts to make your phone vibrate for %d seconds.</string>
 
-    <!-- Rear speaker -->
-    <string name="rear_speaker_test_title" translatable="false">Rear speaker</string>
-    <string name="rear_speaker_test_description" translatable="false">This test checks if the rear speaker is working. Press start and make sure you hear the music playing.</string>
-    <string name="rear_speaker_test_finish_question" translatable="false">You should hear some music playing. Is the rear speaker working?</string>
-
     <!-- Primary microphone -->
     <string name="primary_mic_test_title">Primary microphone</string>
     <string name="primary_mic_test_summary">The microphone used to place calls.</string>
