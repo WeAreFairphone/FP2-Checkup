@@ -11,6 +11,8 @@ import com.fairphone.checkup.tests.NewTest;
 import com.fairphone.checkup.tests.TestListAdapter;
 import com.fairphone.checkup.tests.freedraw.FreeDrawTest;
 import com.fairphone.checkup.tests.lcd.LcdTest;
+import com.fairphone.checkup.tests.loopback.PrimaryMicLoopbackTest;
+import com.fairphone.checkup.tests.loopback.SecondaryMicLoopbackTest;
 import com.fairphone.checkup.tests.modem.ModemTest;
 import com.fairphone.checkup.tests.speaker.EarSpeakerTest;
 import com.fairphone.checkup.tests.speaker.LoudSpeakerTest;
@@ -39,6 +41,8 @@ public class MainActivity extends Activity implements TestListAdapter.OnClickLis
         displayTests.add(VibratorTest.DETAILS);
         displayTests.add(EarSpeakerTest.DETAILS);
         displayTests.add(LoudSpeakerTest.DETAILS);
+        displayTests.add(PrimaryMicLoopbackTest.DETAILS);
+        displayTests.add(SecondaryMicLoopbackTest.DETAILS);
 
         mListView = (ListView) findViewById(R.id.listView);
         mListView.setAdapter(new TestListAdapter(this, displayTests, this));
