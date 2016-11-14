@@ -273,9 +273,10 @@
     <string name="front_camera_test_title" translatable="false">Front camera</string>
 
     <!-- Secondary microphone -->
-    <string name="secondary_mic_test_title">Secondary microphone</string>
-    <string name="secondary_mic_test_description">The microphone to reduce ambient noise.</string>
-    <string name="secondary_mic_test_instructions">Press start and pretend you\'re making a phone call, but hold your phone upside down. Can you hear yourself?</string>
+    <string name="secondary_mic_loopback_test_title">Secondary microphone</string>
+    <string name="secondary_mic_loopback_test_summary">The microphone to reduce ambient noise.</string>
+    <string name="secondary_mic_loopback_test_description">The microphone to reduce ambient noise.</string>
+    <string name="secondary_mic_loopback_test_instructions">Press start and pretend you\'re making a phone call, but hold your phone upside down. Can you hear yourself?</string>
 
     <!-- Bottom module -->
     <string name="bottom_module_name" translatable="false">Bottom module</string>
@@ -288,11 +289,11 @@
     <!-- Arguments: <vibration duration in seconds (integer)> -->
     <string name="vibrator_test_instructions">Press starts to make your phone vibrate for %d seconds.</string>
 
-    <!-- Primary microphone -->
-    <string name="primary_mic_test_title">Primary microphone</string>
-    <string name="primary_mic_test_summary">The microphone used to place calls.</string>
-    <string name="primary_mic_test_description">The microphone used to place calls.</string>
-    <string name="primary_mic_test_instructions">Press start and pretend that you\'re making a phone call. Can you hear yourself?</string>
+    <!-- Primary microphone loopback -->
+    <string name="primary_mic_loopback_test_title">Primary microphone</string>
+    <string name="primary_mic_loopback_test_summary">The microphone used to place calls.</string>
+    <string name="primary_mic_loopback_test_description">The microphone used to place calls.</string>
+    <string name="primary_mic_loopback_test_instructions">Press start and pretend that you\'re making a phone call. Can you hear yourself?</string>
 
     <!-- USB port -->
     <string name="usb_port_test_title" translatable="false">USB port</string>
