@@ -220,14 +220,14 @@
     <string name="modem_sim_operator_code_mcc">SIM Operator Code (MCC):</string>
     <string name="modem_sim_operator">SIM Operator:</string>
     <string name="modem_network_type">Network type:</string>
-    <string name="modem_data_state">Data state:</string>
+    <string name="modem_data_connected">Mobile data connected:</string>
     <string name="modem_data_activity">Data activity:</string>
     <string name="modem_mnc">MNC:</string>
     <string name="modem_mcc">MCC:</string>
     <string name="modem_imei">IMEI:</string>
     <string name="modem_countrycode">Country code:</string>
     <string name="modem_roaming">Roaming:</string>
-    <string name="modem_data_roaming">Data roaming:</string>
+    <string name="modem_data_roaming">Mobile data roaming:</string>
 
     <!-- Top module -->
     <string name="top_module_name" translatable="false">Top module</string>
