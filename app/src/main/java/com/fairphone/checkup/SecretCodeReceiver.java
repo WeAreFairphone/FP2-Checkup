@@ -14,14 +14,14 @@ public class SecretCodeReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         PackageManager packageManager = context.getPackageManager();
-        ComponentName componentName = new ComponentName(context, ModuleChooser.class);
+        ComponentName componentName = new ComponentName(context, MainActivity.class);
         String secretAction = "android.provider.Telephony.SECRET_CODE";
         String action = intent.getAction();
         String host = intent.getData() != null ? intent.getData().getHost() : null;
         if (secretAction.equals(action) && "3424".equals(host)) {
             packageManager.setComponentEnabledSetting(componentName,
                     PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
-            Intent diagnosticsIntent = new Intent(context, ModuleChooser.class);
+            Intent diagnosticsIntent = new Intent(context, MainActivity.class);
             diagnosticsIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(diagnosticsIntent);
         } else {

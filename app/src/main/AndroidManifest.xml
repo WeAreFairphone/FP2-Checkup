@@ -53,20 +53,6 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity
-            android:label="@string/app_name"
-            android:name="com.fairphone.checkup.ModuleChooser"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:label="@string/app_name"
-            android:name="com.fairphone.checkup.TestChooser"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.fairphone.checkup.ModuleChooser" />
-        </activity>
-
 
     </application>
 
