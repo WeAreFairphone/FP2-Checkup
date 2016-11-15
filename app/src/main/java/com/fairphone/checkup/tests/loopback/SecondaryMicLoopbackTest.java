@@ -14,7 +14,7 @@ public class SecondaryMicLoopbackTest extends MicLoopbackTest {
     };
 
     public SecondaryMicLoopbackTest() {
-        super(MIC_SECUNDARY, 0.6f);
+        super(MIC_SECONDARY, 0.6f);
     }
 
     @Override

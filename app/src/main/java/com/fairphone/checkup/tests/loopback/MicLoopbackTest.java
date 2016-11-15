@@ -15,7 +15,7 @@ import com.fairphone.checkup.tests.SimpleTest;
 public abstract class MicLoopbackTest extends SimpleTest {
 
     protected static final int MIC_PRIMARY = 0;
-    protected static final int MIC_SECUNDARY = 1;
+    protected static final int MIC_SECONDARY = 1;
 
     private static final int AUDIORECORD_CHANNELS = AudioFormat.CHANNEL_IN_MONO;
     private static final int AUDIOTRACK_CHANNELS = AudioFormat.CHANNEL_OUT_MONO;
@@ -41,7 +41,7 @@ public abstract class MicLoopbackTest extends SimpleTest {
     private final String mAudioParameters;
 
     /**
-     * @param microphone     The microphone to use: {@link #MIC_PRIMARY} or {@link #MIC_SECUNDARY}.
+     * @param microphone     The microphone to use: {@link #MIC_PRIMARY} or {@link #MIC_SECONDARY}.
      * @param maxVolumeRatio The ratio to apply to the maximum stream volume.
      */
     protected MicLoopbackTest(int microphone, float maxVolumeRatio) {
@@ -58,7 +58,7 @@ public abstract class MicLoopbackTest extends SimpleTest {
                 mAudioMode = AudioManager.MODE_IN_COMMUNICATION;
                 mAudioParameters = "hip_test=primary";
                 break;
-            case MIC_SECUNDARY:
+            case MIC_SECONDARY:
                 mStreamType = AudioManager.STREAM_MUSIC;
                 mAudioMode = AudioManager.MODE_RINGTONE;
                 mAudioParameters = "hip_test=secondary";
