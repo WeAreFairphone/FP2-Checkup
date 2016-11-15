@@ -75,16 +75,12 @@ public class ModemTest extends InformationTest {
             testSimView = mTestSimViews.get(slotIndex);
             simSlotDetails = mModemInformation.getDetails(false).getSimSlotDetails(slotIndex);
 
-            try {
-                ((TextView) testSimView.findViewById(R.id.modem_imei_value)).setText(simSlotDetails.getImei());
+            ((TextView) testSimView.findViewById(R.id.modem_imei_value)).setText(simSlotDetails.getImei());
 
-                ((TextView) testSimView.findViewById(R.id.modem_sim_operator_value)).setText(simSlotDetails.getSimOperatorName());
-                ((TextView) testSimView.findViewById(R.id.modem_sim_operator_code_value)).setText(simSlotDetails.getSimOperatorCode());
-                ((TextView) testSimView.findViewById(R.id.modem_sim_mcc_value)).setText(simSlotDetails.getSimOperatorMCC());
-                ((TextView) testSimView.findViewById(R.id.modem_sim_mnc_value)).setText(simSlotDetails.getSimOperatorMNC());
-            } catch (Throwable e) {
-                Log.e(TAG, String.format("Could not retrieve SIM slot #%d IMEI", slotIndex), e);
-            }
+            ((TextView) testSimView.findViewById(R.id.modem_sim_operator_value)).setText(simSlotDetails.getSimOperatorName());
+            ((TextView) testSimView.findViewById(R.id.modem_sim_operator_code_value)).setText(simSlotDetails.getSimOperatorCode());
+            ((TextView) testSimView.findViewById(R.id.modem_sim_mcc_value)).setText(simSlotDetails.getSimOperatorMCC());
+            ((TextView) testSimView.findViewById(R.id.modem_sim_mnc_value)).setText(simSlotDetails.getSimOperatorMNC());
         }
 
         descriptionView.setText(getDetails().getDescription(getActivity()));
