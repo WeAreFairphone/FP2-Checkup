@@ -14,12 +14,13 @@ import com.fairphone.checkup.information.Information;
 import com.fairphone.checkup.information.modem.ModemDetails;
 import com.fairphone.checkup.information.modem.ModemInformation;
 import com.fairphone.checkup.information.modem.SimSlotDetails;
+import com.fairphone.checkup.tests.InformationTest;
 import com.fairphone.checkup.tests.NewTest;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ModemTest extends NewTest {
+public class ModemTest extends InformationTest {
 
     public static final Details DETAILS = new NewTest.Details(R.string.modem_test_title, R.string.modem_test_summary, R.string.modem_test_description) {
         @Override
@@ -34,20 +35,13 @@ public class ModemTest extends NewTest {
     private List<ViewGroup> mTestSimViews;
 
     public ModemTest() {
-        super(false);
+        super();
         mTestSimViews = new ArrayList<>(ModemDetails.NB_SIM_SLOTS);
     }
 
     @Override
     protected Details getDetails() {
         return DETAILS;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        beginTest();
     }
 
     @Override
