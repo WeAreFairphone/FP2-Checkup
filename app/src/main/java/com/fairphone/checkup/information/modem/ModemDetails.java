@@ -14,12 +14,10 @@ public class ModemDetails extends Information.Details {
     public ModemDetails(Context context) {
         mContext = context;
         mSimSlotDetails = new SimSlotDetails[NB_SIM_SLOTS];
-    }
 
-    public SimSlotDetails createSimSlotDetails(int slotIndex) {
-        mSimSlotDetails[slotIndex] = new SimSlotDetails(mContext);
-
-        return mSimSlotDetails[slotIndex];
+        for (int i = 0; i < NB_SIM_SLOTS; i++) {
+            mSimSlotDetails[i] = new SimSlotDetails(mContext);
+        }
     }
 
     /**

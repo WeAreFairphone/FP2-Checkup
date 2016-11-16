@@ -37,14 +37,13 @@ public class ModemInformation extends Information<ModemDetails> {
     private final SubscriptionManager mSubscriptionManager;
     private final IntentFilter mBroadcastReceiverFilter;
 
-    private Class mTelephonyManagerClass;
-    private Method getNetworkOperatorName;
-    private Method getNetworkOperatorCode;
+    private Method getImei;
     private Method getSimOperatorName;
     private Method getSimOperatorCode;
+    private Method getNetworkOperatorName;
+    private Method getNetworkOperatorCode;
     private Method getNetworkType;
     private Method isNetworkRoaming;
-    private Method getImei;
 
     public ModemInformation(Context context, ChangeListener<ModemDetails> listener) {
         super(context, listener, new ModemDetails(context));
@@ -58,7 +57,7 @@ public class ModemInformation extends Information<ModemDetails> {
 
         setUpReflection();
 
-        setUpActiveSimCards();
+        setUpSimSlots();
     }
 
     @Override
@@ -77,19 +76,20 @@ public class ModemInformation extends Information<ModemDetails> {
     protected void onRefreshDetails() {
         for (int slotIndex = 0; slotIndex < ModemDetails.NB_SIM_SLOTS; slotIndex++) {
             final SimSlotDetails simSlotDetails = mInstanceDetails.getSimSlotDetails(slotIndex);
-
-            // Ignore inactive SIM cards
-            if (simSlotDetails == null) {
-                continue;
-            }
-
             final SubscriptionInfo subscriptionInfo = mSubscriptionManager.getActiveSubscriptionInfoForSimSlotIndex(slotIndex);
 
             if (subscriptionInfo == null) {
-                simSlotDetails.setNotConnectedToNetwork();
+                // Do we need to update the current details?
+                if (simSlotDetails.isSimPresent()) {
+                    simSlotDetails.setSimNotPresent();
+                }
             } else {
                 try {
-                    simSlotDetails.setConnectedToNetwork(
+                    simSlotDetails.setSimPresent(
+                            (String) getSimOperatorName.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()),
+                            (String) getSimOperatorCode.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId())
+                    );
+                    simSlotDetails.setSimConnectedToNetwork(
                             (String) getNetworkOperatorName.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()),
                             (String) getNetworkOperatorCode.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()),
                             (int) getNetworkType.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()),
@@ -107,43 +107,39 @@ public class ModemInformation extends Information<ModemDetails> {
 
     private void setUpReflection() {
         try {
-            mTelephonyManagerClass = Class.forName(mTelephonyManager.getClass().getName());
+            final Class telephonyManagerClass = Class.forName(mTelephonyManager.getClass().getName());
 
-            getNetworkOperatorName = mTelephonyManagerClass.getDeclaredMethod("getNetworkOperatorName", int.class);
-            getNetworkOperatorName.setAccessible(true);
+            getImei = telephonyManagerClass.getDeclaredMethod("getImei", int.class);
+            getImei.setAccessible(true);
 
-            getNetworkOperatorCode = mTelephonyManagerClass.getDeclaredMethod("getNetworkOperatorForSubscription", int.class);
-            getNetworkOperatorCode.setAccessible(true);
-
-            getSimOperatorName = mTelephonyManagerClass.getDeclaredMethod("getSimOperatorNameForSubscription", int.class);
+            getSimOperatorName = telephonyManagerClass.getDeclaredMethod("getSimOperatorNameForSubscription", int.class);
             getSimOperatorName.setAccessible(true);
 
-            getSimOperatorCode = mTelephonyManagerClass.getDeclaredMethod("getSimOperator", int.class);
+            getSimOperatorCode = telephonyManagerClass.getDeclaredMethod("getSimOperator", int.class);
             getSimOperatorCode.setAccessible(true);
 
-            getNetworkType = mTelephonyManagerClass.getDeclaredMethod("getNetworkType", int.class);
+            getNetworkOperatorName = telephonyManagerClass.getDeclaredMethod("getNetworkOperatorName", int.class);
+            getNetworkOperatorName.setAccessible(true);
+
+            getNetworkOperatorCode = telephonyManagerClass.getDeclaredMethod("getNetworkOperatorForSubscription", int.class);
+            getNetworkOperatorCode.setAccessible(true);
+
+            getNetworkType = telephonyManagerClass.getDeclaredMethod("getNetworkType", int.class);
             getNetworkType.setAccessible(true);
 
-            isNetworkRoaming = mTelephonyManagerClass.getDeclaredMethod("isNetworkRoaming", int.class);
+            isNetworkRoaming = telephonyManagerClass.getDeclaredMethod("isNetworkRoaming", int.class);
             isNetworkRoaming.setAccessible(true);
-
-            getImei = mTelephonyManagerClass.getDeclaredMethod("getImei", int.class);
-            getImei.setAccessible(true);
         } catch (Throwable e) {
+            Log.e(TAG, "Could not retrieve a declared method through reflection", e);
         }
     }
 
-    private void setUpActiveSimCards() {
+    private void setUpSimSlots() {
         for (int slotIndex = 0; slotIndex < ModemDetails.NB_SIM_SLOTS; slotIndex++) {
-            final SimSlotDetails simSlotDetails = mInstanceDetails.createSimSlotDetails(slotIndex);
-            final SubscriptionInfo subscriptionInfo = mSubscriptionManager.getActiveSubscriptionInfoForSimSlotIndex(slotIndex);
+            final SimSlotDetails simSlotDetails = mInstanceDetails.getSimSlotDetails(slotIndex);
 
             try {
-                simSlotDetails.setSimDetails(
-                        (String) getImei.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()),
-                        (String) getSimOperatorName.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()),
-                        (String) getSimOperatorCode.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId())
-                );
+                simSlotDetails.setImei((String) getImei.invoke(mTelephonyManager, slotIndex));
             } catch (IllegalAccessException | InvocationTargetException e) {
                 Log.e(TAG, e.getLocalizedMessage());
             }
