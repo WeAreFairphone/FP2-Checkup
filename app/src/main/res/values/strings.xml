@@ -206,11 +206,13 @@
     <string name="modem_test_summary">Information about the mobile connectivity.</string>
     <string name="modem_test_description">Information about the mobile connectivity.</string>
     <!-- Arguments: <SIM slot number> -->
-    <string name="modem_sim_title">SIM %1$d</string>
+    <string name="modem_sim_unavailable_title">No SIM card in slot %1$d</string>
     <!-- Arguments: <SIM slot number> -->
-    <string name="modem_unknown_state_sim_title">SIM card in slot %1$d is in an unknown state</string>
+    <string name="modem_sim_connected_title">SIM %1$d - connected</string>
     <!-- Arguments: <SIM slot number> -->
-    <string name="modem_unavailable_sim_title">No SIM card in slot %1$d</string>
+    <string name="modem_sim_not_connected_title">SIM %1$d - not connected</string>
+    <!-- Arguments: <SIM slot number> -->
+    <string name="modem_sim_unknown_state_title">SIM %1$d - unknown state</string>
     <string name="modem_network_operator">Network Operator:</string>
     <string name="modem_network_operator_code">Network Operator Code:</string>
     <string name="modem_network_operator_code_mnc">Network Operator Code (MNC):</string>
