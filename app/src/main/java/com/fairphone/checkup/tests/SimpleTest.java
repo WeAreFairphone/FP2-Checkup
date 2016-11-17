@@ -11,12 +11,12 @@ import android.widget.TextView;
 import com.fairphone.checkup.R;
 
 /**
- * A simple {@link NewTest} that implements an action button and displays instructions.
+ * A simple {@link Test} that implements an action button and displays instructions.
  * <p>The action button is used to begin (and potentially cancel) the test.</p>
  * <p>If the test is cancellable, the action button will display a cancel label while the test is running.
  * If not cancellable, the action button will remain inactive until completion of the test.</p>
  */
-public abstract class SimpleTest extends NewTest {
+public abstract class SimpleTest extends Test {
 
     private Button mActionButton;
     private final View.OnClickListener mActionClickLister = new View.OnClickListener() {

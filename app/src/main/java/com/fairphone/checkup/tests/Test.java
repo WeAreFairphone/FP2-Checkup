@@ -37,7 +37,7 @@ import java.util.Locale;
  * </p>
  * TODO properly document the state machine (w.r.t Fragment)
  */
-public abstract class NewTest extends Fragment {
+public abstract class Test extends Fragment {
 
     public static abstract class Details implements Serializable {
 
@@ -140,7 +140,7 @@ public abstract class NewTest extends Fragment {
 
     protected final String TAG = getClass().getSimpleName();
 
-    protected NewTest(boolean isCancellable) {
+    protected Test(boolean isCancellable) {
         super();
 
         mStatus = STATUS_FRESH;

@@ -7,13 +7,13 @@ import android.view.View;
 import android.widget.ViewFlipper;
 
 import com.fairphone.checkup.R;
-import com.fairphone.checkup.tests.NewTest;
+import com.fairphone.checkup.tests.Test;
 import com.fairphone.checkup.tests.SimpleTest;
 
 
 public class LcdTest extends SimpleTest {
 
-    public static final Details DETAILS = new NewTest.Details(R.string.lcd_test_title, R.string.lcd_test_summary, R.string.lcd_test_description, R.string.lcd_test_instructions) {
+    public static final Details DETAILS = new Test.Details(R.string.lcd_test_title, R.string.lcd_test_summary, R.string.lcd_test_description, R.string.lcd_test_instructions) {
         @Override
         public Fragment getFragment() {
             return new LcdTest();

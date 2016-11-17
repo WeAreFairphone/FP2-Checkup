@@ -11,13 +11,13 @@ import com.fairphone.checkup.information.Information;
 import com.fairphone.checkup.information.wifi.WifiDetails;
 import com.fairphone.checkup.information.wifi.WifiInformation;
 import com.fairphone.checkup.tests.InformationTest;
-import com.fairphone.checkup.tests.NewTest;
+import com.fairphone.checkup.tests.Test;
 
 import java.util.Locale;
 
 public class WifiTest extends InformationTest<WifiInformation> {
 
-    public static final NewTest.Details DETAILS = new NewTest.Details(R.string.wifi_test_title, R.string.wifi_test_summary, R.string.wifi_test_description) {
+    public static final Test.Details DETAILS = new Test.Details(R.string.wifi_test_title, R.string.wifi_test_summary, R.string.wifi_test_description) {
         @Override
         public Fragment getFragment() {
             return new WifiTest();

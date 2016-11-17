@@ -10,14 +10,14 @@ import com.fairphone.checkup.R;
 
 import java.util.List;
 
-public class TestListAdapter extends ArrayAdapter<NewTest.Details> {
+public class TestListAdapter extends ArrayAdapter<Test.Details> {
     public interface OnClickListener {
-        void onClick(NewTest.Details item);
+        void onClick(Test.Details item);
     }
 
     OnClickListener mOnClickListener;
 
-    public TestListAdapter(Context context, List<NewTest.Details> tests, OnClickListener onClickListener) {
+    public TestListAdapter(Context context, List<Test.Details> tests, OnClickListener onClickListener) {
         super(context,
                 R.layout.list_item_test, R.id.list_item_title, tests);
         mOnClickListener = onClickListener;
@@ -26,7 +26,7 @@ public class TestListAdapter extends ArrayAdapter<NewTest.Details> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = super.getView(position, convertView, parent);
-        final NewTest.Details item = getItem(position);
+        final Test.Details item = getItem(position);
         if (item != null) {
             ((TextView) view.findViewById(R.id.list_item_title)).setText(item.getTitle(getContext()));
             ((TextView) view.findViewById(R.id.list_item_summary)).setText(item.getSummary(getContext()));

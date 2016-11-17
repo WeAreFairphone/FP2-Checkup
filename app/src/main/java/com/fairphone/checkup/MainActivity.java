@@ -7,7 +7,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ListView;
 import android.widget.ViewSwitcher;
 
-import com.fairphone.checkup.tests.NewTest;
+import com.fairphone.checkup.tests.Test;
 import com.fairphone.checkup.tests.TestListAdapter;
 import com.fairphone.checkup.tests.freedraw.FreeDrawTest;
 import com.fairphone.checkup.tests.lcd.LcdTest;
@@ -35,7 +35,7 @@ public class MainActivity extends Activity implements TestListAdapter.OnClickLis
         setContentView(R.layout.activity_main);
         mSwitcher = (ViewSwitcher) findViewById(R.id.viewSwitcher);
 
-        final ArrayList<NewTest.Details> displayTests = new ArrayList<>();
+        final ArrayList<Test.Details> displayTests = new ArrayList<>();
         displayTests.add(LcdTest.DETAILS);
         displayTests.add(FreeDrawTest.DETAILS);
         displayTests.add(EarSpeakerTest.DETAILS);
@@ -50,7 +50,7 @@ public class MainActivity extends Activity implements TestListAdapter.OnClickLis
         mListView.setAdapter(new TestListAdapter(this, displayTests, this));
     }
 
-    public void onClick(NewTest.Details test) {
+    public void onClick(Test.Details test) {
         mSwitcher.setInAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_in_right));
         mSwitcher.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_out_left));
 

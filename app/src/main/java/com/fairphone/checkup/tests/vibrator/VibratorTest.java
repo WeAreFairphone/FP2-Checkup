@@ -8,14 +8,14 @@ import android.os.Vibrator;
 import android.util.Log;
 
 import com.fairphone.checkup.R;
-import com.fairphone.checkup.tests.NewTest;
+import com.fairphone.checkup.tests.Test;
 import com.fairphone.checkup.tests.SimpleTest;
 
 public class VibratorTest extends SimpleTest {
 
     private static final long VIBRATION_DURATION_MS = 2000;
 
-    public static final Details DETAILS = new NewTest.Details(R.string.vibrator_test_title, R.string.vibrator_test_summary, R.string.vibrator_test_description, R.string.vibrator_test_instructions) {
+    public static final Details DETAILS = new Test.Details(R.string.vibrator_test_title, R.string.vibrator_test_summary, R.string.vibrator_test_description, R.string.vibrator_test_instructions) {
         @Override
         public Fragment getFragment() {
             return new VibratorTest();

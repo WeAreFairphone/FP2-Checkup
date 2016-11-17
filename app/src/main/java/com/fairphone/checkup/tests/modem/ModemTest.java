@@ -12,14 +12,14 @@ import com.fairphone.checkup.information.modem.ModemDetails;
 import com.fairphone.checkup.information.modem.ModemInformation;
 import com.fairphone.checkup.information.modem.SimSlotDetails;
 import com.fairphone.checkup.tests.InformationTest;
-import com.fairphone.checkup.tests.NewTest;
+import com.fairphone.checkup.tests.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ModemTest extends InformationTest<ModemInformation> {
 
-    public static final Details DETAILS = new NewTest.Details(R.string.modem_test_title, R.string.modem_test_summary, R.string.modem_test_description) {
+    public static final Details DETAILS = new Test.Details(R.string.modem_test_title, R.string.modem_test_summary, R.string.modem_test_description) {
         @Override
         public Fragment getFragment() {
             return new ModemTest();
