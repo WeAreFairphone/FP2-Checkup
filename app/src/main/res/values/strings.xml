@@ -176,30 +176,32 @@
     <string name="buttons_triggered" translatable="false">Triggered</string>
 
     <!-- Wifi -->
-    <string name="wifi_test_title" translatable="false">Wi-Fi</string>
-    <string name="wifi_test_description" translatable="false">This test checks if the wifi is working properly. Press start to test!</string>
-    <string name="wifi_enabled" translatable="false">Enabled:&#160;</string>
-    <string name="wifi_ssid" translatable="false">SSID:&#160;</string>
-    <string name="wifi_bssid" translatable="false">BSSID:&#160;</string>
-    <string name="wifi_linkspeed" translatable="false">Link speed:&#160;</string>
-    <string name="wifi_strength" translatable="false">Strength:&#160;</string>
-    <string name="wifi_strength_unit" translatable="false">dBm</string>
-    <string name="wifi_mac_address" translatable="false">MAC address:&#160;</string>
-    <string name="wifi_frequency" translatable="false">Frequency:&#160;</string>
-    <string name="wifi_encryption" translatable="false">Encryption:&#160;</string>
+    <string name="wifi_test_title">Wi-Fi</string>
+    <string name="wifi_test_summary">Information about the Wi-Fi connectivity.</string>
+    <string name="wifi_test_description">Information about the Wi-Fi connectivity.</string>
+    <string name="wifi_disabled_title">Wi-Fi disabled</string>
+    <string name="wifi_connected_title">Wi-Fi enabled - connected</string>
+    <string name="wifi_not_connected_title">Wi-Fi enabled - not connected</string>
+    <string name="wifi_ssid">SSID:</string>
+    <string name="wifi_bssid">BSSID:</string>
+    <string name="wifi_linkspeed">Link speed:</string>
+    <string name="wifi_signal_strength">Signal strength:</string>
+    <string name="wifi_mac_address">MAC address:</string>
+    <string name="wifi_frequency">Frequency:</string>
+    <string name="wifi_encryption">Encryption:</string>
     <string name="WPA_PSK" translatable="false">WPA PSK</string>
     <string name="WPA2_PSK" translatable="false">WPA PSK</string>
     <string name="WPA_EAP" translatable="false">WPA EAP</string>
     <string name="IEEE8021X" translatable="false">IEEE8021X</string>
     <string name="NONE" translatable="false">NONE</string>
-    <string name="wifi_ip" translatable="false">IP address:&#160;</string>
-    <string name="wifi_netmask" translatable="false">Netmask:&#160;</string>
-    <string name="wifi_gateway" translatable="false">Gateway:&#160;</string>
-    <string name="wifi_dhcp_server" translatable="false">DHCP-server:&#160;</string>
-    <string name="wifi_dns_1" translatable="false">DNS 1:&#160;</string>
-    <string name="wifi_dns_2" translatable="false">DNS 2:&#160;</string>
-    <string name="wifi_dhcp_lease" translatable="false">DHCP lease:&#160;</string>
-    <string name="wifi_hidden_ssid" translatable="false">Hidden?:&#160;</string>
+    <string name="wifi_ip_address">IP address:</string>
+    <string name="wifi_netmask">Netmask:</string>
+    <string name="wifi_gateway_address">Gateway:</string>
+    <string name="wifi_dhcp_server_address">DHCP-server:</string>
+    <string name="wifi_dns_1">DNS 1:</string>
+    <string name="wifi_dns_2">DNS 2:</string>
+    <string name="wifi_dhcp_lease">DHCP lease:</string>
+    <string name="wifi_hidden_ssid">Hidden:</string>
 
     <!-- Modem -->
     <string name="modem_test_title">Mobile connectivity</string>

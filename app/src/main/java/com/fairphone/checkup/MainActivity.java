@@ -17,6 +17,7 @@ import com.fairphone.checkup.tests.modem.ModemTest;
 import com.fairphone.checkup.tests.speaker.EarSpeakerTest;
 import com.fairphone.checkup.tests.speaker.LoudSpeakerTest;
 import com.fairphone.checkup.tests.vibrator.VibratorTest;
+import com.fairphone.checkup.tests.wifi.WifiTest;
 
 import java.util.ArrayList;
 
@@ -38,6 +39,7 @@ public class MainActivity extends Activity implements TestListAdapter.OnClickLis
         displayTests.add(LcdTest.DETAILS);
         displayTests.add(FreeDrawTest.DETAILS);
         displayTests.add(ModemTest.DETAILS);
+        displayTests.add(WifiTest.DETAILS);
         displayTests.add(VibratorTest.DETAILS);
         displayTests.add(EarSpeakerTest.DETAILS);
         displayTests.add(LoudSpeakerTest.DETAILS);
