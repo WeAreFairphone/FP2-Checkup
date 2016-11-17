@@ -1,15 +1,9 @@
 package com.fairphone.checkup.tests.speaker;
 
 import android.app.Fragment;
-import android.content.Context;
-import android.media.AudioAttributes;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.util.Log;
 
 import com.fairphone.checkup.R;
 import com.fairphone.checkup.tests.NewTest;
-import com.fairphone.checkup.tests.SimpleTest;
 
 public class EarSpeakerTest extends SpeakerTest {
 

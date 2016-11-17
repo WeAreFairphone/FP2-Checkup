@@ -1,7 +1,6 @@
 package com.fairphone.checkup.tests.wifi;
 
 import android.app.Fragment;
-import android.net.wifi.WifiManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

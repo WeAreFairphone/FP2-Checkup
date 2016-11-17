@@ -1,7 +1,6 @@
 package com.fairphone.checkup.tests.freedraw;
 
 import android.app.Fragment;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ViewFlipper;
 
@@ -10,8 +9,6 @@ import com.fairphone.checkup.tests.NewTest;
 import com.fairphone.checkup.tests.SimpleTest;
 
 public class FreeDrawTest extends SimpleTest {
-
-    private static final String TAG = FreeDrawTest.class.getSimpleName();
 
     public static final Details DETAILS = new NewTest.Details(R.string.freedraw_test_title, R.string.freedraw_test_summary, R.string.freedraw_test_description, R.string.freedraw_test_instructions) {
         @Override

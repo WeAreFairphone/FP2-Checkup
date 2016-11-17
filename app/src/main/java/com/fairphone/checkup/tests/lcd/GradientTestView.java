@@ -1,4 +1,4 @@
-package com.fairphone.checkup.tests.display;
+package com.fairphone.checkup.tests.lcd;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -16,7 +16,7 @@ public class GradientTestView extends View {
 
     public GradientTestView(Context context) {
         super(context);
-        gradient = getResources().getDrawable(R.drawable.gradient);
+        gradient = getResources().getDrawable(R.drawable.gradient, null);
         setBackground(gradient);
     }
 

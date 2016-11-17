@@ -9,13 +9,9 @@ import android.widget.ViewFlipper;
 import com.fairphone.checkup.R;
 import com.fairphone.checkup.tests.NewTest;
 import com.fairphone.checkup.tests.SimpleTest;
-import com.fairphone.checkup.tests.display.FullColorTestView;
-import com.fairphone.checkup.tests.display.GradientTestView;
 
 
 public class LcdTest extends SimpleTest {
-
-    private static final String TAG = LcdTest.class.getSimpleName();
 
     public static final Details DETAILS = new NewTest.Details(R.string.lcd_test_title, R.string.lcd_test_summary, R.string.lcd_test_description, R.string.lcd_test_instructions) {
         @Override

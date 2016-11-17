@@ -1,4 +1,4 @@
-package com.fairphone.checkup.tests.display;
+package com.fairphone.checkup.tests.lcd;
 
 import android.content.Context;
 import android.graphics.Canvas;

@@ -38,13 +38,13 @@ public class MainActivity extends Activity implements TestListAdapter.OnClickLis
         final ArrayList<NewTest.Details> displayTests = new ArrayList<>();
         displayTests.add(LcdTest.DETAILS);
         displayTests.add(FreeDrawTest.DETAILS);
-        displayTests.add(ModemTest.DETAILS);
-        displayTests.add(WifiTest.DETAILS);
-        displayTests.add(VibratorTest.DETAILS);
         displayTests.add(EarSpeakerTest.DETAILS);
         displayTests.add(LoudSpeakerTest.DETAILS);
         displayTests.add(PrimaryMicLoopbackTest.DETAILS);
         displayTests.add(SecondaryMicLoopbackTest.DETAILS);
+        displayTests.add(ModemTest.DETAILS);
+        displayTests.add(WifiTest.DETAILS);
+        displayTests.add(VibratorTest.DETAILS);
 
         mListView = (ListView) findViewById(R.id.listView);
         mListView.setAdapter(new TestListAdapter(this, displayTests, this));

@@ -19,7 +19,7 @@ public class TestListAdapter extends ArrayAdapter<NewTest.Details> {
 
     public TestListAdapter(Context context, List<NewTest.Details> tests, OnClickListener onClickListener) {
         super(context,
-                R.layout.test_chooser_list_item, R.id.list_item_title, tests);
+                R.layout.list_item_test, R.id.list_item_title, tests);
         mOnClickListener = onClickListener;
     }
 

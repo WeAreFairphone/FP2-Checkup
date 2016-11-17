@@ -13,8 +13,6 @@ import com.fairphone.checkup.tests.SimpleTest;
 
 public class VibratorTest extends SimpleTest {
 
-    private static final String TAG = VibratorTest.class.getSimpleName();
-
     private static final long VIBRATION_DURATION_MS = 2000;
 
     public static final Details DETAILS = new NewTest.Details(R.string.vibrator_test_title, R.string.vibrator_test_summary, R.string.vibrator_test_description, R.string.vibrator_test_instructions) {
