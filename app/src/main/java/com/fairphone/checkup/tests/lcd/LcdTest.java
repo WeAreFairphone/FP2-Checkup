@@ -1,6 +1,8 @@
-package com.fairphone.checkup.tests.freedraw;
+package com.fairphone.checkup.tests.lcd;
+
 
 import android.app.Fragment;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ViewFlipper;
 
@@ -8,12 +10,13 @@ import com.fairphone.checkup.R;
 import com.fairphone.checkup.tests.Test;
 import com.fairphone.checkup.tests.SimpleTest;
 
-public class FreeDrawTest extends SimpleTest {
 
-    public static final Details DETAILS = new Test.Details(R.string.freedraw_test_title, R.string.freedraw_test_summary, R.string.freedraw_test_description, R.string.freedraw_test_instructions) {
+public class LcdTest extends SimpleTest {
+
+    public static final Details DETAILS = new Test.Details(R.string.lcd_test_title, R.string.lcd_test_summary, R.string.lcd_test_description, R.string.lcd_test_instructions) {
         @Override
         public Fragment getFragment() {
-            return new FreeDrawTest();
+            return new LcdTest();
         }
     };
 
@@ -24,7 +27,7 @@ public class FreeDrawTest extends SimpleTest {
     private int parentPaddingRight;
     private int parentPaddingBottom;
 
-    public FreeDrawTest() {
+    public LcdTest() {
         super(false);
     }
 
@@ -59,6 +62,21 @@ public class FreeDrawTest extends SimpleTest {
         ViewFlipper.LayoutParams layoutParams = new ViewFlipper.LayoutParams(
                 ViewFlipper.LayoutParams.WRAP_CONTENT, ViewFlipper.LayoutParams.WRAP_CONTENT);
         mViewFlipper.setLayoutParams(layoutParams);
+        mViewFlipper.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                ViewFlipper viewFlipper = (ViewFlipper) v;
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    int displayedChild = viewFlipper.getDisplayedChild();
+                    int childCount = viewFlipper.getChildCount();
+                    if (displayedChild == childCount - 1) {
+                        finishTest(true);
+                    }
+                    viewFlipper.showNext();
+                }
+                return true;
+            }
+        });
 
         mContainer.addView(mViewFlipper);
 
@@ -72,7 +90,12 @@ public class FreeDrawTest extends SimpleTest {
     }
 
     private void addDisplayPatterns() {
-        mViewFlipper.addView(new FreeDrawView(getActivity()));
+        mViewFlipper.addView(new FullColorTestView(getActivity(), 0xffffffff));
+        mViewFlipper.addView(new FullColorTestView(getActivity(), 0xff000000));
+        mViewFlipper.addView(new FullColorTestView(getActivity(), 0xffff0000));
+        mViewFlipper.addView(new FullColorTestView(getActivity(), 0xff00ff00));
+        mViewFlipper.addView(new FullColorTestView(getActivity(), 0xff0000ff));
+        mViewFlipper.addView(new GradientTestView(getActivity()));
     }
 
     @Override
@@ -90,5 +113,4 @@ public class FreeDrawTest extends SimpleTest {
         restoreParentPadding();
         mContainer.removeView(mViewFlipper);
     }
-
 }
