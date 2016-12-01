@@ -49,7 +49,7 @@ android {
         versionCode 20000
 
         // Defines a user-friendly version name for your app.
-        versionName "2.0-SNAPSHOT"
+        versionName "2.0.0"
     }
     /**
      * The buildTypes {} block is where you can configure multiple build types.
