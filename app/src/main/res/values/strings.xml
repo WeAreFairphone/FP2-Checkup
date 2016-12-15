@@ -308,4 +308,6 @@
     <!-- FRAGMENT TAGS -->
     <string name="fragment_tag_test" translatable="false">com.fairphone.checkup.fragment_test</string>
 
+    <string name="secret_code_main_activity" translatable="false">3424</string>
+
 </resources>
