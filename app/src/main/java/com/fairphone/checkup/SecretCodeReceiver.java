@@ -24,9 +24,6 @@ public class SecretCodeReceiver extends BroadcastReceiver {
             Intent diagnosticsIntent = new Intent(context, MainActivity.class);
             diagnosticsIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(diagnosticsIntent);
-        } else {
-            packageManager.setComponentEnabledSetting(componentName,
-                    PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
         }
     }
 }
