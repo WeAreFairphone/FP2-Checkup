@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Configuration values that are not style, content, nor dimensions related. -->
+
+    <!-- SECRET CODES -->
+    <string name="secret_code_main_activity" translatable="false">3424</string>
+
+</resources>
