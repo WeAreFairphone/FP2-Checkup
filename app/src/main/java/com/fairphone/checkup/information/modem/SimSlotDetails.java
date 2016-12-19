@@ -9,7 +9,7 @@ import com.fairphone.checkup.R;
 /**
  * A plain old Java object holding a SIM slot information.
  * <p>At creation, the SIM slot is not connected to a network ({@link #isSimConnectedToNetwork()} and the SIM slot information are not available ({@link R.string#not_available}).</p>
- * <p>The public methods {@link #setImei(String)}, {@link #setSimNotPresent()}, {@link #setSimPresent(String, String)}, {@link #setSimNotConnectedToNetwork()}, and {@link #setSimConnectedToNetwork(String, String, int, String, boolean, boolean, boolean)} should be used to update an instance status.</p>
+ * <p>The public methods {@link #setImei(String)}, {@link #setSimNotPresent()}, {@link #setSimPresent(int, String, String)}, {@link #setSimNotConnectedToNetwork(int)}, and {@link #setSimConnectedToNetwork(int, String, String, int, String, boolean, boolean, boolean)} should be used to update an instance status.</p>
  */
 public class SimSlotDetails {
 
@@ -17,10 +17,9 @@ public class SimSlotDetails {
     private final String mDataNotAvailableValue;
 
     private String mImei;
-    private boolean mSimIsPresent;
+    private int mSimState;
     private String mSimOperatorName;
     private String mSimOperatorCode;
-    private boolean mIsConnectedToNetwork;
     private String mNetworkOperatorName;
     private String mNetworkOperatorCode;
     private int mNetworkType;
@@ -45,38 +44,38 @@ public class SimSlotDetails {
      * Set the SIM-related fields.
      * <p>Use this method when a SIM is present (or inserted).<br>
      * The network-related fields are <strong>not</strong> reset by this method.</p>
+     *
+     * @param simState        The SIM state from {@link TelephonyManager} (see the #SIM_STATE_* constants).
+     * @param simOperatorName The SIM operator name (as displayed to the end-user).
+     * @param simOperatorCode The SIM operator code (MCC+MNC).
      */
-    public void setSimPresent(String simOperatorName, String simOperatorCode) {
-        mSimIsPresent = true;
-
+    public void setSimPresent(int simState, String simOperatorName, String simOperatorCode) {
+        mSimState = simState;
         mSimOperatorName = simOperatorName;
         mSimOperatorCode = simOperatorCode;
     }
 
     /**
      * Reset the SIM-related fields.
-     * <p>use this method when a SIM is absent (or removed).<br>
+     * <p>Use this method when a SIM is absent (or removed).<br>
      * The network-related fields are <strong>also</strong> reset by this method.</p>
      *
-     * @see #setSimNotConnectedToNetwork()
+     * @see #setSimNotConnectedToNetwork(int)
      */
     public void setSimNotPresent() {
-        mSimIsPresent = false;
-
         mSimOperatorName = mDataNotAvailableValue;
         mSimOperatorCode = mDataNotAvailableValue;
 
-        setSimNotConnectedToNetwork();
+        setSimNotConnectedToNetwork(TelephonyManager.SIM_STATE_ABSENT);
     }
 
     /**
      * Set the network-related fields.
      * <p>Use this method when a SIM is not connected to a network anymore.<br>
-     * The SIM details are <strong>not</strong> reset by this method.</p>
+     * The SIM operator name and code are <strong>not</strong> reset by this method.</p>
      */
-    public void setSimConnectedToNetwork(String networkOperatorName, String networkOperatorCode, int networkType, String networkCountryCode, boolean isDataConnectedOnNetwork, boolean isRoamingOnNetwork, boolean isDataRoamingOnNetwork) {
-        mIsConnectedToNetwork = true;
-
+    public void setSimConnectedToNetwork(int simState, String networkOperatorName, String networkOperatorCode, int networkType, String networkCountryCode, boolean isDataConnectedOnNetwork, boolean isRoamingOnNetwork, boolean isDataRoamingOnNetwork) {
+        mSimState = simState;
         mNetworkOperatorName = networkOperatorName;
         mNetworkOperatorCode = networkOperatorCode;
         mNetworkType = networkType;
@@ -89,11 +88,10 @@ public class SimSlotDetails {
     /**
      * Reset the network-related fields.
      * <p>use this method when a SIM is not connected to a network anymore.<br>
-     * The SIM details are <strong>not</strong> reset by this method.</p>
+     * The SIM operator name and code are <strong>not</strong> reset by this method.</p>
      */
-    public void setSimNotConnectedToNetwork() {
-        mIsConnectedToNetwork = false;
-
+    public void setSimNotConnectedToNetwork(int simState) {
+        mSimState = simState;
         mNetworkOperatorName = mDataNotAvailableValue;
         mNetworkOperatorCode = mDataNotAvailableValue;
         mNetworkType = TelephonyManager.NETWORK_TYPE_UNKNOWN;
@@ -108,7 +106,11 @@ public class SimSlotDetails {
     }
 
     public boolean isSimPresent() {
-        return mSimIsPresent;
+        return TelephonyManager.SIM_STATE_ABSENT != mSimState;
+    }
+
+    public int getSimState() {
+        return mSimState;
     }
 
     public String getSimOperatorName() {
@@ -136,7 +138,7 @@ public class SimSlotDetails {
     }
 
     public boolean isSimConnectedToNetwork() {
-        return mIsConnectedToNetwork;
+        return TelephonyManager.SIM_STATE_READY == mSimState;
     }
 
     public String getNetworkOperatorName() {

@@ -1,6 +1,7 @@
 package com.fairphone.checkup.tests.modem;
 
 import android.app.Fragment;
+import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,19 +78,38 @@ public class ModemTest extends InformationTest<ModemInformation> {
     private void refreshView(ModemDetails modemDetails) {
         ViewGroup testSimView;
         SimSlotDetails simSlotDetails;
+        String simTitle;
 
         for (int slotIndex = 0; slotIndex < 2; slotIndex++) {
             simSlotDetails = modemDetails.getSimSlotDetails(slotIndex);
             testSimView = mTestSimViews.get(slotIndex);
 
-            if (!simSlotDetails.isSimPresent()) {
-                ((TextView) testSimView.findViewById(R.id.sim_title)).setText(String.format(getString(R.string.modem_sim_unavailable_title), slotIndex + 1));
+            switch (simSlotDetails.getSimState()) {
+                case TelephonyManager.SIM_STATE_ABSENT:
+                    simTitle = String.format(getString(R.string.modem_sim_absent_title), slotIndex + 1);
+                    break;
+                case TelephonyManager.SIM_STATE_READY:
+                    simTitle = String.format(getString(R.string.modem_sim_ready_title), slotIndex + 1);
+                    break;
+                case TelephonyManager.SIM_STATE_PIN_REQUIRED:
+                    simTitle = String.format(getString(R.string.modem_sim_pin_required_title), slotIndex + 1);
+                    break;
+                case TelephonyManager.SIM_STATE_PUK_REQUIRED:
+                    simTitle = String.format(getString(R.string.modem_sim_puk_required_title), slotIndex + 1);
+                    break;
+                case TelephonyManager.SIM_STATE_NETWORK_LOCKED:
+                    simTitle = String.format(getString(R.string.modem_sim_network_locked_title), slotIndex + 1);
+                    break;
+                case TelephonyManager.SIM_STATE_UNKNOWN:
+                default:
+                    simTitle = String.format(getString(R.string.modem_sim_unknown_state_title), slotIndex + 1);
+            }
+            ((TextView) testSimView.findViewById(R.id.sim_title)).setText(simTitle);
 
+            if (!simSlotDetails.isSimPresent()) {
                 // Hide the SIM details
                 testSimView.findViewById(R.id.modem_sim_details).setVisibility(View.GONE);
             } else {
-                ((TextView) testSimView.findViewById(R.id.sim_title)).setText(String.format(getString(R.string.modem_sim_not_connected_title), slotIndex + 1));
-
                 // Show the SIM details
                 testSimView.findViewById(R.id.modem_sim_details).setVisibility(View.VISIBLE);
 
@@ -102,8 +122,6 @@ public class ModemTest extends InformationTest<ModemInformation> {
                     // Hide the connectivity details
                     testSimView.findViewById(R.id.modem_sim_connectivity_details).setVisibility(View.GONE);
                 } else {
-                    ((TextView) testSimView.findViewById(R.id.sim_title)).setText(String.format(getString(R.string.modem_sim_connected_title), slotIndex + 1));
-
                     // Show both the SIM details and the connectivity details
                     testSimView.findViewById(R.id.modem_sim_details).setVisibility(View.VISIBLE);
                     testSimView.findViewById(R.id.modem_sim_connectivity_details).setVisibility(View.VISIBLE);
