@@ -132,6 +132,7 @@ public class ModemTest extends InformationTest<ModemInformation> {
                     ((TextView) testSimView.findViewById(R.id.modem_network_mnc_value)).setText(simSlotDetails.getNetworkOperatorMNC());
                     ((TextView) testSimView.findViewById(R.id.modem_network_type_value)).setText(simSlotDetails.getNetworkTypeName());
                     ((TextView) testSimView.findViewById(R.id.modem_country_code_value)).setText(simSlotDetails.getNetworkCountryCode());
+                    ((TextView) testSimView.findViewById(R.id.modem_data_connected_value)).setText(simSlotDetails.isDataConnectedOnNetwork() ? getString(R.string.yes) : getString(R.string.no));
                     ((TextView) testSimView.findViewById(R.id.modem_roaming_value)).setText(simSlotDetails.isRoamingOnNetwork() ? getString(R.string.yes) : getString(R.string.no));
                     ((TextView) testSimView.findViewById(R.id.modem_data_roaming_value)).setText(simSlotDetails.isDataRoamingOnNetwork() ? getString(R.string.yes) : getString(R.string.no));
                 }

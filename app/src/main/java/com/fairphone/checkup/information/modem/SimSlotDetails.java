@@ -9,7 +9,7 @@ import com.fairphone.checkup.R;
 /**
  * A plain old Java object holding a SIM slot information.
  * <p>At creation, the SIM slot is not connected to a network ({@link #isSimConnectedToNetwork()} and the SIM slot information are not available ({@link R.string#not_available}).</p>
- * <p>The public methods {@link #setImei(String)}, {@link #setSimNotPresent()}, {@link #setSimPresent(int, String, String)}, {@link #setSimNotConnectedToNetwork(int)}, and {@link #setSimConnectedToNetwork(int, String, String, int, String, boolean, boolean, boolean)} should be used to update an instance status.</p>
+ * <p>The public methods {@link #setImei(String)}, {@link #setSimNotPresent()}, {@link #setSimPresent(int, String, String)}, {@link #setSimNotConnectedToNetwork(int)}, and {@link #setSimConnectedToNetwork(int, String, String, String, String, boolean, boolean, boolean)} should be used to update an instance status.</p>
  */
 public class SimSlotDetails {
 
@@ -22,7 +22,7 @@ public class SimSlotDetails {
     private String mSimOperatorCode;
     private String mNetworkOperatorName;
     private String mNetworkOperatorCode;
-    private int mNetworkType;
+    private String mNetworkTypeName;
     private String mNetworkCountryCode;
     private boolean mIsDataConnectedOnNetwork;
     private boolean mIsRoamingOnNetwork;
@@ -74,12 +74,12 @@ public class SimSlotDetails {
      * <p>Use this method when a SIM is not connected to a network anymore.<br>
      * The SIM operator name and code are <strong>not</strong> reset by this method.</p>
      */
-    public void setSimConnectedToNetwork(int simState, String networkOperatorName, String networkOperatorCode, int networkType, String networkCountryCode, boolean isDataConnectedOnNetwork, boolean isRoamingOnNetwork, boolean isDataRoamingOnNetwork) {
+    public void setSimConnectedToNetwork(int simState, String networkOperatorName, String networkOperatorCode, String networkTypeName, String networkCountryCode, boolean isDataConnectedOnNetwork, boolean isRoamingOnNetwork, boolean isDataRoamingOnNetwork) {
         mSimState = simState;
-        mNetworkOperatorName = networkOperatorName;
-        mNetworkOperatorCode = networkOperatorCode;
-        mNetworkType = networkType;
-        mNetworkCountryCode = networkCountryCode;
+        mNetworkOperatorName = null == networkOperatorName ? mDataNotAvailableValue : networkOperatorName;
+        mNetworkOperatorCode = null == networkOperatorCode ? mDataNotAvailableValue : networkOperatorCode;
+        mNetworkTypeName = null == networkTypeName ? mDataNotAvailableValue : networkTypeName;
+        mNetworkCountryCode = null == networkCountryCode ? mDataNotAvailableValue : networkCountryCode;
         mIsDataConnectedOnNetwork = isDataConnectedOnNetwork;
         mIsRoamingOnNetwork = isRoamingOnNetwork;
         mIsDataRoamingOnNetwork = isDataRoamingOnNetwork;
@@ -94,7 +94,7 @@ public class SimSlotDetails {
         mSimState = simState;
         mNetworkOperatorName = mDataNotAvailableValue;
         mNetworkOperatorCode = mDataNotAvailableValue;
-        mNetworkType = TelephonyManager.NETWORK_TYPE_UNKNOWN;
+        mNetworkTypeName = mDataNotAvailableValue;
         mNetworkCountryCode = mDataNotAvailableValue;
         mIsDataConnectedOnNetwork = false;
         mIsRoamingOnNetwork = false;
@@ -149,46 +149,8 @@ public class SimSlotDetails {
         return mNetworkOperatorCode;
     }
 
-    public int getNetworkType() {
-        return mNetworkType;
-    }
-
     public String getNetworkTypeName() {
-        switch (mNetworkType) {
-            case TelephonyManager.NETWORK_TYPE_1xRTT:
-                return "1xRTT";
-            case TelephonyManager.NETWORK_TYPE_CDMA:
-                return "CDMA";
-            case TelephonyManager.NETWORK_TYPE_EDGE:
-                return "EDGE";
-            case TelephonyManager.NETWORK_TYPE_EHRPD:
-                return "eHRPD";
-            case TelephonyManager.NETWORK_TYPE_EVDO_0:
-                return "EVDO rev. 0";
-            case TelephonyManager.NETWORK_TYPE_EVDO_A:
-                return "EVDO rev. A";
-            case TelephonyManager.NETWORK_TYPE_EVDO_B:
-                return "EVDO rev. B";
-            case TelephonyManager.NETWORK_TYPE_GPRS:
-                return "GPRS";
-            case TelephonyManager.NETWORK_TYPE_HSDPA:
-                return "HSDPA";
-            case TelephonyManager.NETWORK_TYPE_HSPA:
-                return "HSPA";
-            case TelephonyManager.NETWORK_TYPE_HSPAP:
-                return "HSPA+";
-            case TelephonyManager.NETWORK_TYPE_HSUPA:
-                return "HSUPA";
-            case TelephonyManager.NETWORK_TYPE_IDEN:
-                return "iDen";
-            case TelephonyManager.NETWORK_TYPE_LTE:
-                return "LTE";
-            case TelephonyManager.NETWORK_TYPE_UMTS:
-                return "UMTS";
-            case TelephonyManager.NETWORK_TYPE_UNKNOWN:
-            default:
-                return "Unknown";
-        }
+        return mNetworkTypeName;
     }
 
     public String getNetworkCountryCode() {

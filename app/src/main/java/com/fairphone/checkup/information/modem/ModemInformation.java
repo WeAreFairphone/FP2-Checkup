@@ -44,6 +44,8 @@ public class ModemInformation extends Information<ModemDetails> {
     private Method getNetworkOperatorName;
     private Method getNetworkOperatorCode;
     private Method getNetworkType;
+    private Method getNetworkTypeName;
+    private Method getDataNetworkType;
     private Method isNetworkRoaming;
 
     public ModemInformation(Context context, ChangeListener<ModemDetails> listener) {
@@ -99,9 +101,9 @@ public class ModemInformation extends Information<ModemDetails> {
                                 simState,
                                 (String) getNetworkOperatorName.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()),
                                 (String) getNetworkOperatorCode.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()),
-                                (int) getNetworkType.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()),
+                                (String) getNetworkTypeName.invoke(mTelephonyManager, (Integer) getNetworkType.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId())),
                                 subscriptionInfo.getCountryIso(),
-                                false /*TODO*/,
+                                TelephonyManager.NETWORK_TYPE_UNKNOWN != ((int) getDataNetworkType.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId())),
                                 (boolean) isNetworkRoaming.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()),
                                 subscriptionInfo.getDataRoaming() == SubscriptionManager.DATA_ROAMING_ENABLE
                         );
@@ -139,6 +141,12 @@ public class ModemInformation extends Information<ModemDetails> {
 
             getNetworkType = telephonyManagerClass.getDeclaredMethod("getNetworkType", int.class);
             getNetworkType.setAccessible(true);
+
+            getNetworkTypeName = telephonyManagerClass.getDeclaredMethod("getNetworkTypeName", int.class);
+            getNetworkTypeName.setAccessible(true);
+
+            getDataNetworkType = telephonyManagerClass.getDeclaredMethod("getDataNetworkType", int.class);
+            getDataNetworkType.setAccessible(true);
 
             isNetworkRoaming = telephonyManagerClass.getDeclaredMethod("isNetworkRoaming", int.class);
             isNetworkRoaming.setAccessible(true);
