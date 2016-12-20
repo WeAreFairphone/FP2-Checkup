@@ -38,6 +38,7 @@ public class ModemInformation extends Information<ModemDetails> {
     private final IntentFilter mBroadcastReceiverFilter;
 
     private Method getImei;
+    private Method getSimState;
     private Method getSimOperatorName;
     private Method getSimOperatorCode;
     private Method getNetworkOperatorName;
@@ -85,19 +86,28 @@ public class ModemInformation extends Information<ModemDetails> {
                 }
             } else {
                 try {
+                    int simState = (Integer) getSimState.invoke(mTelephonyManager, slotIndex);
+
                     simSlotDetails.setSimPresent(
+                            simState,
                             (String) getSimOperatorName.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()),
                             (String) getSimOperatorCode.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId())
                     );
-                    simSlotDetails.setSimConnectedToNetwork(
-                            (String) getNetworkOperatorName.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()),
-                            (String) getNetworkOperatorCode.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()),
-                            (int) getNetworkType.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()),
-                            subscriptionInfo.getCountryIso(),
-                            false /*TODO*/,
-                            (boolean) isNetworkRoaming.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()),
-                            subscriptionInfo.getDataRoaming() == SubscriptionManager.DATA_ROAMING_ENABLE
-                    );
+
+                    if (TelephonyManager.SIM_STATE_READY == simState) {
+                        simSlotDetails.setSimConnectedToNetwork(
+                                simState,
+                                (String) getNetworkOperatorName.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()),
+                                (String) getNetworkOperatorCode.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()),
+                                (int) getNetworkType.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()),
+                                subscriptionInfo.getCountryIso(),
+                                false /*TODO*/,
+                                (boolean) isNetworkRoaming.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()),
+                                subscriptionInfo.getDataRoaming() == SubscriptionManager.DATA_ROAMING_ENABLE
+                        );
+                    } else {
+                        simSlotDetails.setSimNotConnectedToNetwork(simState);
+                    }
                 } catch (IllegalAccessException | InvocationTargetException e) {
                     Log.e(TAG, e.getLocalizedMessage());
                 }
@@ -111,6 +121,9 @@ public class ModemInformation extends Information<ModemDetails> {
 
             getImei = telephonyManagerClass.getDeclaredMethod("getImei", int.class);
             getImei.setAccessible(true);
+
+            getSimState = telephonyManagerClass.getDeclaredMethod("getSimState", int.class);
+            getSimState.setAccessible(true);
 
             getSimOperatorName = telephonyManagerClass.getDeclaredMethod("getSimOperatorNameForSubscription", int.class);
             getSimOperatorName.setAccessible(true);
