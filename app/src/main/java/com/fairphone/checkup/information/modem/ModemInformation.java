@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.fairphone.checkup.information.Information;
@@ -89,6 +90,7 @@ public class ModemInformation extends Information<ModemDetails> {
             } else {
                 try {
                     int simState = (Integer) getSimState.invoke(mTelephonyManager, slotIndex);
+                    String networkOperatorCode = (String) getNetworkOperatorCode.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId());
 
                     simSlotDetails.setSimPresent(
                             simState,
@@ -96,11 +98,11 @@ public class ModemInformation extends Information<ModemDetails> {
                             (String) getSimOperatorCode.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId())
                     );
 
-                    if (TelephonyManager.SIM_STATE_READY == simState) {
+                    if (TelephonyManager.SIM_STATE_READY == simState && !TextUtils.isEmpty(networkOperatorCode)) {
                         simSlotDetails.setSimConnectedToNetwork(
                                 simState,
                                 (String) getNetworkOperatorName.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()),
-                                (String) getNetworkOperatorCode.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()),
+                                networkOperatorCode,
                                 (String) getNetworkTypeName.invoke(mTelephonyManager, (Integer) getNetworkType.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId())),
                                 subscriptionInfo.getCountryIso(),
                                 TelephonyManager.NETWORK_TYPE_UNKNOWN != ((int) getDataNetworkType.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId())),

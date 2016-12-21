@@ -89,7 +89,11 @@ public class ModemTest extends InformationTest<ModemInformation> {
                     simTitle = String.format(getString(R.string.modem_sim_absent_title), slotIndex + 1);
                     break;
                 case TelephonyManager.SIM_STATE_READY:
-                    simTitle = String.format(getString(R.string.modem_sim_ready_title), slotIndex + 1);
+                    if (simSlotDetails.isSimConnectedToNetwork()) {
+                        simTitle = String.format(getString(R.string.modem_sim_ready_title), slotIndex + 1);
+                    } else {
+                        simTitle = String.format(getString(R.string.modem_sim_ready_not_connected_title), slotIndex + 1);
+                    }
                     break;
                 case TelephonyManager.SIM_STATE_PIN_REQUIRED:
                     simTitle = String.format(getString(R.string.modem_sim_pin_required_title), slotIndex + 1);

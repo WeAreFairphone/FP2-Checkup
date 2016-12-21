@@ -213,6 +213,8 @@
     <!-- Arguments: <SIM slot number> -->
     <string name="modem_sim_ready_title">Slot %1$d - SIM connected</string>
     <!-- Arguments: <SIM slot number> -->
+    <string name="modem_sim_ready_not_connected_title">Slot %1$d - SIM not connected</string>
+    <!-- Arguments: <SIM slot number> -->
     <string name="modem_sim_pin_required_title">Slot %1$d - SIM PIN code required</string>
     <!-- Arguments: <SIM slot number> -->
     <string name="modem_sim_puk_required_title">Slot %1$d - SIM PUK code required</string>
