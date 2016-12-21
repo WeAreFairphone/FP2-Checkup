@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="app_name" translatable="false">Checkup</string>
     <string name="generic_module_name" translatable="false">Generic Module</string>
@@ -6,9 +7,9 @@
     <string name="generic_test_instructions" translatable="false">You do not have anything to do, because this is not a real test. You really should have something more descriptive and clear for the user here.</string>
     <string name="test_failed" translatable="false">Test failed</string>
     <string name="test_passed" translatable="false">Test passed</string>
-    <string name="tests_for">Tests for</string>
-    <string name="not_available">n/a</string>
-    <string name="state" translatable="false">State:&#160;</string>
+    <string name="tests_for">Select a test for the</string>
+    <string name="not_available">N/A</string>
+    <string name="state" translatable="false">State:</string>
     <string name="not_triggered" translatable="false">Not triggered.</string>
     <string name="start_test">Start Test</string>
     <string name="yes">Yes</string>
@@ -21,7 +22,7 @@
 
     <!-- Display module -->
     <string name="display_module_name" translatable="false">Display module</string>
-    <string name="display_module_description" translatable="false">The display module houses the LCD screen and the touch sensors.</string>
+    <string name="display_module_description" translatable="false">The display module houses the LCD screen and the touch screen digitizer.</string>
 
     <!-- LCD -->
     <string name="lcd_test_title">Screen (LCD)</string>
@@ -30,8 +31,8 @@
     <string name="lcd_test_instructions">Press start and tap the screen to cycle through the steps.</string>
 
     <!-- Digitizer -->
-    <string name="digitizer_test_title" translatable="false">Digitizer</string>
-    <string name="digitizer_test_description" translatable="false">This test checks if the touch sensors are working correctly. Drag your finger(s) along the pattern to proceed. </string>
+    <string name="digitizer_test_title" translatable="false">Touch screen digitizer</string>
+    <string name="digitizer_test_description" translatable="false">This test checks if the touch sensors are working correctly. Drag your finger(s) along the pattern to proceed.</string>
 
     <!-- Free draw -->
     <string name="freedraw_test_title">Free drawing</string>
@@ -39,138 +40,138 @@
     <string name="freedraw_test_description">Draw freely on the screen.</string>
     <string name="freedraw_test_instructions">Use your finger to draw freely on the canvas. While on the canvas, swipe from the bottom of the screen towards the top to make the back button appear.</string>
 
-    <!-- Battery Module -->
+    <!-- Battery module -->
     <string name="battery_module_name" translatable="false">Battery</string>
-    <string name="battery_module_description" translatable="false">The battery provides the juice to keep your phone up and running.</string>
+    <string name="battery_module_description" translatable="false">The battery provides the juice to keep your Fairphone up and running.</string>
 
     <!-- Battery -->
     <string name="battery_test_title" translatable="false">Battery</string>
-    <string name="battery_test_description" translatable="false">This tests checks if the battery is working. Press start to view battery stats.</string>
-    <string name="battery_test_finish_question" translatable="false">Battery stats are displayed. Do they look OK?</string>
-    <string name="battery_status" translatable="false">Status:&#160;</string>
+    <string name="battery_test_description" translatable="false">This test checks if the battery is working. Press \'Start test\' to view the battery statistics.</string>
+    <string name="battery_test_finish_question" translatable="false">Battery statistics are displayed. Does it look OK?</string>
+    <string name="battery_status" translatable="false">Status:</string>
     <string name="battery_status_unknown" translatable="false">Unknown</string>
     <string name="battery_status_charging" translatable="false">Charging</string>
     <string name="battery_status_discharging" translatable="false">Discharging</string>
     <string name="battery_status_not_charging" translatable="false">Not charging</string>
     <string name="battery_status_full" translatable="false">Unknown</string>
-    <string name="battery_plugged" translatable="false">Plugged:&#160;</string>
+    <string name="battery_plugged" translatable="false">Plugged:</string>
     <string name="battery_plugged_ac" translatable="false">AC</string>
     <string name="battery_plugged_usb" translatable="false">USB</string>
     <string name="battery_plugged_wireless" translatable="false">Wireless</string>
-    <string name="battery_level" translatable="false">Level:&#160;</string>
+    <string name="battery_level" translatable="false">Level:</string>
     <string name="battery_level_unit" translatable="false">%</string>
-    <string name="battery_temperature" translatable="false">Temperature:&#160;</string>
+    <string name="battery_temperature" translatable="false">Temperature:</string>
     <string name="battery_temperature_unit" translatable="false">°C</string>
-    <string name="battery_voltage" translatable="false">Voltage:&#160;</string>
+    <string name="battery_voltage" translatable="false">Voltage:</string>
     <string name="battery_voltage_unit" translatable="false">V</string>
-    <string name="battery_health" translatable="false">Health:&#160;</string>
+    <string name="battery_health" translatable="false">Health:</string>
     <string name="battery_health_unkown" translatable="false">Unknown</string>
     <string name="battery_health_good" translatable="false">Good</string>
     <string name="battery_health_overheat" translatable="false">Overheat</string>
     <string name="battery_health_dead" translatable="false">Dead</string>
-    <string name="battery_health_over_voltage" translatable="false">OVer voltage</string>
+    <string name="battery_health_over_voltage" translatable="false">Over voltage</string>
     <string name="battery_health_unspecified_failure" translatable="false">Unspecified failure</string>
     <string name="battery_health_cold" translatable="false">Cold</string>
 
-    <!-- Camera Module -->
-    <string name="camera_module_name" translatable="false">Camera module</string>
-    <string name="camera_module_description" translatable="false">This module contains the rear-facing camera and the flash.</string>
+    <!-- Camera module -->
+    <string name="camera_module_name" translatable="false">Camera</string>
+    <string name="camera_module_description" translatable="false">The camera module contains the rear-facing camera and the flashlight.</string>
 
     <!-- Rear camera -->
     <string name="camera_test_title" translatable="false">Rear camera</string>
-    <string name="camera_test_description" translatable="false">This tests checks if the camera is working. It will show you a preview of the camera picture. If you can see the preview than this test passes.</string>
+    <string name="camera_test_description" translatable="false">This test checks if the camera is working. It will display a preview of the camera picture. If you see the preview, then the camera is working correctly.</string>
 
     <!-- Flash -->
-    <string name="flash_test_title" translatable="false">Flash</string>
-    <string name="flash_test_description" translatable="false">This test checks if the camera flash is working. Press start and make sure the flash is turned on.</string>
-    <string name="flash_test_finish_question" translatable="false">Turn your phone around, the camera flash should be on. Is the flash on?</string>
+    <string name="flash_test_title" translatable="false">Flashlight</string>
+    <string name="flash_test_description" translatable="false">This test checks if the flashlight is working. Press \'Start test\' and see if the flashlight turns on.</string>
+    <string name="flash_test_finish_question" translatable="false">Turn your Fairphone around, the flashlight should be on. Is the flashlight on?</string>
 
-    <!-- Transceiver Module -->
-    <string name="transceiver_module_name" translatable="false">Core module</string>
-    <string name="transceiver_module_description" translatable="false">This module contains the modem, SIM-card slots and more.</string>
+    <!-- Transceiver module -->
+    <string name="transceiver_module_name" translatable="false">Core</string>
+    <string name="transceiver_module_description" translatable="false">This module contains the modem, SIM-card slots, GPS and more.</string>
 
     <!-- SIM card slots -->
-    <string name="dualsim_test_title" translatable="false">SIM card slots</string>
-    <string name="dualsim_test_description" translatable="false">This test will display SIM card status. Check if the displayed information is correct.</string>
-    <string name="dualsim_test_finish_question" translatable="false">Is the displayed SIM info correct?</string>
-    <string name="dualsim_card_1" translatable="false">Card 1 state:&#160;</string>
-    <string name="dualsim_card_2" translatable="false">Card 2 state:&#160;</string>
+    <string name="dualsim_test_title" translatable="false">SIM-card slots</string>
+    <string name="dualsim_test_description" translatable="false">This test will display the SIM-card status. Check if the displayed information is correct.</string>
+    <string name="dualsim_test_finish_question" translatable="false">Is the SIM-card info correct?</string>
+    <string name="dualsim_card_1" translatable="false">Card 1 state:</string>
+    <string name="dualsim_card_2" translatable="false">Card 2 state:</string>
     <string name="dualsim_card_presence" translatable="false">Present</string>
     <string name="dualsim_card_present_na" translatable="false">N/A</string>
     <string name="dualsim_card_present_yes" translatable="false">Yes</string>
     <string name="dualsim_card_present_no" translatable="false">No card present</string>
     <string name="dualsim_card_carrier" translatable="false">Carrier</string>
-    <string name="dualsim_settings_text" translatable="false">Go to \'Settings -> SIM cards\' to change your SIM card setttings.</string>
+    <string name="dualsim_settings_text" translatable="false">Go to \'Settings -&gt; SIM cards\' to change your SIM card settings.</string>
 
     <string name="sim_state_unkown" translatable="false">Unknown</string>
-    <string name="sim_state_absent" translatable="false">no SIM card is available in the device</string>
-    <string name="sim_state_pin_required" translatable="false">Locked: requires the user\'s SIM PIN to unlock</string>
-    <string name="sim_state_puk_required" translatable="false">Locked: requires the user\'s SIM PUK to unlock</string>
-    <string name="sim_state_network_locked" translatable="false">Locked: requires a network PIN to unlock</string>
+    <string name="sim_state_absent" translatable="false">No SIM-card is entered in the Fairphone</string>
+    <string name="sim_state_pin_required" translatable="false">Locked: requires a SIM-PIN code to unlock</string>
+    <string name="sim_state_puk_required" translatable="false">Locked: requires a SIM-PUK code to unlock</string>
+    <string name="sim_state_network_locked" translatable="false">Locked: requires a network PIN code to unlock</string>
     <string name="sim_state_ready" translatable="false">Ready</string>
-    <string name="sim_state_not_ready" translatable="false">SIM Card is NOT READY</string>
-    <string name="sim_state_perm_disabled" translatable="false">SIM Card Error, permanently disabled</string>
-    <string name="sim_state_card_io_error" translatable="false">SIM Card Error, present but faulty</string>
+    <string name="sim_state_not_ready" translatable="false">SIM-card is not ready</string>
+    <string name="sim_state_perm_disabled" translatable="false">SIM-card error: Permanently disabled</string>
+    <string name="sim_state_card_io_error" translatable="false">SIM-card error: Present, but faulty</string>
 
     <!-- MicroSD slot -->
     <string name="microsd_test_title" translatable="false">microSD slot</string>
-    <string name="microsd_test_description" translatable="false">This test checks if the microSD slot is working properly. Make sure a microSD card is plugged in and press start.</string>
+    <string name="microsd_test_description" translatable="false">This test checks if the microSD slot is working properly. Make sure a microSD card is plugged in, then press \'Start test\'.</string>
     <string name="microsd_test_finish_question" translatable="false">You should see the SD card status. Is the info correct?</string>
-    <string name="microsd_state" translatable="false">State:&#160;</string>
-    <string name="microsd_total_size" translatable="false">Total size:&#160;</string>
-    <string name="microsd_available_space" translatable="false">Available space:&#160;</string>
+    <string name="microsd_state" translatable="false">State:</string>
+    <string name="microsd_total_size" translatable="false">Total size:</string>
+    <string name="microsd_available_space" translatable="false">Available space:</string>
     <string name="microsd_mounted" translatable="false">Mounted</string>
     <string name="microsd_unknown" translatable="false">Unknown</string>
-    <string name="microsd_filesystem" translatable="false">Filesystem:&#160;</string>
+    <string name="microsd_filesystem" translatable="false">Filesystem:</string>
 
     <!-- Accelerometer -->
     <string name="accelerometer_test_title" translatable="false">Accelerometer</string>
-    <string name="accelerometer_test_description" translatable="false">This test checks if the accelerometer is working properly. Press start and tilt your phone in all directions.</string>
-    <string name="accelerometer_test_finish_question" translatable="false">You should see the X, Y and Z values change when you tilt your phone. Are the values changing?</string>
-    <string name="accelerometer_x_axis" translatable="false">X:&#160;</string>
-    <string name="accelerometer_y_axis" translatable="false">Y:&#160;</string>
-    <string name="accelerometer_z_axis" translatable="false">Z:&#160;</string>
-    <string name="acceleration_unit" translatable="false">&#160;m/s²</string>
+    <string name="accelerometer_test_description" translatable="false">This test checks if the accelerometer is working properly. Press \'Start test\' and tilt your Fairphone in all directions.</string>
+    <string name="accelerometer_test_finish_question" translatable="false">You should see the X, Y and Z values change when you tilt your Fairphone. Are the values changing?</string>
+    <string name="accelerometer_x_axis" translatable="false">X:</string>
+    <string name="accelerometer_y_axis" translatable="false">Y:</string>
+    <string name="accelerometer_z_axis" translatable="false">Z:</string>
+    <string name="acceleration_unit" translatable="false"> m/s²</string>
     <string name="accelerometer_header" translatable="false">Acceleration force (including gravity)</string>
 
     <!-- Magnetometer -->
     <string name="magnetometer_test_title" translatable="false">Magnetometer</string>
-    <string name="magnetometer_test_description" translatable="false">This test checks if the magnetometer is working properly. Press start and turn your phone around.</string>
-    <string name="magnetometer_test_finish_question" translatable="false">You should see the heading value change when you turn your phone around. Is the value changing?</string>
-    <string name="magnetometer_x_axis" translatable="false">X:&#160;</string>
-    <string name="magnetometer_y_axis" translatable="false">Y:&#160;</string>
-    <string name="magnetometer_z_axis" translatable="false">Z:&#160;</string>
-    <string name="magnetometer_unit" translatable="false">&#160;μT</string>
+    <string name="magnetometer_test_description" translatable="false">This test checks if the magnetometer is working properly. Press \'Start test\' and turn your Fairphone around.</string>
+    <string name="magnetometer_test_finish_question" translatable="false">You should see the heading value change when you turn your Fairphone around. Is the value changing?</string>
+    <string name="magnetometer_x_axis" translatable="false">X:</string>
+    <string name="magnetometer_y_axis" translatable="false">Y:</string>
+    <string name="magnetometer_z_axis" translatable="false">Z:</string>
+    <string name="magnetometer_unit" translatable="false"> μT</string>
     <string name="magnetometer_header" translatable="false">Geomagnetic field strength along axis</string>
 
     <!-- Gyroscope -->
     <string name="gyroscope_test_title" translatable="false">Gyroscope</string>
-    <string name="gyroscope_test_description" translatable="false">This test checks if the gyroscope is working properly. Press start and turn your phone around.</string>
-    <string name="gyroscope_x_axis" translatable="false">X:&#160;</string>
-    <string name="gyroscope_y_axis" translatable="false">Y:&#160;</string>
-    <string name="gyroscope_z_axis" translatable="false">Z:&#160;</string>
+    <string name="gyroscope_test_description" translatable="false">This test checks if the gyroscope is working properly. Press \'Start test\' and turn your Fairphone around.</string>
+    <string name="gyroscope_x_axis" translatable="false">X:</string>
+    <string name="gyroscope_y_axis" translatable="false">Y:</string>
+    <string name="gyroscope_z_axis" translatable="false">Z:</string>
     <string name="gyroscope_unit" translatable="false">rad/s</string>
     <string name="gyroscope_header" translatable="false">Rate of rotation around axis</string>
 
     <!-- GPS -->
     <string name="gps_test_title" translatable="false">GPS</string>
-    <string name="gps_test_description" translatable="false">This test checks if GPS can determine your location. Press start to test!</string>
+    <string name="gps_test_description" translatable="false">This test checks if GPS can determine your location. Press \'Start test\' to see the GPS statistics.</string>
     <string name="searching" translatable="false">Searching…</string>
-    <string name="satellites" translatable="false">Satellites:&#160;</string>
-    <string name="latitude" translatable="false">Latitude:&#160;</string>
-    <string name="longitude" translatable="false">Longitude:&#160;</string>
-    <string name="altitude" translatable="false">Altitude:&#160;</string>
-    <string name="speed" translatable="false">Speed:&#160;</string>
-    <string name="bearing" translatable="false">Bearing:&#160;</string>
-    <string name="accuracy" translatable="false">Accuracy:&#160;</string>
+    <string name="satellites" translatable="false">Satellites:</string>
+    <string name="latitude" translatable="false">Latitude:</string>
+    <string name="longitude" translatable="false">Longitude:</string>
+    <string name="altitude" translatable="false">Altitude:</string>
+    <string name="speed" translatable="false">Speed:</string>
+    <string name="bearing" translatable="false">Bearing:</string>
+    <string name="accuracy" translatable="false">Accuracy:</string>
 
     <!-- Buttons -->
     <string name="buttons_test_title" translatable="false">Buttons</string>
-    <string name="buttons_test_description" translatable="false">This test checks if the buttons are working properly. Press start to test!</string>
-    <string name="buttons_volume_up" translatable="false">Volume up:&#160;</string>
-    <string name="buttons_volume_down" translatable="false">Volume down:&#160;</string>
-    <string name="buttons_camera" translatable="false">Camera:&#160;</string>
-    <string name="buttons_power" translatable="false">Power:&#160;</string>
+    <string name="buttons_test_description" translatable="false">This test checks if the physical buttons on your Fairphone are working correctly. Press \'Start test\' to begin.</string>
+    <string name="buttons_volume_up" translatable="false">Volume up:</string>
+    <string name="buttons_volume_down" translatable="false">Volume down:</string>
+    <string name="buttons_camera" translatable="false">Camera:</string>
+    <string name="buttons_power" translatable="false">Power:</string>
     <string name="buttons_pressed" translatable="false">Pressed</string>
     <string name="buttons_unpressed" translatable="false">Unpressed</string>
     <string name="buttons_triggered" translatable="false">Triggered</string>
@@ -239,30 +240,30 @@
 
     <!-- Top module -->
     <string name="top_module_name" translatable="false">Top module</string>
-    <string name="top_module_description" translatable="false">The top module contains the headphone jack and the front camera, among others.</string>
+    <string name="top_module_description" translatable="false">The top module contains the headphone jack, front camera and more.</string>
 
     <!-- Headphone jack -->
     <string name="headphone_jack_test_title" translatable="false">Headphone jack</string>
-    <string name="headphone_jack_test_description" translatable="false">This test checks if the headphone jack is working properly. Press start and plug and unplug your headphones a few times.</string>
-    <string name="headphone_status" translatable="false">Plugged:&#160;</string>
+    <string name="headphone_jack_test_description" translatable="false">This test checks if the headphone jack is working properly. Press \'Start test\' and plug and unplug your headphones a few times.</string>
+    <string name="headphone_status" translatable="false">Plugged:</string>
     <string name="headphone_plugged" translatable="false">Yes</string>
     <string name="headphone_unplugged" translatable="false">No</string>
 
     <!-- LED -->
     <string name="led_test_title" translatable="false">LED</string>
-    <string name="led_test_description" translatable="false">This test checks if the LED is working. Press start and make sure you see the LED blinking.</string>
+    <string name="led_test_description" translatable="false">This test checks if the LED is working. Press \'Start test\' and make sure you see the LED blinking.</string>
     <string name="led_test_finish_question" translatable="false">You should see the LED lighting up. Is the LED blinking?</string>
 
     <!-- Proximity sensor -->
     <string name="proximity_test_title" translatable="false">Proximity sensor</string>
-    <string name="proximity_test_description" translatable="false">This test tests the proximity sensor. Press start and cover the top half of the phone completely with your hand.</string>
+    <string name="proximity_test_description" translatable="false">This test tests the proximity sensor. Press \'Start test\' and cover the top half of the Fairphone completely with your hand.</string>
     <string name="proximity_state_triggered" translatable="false">Triggered</string>
     <string name="proximity_state_not_triggered" translatable="false">Not triggered</string>
 
     <!-- Ambient light -->
     <string name="ambient_light_sensor_test_title" translatable="false">Ambient light sensor</string>
-    <string name="ambient_light_sensor_test_description" translatable="false">This test checks if the ambient light sensor is working properly. Repeatably cover the top half of your Fairphone, the value read by the sensor should change.</string>
-    <string name="illuminance" translatable="false">Illuminance:&#160;</string>
+    <string name="ambient_light_sensor_test_description" translatable="false">This test checks if the ambient light sensor is working properly. Repeatedly cover the top half of your Fairphone, the value read by the sensor should change.</string>
+    <string name="illuminance" translatable="false">Illuminance:</string>
     <string name="illuminance_unit" translatable="false">lx</string>
 
     <!-- Ear speaker -->
@@ -288,7 +289,7 @@
 
     <!-- Bottom module -->
     <string name="bottom_module_name" translatable="false">Bottom module</string>
-    <string name="bottom_module_description" translatable="false">Vibration motor, rear speaker, microphone and USB-port: that is what you can find in this module.</string>
+    <string name="bottom_module_description" translatable="false">Vibration motor, rear speaker, microphone and USB-port; that is what you\'ll find in this module.</string>
 
     <!-- Vibration motor -->
     <string name="vibrator_test_title">Vibration motor</string>
@@ -305,7 +306,7 @@
 
     <!-- USB port -->
     <string name="usb_port_test_title" translatable="false">USB port</string>
-    <string name="usb_port_test_description" translatable="false">This test checks if the USB port is working. Press start and plug and unplug the USB cable a few times.</string>
+    <string name="usb_port_test_description" translatable="false">This test checks if the USB port is working. Press \'Start test\' and plug and unplug the USB cable a few times.</string>
     <string name="usb_port_plugged" translatable="false">Plugged</string>
     <string name="usb_port_unplugged" translatable="false">Unplugged</string>
 
