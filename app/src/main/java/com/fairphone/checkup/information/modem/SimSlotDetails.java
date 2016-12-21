@@ -52,8 +52,8 @@ public class SimSlotDetails {
      */
     public void setSimPresent(int simState, String simOperatorName, String simOperatorCode) {
         mSimState = simState;
-        mSimOperatorName = simOperatorName;
-        mSimOperatorCode = simOperatorCode;
+        mSimOperatorName = TextUtils.isEmpty(simOperatorName) ? mDataNotAvailableValue : simOperatorName;
+        mSimOperatorCode = TextUtils.isEmpty(simOperatorCode)? mDataNotAvailableValue : simOperatorCode;
     }
 
     /**
@@ -139,7 +139,7 @@ public class SimSlotDetails {
     }
 
     public boolean isSimConnectedToNetwork() {
-        return TelephonyManager.SIM_STATE_READY == mSimState;
+        return !mDataNotAvailableValue.equals(mNetworkOperatorCode);
     }
 
     public String getNetworkOperatorName() {
