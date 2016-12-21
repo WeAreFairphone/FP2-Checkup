@@ -47,6 +47,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:backgroundTint="@color/primary"
-        android:text="@string/start_test" />
+        android:text="@string/action_begin_test" />
 
 </RelativeLayout>
