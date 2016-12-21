@@ -3,6 +3,7 @@ package com.fairphone.checkup.information.modem;
 
 import android.content.Context;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 
 import com.fairphone.checkup.R;
 
@@ -76,10 +77,10 @@ public class SimSlotDetails {
      */
     public void setSimConnectedToNetwork(int simState, String networkOperatorName, String networkOperatorCode, String networkTypeName, String networkCountryCode, boolean isDataConnectedOnNetwork, boolean isRoamingOnNetwork, boolean isDataRoamingOnNetwork) {
         mSimState = simState;
-        mNetworkOperatorName = null == networkOperatorName ? mDataNotAvailableValue : networkOperatorName;
-        mNetworkOperatorCode = null == networkOperatorCode ? mDataNotAvailableValue : networkOperatorCode;
-        mNetworkTypeName = null == networkTypeName ? mDataNotAvailableValue : networkTypeName;
-        mNetworkCountryCode = null == networkCountryCode ? mDataNotAvailableValue : networkCountryCode;
+        mNetworkOperatorName = TextUtils.isEmpty(networkOperatorName) ? mDataNotAvailableValue : networkOperatorName;
+        mNetworkOperatorCode = TextUtils.isEmpty(networkOperatorCode) ? mDataNotAvailableValue : networkOperatorCode;
+        mNetworkTypeName = TextUtils.isEmpty(networkTypeName) ? mDataNotAvailableValue : networkTypeName;
+        mNetworkCountryCode = TextUtils.isEmpty(networkCountryCode) ? mDataNotAvailableValue : networkCountryCode;
         mIsDataConnectedOnNetwork = isDataConnectedOnNetwork;
         mIsRoamingOnNetwork = isRoamingOnNetwork;
         mIsDataRoamingOnNetwork = isDataRoamingOnNetwork;
