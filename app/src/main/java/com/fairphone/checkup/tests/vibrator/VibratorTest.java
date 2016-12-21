@@ -29,6 +29,7 @@ public class VibratorTest extends SimpleTest {
 
     private Handler mHandler;
     private Vibrator mVibrator;
+    private Thread mVibratingWaiter;
 
     public VibratorTest() {
         super(true);
@@ -61,7 +62,7 @@ public class VibratorTest extends SimpleTest {
 
         mVibrator.vibrate(VIBRATION_DURATION_MS);
 
-        new Thread(new Runnable() {
+        mVibratingWaiter = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -76,7 +77,8 @@ public class VibratorTest extends SimpleTest {
                     }
                 });
             }
-        }).start();
+        });
+        mVibratingWaiter.start();
     }
 
     @Override
@@ -85,6 +87,11 @@ public class VibratorTest extends SimpleTest {
 
         if (mVibrator != null) {
             mVibrator.cancel();
+
+            if (mVibratingWaiter != null) {
+                mVibratingWaiter.interrupt();
+                mVibratingWaiter = null;
+            }
         }
     }
 
