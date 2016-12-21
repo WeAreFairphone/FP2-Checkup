@@ -10,53 +10,35 @@ import com.fairphone.checkup.R;
 
 import java.util.List;
 
-/**
- * Created by dirk on 16-10-15.
- */
-public class TestListAdapter extends ArrayAdapter<Test> {
+public class TestListAdapter extends ArrayAdapter<Test.Details> {
     public interface OnClickListener {
-        void onClick(Test test);
+        void onClick(Test.Details item);
     }
 
     OnClickListener mOnClickListener;
 
-    public TestListAdapter(Context context, List<Test> tests, OnClickListener onClickListener) {
+    public TestListAdapter(Context context, List<Test.Details> tests, OnClickListener onClickListener) {
         super(context,
-                R.layout.test_chooser_list_item, R.id.list_item_title, tests);
+                R.layout.list_item_test, R.id.list_item_title, tests);
         mOnClickListener = onClickListener;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = super.getView(position, convertView, parent);
-        final Test test = getItem(position);
-        if (test != null) {
-            ((TextView) view.findViewById(R.id.list_item_title)).setText(getContext().getString(test.getTestTitleID()));
-            ((TextView) view.findViewById(R.id.list_item_summary)).setText(getContext().getString(test.getTestDescriptionID()));
-//            TextView textview = (TextView) view.findViewById(R.id.test_list_test_result);
-//            if (test.hasRun()) {
-//                textview.setVisibility(View.VISIBLE);
-//                if (test.didPass()) {
-//                    textview.setText(getContext().getString(R.string.test_passed));
-//                    textview.setTextColor(0xff00aa00);
-//                } else {
-//                    textview.setText(getContext().getString(R.string.test_failed));
-//                    textview.setTextColor(0xffaa0000);
-//                }
-//            } else {
-//                textview.setVisibility(View.INVISIBLE);
-//            }
+        final Test.Details item = getItem(position);
+        if (item != null) {
+            ((TextView) view.findViewById(R.id.list_item_title)).setText(item.getTitle(getContext()));
+            ((TextView) view.findViewById(R.id.list_item_summary)).setText(item.getSummary(getContext()));
         }
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mOnClickListener.onClick(test);
+                mOnClickListener.onClick(item);
             }
         });
 
         return view;
     }
-
-
 }
