@@ -1,5 +1,6 @@
 package com.fairphone.checkup.tests;
 
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -61,7 +62,7 @@ public abstract class SimpleTest extends Test {
 
         if (firstResume) {
             if (isCancellable()) {
-                mActionButton.setBackgroundColor(getResources().getColor(R.color.accent));
+                mActionButton.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.accent)));
                 mActionButton.setText(R.string.action_cancel_test);
             } else {
                 mActionButton.setEnabled(false);
@@ -74,7 +75,7 @@ public abstract class SimpleTest extends Test {
         super.onFinishTest();
 
         if (isCancellable()) {
-            mActionButton.setBackgroundColor(getResources().getColor(R.color.primary));
+            mActionButton.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.primary)));
             mActionButton.setText(R.string.action_begin_test);
         }
 
