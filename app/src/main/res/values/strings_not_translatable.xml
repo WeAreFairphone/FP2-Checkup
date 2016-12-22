@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Checkup</string>
+
+    <!-- Generic strings used to populate the layouts -->
+    <string name="generic_module_name" translatable="false">Generic Module</string>
+    <string name="generic_test_title" translatable="false">A generic test</string>
+    <string name="generic_test_description" translatable="false">A fictive test to fill blanks.</string>
+    <string name="generic_test_instructions" translatable="false">You do not have anything to do, because this is not a real test. You really should have something more descriptive and clear for the user here.</string>
+
+    <!-- Fragment Tags -->
+    <string name="fragment_tag_test" translatable="false">com.fairphone.checkup.fragment_test</string>
+
+</resources>
