@@ -26,7 +26,7 @@ import java.util.Locale;
  * <p><strong>The call to the parent method </strong>(<code>super.onBeginTest()</code> for instance)<strong> must be included in each overridden method.</strong></p>
  * <p>The {@link #beginTest()}, {@link #cancelTest()}, and {@link #finishTest(boolean)} methods should <strong>not</strong> be overridden.
  * They are the public interface to a test with the status methods ({@link #isFresh()}, {@link #isRunning()}, {@link #isCancelled()}, {@link #isCompleted()}, {@link #hasPassed()}, {@link #hasFailed()}).</p>
- * <p>To define a test details (title, summary, description, and instructions), a concrete test should instantiate a {@link Details} sub-class.<br>
+ * <p>To define a test details (title, summary, and description), a concrete test should instantiate a {@link Details} sub-class.<br>
  * The default behaviour is to retrieve the strings as-is from the resource files.
  * To format them in a different way, do override:
  * <ul>
@@ -37,37 +37,23 @@ import java.util.Locale;
  * </p>
  * TODO properly document the state machine (w.r.t Fragment)
  */
-public abstract class Test extends Fragment {
+public abstract class Test<TestDetails extends Test.Details> extends Fragment {
 
     public static abstract class Details implements Serializable {
 
         protected final int mTitleId;
         protected final int mSummaryId;
         protected final int mDescriptionId;
-        protected final int mInstructionsId;
 
         /**
          * @param titleId        The title string resource id.
          * @param summaryId      The summary string resource id.
          * @param descriptionId  The description string resource id.
-         * @param instructionsId The instructions string resource id, or -1 if none.
          */
-        protected Details(int titleId, int summaryId, int descriptionId, int instructionsId) {
+        protected Details(int titleId, int summaryId, int descriptionId) {
             this.mTitleId = titleId;
             this.mSummaryId = summaryId;
             this.mDescriptionId = descriptionId;
-            this.mInstructionsId = instructionsId;
-        }
-
-        /**
-         * Call to {@link Details(int, int, int, int)} with -1 as the instructions string resource id.
-         *
-         * @param titleId       The title string resource id.
-         * @param summaryId     The summary string resource id.
-         * @param descriptionId The description string resource id.
-         */
-        protected Details(int titleId, int summaryId, int descriptionId) {
-            this(titleId, summaryId, descriptionId, -1);
         }
 
         /**
@@ -106,25 +92,6 @@ public abstract class Test extends Fragment {
             return context.getString(mDescriptionId);
         }
 
-        public boolean hasInstructions() {
-            return mInstructionsId != -1;
-        }
-
-        /**
-         * The instructions are a multiline description of what the user has to do.
-         * <p>It is *not* the general description of the test but explains what is going to happen and what the user needs to do.</p>
-         * <p>Override this method to format the instructions string.</p>
-         *
-         * @return The instructions string or <code>null</code> if none.
-         */
-        public String getInstructions(Context context) {
-            if (hasInstructions()) {
-                return context.getString(mInstructionsId);
-            } else {
-                return null;
-            }
-        }
-
         public abstract Fragment getFragment();
     }
 
@@ -147,7 +114,7 @@ public abstract class Test extends Fragment {
         mIsCancellable = isCancellable;
     }
 
-    protected abstract Details getDetails();
+    protected abstract TestDetails getDetails();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

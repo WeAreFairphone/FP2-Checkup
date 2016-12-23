@@ -13,7 +13,7 @@ import com.fairphone.checkup.information.Information;
 /**
  * An information test automatically begins when the {@link android.app.Fragment} starts.
  */
-public abstract class InformationTest<InstanceInformation extends Information> extends Test {
+public abstract class InformationTest<InstanceInformation extends Information> extends Test<Test.Details> {
 
     protected InstanceInformation mInstanceInformation;
 
