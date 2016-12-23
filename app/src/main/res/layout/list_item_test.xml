@@ -23,8 +23,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/list_item_title"
         android:layout_marginBottom="?android:attr/listPreferredItemPaddingEnd"
-        android:ellipsize="marquee"
-        android:maxLines="1"
         android:text="@string/generic_test_description"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
