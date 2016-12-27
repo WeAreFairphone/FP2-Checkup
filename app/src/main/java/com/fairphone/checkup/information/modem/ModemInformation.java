@@ -98,7 +98,7 @@ public class ModemInformation extends Information<ModemDetails> {
                             (String) getSimOperatorCode.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId())
                     );
 
-                    if (TelephonyManager.SIM_STATE_READY == simState && !TextUtils.isEmpty(networkOperatorCode)) {
+                    if (!TextUtils.isEmpty(networkOperatorCode)) {
                         simSlotDetails.setSimConnectedToNetwork(
                                 simState,
                                 (String) getNetworkOperatorName.invoke(mTelephonyManager, subscriptionInfo.getSubscriptionId()),
