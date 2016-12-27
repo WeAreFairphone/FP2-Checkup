@@ -11,7 +11,7 @@ import com.fairphone.checkup.information.Information;
 
 public class WifiDetails extends Information.Details {
 
-    private static final String NO_SSID = "<unknown ssid>";
+    private static final String NO_BSSID = "00:00:00:00:00:00";
     private static final String SIGNAL_STRENGTH_UNIT = "dBm";
 
     private final Context mContext;
@@ -50,8 +50,15 @@ public class WifiDetails extends Information.Details {
         return null != mWifiInfo;
     }
 
+    /**
+     * Rely on the BSSID to determine if there is an active connection.
+     * <p>We do not want to rely on the SSID as it can be hidden or empty and the decodeing layer
+     * does not yield a consistent result.</p>
+     *
+     * @return Whether there is an active connection to a Wi-Fi network.
+     */
     public boolean isConnected() {
-        return null != mWifiInfo && !NO_SSID.equals(mWifiInfo.getSSID());
+        return null != mWifiInfo && null != mWifiInfo.getBSSID() && !NO_BSSID.equals(mWifiInfo.getBSSID());
     }
 
     public String getSsid() {
