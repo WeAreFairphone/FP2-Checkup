@@ -3,10 +3,11 @@ package com.fairphone.checkup.tests.loopback;
 import android.app.Fragment;
 
 import com.fairphone.checkup.R;
+import com.fairphone.checkup.tests.SimpleTest;
 
 public class SecondaryMicLoopbackTest extends MicLoopbackTest {
 
-    public static final Details DETAILS = new Details(R.string.secondary_mic_loopback_test_title, R.string.secondary_mic_loopback_test_summary, R.string.secondary_mic_loopback_test_description, R.string.secondary_mic_loopback_test_instructions) {
+    public static final SimpleDetails DETAILS = new SimpleTest.SimpleDetails(R.string.secondary_mic_loopback_test_title, R.string.secondary_mic_loopback_test_summary, R.string.secondary_mic_loopback_test_description, R.string.secondary_mic_loopback_test_instructions) {
         @Override
         public Fragment getFragment() {
             return new SecondaryMicLoopbackTest();
@@ -18,7 +19,7 @@ public class SecondaryMicLoopbackTest extends MicLoopbackTest {
     }
 
     @Override
-    protected Details getDetails() {
+    protected SimpleDetails getDetails() {
         return DETAILS;
     }
 }

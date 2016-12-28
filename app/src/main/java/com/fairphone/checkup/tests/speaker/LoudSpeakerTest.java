@@ -3,10 +3,11 @@ package com.fairphone.checkup.tests.speaker;
 import android.app.Fragment;
 
 import com.fairphone.checkup.R;
+import com.fairphone.checkup.tests.SimpleTest;
 
 public class LoudSpeakerTest extends SpeakerTest {
 
-    public static final Details DETAILS = new Details(R.string.loud_speaker_test_title, R.string.loud_speaker_test_summary, R.string.loud_speaker_test_description, R.string.loud_speaker_test_instructions) {
+    public static final SimpleDetails DETAILS = new SimpleTest.SimpleDetails(R.string.loud_speaker_test_title, R.string.loud_speaker_test_summary, R.string.loud_speaker_test_description, R.string.loud_speaker_test_instructions) {
         @Override
         public Fragment getFragment() {
             return new LoudSpeakerTest();
@@ -18,7 +19,7 @@ public class LoudSpeakerTest extends SpeakerTest {
     }
 
     @Override
-    protected Details getDetails() {
+    protected SimpleDetails getDetails() {
         return DETAILS;
     }
 

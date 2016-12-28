@@ -11,32 +11,36 @@
 
     <!-- Free draw -->
     <string name="freedraw_test_title">Free drawing</string>
-    <string name="freedraw_test_summary">Draw freely on the screen.</string>
-    <string name="freedraw_test_description">Draw freely on the screen</string>
-    <string name="freedraw_test_instructions">Press \'start test\' and use your finger to draw freely on the screen. Look specifically for any screen abnormalities, i.e. blank spots, etc. To go back, swipe from the bottom of the screen towards the top to make the navigation buttons appear.</string>
+    <string name="freedraw_test_summary">Draw freely on the screen</string>
+    <string name="freedraw_test_description">Draw freely on the screen.</string>
+    <!-- Arguments: <action button label> -->
+    <string name="freedraw_test_instructions">Press \'%1$s\' and use your finger to draw freely on the screen. Look specifically for any screen abnormalities, i.e. blank spots, etc. To go back, swipe from the bottom of the screen towards the top to make the navigation buttons appear.</string>
 
     <!-- LCD -->
     <string name="lcd_test_title">Screen (LCD)</string>
-    <string name="lcd_test_summary">The LCD screen displays all the content of your Fairphone.</string>
-    <string name="lcd_test_description">The LCD screen displays all the content of your Fairphone</string>
-    <string name="lcd_test_instructions">Press \'start test\' and tap the screen to cycle through various colors.</string>
+    <string name="lcd_test_summary">The LCD screen displays all the content of your Fairphone</string>
+    <string name="lcd_test_description">The LCD screen displays all the content of your Fairphone.</string>
+    <!-- Arguments: <action button label> -->
+    <string name="lcd_test_instructions">Press \'%1$s\' and tap the screen to cycle through various colors.</string>
 
     <!-- Primary microphone loopback -->
     <string name="primary_mic_loopback_test_title">Primary microphone</string>
-    <string name="primary_mic_loopback_test_summary">The microphone that is used for phone calls.</string>
-    <string name="primary_mic_loopback_test_description">The microphone that is used for phone calls</string>
-    <string name="primary_mic_loopback_test_instructions">Press \'start test\' and pretend you are making a phone call by holding the phone against your ear. If you can hear yourself talk, no worries, that means the microphone is working correctly!</string>
+    <string name="primary_mic_loopback_test_summary">The microphone that is used for phone calls</string>
+    <string name="primary_mic_loopback_test_description">The microphone that is used for phone calls.</string>
+    <!-- Arguments: <action button label> -->
+    <string name="primary_mic_loopback_test_instructions">Press \'%1$s\' and pretend you are making a phone call by holding the phone against your ear. If you can hear yourself talk, no worries, that means the microphone is working correctly!</string>
 
     <!-- Secondary microphone loopback -->
     <string name="secondary_mic_loopback_test_title">Secondary microphone</string>
-    <string name="secondary_mic_loopback_test_summary">The microphone to reduce ambient noise.</string>
-    <string name="secondary_mic_loopback_test_description">The microphone to reduce ambient noise</string>
-    <string name="secondary_mic_loopback_test_instructions">Press \'start test\' and pretend you are making a phone call, but hold your phone upside down. Can you hear yourself?</string>
+    <string name="secondary_mic_loopback_test_summary">The microphone to reduce ambient noise</string>
+    <string name="secondary_mic_loopback_test_description">The microphone to reduce ambient noise.</string>
+    <!-- Arguments: <action button label> -->
+    <string name="secondary_mic_loopback_test_instructions">Press \'%1$s\' and pretend you are making a phone call, but hold your phone upside down. Can you hear yourself?</string>
 
     <!-- Modem -->
     <string name="modem_test_title">Mobile connectivity</string>
-    <string name="modem_test_summary">Information about mobile connectivity.</string>
-    <string name="modem_test_description">Information about mobile connectivity</string>
+    <string name="modem_test_summary">Information about mobile connectivity</string>
+    <string name="modem_test_description">Information about mobile connectivity.</string>
     <!-- Arguments: <SIM slot number> -->
     <string name="modem_sim_absent_title">No SIM card in slot %1$d</string>
     <!-- Arguments: <SIM slot number> -->
@@ -71,27 +75,29 @@
 
     <!-- Ear speaker -->
     <string name="ear_speaker_test_title">Ear speaker</string>
-    <string name="ear_speaker_test_summary">The ear speaker is used to hear the other person during phone calls.</string>
-    <string name="ear_speaker_test_description">The ear speaker is used to hear the other person during phone calls</string>
-    <string name="ear_speaker_test_instructions">Press \'start test\' and pretend you are making a phone call. If you hear the music through the ear speaker, that means it is working correctly.</string>
+    <string name="ear_speaker_test_summary">The ear speaker is used to hear the other person during phone calls</string>
+    <string name="ear_speaker_test_description">The ear speaker is used to hear the other person during phone calls.</string>
+    <!-- Arguments: <action button label> -->
+    <string name="ear_speaker_test_instructions">Press \'%1$s\' and pretend you are making a phone call. If you hear the music through the ear speaker, that means it is working correctly.</string>
 
     <!-- Loud speaker -->
     <string name="loud_speaker_test_title">Loud (rear) speaker</string>
-    <string name="loud_speaker_test_summary">The loud (rear) speaker is used for listening to music and for hands-free phone calls.</string>
-    <string name="loud_speaker_test_description">The loud (rear) speaker is used for listening to music and for hands-free phone calls</string>
-    <string name="loud_speaker_test_instructions">Press \'start test\' and use the physical volume buttons to lower or raise the sound level. You should hear your favorite Fairphone tune playing!</string>
+    <string name="loud_speaker_test_summary">The loud (rear) speaker is used for listening to music and for hands-free phone calls</string>
+    <string name="loud_speaker_test_description">The loud (rear) speaker is used for listening to music and for hands-free phone calls.</string>
+    <!-- Arguments: <action button label> -->
+    <string name="loud_speaker_test_instructions">Press \'%1$s\' and use the physical volume buttons to lower or raise the sound level. You should hear your favorite Fairphone tune playing!</string>
 
     <!-- Vibration motor -->
     <string name="vibrator_test_title">Vibration motor</string>
-    <string name="vibrator_test_summary">This is what makes your Fairphone vibrate.</string>
-    <string name="vibrator_test_description">This is what makes your Fairphone vibrate</string>
-    <!-- Arguments: <vibration duration in seconds (integer)> -->
-    <string name="vibrator_test_instructions">Press \'start test\' to make your phone vibrate for %d seconds.</string>
+    <string name="vibrator_test_summary">This is what makes your Fairphone vibrate</string>
+    <string name="vibrator_test_description">This is what makes your Fairphone vibrate.</string>
+    <!-- Arguments: <action button label> <vibration duration in seconds (integer)> -->
+    <string name="vibrator_test_instructions">Press \'%1$s\' to make your phone vibrate for %2$d seconds.</string>
 
     <!-- Wifi -->
     <string name="wifi_test_title">Wi-Fi</string>
-    <string name="wifi_test_summary">Information about Wi-Fi connectivity.</string>
-    <string name="wifi_test_description">Information about Wi-Fi connectivity</string>
+    <string name="wifi_test_summary">Information about Wi-Fi connectivity</string>
+    <string name="wifi_test_description">Information about Wi-Fi connectivity.</string>
     <string name="wifi_disabled_title">Wi-Fi disabled</string>
     <string name="wifi_connected_title">Wi-Fi enabled and connected</string>
     <string name="wifi_not_connected_title">Wi-Fi enabled, but not connected</string>
