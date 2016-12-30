@@ -14,14 +14,14 @@
     <string name="freedraw_test_summary">Draw freely on the screen</string>
     <string name="freedraw_test_description">Draw freely on the screen.</string>
     <!-- Arguments: <action button label> -->
-    <string name="freedraw_test_instructions">Press \'%1$s\' and use your finger to draw freely on the screen. Look specifically for any screen abnormalities, i.e. blank spots, etc. To go back, swipe from the bottom of the screen towards the top to make the navigation buttons appear.</string>
+    <string name="freedraw_test_instructions">Press \'%1$s\' and use your finger to draw freely on the screen. To go back, swipe from the bottom of the screen towards the top to make the navigation buttons appear.</string>
 
     <!-- LCD -->
     <string name="lcd_test_title">Screen (LCD)</string>
     <string name="lcd_test_summary">The LCD screen displays all the content of your Fairphone</string>
     <string name="lcd_test_description">The LCD screen displays all the content of your Fairphone.</string>
     <!-- Arguments: <action button label> -->
-    <string name="lcd_test_instructions">Press \'%1$s\' and tap the screen to cycle through various colors.</string>
+    <string name="lcd_test_instructions">Press \'%1$s\' and tap the screen to cycle through various colors. Look specifically for any screen abnormalities, i.e. blank spots, etc.</string>
 
     <!-- Primary microphone loopback -->
     <string name="primary_mic_loopback_test_title">Primary microphone</string>
