@@ -43,7 +43,7 @@ android {
         minSdkVersion 22
 
         // Specifies the API level used to test the app.
-        targetSdkVersion 22
+        targetSdkVersion 23
 
         // Defines the version number of your app.
         versionCode 20101
