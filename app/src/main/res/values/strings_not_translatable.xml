@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">Checkup</string>
+    <string name="app_full_name" translatable="false">Fairphone Checkup</string>
 
     <!-- Generic strings used to populate the layouts -->
     <string name="generic_module_name" translatable="false">Generic Module</string>
