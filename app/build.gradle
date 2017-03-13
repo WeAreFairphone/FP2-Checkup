@@ -22,7 +22,7 @@ android {
      * download the build tools using the SDK Manager.
      */
     compileSdkVersion 23
-    buildToolsVersion "22.0.1"
+    buildToolsVersion '25.0.2'
     /**
      * The defaultConfig {} block encapsulates default settings and entries for all
      * build variants, and can override some attributes in main/AndroidManifest.xml
@@ -80,6 +80,6 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
 }

@@ -1,8 +1,8 @@
 package com.fairphone.checkup;
 
-import android.app.Activity;
 import android.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.animation.AnimationUtils;
 import android.widget.ListView;
 import android.widget.ViewSwitcher;
@@ -21,7 +21,8 @@ import com.fairphone.checkup.tests.wifi.WifiTest;
 
 import java.util.ArrayList;
 
-public class MainActivity extends Activity implements TestListAdapter.OnClickListener {
+public class MainActivity extends AppCompatActivity implements TestListAdapter.OnClickListener {
+
     ViewSwitcher mSwitcher;
     ListView mListView;
 
@@ -79,4 +80,5 @@ public class MainActivity extends Activity implements TestListAdapter.OnClickLis
 
         super.onBackPressed();
     }
+
 }
