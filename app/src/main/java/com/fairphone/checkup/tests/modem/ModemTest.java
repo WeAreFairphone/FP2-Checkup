@@ -1,5 +1,6 @@
 package com.fairphone.checkup.tests.modem;
 
+import android.Manifest;
 import android.app.Fragment;
 import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
@@ -20,7 +21,7 @@ import java.util.List;
 
 public class ModemTest extends InformationTest<ModemInformation> {
 
-    public static final Details DETAILS = new Test.Details(R.string.modem_test_title, R.string.modem_test_summary, R.string.modem_test_description) {
+    public static final Details DETAILS = new Test.Details(R.string.modem_test_title, R.string.modem_test_summary, R.string.modem_test_description, R.string.modem_test_permissions_rationale, Manifest.permission.READ_PHONE_STATE) {
         @Override
         public Fragment getFragment() {
             return new ModemTest();
