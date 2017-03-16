@@ -44,16 +44,35 @@ public abstract class Test<TestDetails extends Test.Details> extends Fragment {
         protected final int mTitleId;
         protected final int mSummaryId;
         protected final int mDescriptionId;
+        protected final int mPermissionRationaleId;
+        protected final String mPermission;
 
         /**
-         * @param titleId        The title string resource id.
-         * @param summaryId      The summary string resource id.
-         * @param descriptionId  The description string resource id.
+         * Construct a new test.
+         *
+         * @param titleId       The title string resource id.
+         * @param summaryId     The summary string resource id.
+         * @param descriptionId The description string resource id.
          */
         protected Details(int titleId, int summaryId, int descriptionId) {
-            this.mTitleId = titleId;
-            this.mSummaryId = summaryId;
-            this.mDescriptionId = descriptionId;
+            this(titleId, summaryId, descriptionId, -1, null);
+        }
+
+        /**
+         * Construct a new test which requires a dangerous permission.
+         *
+         * @param titleId               The title string resource id.
+         * @param summaryId             The summary string resource id.
+         * @param descriptionId         The description string resource id.
+         * @param permissionRationaleId The dangerous permission rationale string resource id.
+         * @param permission            The required dangerous permission.
+         */
+        protected Details(int titleId, int summaryId, int descriptionId, int permissionRationaleId, String permission) {
+            mTitleId = titleId;
+            mSummaryId = summaryId;
+            mDescriptionId = descriptionId;
+            mPermissionRationaleId = permissionRationaleId;
+            mPermission = permission;
         }
 
         /**
@@ -79,7 +98,6 @@ public abstract class Test<TestDetails extends Test.Details> extends Fragment {
             return context.getString(mSummaryId);
         }
 
-
         /**
          * The description is a multiline description of a test.
          * <p>It is *not* the instructions of the test but explains what the test is about in a more thorough way than the test summary.</p>
@@ -90,6 +108,34 @@ public abstract class Test<TestDetails extends Test.Details> extends Fragment {
          */
         public String getDescription(Context context) {
             return context.getString(mDescriptionId);
+        }
+
+        /**
+         * The permission rationale is a multiline rationale of why the user should grant a dangerous permission.
+         *
+         * @return The dangerous permission rationale string or <code>null</code>.
+         * @see #getPermission()
+         */
+        public String getPermissionRationale(Context context) {
+            if (mPermissionRationaleId != -1) {
+                return context.getString(mPermissionRationaleId);
+            } else {
+                return null;
+            }
+        }
+
+        /**
+         * The dangerous permission required to run the test.
+         * <p>This permission must be explicitly checked for during the test build-up. Starting
+         * with Android API 23, so-called dangerous permissions can be revoked at any time by the
+         * end-user.</p>
+         * <p>The permission tuning is done out of the app lifecycle so we just have to check once
+         * during build-up.</p>
+         *
+         * @return The required dangerous permission or <code>null</code>
+         */
+        public String getPermission() {
+            return mPermission;
         }
 
         public abstract Fragment getFragment();

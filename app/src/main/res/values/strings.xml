@@ -4,10 +4,15 @@
     <string name="not_available">N/A</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="ok">OK</string>
+    <string name="settings">Settings</string>
     <string name="section_instructions">Instructions:</string>
     <string name="action_begin_test">Start test</string>
     <string name="action_test_in_progress">Test in progress&#8230;</string>
     <string name="action_cancel_test">Cancel</string>
+
+    <string name="dialog_missing_permission">Permission required</string>
+    <string name="grant_permission_in_settings">Please grant the permission in the app settings.</string>
 
     <!-- Free draw -->
     <string name="freedraw_test_title">Free drawing</string>
@@ -29,6 +34,7 @@
     <string name="primary_mic_loopback_test_description">The microphone that is used for phone calls.</string>
     <!-- Arguments: <action button label> -->
     <string name="primary_mic_loopback_test_instructions">Press \'%1$s\' and pretend you are making a phone call by holding the phone against your ear. If you can hear yourself talk, no worries, that means the microphone is working correctly!</string>
+    <string name="primary_mic_loopback_test_permissions_rationale">The microphone permission needs to be allowed in order to start the test.</string>
 
     <!-- Secondary microphone loopback -->
     <string name="secondary_mic_loopback_test_title">Secondary microphone</string>
@@ -36,11 +42,13 @@
     <string name="secondary_mic_loopback_test_description">The microphone to reduce ambient noise.</string>
     <!-- Arguments: <action button label> -->
     <string name="secondary_mic_loopback_test_instructions">Press \'%1$s\' and pretend you are making a phone call, but hold your phone upside down. Can you hear yourself?</string>
+    <string name="secondary_mic_loopback_test_permissions_rationale">The microphone permission needs to be allowed in order to start the test.</string>
 
     <!-- Modem -->
     <string name="modem_test_title">Mobile connectivity</string>
     <string name="modem_test_summary">Information about mobile connectivity</string>
     <string name="modem_test_description">Information about mobile connectivity.</string>
+    <string name="modem_test_permissions_rationale">The telephone permission needs to be allowed in order to display information about mobile connectivity.</string>
     <!-- Arguments: <SIM slot number> -->
     <string name="modem_sim_absent_title">No SIM card in slot %1$d</string>
     <!-- Arguments: <SIM slot number> -->

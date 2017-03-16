@@ -25,13 +25,29 @@ public abstract class SimpleTest extends Test<SimpleTest.SimpleDetails> {
         protected final int mInstructionsId;
 
         /**
+         * Construct a new test.
+         *
          * @param titleId        The title string resource id.
          * @param summaryId      The summary string resource id.
          * @param descriptionId  The description string resource id.
          * @param instructionsId The instructions string resource id.
          */
         protected SimpleDetails(int titleId, int summaryId, int descriptionId, int instructionsId) {
-            super(titleId, summaryId, descriptionId);
+            this(titleId, summaryId, descriptionId, instructionsId, -1, null);
+        }
+
+        /**
+         * Construct a new test which requires a dangerous permission.
+         *
+         * @param titleId               The title string resource id.
+         * @param summaryId             The summary string resource id.
+         * @param descriptionId         The description string resource id.
+         * @param instructionsId        The instructions string resource id.
+         * @param permissionRationaleId The dangerous permission rationale string resource id.
+         * @param permission            The dangerous permission required.
+         */
+        protected SimpleDetails(int titleId, int summaryId, int descriptionId, int instructionsId, int permissionRationaleId, String permission) {
+            super(titleId, summaryId, descriptionId, permissionRationaleId, permission);
 
             mInstructionsId = instructionsId;
         }
