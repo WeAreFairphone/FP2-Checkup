@@ -14,6 +14,18 @@ import com.fairphone.checkup.tests.SimpleTest;
 
 public abstract class MicLoopbackTest extends SimpleTest {
 
+    public static class AudioParameters {
+        public final String mDefaultMic;
+        public final String mPrimaryMicOnly;
+        public final String mSecondaryMicOnly;
+
+        public AudioParameters(String defaultMic, String primaryMicOnly, String secondaryMicOnly) {
+            mDefaultMic = defaultMic;
+            mPrimaryMicOnly = primaryMicOnly;
+            mSecondaryMicOnly = secondaryMicOnly;
+        }
+    }
+
     protected static final int MIC_PRIMARY = 0;
     protected static final int MIC_SECONDARY = 1;
 
@@ -21,9 +33,16 @@ public abstract class MicLoopbackTest extends SimpleTest {
     private static final int AUDIOTRACK_CHANNELS = AudioFormat.CHANNEL_OUT_MONO;
     private static final int AUDIO_ENCODING = AudioFormat.ENCODING_PCM_16BIT;
     private static final int AUDIO_SAMPLE_RATE = 8000;
-    private static final String DEFAULT_AUDIO_PARAMETERS = "hip_test=none";
+    private static final AudioParameters AUDIO_PARAMETERS_L;
+    private static final AudioParameters AUDIO_PARAMETERS_M;
+
+    static {
+        AUDIO_PARAMETERS_L = new AudioParameters("hip_test=none", "hip_test=primary", "hip_test=secondary");
+        AUDIO_PARAMETERS_M = new AudioParameters("fp_test=", "fp_test=primary_mic", "fp_test=secondary_mic");
+    }
 
     private AudioManager mAudioManager;
+    private AudioParameters mAudioParameters;
     private Handler mHandler;
 
     private Thread mRecordingThread;
@@ -38,7 +57,7 @@ public abstract class MicLoopbackTest extends SimpleTest {
     private final float mMaxVolumeRatio;
     private final int mStreamType;
     private final int mAudioMode;
-    private final String mAudioParameters;
+    private final String mCurrentMicOnly;
 
     /**
      * @param microphone     The microphone to use: {@link #MIC_PRIMARY} or {@link #MIC_SECONDARY}.
@@ -46,6 +65,15 @@ public abstract class MicLoopbackTest extends SimpleTest {
      */
     protected MicLoopbackTest(int microphone, float maxVolumeRatio) {
         super(true);
+
+        switch (android.os.Build.VERSION.SDK_INT) {
+            case android.os.Build.VERSION_CODES.M:
+                mAudioParameters = AUDIO_PARAMETERS_M;
+                break;
+            default:
+                mAudioParameters = AUDIO_PARAMETERS_L;
+                break;
+        }
 
         mMaxVolumeRatio = maxVolumeRatio;
 
@@ -56,12 +84,12 @@ public abstract class MicLoopbackTest extends SimpleTest {
             case MIC_PRIMARY:
                 mStreamType = AudioManager.STREAM_VOICE_CALL;
                 mAudioMode = AudioManager.MODE_IN_COMMUNICATION;
-                mAudioParameters = "hip_test=primary";
+                mCurrentMicOnly = mAudioParameters.mPrimaryMicOnly;
                 break;
             case MIC_SECONDARY:
                 mStreamType = AudioManager.STREAM_MUSIC;
                 mAudioMode = AudioManager.MODE_RINGTONE;
-                mAudioParameters = "hip_test=secondary";
+                mCurrentMicOnly = mAudioParameters.mSecondaryMicOnly;
                 break;
         }
     }
@@ -88,7 +116,7 @@ public abstract class MicLoopbackTest extends SimpleTest {
         mAudioManager.setMicrophoneMute(false);
         mAudioManager.setStreamVolume(mStreamType, mLocalStreamVolume, 0);
         mAudioManager.setStreamSolo(mStreamType, true);
-        mAudioManager.setParameters(mAudioParameters);
+        mAudioManager.setParameters(mCurrentMicOnly);
 
         startLoopback();
     }
@@ -99,7 +127,7 @@ public abstract class MicLoopbackTest extends SimpleTest {
 
         stopLoopback();
 
-        mAudioManager.setParameters(DEFAULT_AUDIO_PARAMETERS);
+        mAudioManager.setParameters(mAudioParameters.mDefaultMic);
         mAudioManager.setStreamSolo(mStreamType, false);
         mAudioManager.setStreamVolume(AudioManager.STREAM_VOICE_CALL, mOldStreamVolume, 0);
         mAudioManager.setMicrophoneMute(mOldIsMicrophoneMute);
