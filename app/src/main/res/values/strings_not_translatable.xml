@@ -10,6 +10,8 @@
     <string name="generic_test_description" translatable="false">A fictive test to fill blanks.</string>
     <string name="generic_test_instructions" translatable="false">You do not have anything to do, because this is not a real test. You really should have something more descriptive and clear for the user here.</string>
 
+    <string name="wifi_network_interface" translatable="false">wlan0</string>
+
     <!-- Fragment Tags -->
     <string name="fragment_tag_test" translatable="false">com.fairphone.checkup.fragment_test</string>
 
