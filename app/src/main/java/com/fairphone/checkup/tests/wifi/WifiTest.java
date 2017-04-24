@@ -1,6 +1,8 @@
 package com.fairphone.checkup.tests.wifi;
 
 import android.app.Fragment;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,20 +79,13 @@ public class WifiTest extends InformationTest<WifiInformation> {
                 // Show the connectivity details
                 mTestView.findViewById(R.id.wifi_connectivity_details).setVisibility(View.VISIBLE);
 
-                ((TextView) mTestView.findViewById(R.id.wifi_ssid_value)).setText(wifiDetails.getSsid());
-                ((TextView) mTestView.findViewById(R.id.wifi_bssid_value)).setText(wifiDetails.getBssid());
-                ((TextView) mTestView.findViewById(R.id.wifi_link_speed_value)).setText(String.format(Locale.ENGLISH, "%s %s", wifiDetails.getLinkSpeed(), wifiDetails.getLinkSpeedUnit()));
-                ((TextView) mTestView.findViewById(R.id.wifi_strength_value)).setText(String.format(Locale.ENGLISH, "%s %s (%d%%)", wifiDetails.getSignalStrength(), wifiDetails.getSignalStrengthUnit(), wifiDetails.getSignalLevel()));
-                ((TextView) mTestView.findViewById(R.id.wifi_frequency_value)).setText(String.format(Locale.ENGLISH, "%s %s", wifiDetails.getFrequency(), wifiDetails.getFrequencyUnit()));
+                ((TextView) mTestView.findViewById(R.id.wifi_ssid_value)).setText(wifiDetails.getWifiInfo().getHiddenSSID() ? getString(R.string.wifi_ssid_is_hidden) : wifiDetails.getWifiInfo().getSSID());
+                ((TextView) mTestView.findViewById(R.id.wifi_bssid_value)).setText(wifiDetails.getWifiInfo().getBSSID());
+                ((TextView) mTestView.findViewById(R.id.wifi_link_speed_value)).setText(String.format(Locale.ENGLISH, "%s %s", wifiDetails.getWifiInfo().getLinkSpeed(), WifiInfo.LINK_SPEED_UNITS));
+                ((TextView) mTestView.findViewById(R.id.wifi_strength_value)).setText(String.format(Locale.ENGLISH, "%s dbM (%d%%)", wifiDetails.getWifiInfo().getRssi(), WifiManager.calculateSignalLevel(wifiDetails.getWifiInfo().getRssi(), 100)));
+                ((TextView) mTestView.findViewById(R.id.wifi_frequency_value)).setText(String.format(Locale.ENGLISH, "%s %s", wifiDetails.getWifiInfo().getFrequency(), WifiInfo.FREQUENCY_UNITS));
                 ((TextView) mTestView.findViewById(R.id.wifi_ip_address_value)).setText(wifiDetails.getIpAddress());
-
-                ((TextView) mTestView.findViewById(R.id.wifi_netmask_value)).setText(wifiDetails.getNetmask());
-                ((TextView) mTestView.findViewById(R.id.wifi_gateway_address_value)).setText(wifiDetails.getGatewayAddress());
-                ((TextView) mTestView.findViewById(R.id.wifi_dhcp_server_address_value)).setText(wifiDetails.getServerAddress());
-                ((TextView) mTestView.findViewById(R.id.wifi_dns_1_value)).setText(wifiDetails.getDns1Address());
-                ((TextView) mTestView.findViewById(R.id.wifi_dns_2_value)).setText(wifiDetails.getDns2Address());
-                ((TextView) mTestView.findViewById(R.id.wifi_dhcp_lease_value)).setText(String.format(Locale.ENGLISH, "%d s", wifiDetails.getLeaseDuration()));
-                ((TextView) mTestView.findViewById(R.id.wifi_hidden_ssid_value)).setText(wifiDetails.isSsidHidden() ? getString(R.string.yes) : getString(R.string.no));
+                ((TextView) mTestView.findViewById(R.id.wifi_dns_servers_value)).setText(wifiDetails.getDnsServers());
             }
         }
     }
