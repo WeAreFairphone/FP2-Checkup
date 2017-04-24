@@ -100,7 +100,10 @@
     <string name="vibrator_test_summary">This is what makes your Fairphone vibrate</string>
     <string name="vibrator_test_description">This is what makes your Fairphone vibrate.</string>
     <!-- Arguments: <action button label> <vibration duration in seconds (integer)> -->
-    <string name="vibrator_test_instructions">Press \'%1$s\' to make your phone vibrate for %2$d seconds.</string>
+    <plurals name="vibrator_test_instructions">
+        <item quantity="one">Press \'%1$s\' to make your phone vibrate for %2$d second.</item>
+        <item quantity="other">Press \'%1$s\' to make your phone vibrate for %2$d seconds.</item>
+    </plurals>
 
     <!-- Wifi -->
     <string name="wifi_test_title">Wi-Fi</string>

@@ -27,7 +27,7 @@ public class WifiInformation extends Information<WifiDetails> {
     public WifiInformation(Context context, ChangeListener<WifiDetails> listener) {
         super(context, listener, new WifiDetails(context));
 
-        mWifiManager = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
+        mWifiManager = (WifiManager) mContext.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
         mBroadcastReceiverFilter = new IntentFilter();
         mBroadcastReceiverFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);

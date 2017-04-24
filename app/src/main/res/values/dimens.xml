@@ -7,7 +7,4 @@
     <dimen name="tile_padding">16dp</dimen>
 
     <dimen name="simple_space">8dp</dimen>
-
-    <dimen name="module_picture_width_large">100dp</dimen>
-    <dimen name="module_picture_height_large">100dp</dimen>
 </resources>

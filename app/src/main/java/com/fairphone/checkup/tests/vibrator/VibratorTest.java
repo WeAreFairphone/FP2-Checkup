@@ -14,7 +14,7 @@ public class VibratorTest extends SimpleTest {
 
     private static final long VIBRATION_DURATION_MS = 2000;
 
-    public static final SimpleDetails DETAILS = new SimpleTest.SimpleDetails(R.string.vibrator_test_title, R.string.vibrator_test_summary, R.string.vibrator_test_description, R.string.vibrator_test_instructions) {
+    public static final SimpleDetails DETAILS = new SimpleTest.SimpleDetails(R.string.vibrator_test_title, R.string.vibrator_test_summary, R.string.vibrator_test_description, R.plurals.vibrator_test_instructions) {
         @Override
         public Fragment getFragment() {
             return new VibratorTest();
@@ -22,7 +22,8 @@ public class VibratorTest extends SimpleTest {
 
         @Override
         public String getInstructions(Context context, CharSequence actionButtonLabel) {
-            return String.format(context.getString(mInstructionsId), actionButtonLabel, Math.round(VIBRATION_DURATION_MS / 1000));
+            final int vibrationDuration = Math.round(VIBRATION_DURATION_MS / 1000);
+            return context.getResources().getQuantityString(mInstructionsId, vibrationDuration, actionButtonLabel, vibrationDuration);
         }
     };
 
@@ -48,7 +49,6 @@ public class VibratorTest extends SimpleTest {
         mVibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
 
         if (!mVibrator.hasVibrator()) {
-            // TODO abort test
             cancelTest();
 
             Log.e(TAG, "Could not retrieve an instance of the vibration motor.");
@@ -67,14 +67,16 @@ public class VibratorTest extends SimpleTest {
                 try {
                     Thread.sleep(VIBRATION_DURATION_MS);
                 } catch (InterruptedException e) {
+                    // We will be interrupted if the test is cancelled
+                    Log.d(TAG, e.getLocalizedMessage());
+                } finally {
+                    mHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            finishTest(true);
+                        }
+                    });
                 }
-
-                mHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        finishTest(true);
-                    }
-                });
             }
         });
         mVibratingWaiter.start();
