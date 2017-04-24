@@ -16,12 +16,43 @@ public abstract class SpeakerTest extends SimpleTest {
     protected static final int SPEAKER_EAR = 0;
     protected static final int SPEAKER_LOUD = 1;
 
+    /**
+     * Low volume ratio to apply to the maximum stream volume when ducking playback.
+     */
+    private static final float LOW_VOLUME_RATIO = 0.2f;
+
+    private final AudioManager.OnAudioFocusChangeListener mAFChangeListener = new AudioManager.OnAudioFocusChangeListener() {
+        @Override
+        public void onAudioFocusChange(int focusChange) {
+            switch (focusChange) {
+                case AudioManager.AUDIOFOCUS_LOSS:
+                    onCancelTest();
+                    break;
+                case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT:
+                    mLocalStreamVolume = mAudioManager.getStreamVolume(mStreamType);
+                    onPauseTest();
+                    break;
+                case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK:
+                    mLocalStreamVolume = mAudioManager.getStreamVolume(mStreamType);
+                    mAudioManager.setStreamVolume(mStreamType, mLowVolume, 0);
+                    break;
+                case AudioManager.AUDIOFOCUS_GAIN:
+                    mAudioManager.setStreamVolume(mStreamType, mLocalStreamVolume, 0);
+                    if (isPaused()) {
+                        onResume();
+                    }
+                    break;
+            }
+        }
+    };
+
     protected AudioManager mAudioManager;
     protected MediaPlayer mMediaPlayer;
 
     private int mAudioSessionId;
     private int mOldStreamVolume;
     private int mLocalStreamVolume;
+    private int mLowVolume;
 
     private final int mRawMediaId;
     private final float mMaxVolumeRatio;
@@ -96,6 +127,7 @@ public abstract class SpeakerTest extends SimpleTest {
         mMediaPlayer.setLooping(true);
 
         final int maxStreamVolume = mAudioManager.getStreamMaxVolume(mStreamType);
+        mLowVolume = Math.max(0, Math.round(maxStreamVolume * LOW_VOLUME_RATIO));
         mLocalStreamVolume = Math.min(Math.round(maxStreamVolume * mMaxVolumeRatio), maxStreamVolume);
     }
 
@@ -112,9 +144,15 @@ public abstract class SpeakerTest extends SimpleTest {
 
         mAudioManager.setMode(mAudioMode);
         mAudioManager.setStreamVolume(mStreamType, mLocalStreamVolume, 0);
-        mAudioManager.setStreamSolo(mStreamType, true);
+        getActivity().setVolumeControlStream(mStreamType);
 
-        mMediaPlayer.start();
+        if (mAudioManager.requestAudioFocus(mAFChangeListener, mStreamType, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT) != AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+            // Oops, there is somebody playing something else but they do not want to share
+
+            // TODO warn the user that they are going to hear what is already playing
+        } else {
+            mMediaPlayer.start();
+        }
     }
 
     @Override
@@ -128,7 +166,8 @@ public abstract class SpeakerTest extends SimpleTest {
 
         mMediaPlayer.pause();
 
-        mAudioManager.setStreamSolo(mStreamType, false);
+        mAudioManager.abandonAudioFocus(mAFChangeListener);
+        getActivity().setVolumeControlStream(AudioManager.USE_DEFAULT_STREAM_TYPE);
         mAudioManager.setStreamVolume(mStreamType, mOldStreamVolume, 0);
         mAudioManager.setMode(AudioManager.MODE_NORMAL);
     }
