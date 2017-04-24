@@ -117,12 +117,7 @@
     <string name="wifi_frequency">Frequency:</string>
     <string name="wifi_encryption">Encryption:</string>
     <string name="wifi_ip_address">IP address:</string>
-    <string name="wifi_netmask">Netmask:</string>
-    <string name="wifi_gateway_address">Gateway:</string>
-    <string name="wifi_dhcp_server_address">DHCP-server:</string>
-    <string name="wifi_dns_1">DNS 1:</string>
-    <string name="wifi_dns_2">DNS 2:</string>
-    <string name="wifi_dhcp_lease">DHCP lease:</string>
-    <string name="wifi_hidden_ssid">Hidden:</string>
+    <string name="wifi_dns_servers">DNS servers:</string>
+    <string name="wifi_ssid_is_hidden">Hidden SSID</string>
 
 </resources>

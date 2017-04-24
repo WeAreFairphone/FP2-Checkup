@@ -161,134 +161,26 @@
                 android:id="@+id/wifi_ip_address_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/wifi_ip_address_label"
+                android:layout_alignBaseline="@id/wifi_ip_address_label"
                 android:layout_toEndOf="@id/wifi_ip_address_label"
                 android:text="@string/not_available"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
-                android:id="@+id/wifi_netmask_label"
+                android:id="@+id/wifi_dns_servers_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/wifi_ip_address_label"
+                android:layout_below="@id/wifi_ip_address_value"
                 android:layout_marginEnd="@dimen/simple_space"
-                android:text="@string/wifi_netmask"
+                android:text="@string/wifi_dns_servers"
                 android:textAppearance="?android:textAppearanceMedium" />
 
             <TextView
-                android:id="@+id/wifi_netmask_value"
+                android:id="@+id/wifi_dns_servers_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/wifi_netmask_label"
-                android:layout_toEndOf="@id/wifi_netmask_label"
-                android:text="@string/not_available"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/wifi_gateway_address_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/wifi_netmask_label"
-                android:layout_marginEnd="@dimen/simple_space"
-                android:text="@string/wifi_gateway_address"
-                android:textAppearance="?android:textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/wifi_gateway_address_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/wifi_gateway_address_label"
-                android:layout_toEndOf="@id/wifi_gateway_address_label"
-                android:text="@string/not_available"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/wifi_dhcp_server_address_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/wifi_gateway_address_label"
-                android:layout_marginEnd="@dimen/simple_space"
-                android:text="@string/wifi_dhcp_server_address"
-                android:textAppearance="?android:textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/wifi_dhcp_server_address_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/wifi_dhcp_server_address_label"
-                android:layout_toEndOf="@id/wifi_dhcp_server_address_label"
-                android:text="@string/not_available"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/wifi_dns_1_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/wifi_dhcp_server_address_label"
-                android:layout_marginEnd="@dimen/simple_space"
-                android:text="@string/wifi_dns_1"
-                android:textAppearance="?android:textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/wifi_dns_1_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/wifi_dns_1_label"
-                android:layout_toEndOf="@id/wifi_dns_1_label"
-                android:text="@string/not_available"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/wifi_dns_2_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/wifi_dns_1_label"
-                android:layout_marginEnd="@dimen/simple_space"
-                android:text="@string/wifi_dns_2"
-                android:textAppearance="?android:textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/wifi_dns_2_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/wifi_dns_2_label"
-                android:layout_toEndOf="@id/wifi_dns_2_label"
-                android:text="@string/not_available"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/wifi_dhcp_lease_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/wifi_dns_2_label"
-                android:layout_marginEnd="@dimen/simple_space"
-                android:text="@string/wifi_dhcp_lease"
-                android:textAppearance="?android:textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/wifi_dhcp_lease_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/wifi_dhcp_lease_label"
-                android:layout_toEndOf="@id/wifi_dhcp_lease_label"
-                android:text="@string/not_available"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/wifi_hidden_ssid_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/wifi_dhcp_lease_label"
-                android:layout_marginEnd="@dimen/simple_space"
-                android:text="@string/wifi_hidden_ssid"
-                android:textAppearance="?android:textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/wifi_hidden_ssid_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/wifi_hidden_ssid_label"
-                android:layout_toEndOf="@id/wifi_hidden_ssid_label"
+                android:layout_alignBaseline="@id/wifi_dns_servers_label"
+                android:layout_toEndOf="@id/wifi_dns_servers_label"
                 android:text="@string/not_available"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
