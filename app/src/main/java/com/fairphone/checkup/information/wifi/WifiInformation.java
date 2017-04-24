@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
+import android.net.LinkProperties;
+import android.net.Network;
 import android.net.wifi.WifiManager;
 import android.util.Log;
 
@@ -21,12 +23,14 @@ public class WifiInformation extends Information<WifiDetails> {
         }
     };
 
+    private final ConnectivityManager mConnectivityManager;
     private final WifiManager mWifiManager;
     private final IntentFilter mBroadcastReceiverFilter;
 
     public WifiInformation(Context context, ChangeListener<WifiDetails> listener) {
         super(context, listener, new WifiDetails(context));
 
+        mConnectivityManager = (ConnectivityManager) mContext.getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         mWifiManager = (WifiManager) mContext.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
         mBroadcastReceiverFilter = new IntentFilter();
@@ -49,7 +53,18 @@ public class WifiInformation extends Information<WifiDetails> {
         if (!mWifiManager.isWifiEnabled()) {
             mInstanceDetails.setDisabled();
         } else {
-            mInstanceDetails.setEnabled(mWifiManager.getConnectionInfo(), mWifiManager.getDhcpInfo());
+            LinkProperties linkProperties = null;
+
+            // Initialise the link properties status
+            for (Network network : mConnectivityManager.getAllNetworks()) {
+                if (ConnectivityManager.TYPE_WIFI == mConnectivityManager.getNetworkInfo(network).getType()) {
+                    linkProperties = mConnectivityManager.getLinkProperties(network);
+                    // We support only one active Wi-Fi network
+                    break;
+                }
+            }
+
+            mInstanceDetails.setEnabled(mWifiManager.getConnectionInfo(), linkProperties);
         }
     }
 
