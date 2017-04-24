@@ -8,7 +8,7 @@ import com.fairphone.checkup.tests.SimpleTest;
 
 public class SecondaryMicLoopbackTest extends MicLoopbackTest {
 
-    public static final SimpleDetails DETAILS = new SimpleTest.SimpleDetails(R.string.secondary_mic_loopback_test_title, R.string.secondary_mic_loopback_test_summary, R.string.secondary_mic_loopback_test_description, R.string.secondary_mic_loopback_test_instructions, R.string.primary_mic_loopback_test_permissions_rationale, Manifest.permission.RECORD_AUDIO) {
+    public static final SimpleDetails DETAILS = new SimpleTest.SimpleDetails(R.string.secondary_mic_loopback_test_title, R.string.secondary_mic_loopback_test_summary, R.string.secondary_mic_loopback_test_description, R.string.secondary_mic_loopback_test_instructions, R.string.mic_loopback_test_permissions_rationale, Manifest.permission.RECORD_AUDIO) {
         @Override
         public Fragment getFragment() {
             return new SecondaryMicLoopbackTest();
