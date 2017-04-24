@@ -36,10 +36,40 @@ public abstract class MicLoopbackTest extends SimpleTest {
     private static final AudioParameters AUDIO_PARAMETERS_L;
     private static final AudioParameters AUDIO_PARAMETERS_M;
 
+    /**
+     * Low volume ratio to apply to the maximum stream volume when ducking playback.
+     */
+    private static final float LOW_VOLUME_RATIO = 0.2f;
+
     static {
         AUDIO_PARAMETERS_L = new AudioParameters("hip_test=none", "hip_test=primary", "hip_test=secondary");
         AUDIO_PARAMETERS_M = new AudioParameters("fp_test=", "fp_test=primary_mic", "fp_test=secondary_mic");
     }
+
+    private final AudioManager.OnAudioFocusChangeListener mAFChangeListener = new AudioManager.OnAudioFocusChangeListener() {
+        @Override
+        public void onAudioFocusChange(int focusChange) {
+            switch (focusChange) {
+                case AudioManager.AUDIOFOCUS_LOSS:
+                    onCancelTest();
+                    break;
+                case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT:
+                    mLocalStreamVolume = mAudioManager.getStreamVolume(mStreamType);
+                    onPauseTest();
+                    break;
+                case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK:
+                    mLocalStreamVolume = mAudioManager.getStreamVolume(mStreamType);
+                    mAudioManager.setStreamVolume(mStreamType, mLowVolume, 0);
+                    break;
+                case AudioManager.AUDIOFOCUS_GAIN:
+                    mAudioManager.setStreamVolume(mStreamType, mLocalStreamVolume, 0);
+                    if (isPaused()) {
+                        onResume();
+                    }
+                    break;
+            }
+        }
+    };
 
     private AudioManager mAudioManager;
     private AudioParameters mAudioParameters;
@@ -53,6 +83,7 @@ public abstract class MicLoopbackTest extends SimpleTest {
     private boolean mOldIsMicrophoneMute;
     private int mOldStreamVolume;
     private int mLocalStreamVolume;
+    private int mLowVolume;
 
     private final float mMaxVolumeRatio;
     private final int mStreamType;
@@ -102,6 +133,7 @@ public abstract class MicLoopbackTest extends SimpleTest {
         mHandler = new Handler();
 
         final int maxStreamVolume = mAudioManager.getStreamMaxVolume(mStreamType);
+        mLowVolume = Math.max(0, Math.round(maxStreamVolume * LOW_VOLUME_RATIO));
         mLocalStreamVolume = Math.min(Math.round(maxStreamVolume * mMaxVolumeRatio), maxStreamVolume);
     }
 
@@ -115,8 +147,14 @@ public abstract class MicLoopbackTest extends SimpleTest {
         mAudioManager.setMode(mAudioMode);
         mAudioManager.setMicrophoneMute(false);
         mAudioManager.setStreamVolume(mStreamType, mLocalStreamVolume, 0);
-        mAudioManager.setStreamSolo(mStreamType, true);
+        getActivity().setVolumeControlStream(mStreamType);
         mAudioManager.setParameters(mCurrentMicOnly);
+
+        if (mAudioManager.requestAudioFocus(mAFChangeListener, mStreamType, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT) != AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+            // Oops, there is somebody playing something else but they do not want to share
+
+            // TODO warn the user that they are going to hear what is already playing and their voice
+        }
 
         startLoopback();
     }
@@ -127,8 +165,9 @@ public abstract class MicLoopbackTest extends SimpleTest {
 
         stopLoopback();
 
+        mAudioManager.abandonAudioFocus(mAFChangeListener);
+        getActivity().setVolumeControlStream(AudioManager.USE_DEFAULT_STREAM_TYPE);
         mAudioManager.setParameters(mAudioParameters.mDefaultMic);
-        mAudioManager.setStreamSolo(mStreamType, false);
         mAudioManager.setStreamVolume(AudioManager.STREAM_VOICE_CALL, mOldStreamVolume, 0);
         mAudioManager.setMicrophoneMute(mOldIsMicrophoneMute);
         mAudioManager.setMode(AudioManager.MODE_NORMAL);
