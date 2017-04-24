@@ -4,25 +4,36 @@ import android.content.Context;
 import android.net.DhcpInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.text.format.Formatter;
+import android.util.Log;
 
 import com.fairphone.checkup.R;
 import com.fairphone.checkup.information.Information;
 
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.util.Collections;
+
 public class WifiDetails extends Information.Details {
+
+    private static final String TAG = WifiDetails.class.getSimpleName();
 
     private static final String NO_BSSID = "00:00:00:00:00:00";
     private static final String SIGNAL_STRENGTH_UNIT = "dBm";
 
     private final Context mContext;
     private final String mDataNotAvailableValue;
+    private final String mWifiNetworkInterface;
 
     private WifiInfo mWifiInfo;
     private DhcpInfo mDhcpInfo;
+    private String mMacAddress;
 
     public WifiDetails(Context context) {
         mContext = context;
         mDataNotAvailableValue = mContext.getString(R.string.not_available);
+        mWifiNetworkInterface = mContext.getString(R.string.wifi_network_interface);
 
         setDisabled();
     }
@@ -35,6 +46,8 @@ public class WifiDetails extends Information.Details {
     public void setEnabled(WifiInfo wifiInfo, DhcpInfo dhcpInfo) {
         mWifiInfo = wifiInfo;
         mDhcpInfo = dhcpInfo;
+
+        retrieveMacAddress();
     }
 
     /**
@@ -48,6 +61,44 @@ public class WifiDetails extends Information.Details {
 
     public boolean isEnabled() {
         return null != mWifiInfo;
+    }
+
+    private void retrieveMacAddress() {
+        if (mWifiInfo == null || Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            /*
+             * Either the interface is down or either we are running on Marshmallow and the mac
+             * address is hidden.
+             */
+
+            try {
+                for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
+                    if (!mWifiNetworkInterface.equals(networkInterface.getName())) {
+                        continue;
+                    }
+
+                    final byte[] macAddressBytes = networkInterface.getHardwareAddress();
+                    if (macAddressBytes == null) {
+                        mMacAddress = mDataNotAvailableValue;
+                        break;
+                    } else {
+                        final StringBuilder builder = new StringBuilder();
+                        for (byte b : macAddressBytes) {
+                            builder.append(String.format("%02x:", b));
+                        }
+
+                        if (builder.length() > 0) {
+                            builder.deleteCharAt(builder.length() - 1);
+                        }
+                        mMacAddress = builder.toString();
+                    }
+                }
+            } catch (SocketException e) {
+                Log.e(TAG, e.getLocalizedMessage());
+                mMacAddress = mDataNotAvailableValue;
+            }
+        } else if (mWifiInfo != null) {
+            mMacAddress = mWifiInfo.getMacAddress();
+        }
     }
 
     /**
@@ -77,7 +128,7 @@ public class WifiDetails extends Information.Details {
     }
 
     public String getMacAddress() {
-        return (null == mWifiInfo) ? mDataNotAvailableValue : mWifiInfo.getMacAddress();
+        return mMacAddress;
     }
 
     /**
