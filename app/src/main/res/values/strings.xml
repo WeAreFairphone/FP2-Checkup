@@ -15,7 +15,7 @@
     <string name="grant_permission_in_settings">Please grant the permission in the app settings.</string>
 
     <!-- Free draw -->
-    <string name="freedraw_test_title">Free drawing</string>
+    <string name="freedraw_test_title">Drawing</string>
     <string name="freedraw_test_summary">Draw freely on the screen</string>
     <string name="freedraw_test_description">Draw freely on the screen.</string>
     <!-- Arguments: <action button label> -->
@@ -23,8 +23,8 @@
 
     <!-- LCD -->
     <string name="lcd_test_title">Screen (LCD)</string>
-    <string name="lcd_test_summary">The LCD screen displays all the content of your Fairphone</string>
-    <string name="lcd_test_description">The LCD screen displays all the content of your Fairphone.</string>
+    <string name="lcd_test_summary">The LCD screen displays your Fairphone\'s content</string>
+    <string name="lcd_test_description">The LCD screen displays your Fairphone\'s content.</string>
     <!-- Arguments: <action button label> -->
     <string name="lcd_test_instructions">Press \'%1$s\' and tap the screen to cycle through various colors. Look specifically for any screen abnormalities, i.e. blank spots, etc.</string>
 
@@ -89,9 +89,9 @@
     <string name="ear_speaker_test_instructions">Press \'%1$s\' and pretend you are making a phone call. If you hear the music through the ear speaker, that means it is working correctly.</string>
 
     <!-- Loud speaker -->
-    <string name="loud_speaker_test_title">Loud (rear) speaker</string>
-    <string name="loud_speaker_test_summary">The loud (rear) speaker is used for listening to music and for hands-free phone calls</string>
-    <string name="loud_speaker_test_description">The loud (rear) speaker is used for listening to music and for hands-free phone calls.</string>
+    <string name="loud_speaker_test_title">Rear speaker</string>
+    <string name="loud_speaker_test_summary">The rear speaker is used for listening to music and hands-free phone calls</string>
+    <string name="loud_speaker_test_description">The rear speaker is used for listening to music and hands-free phone calls.</string>
     <!-- Arguments: <action button label> -->
     <string name="loud_speaker_test_instructions">Press \'%1$s\' and use the physical volume buttons to lower or raise the sound level. You should hear your favorite Fairphone tune playing!</string>
 
