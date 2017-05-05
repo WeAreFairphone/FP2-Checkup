@@ -68,7 +68,6 @@ public class VibratorTest extends SimpleTest {
                     Thread.sleep(VIBRATION_DURATION_MS);
                 } catch (InterruptedException e) {
                     // We will be interrupted if the test is cancelled
-                    Log.d(TAG, e.getLocalizedMessage());
                 } finally {
                     mHandler.post(new Runnable() {
                         @Override
