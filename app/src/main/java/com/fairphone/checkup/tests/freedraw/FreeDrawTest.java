@@ -4,7 +4,7 @@ import android.app.Fragment;
 import android.view.View;
 import android.widget.ViewFlipper;
 
-import com.fairphone.checkup.R;
+import community.fairphone.checkup.R;
 import com.fairphone.checkup.tests.SimpleTest;
 
 public class FreeDrawTest extends SimpleTest {

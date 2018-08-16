@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.fairphone.checkup.R;
+import community.fairphone.checkup.R;
 import com.fairphone.checkup.information.Information;
 import com.fairphone.checkup.information.wifi.WifiDetails;
 import com.fairphone.checkup.information.wifi.WifiInformation;

@@ -27,6 +27,8 @@ import com.fairphone.checkup.tests.speaker.LoudSpeakerTest;
 import com.fairphone.checkup.tests.vibrator.VibratorTest;
 import com.fairphone.checkup.tests.wifi.WifiTest;
 
+import community.fairphone.checkup.R;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements TestListAdapter.OnClickListener {

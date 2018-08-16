@@ -7,7 +7,7 @@ import android.net.wifi.WifiInfo;
 import android.os.Build;
 import android.util.Log;
 
-import com.fairphone.checkup.R;
+import community.fairphone.checkup.R;
 import com.fairphone.checkup.information.Information;
 
 import java.net.InetAddress;

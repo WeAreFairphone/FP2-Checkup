@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.fairphone.checkup.R;
+import community.fairphone.checkup.R;
 
 /**
  * A simple {@link Test} that implements an action button and displays instructions.

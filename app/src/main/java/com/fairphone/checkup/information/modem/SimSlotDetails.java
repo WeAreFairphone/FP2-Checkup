@@ -5,7 +5,7 @@ import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
-import com.fairphone.checkup.R;
+import community.fairphone.checkup.R;
 
 /**
  * A plain old Java object holding a SIM slot information.

@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 
-import com.fairphone.checkup.R;
+import community.fairphone.checkup.R;
 
 /**
  * Created by Maarten on 20-10-16.
@@ -24,4 +24,3 @@ public class GradientTestView extends View {
         setWillNotDraw(false);
     }
 }
-

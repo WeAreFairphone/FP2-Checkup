@@ -3,7 +3,7 @@ package com.fairphone.checkup.tests.loopback;
 import android.Manifest;
 import android.app.Fragment;
 
-import com.fairphone.checkup.R;
+import community.fairphone.checkup.R;
 import com.fairphone.checkup.tests.SimpleTest;
 
 public class PrimaryMicLoopbackTest extends MicLoopbackTest {

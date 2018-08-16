@@ -7,7 +7,7 @@ import android.os.Handler;
 import android.os.Vibrator;
 import android.util.Log;
 
-import com.fairphone.checkup.R;
+import community.fairphone.checkup.R;
 import com.fairphone.checkup.tests.SimpleTest;
 
 public class VibratorTest extends SimpleTest {

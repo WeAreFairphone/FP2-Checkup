@@ -4,6 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import community.fairphone.checkup.R;
+
 public class SecretCodeReceiver extends BroadcastReceiver {
     private static final String SECRET_ACTION = "android.provider.Telephony.SECRET_CODE";
 

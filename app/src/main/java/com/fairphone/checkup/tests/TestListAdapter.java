@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.fairphone.checkup.R;
+import community.fairphone.checkup.R;
 
 import java.util.List;
 
