@@ -7,6 +7,7 @@ import android.media.AudioManager;
 import android.media.AudioRecord;
 import android.media.AudioTrack;
 import android.media.MediaRecorder;
+import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
 
@@ -14,12 +15,15 @@ import com.fairphone.checkup.tests.SimpleTest;
 
 public abstract class MicLoopbackTest extends SimpleTest {
 
-    public static class AudioParameters {
-        public final String mDefaultMic;
-        public final String mPrimaryMicOnly;
-        public final String mSecondaryMicOnly;
+    private enum AudioParameters {
+        HIP("hip_test=none", "hip_test=primary", "hip_test=secondary"),
+        FAIRPHONE("fp_test=", "fp_test=primary_mic", "fp_test=secondary_mic");
 
-        public AudioParameters(String defaultMic, String primaryMicOnly, String secondaryMicOnly) {
+        final String mDefaultMic;
+        final String mPrimaryMicOnly;
+        final String mSecondaryMicOnly;
+
+        AudioParameters(String defaultMic, String primaryMicOnly, String secondaryMicOnly) {
             mDefaultMic = defaultMic;
             mPrimaryMicOnly = primaryMicOnly;
             mSecondaryMicOnly = secondaryMicOnly;
@@ -33,18 +37,11 @@ public abstract class MicLoopbackTest extends SimpleTest {
     private static final int AUDIOTRACK_CHANNELS = AudioFormat.CHANNEL_OUT_MONO;
     private static final int AUDIO_ENCODING = AudioFormat.ENCODING_PCM_16BIT;
     private static final int AUDIO_SAMPLE_RATE = 8000;
-    private static final AudioParameters AUDIO_PARAMETERS_L;
-    private static final AudioParameters AUDIO_PARAMETERS_M;
 
     /**
      * Low volume ratio to apply to the maximum stream volume when ducking playback.
      */
     private static final float LOW_VOLUME_RATIO = 0.2f;
-
-    static {
-        AUDIO_PARAMETERS_L = new AudioParameters("hip_test=none", "hip_test=primary", "hip_test=secondary");
-        AUDIO_PARAMETERS_M = new AudioParameters("fp_test=", "fp_test=primary_mic", "fp_test=secondary_mic");
-    }
 
     private final AudioManager.OnAudioFocusChangeListener mAFChangeListener = new AudioManager.OnAudioFocusChangeListener() {
         @Override
@@ -97,13 +94,11 @@ public abstract class MicLoopbackTest extends SimpleTest {
     protected MicLoopbackTest(int microphone, float maxVolumeRatio) {
         super(true);
 
-        switch (android.os.Build.VERSION.SDK_INT) {
-            case android.os.Build.VERSION_CODES.M:
-                mAudioParameters = AUDIO_PARAMETERS_M;
-                break;
-            default:
-                mAudioParameters = AUDIO_PARAMETERS_L;
-                break;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            mAudioParameters = AudioParameters.FAIRPHONE;
+        } else {
+            // Fallback to the behaviour on Lollipop
+            mAudioParameters = AudioParameters.HIP;
         }
 
         mMaxVolumeRatio = maxVolumeRatio;
