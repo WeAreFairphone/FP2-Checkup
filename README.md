@@ -2,7 +2,7 @@
 
 Hardware diagnostics app originally designed for the [Fairphone 2][fairphone2].
 
-## Summary
+## Summary
 
 Fairphone Checkup is an Android app that allows end users to test the features of their device.
 It is included in the Android OS for the Fairphone 2.
