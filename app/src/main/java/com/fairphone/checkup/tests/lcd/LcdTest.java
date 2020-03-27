@@ -1,13 +1,14 @@
 package com.fairphone.checkup.tests.lcd;
 
 
-import android.app.Fragment;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ViewFlipper;
 
 import com.fairphone.checkup.R;
 import com.fairphone.checkup.tests.SimpleTest;
+
+import androidx.fragment.app.Fragment;
 
 
 public class LcdTest extends SimpleTest {

@@ -1,7 +1,6 @@
 package com.fairphone.checkup.tests.vibrator;
 
 
-import android.app.Fragment;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Vibrator;
@@ -9,6 +8,8 @@ import android.util.Log;
 
 import com.fairphone.checkup.R;
 import com.fairphone.checkup.tests.SimpleTest;
+
+import androidx.fragment.app.Fragment;
 
 public class VibratorTest extends SimpleTest {
 

@@ -17,7 +17,7 @@ android {
      * compile your app. This means your app can use the API features included in
      * this API level and lower.
      */
-    compileSdkVersion 25
+    compileSdkVersion 29
     /**
      * The defaultConfig {} block encapsulates default settings and entries for all
      * build variants, and can override some attributes in main/AndroidManifest.xml
@@ -39,7 +39,7 @@ android {
 
         // Specifies the API level used to test the app.
         //noinspection OldTargetApi
-        targetSdkVersion 25
+        targetSdkVersion 28
 
         // Defines the version number of your app.
         versionCode 20111
@@ -106,6 +106,7 @@ if (keystorePropertiesFile.exists()) {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:25.4.0'
-    implementation 'com.android.support:support-v4:25.4.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.fragment:fragment:1.2.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }

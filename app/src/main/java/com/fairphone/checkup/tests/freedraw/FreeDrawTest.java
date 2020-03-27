@@ -1,11 +1,12 @@
 package com.fairphone.checkup.tests.freedraw;
 
-import android.app.Fragment;
 import android.view.View;
 import android.widget.ViewFlipper;
 
 import com.fairphone.checkup.R;
 import com.fairphone.checkup.tests.SimpleTest;
+
+import androidx.fragment.app.Fragment;
 
 public class FreeDrawTest extends SimpleTest {
 

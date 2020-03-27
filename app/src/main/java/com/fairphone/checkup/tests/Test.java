@@ -1,6 +1,5 @@
 package com.fairphone.checkup.tests;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +8,8 @@ import android.view.ViewGroup;
 
 import java.io.Serializable;
 import java.util.Locale;
+
+import androidx.fragment.app.Fragment;
 
 /**
  * A standalone (abstract) test element that lives as a fragment.

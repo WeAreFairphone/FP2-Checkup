@@ -1,7 +1,6 @@
 package com.fairphone.checkup.tests.modem;
 
 import android.Manifest;
-import android.app.Fragment;
 import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +17,8 @@ import com.fairphone.checkup.tests.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.fragment.app.Fragment;
 
 public class ModemTest extends InformationTest<ModemInformation> {
 

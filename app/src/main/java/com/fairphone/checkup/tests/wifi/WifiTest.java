@@ -1,6 +1,5 @@
 package com.fairphone.checkup.tests.wifi;
 
-import android.app.Fragment;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.view.LayoutInflater;
@@ -16,6 +15,8 @@ import com.fairphone.checkup.tests.InformationTest;
 import com.fairphone.checkup.tests.Test;
 
 import java.util.Locale;
+
+import androidx.fragment.app.Fragment;
 
 public class WifiTest extends InformationTest<WifiInformation> {
 
