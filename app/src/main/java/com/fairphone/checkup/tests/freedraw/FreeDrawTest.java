@@ -3,10 +3,11 @@ package com.fairphone.checkup.tests.freedraw;
 import android.view.View;
 import android.widget.ViewFlipper;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+
 import com.fairphone.checkup.R;
 import com.fairphone.checkup.tests.SimpleTest;
-
-import androidx.fragment.app.Fragment;
 
 public class FreeDrawTest extends SimpleTest {
 
@@ -19,11 +20,6 @@ public class FreeDrawTest extends SimpleTest {
 
     private ViewFlipper mViewFlipper;
 
-    private int parentPaddingLeft;
-    private int parentPaddingTop;
-    private int parentPaddingRight;
-    private int parentPaddingBottom;
-
     public FreeDrawTest() {
         super(false);
     }
@@ -31,26 +27,6 @@ public class FreeDrawTest extends SimpleTest {
     @Override
     protected SimpleDetails getDetails() {
         return DETAILS;
-    }
-
-    protected void saveParentPadding() {
-        parentPaddingLeft = mContainer.getPaddingLeft();
-        parentPaddingTop = mContainer.getPaddingTop();
-        parentPaddingRight = mContainer.getPaddingRight();
-        parentPaddingBottom = mContainer.getPaddingBottom();
-    }
-
-    protected void removeParentPaddingSave() {
-        saveParentPadding();
-        mContainer.setPadding(0, 0, 0, 0);
-    }
-
-    protected void restoreParentPadding() {
-        mContainer.setPadding(
-                parentPaddingLeft,
-                parentPaddingTop,
-                parentPaddingRight,
-                parentPaddingBottom);
     }
 
     private void switchToFullScreen() {
@@ -62,13 +38,10 @@ public class FreeDrawTest extends SimpleTest {
 
         mContainer.addView(mViewFlipper);
 
-        mViewFlipper.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE
-                | View.SYSTEM_UI_FLAG_FULLSCREEN
-                | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+        ((AppCompatActivity) requireActivity()).getSupportActionBar().hide();
+        mViewFlipper.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-        removeParentPaddingSave();
     }
 
     private void addDisplayPatterns() {
@@ -87,7 +60,7 @@ public class FreeDrawTest extends SimpleTest {
     protected void onPauseTest() {
         super.onPauseTest();
 
-        restoreParentPadding();
+        ((AppCompatActivity) requireActivity()).getSupportActionBar().show();
         mContainer.removeView(mViewFlipper);
     }
 
