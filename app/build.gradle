@@ -66,6 +66,7 @@ android {
         debug {
         }
     }
+    namespace 'community.fairphone.checkup'
 }
 
 /*
