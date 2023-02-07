@@ -1,16 +1,10 @@
 package com.fairphone.checkup;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.animation.AnimationUtils;
 import android.widget.ListView;
 import android.widget.ViewSwitcher;
@@ -30,6 +24,13 @@ import com.fairphone.checkup.tests.wifi.WifiTest;
 import community.fairphone.checkup.R;
 
 import java.util.ArrayList;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 public class MainActivity extends AppCompatActivity implements TestListAdapter.OnClickListener {
 
@@ -103,8 +104,7 @@ public class MainActivity extends AppCompatActivity implements TestListAdapter.O
         mSwitcher.setInAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_in_right));
         mSwitcher.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_out_left));
 
-        final FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
+        getSupportFragmentManager().beginTransaction()
                 .replace(R.id.test_container, fragment, getString(R.string.fragment_tag_test))
                 .addToBackStack(null)
                 .commit();
@@ -120,8 +120,8 @@ public class MainActivity extends AppCompatActivity implements TestListAdapter.O
             mSwitcher.setOutAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
             mSwitcher.setDisplayedChild(0);
 
-            final FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.beginTransaction()
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            getSupportFragmentManager().beginTransaction()
                     .remove(fragmentManager.findFragmentByTag(getString(R.string.fragment_tag_test)))
                     .commit();
         }
@@ -133,7 +133,8 @@ public class MainActivity extends AppCompatActivity implements TestListAdapter.O
      * Callback received when a permission(s) request has been completed.
      */
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         if (requestCode == MISSING_PERMISSIONS_REQUEST_CODE) {
             if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {

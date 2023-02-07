@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="?android:attr/listPreferredItemPaddingStart"
         android:ellipsize="marquee"
-        android:maxLines="1"
+        android:singleLine="true"
         android:text="@string/generic_test_title"
         android:textAppearance="?android:attr/textAppearanceListItem" />
 

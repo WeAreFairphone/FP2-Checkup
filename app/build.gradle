@@ -16,13 +16,8 @@ android {
      * compileSdkVersion specifies the Android API level Gradle should use to
      * compile your app. This means your app can use the API features included in
      * this API level and lower.
-     *
-     * buildToolsVersion specifies the version of the SDK build tools, command-line
-     * utilities, and compiler that Gradle should use to build your app. You need to
-     * download the build tools using the SDK Manager.
      */
-    compileSdkVersion 23
-    buildToolsVersion '25.0.2'
+    compileSdkVersion 29
     /**
      * The defaultConfig {} block encapsulates default settings and entries for all
      * build variants, and can override some attributes in main/AndroidManifest.xml
@@ -43,13 +38,14 @@ android {
         minSdkVersion 22
 
         // Specifies the API level used to test the app.
-        targetSdkVersion 23
+        //noinspection OldTargetApi
+        targetSdkVersion 28
 
         // Defines the version number of your app.
-        versionCode 20108
+        versionCode 20202
 
         // Defines a user-friendly version name for your app.
-        versionName "2.1.8"
+        versionName "2.2.2"
     }
     /**
      * The buildTypes {} block is where you can configure multiple build types.
@@ -72,14 +68,45 @@ android {
     }
 }
 
+/*
+ * Configures how to sign release builds
+ *
+ * Reads configuration from a file keystore.propertes if it exists. Falls back
+ * to the default development keys otherwise (by doing nothing).
+ */
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+
+if (keystorePropertiesFile.exists()) {
+
+    // Load keystore properties from file if it exists
+    def keystoreProperties = new Properties()
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+    android {
+        signingConfigs {
+            release {
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+            }
+        }
+        buildTypes {
+            release {
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+}
+
 /**
  * The dependencies {} block in the module-level build configuration file
  * only specifies dependencies required to build the module itself.
  */
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.4.0'
-    compile 'com.android.support:support-v4:23.4.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.fragment:fragment:1.2.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }

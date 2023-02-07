@@ -129,7 +129,11 @@ public class ModemInformation extends Information<ModemDetails> {
             getSimState = telephonyManagerClass.getDeclaredMethod("getSimState", int.class);
             getSimState.setAccessible(true);
 
-            getSimOperatorName = telephonyManagerClass.getDeclaredMethod("getSimOperatorName", int.class);
+            if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.M) {
+                getSimOperatorName = telephonyManagerClass.getDeclaredMethod("getSimOperatorNameForSubscription", int.class);
+            } else {
+                getSimOperatorName = telephonyManagerClass.getDeclaredMethod("getSimOperatorName", int.class);
+            }
             getSimOperatorName.setAccessible(true);
 
             getSimOperatorCode = telephonyManagerClass.getDeclaredMethod("getSimOperator", int.class);
@@ -138,7 +142,11 @@ public class ModemInformation extends Information<ModemDetails> {
             getNetworkOperatorName = telephonyManagerClass.getDeclaredMethod("getNetworkOperatorName", int.class);
             getNetworkOperatorName.setAccessible(true);
 
-            getNetworkOperatorCode = telephonyManagerClass.getDeclaredMethod("getNetworkOperator", int.class);
+            if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.M) {
+                getNetworkOperatorCode = telephonyManagerClass.getDeclaredMethod("getNetworkOperatorForSubscription", int.class);
+            } else {
+                getNetworkOperatorCode = telephonyManagerClass.getDeclaredMethod("getNetworkOperator", int.class);
+            }
             getNetworkOperatorCode.setAccessible(true);
 
             getNetworkType = telephonyManagerClass.getDeclaredMethod("getNetworkType", int.class);
