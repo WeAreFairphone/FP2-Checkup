@@ -1,109 +1,42 @@
-/**
- * The first line in the build configuration applies the Android plugin for
- * Gradle to this build and makes the android {} block available to specify
- * Android-specific build options.
- */
-
-apply plugin: 'com.android.application'
-
-/**
- * The android {} block is where you configure all your Android-specific
- * build options.
- */
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
+}
 
 android {
-    /**
-     * The defaultConfig {} block encapsulates default settings and entries for all
-     * build variants, and can override some attributes in main/AndroidManifest.xml
-     * dynamically from the build system. You can configure product flavors to override
-     * these values for different versions of your app.
-     */
-    defaultConfig {
-
-        /**
-         * applicationId uniquely identifies the package for publishing.
-         * However, your source code should still reference the package name
-         * defined by the package attribute in the main/AndroidManifest.xml file.
-         */
-
-        applicationId "community.fairphone.checkup"
-
-        // Defines the minimum API level required to run the app.
-        minSdkVersion 22
-
-        // Specifies the API level used to test the app.
-        //noinspection OldTargetApi
-        targetSdkVersion 28
-
-        compileSdk 34
-
-        // Defines the version number of your app.
-        versionCode 20202
-
-        // Defines a user-friendly version name for your app.
-        versionName "2.2.2"
-    }
-    /**
-     * The buildTypes {} block is where you can configure multiple build types.
-     * By default, the build system defines two build types: debug and release. The
-     * debug build type is not explicitly shown in the default build configuration,
-     * but it includes debugging tools and is signed with the debug key. The release
-     * build type applies Proguard settings and is not signed by default.
-     */
-    buildTypes {
-        /**
-         * By default, Android Studio configures the release build type to enable code
-         * shrinking, using minifyEnabled, and specifies the Proguard settings file.
-         */
-        release {
-            minifyEnabled true // Enables code shrinking for the release build type.
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-        debug {
-        }
-    }
     namespace 'community.fairphone.checkup'
-}
+    compileSdk 34
 
-/*
- * Configures how to sign release builds
- *
- * Reads configuration from a file keystore.propertes if it exists. Falls back
- * to the default development keys otherwise (by doing nothing).
- */
-def keystorePropertiesFile = rootProject.file("keystore.properties")
+    defaultConfig {
+        applicationId "community.fairphone.checkup"
+        minSdk 22
+        targetSdk 28
+        versionCode 20202
+        versionName "2.2.2"
 
-if (keystorePropertiesFile.exists()) {
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
 
-    // Load keystore properties from file if it exists
-    def keystoreProperties = new Properties()
-    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-
-    android {
-        signingConfigs {
-            release {
-                keyAlias keystoreProperties['keyAlias']
-                keyPassword keystoreProperties['keyPassword']
-                storeFile file(keystoreProperties['storeFile'])
-                storePassword keystoreProperties['storePassword']
-            }
-        }
-        buildTypes {
-            release {
-                signingConfig signingConfigs.release
-            }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+    buildFeatures {
+        compose true
+    }
 }
-
-/**
- * The dependencies {} block in the module-level build configuration file
- * only specifies dependencies required to build the module itself.
- */
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.fragment:fragment:1.2.4'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation libs.androidx.appcompat
+    implementation libs.androidx.fragment
 }
