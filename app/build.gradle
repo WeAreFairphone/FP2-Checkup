@@ -13,12 +13,6 @@ apply plugin: 'com.android.application'
 
 android {
     /**
-     * compileSdkVersion specifies the Android API level Gradle should use to
-     * compile your app. This means your app can use the API features included in
-     * this API level and lower.
-     */
-    compileSdkVersion 29
-    /**
      * The defaultConfig {} block encapsulates default settings and entries for all
      * build variants, and can override some attributes in main/AndroidManifest.xml
      * dynamically from the build system. You can configure product flavors to override
@@ -40,6 +34,8 @@ android {
         // Specifies the API level used to test the app.
         //noinspection OldTargetApi
         targetSdkVersion 28
+
+        compileSdk 34
 
         // Defines the version number of your app.
         versionCode 20202
