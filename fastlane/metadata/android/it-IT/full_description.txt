@@ -1,0 +1,12 @@
+Questo è un fork dell'app Fairphone 2 checkup che è stata modificata in modo da funzionare anche su altri dispositivi.
+
+Ti consente di testare vari componenti del tuo telefono:
+
+- Schermo
+- Altoparlanti
+- Microfoni
+- Connettività mobile
+- Wi-Fi
+- Vibrazione
+
+Può essere utile quando devi diagnosticare un problema con il tuo dispositivo.
